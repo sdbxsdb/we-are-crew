@@ -12,16 +12,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to We Are Crew
-        </h1>
+
         
-        <div className='flex justify-around w-full mt-12'>
-          <LargeButton text='I need crew' link='/i-need-crew'/>
-          <LargeButton text='I am crew' link='/i-am-crew'/>
+        
+        <div className='flex flex-col w-screen h-[calc(100vh-60px)] items-center justify-around mt-12'>
+          <div className='flex flex-col items-center w-full'>
+            <h1 className='text-6xl mb-12'>
+              Welcome to We Are Crew
+            </h1>
+            <div className='flex w-full justify-around items-center'>
+              <LargeButton text='I need crew' link='/I-need-crew'/>
+              <LargeButton text='I am crew' link='/I-am-crew'/>
+            </div>
+          </div>
         </div>
-      </main>
+
 
       
     </div>
