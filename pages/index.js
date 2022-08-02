@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Banner from "../components/Banner";
 
-import LargeButton from '../components/LargeButton';
+import LargeButton from "../components/LargeButton";
 
 export default function Home() {
   return (
@@ -12,23 +13,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div className="mt-[96px]">
+        <Banner />
+      </div>
 
-        
-        
-        <div className='flex flex-col w-screen h-[calc(100vh-60px)] items-center justify-around mt-12'>
-          <div className='flex flex-col items-center w-full'>
-            <h1 className='text-6xl mb-12'>
-              Welcome to We Are Crew
-            </h1>
-            <div className='flex w-full justify-around items-center'>
-              <LargeButton text='I need crew' link='/I-need-crew'/>
-              <LargeButton text='I am crew' link='/I-am-crew'/>
-            </div>
-          </div>
-        </div>
-
-
-      
+      <div className=" h-[calc(100vh-296px)] flex w-full justify-around items-center">
+        <LargeButton text="I need crew" link="/I-need-crew" />
+        <LargeButton text="I am crew" link="/I-am-crew" />
+      </div>
     </div>
-  )
+  );
 }

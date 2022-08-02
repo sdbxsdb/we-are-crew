@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      <div className="mt-[60px] h-[calc(100vh-60px)]">
+      <div className="bg-wearecrewLightGrey">
         <Component {...pageProps} />
       </div>
     </Layout>
