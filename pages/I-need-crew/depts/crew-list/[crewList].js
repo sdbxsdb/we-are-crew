@@ -1,8 +1,9 @@
 import React from 'react'
 
-const crewList = () => {
+
+const crewList = ({dept}) => {
   return (
-    <div>crewList</div>
+    <div>crewList - {dept}</div>
   )
 }
 
