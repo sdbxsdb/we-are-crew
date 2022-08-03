@@ -4,9 +4,25 @@ import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
 import WriteToCloudFirestore from '../components/cloudFirestore/Write';
 import ReadToCloudFirestore from '../components/cloudFirestore/Read';
+import { useUser } from "../firebase/useUser";
+import { useEffect } from "react";
+import { sendData } from '../components/cloudFirestore/Write';
+
 
 
 export default function Home() {
+
+  const {user} = useUser();
+
+  console.log("USER-", user );
+
+  useEffect(() => {
+    if (user) {
+      sendData(user);
+    }
+  }), [];
+
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +32,9 @@ export default function Home() {
       </Head>
 
       <div className="mt-[96px]">
+        {user?.name}
+        <br />
+        {user?.email}
         <Banner />
       </div>
 

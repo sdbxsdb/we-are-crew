@@ -1,31 +1,41 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import { useUser } from '../../firebase/useUser';
+
+export const sendData = (user) => {
+
+  try {
+    firebase
+      .firestore()
+      .collection('depts')
+      .doc(user.id)
+      .set({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        dept: 'grip',
+        // time_stamp: firebase.firestore.Timestamp.fromDate(new Date(`${month}-${date}-${year}`,)),
+      })
+      .then(
+        consol.log("User Added to Cloud Firestore")
+        )
+  } catch (err) {
+    console.log(err);
+    // alert(err)
+  }
+}
 
 const WriteToCloudFirestore = () => {
+  const { user } = useUser();
 
-  let newDate = new Date()
-  let date = newDate.getDate();
-  let month = newDate.getMonth() + 1;
-  let year = newDate.getFullYear();
+  // let newDate = new Date()
+  // let date = newDate.getDate();
+  // let month = newDate.getMonth() + 1;
+  // let year = newDate.getFullYear();
 
-  const sendData = () => {
-    try {
-      firebase
-        .firestore()
-        .collection('depts')
-        .doc('grip')
-        .set({
-          id: 3,
-          name: 'John Doe',
-          dept: 'grip',
-          time_stamp: firebase.firestore.Timestamp.fromDate(new Date(`${month}-${date}-${year}`,)),
-        })
-        .then(alert('Successfully sent data to Cloud Firestore'))
-    } catch (err) {
-      console.log(err);
-      alert(err)
-    }
-  }
+  sendData(user);
+
+  
   return (
     <>
       <button onClick={sendData}>Send Data To Cloud Firestore</button>
