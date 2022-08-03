@@ -3,9 +3,9 @@ import NavBar from './NavBar';
 
 const Layout = ({children}) => {
   return (
-    <div className=''>
+    <div className='bg-wearecrewLightGrey min-h-[calc(100vh-96px)]'>
       <NavBar />
-      <div className=''>{children}</div>
+      <div className='mt-[96px]'>{children}</div>
     </div>
   )
 }

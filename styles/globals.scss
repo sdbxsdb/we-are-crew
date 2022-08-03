@@ -3,14 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+  font-family: 'Anton';
+}
 
 .banner {
   background: rgb(3, 171, 235);
-  background: linear-gradient(
-    180deg,
-    rgba(3, 171, 235, 1) 0%,
-    rgba(0, 118, 163, 1) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(3, 171, 235, 1) 0%,
+      rgba(0, 118, 163, 1) 100%);
 }
 
 .transition {
@@ -18,16 +19,20 @@
 }
 
 
-.largeBtn{
+.largeBtn {
   display: inline-block;
   position: relative;
   cursor: pointer;
   background: #fff;
   border-radius: 4px;
   height: 300px;
-}
-.largeBtn span{
-  display: block;
-  padding: 25px 80px;
+
+  span {
+    display: block;
+    padding: 25px 80px;
+  }
 }
 
+.hoverScale {
+  @apply transform hover:scale-102 transition;
+}
