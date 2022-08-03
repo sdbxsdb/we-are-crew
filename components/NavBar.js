@@ -14,7 +14,9 @@ const NavBar = () => {
         </Link>
 
       <div className="flex gap-x-4">
-        <p>Sign In / Register</p>
+        <Link href='/auth'>
+          <a>Sign In / Register</a>
+        </Link>
         <p>My Crew</p>
       </div>
     </nav>
