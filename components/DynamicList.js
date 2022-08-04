@@ -33,8 +33,8 @@ function DynamicList() {
         return (
           <div className="flex mt-4 gap-x-4" key={i}>
             {inputList.length !== 0 && (
-              <button onClick={() => handleRemoveClick(i)}>
-                Remove
+              <button className="text-red-500" onClick={() => handleRemoveClick(i)}>
+                &#x2716;
               </button>
             )}
             <input

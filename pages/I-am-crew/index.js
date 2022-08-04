@@ -1,12 +1,14 @@
-import React from "react";
+import {React, useState} from "react";
 import Head from "next/head";
 import { useUser } from "../../firebase/useUser";
 import LimitedTextarea from "../../components/LimitedTextarea";
 import DynamicList from "../../components/DynamicList";
-
+import FileUpload from "../../components/FileUpload";
 
 const IAmCrew = () => {
   const { user, logout } = useUser();
+  const [selectedFile, setSelectedFile] = useState(null);
+
 
   return (
     <>
@@ -134,9 +136,11 @@ const IAmCrew = () => {
           </li>
           <DynamicList />
 
+          <FileUpload />
+
           <li className="flex flex-col w-1/2">
             <label>Short Bio</label>
-            <LimitedTextarea limit={240} value="" rows={5}/>
+            <LimitedTextarea limit={240} value="" rows={5} />
           </li>
         </ul>
       </div>
