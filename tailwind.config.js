@@ -12,7 +12,7 @@ module.exports = {
         'wearecrewBlue': '#03ABEB',
         'wearecrewDarkBlue': '#4F97B9',
         'wearecrewOrange': '#FF9100',
-        'wearecrewGreen': '#BCF0C3',
+        'wearecrewGreen': '#70DF7F',
         'wearecrewRed': '#D50000',
         'wearecrewPurple': '#9C27B0',
         'wearecrewPink': '#E91E63',
