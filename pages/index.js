@@ -3,10 +3,10 @@ import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
 import WriteToCloudFirestore from '../components/cloudFirestore/Write';
-import ReadToCloudFirestore from '../components/cloudFirestore/Read';
 import { useUser } from "../firebase/useUser";
 import { useEffect } from "react";
 import { sendData } from '../components/cloudFirestore/Write';
+import Profile from '../components/realtimeDatabase/Profile';
 
 
 
@@ -20,7 +20,7 @@ export default function Home() {
     if (user) {
       sendData(user);
     }
-  }), [];
+  }), [user];
 
   
   return (
@@ -31,6 +31,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
+      <Profile id={user?.id} dept={user?.dept}/>
+
       <div className="mt-[96px]">
         {user?.name}
         <br />
@@ -39,8 +42,7 @@ export default function Home() {
       </div>
 
       <WriteToCloudFirestore />
-      <br />
-      <ReadToCloudFirestore />
+
 
       <div className=" h-[calc(100vh-296px)] flex w-full justify-around items-center">
         <LargeButton text="I need crew" link="/I-need-crew/depts" />

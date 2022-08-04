@@ -7,17 +7,18 @@ export const sendData = (user) => {
   try {
     firebase
       .firestore()
-      .collection('depts')
+      .collection('crew')
       .doc(user.id)
       .set({
         id: user.id,
         name: user.name,
         email: user.email,
-        dept: 'grip',
+        dept: '',
+        nickname: '',
         // time_stamp: firebase.firestore.Timestamp.fromDate(new Date(`${month}-${date}-${year}`,)),
       })
       .then(
-        consol.log("User Added to Cloud Firestore")
+        console.log("User Added to Cloud Firestore")
         )
   } catch (err) {
     console.log(err);
