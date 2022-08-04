@@ -1,7 +1,21 @@
-import React from "react";
+import {useEffect} from "react";
 import Link from "next/link";
+import { useUser } from "../firebase/useUser";
+import { sendData } from '../components/cloudFirestore/Write';
+
 
 const NavBar = () => {
+
+  const {user, logout} = useUser();
+
+  console.log("USER-", user );
+
+  useEffect(() => {
+    if (user) {
+      sendData(user);
+    }
+  }), [user];
+
 
   return (
     <nav className="w-full top-0 fixed p-4 flex justify-between bg-wearecrewLightGrey items-center">
@@ -18,10 +32,16 @@ const NavBar = () => {
       </Link>
 
       <div className="flex gap-x-4">
+        { !user?.email ? 
         <Link href="/auth">
           <a>Sign In / Register</a>
         </Link>
-        <p>My Crew</p>
+        : 
+        <button onClick={() => logout()}>Logout</button>
+        }
+        { user?.email && (
+          <p>My Crew</p>
+        )}
       </div>
     </nav>
   );

@@ -36,12 +36,6 @@ const WriteToCloudFirestore = () => {
 
   sendData(user);
 
-  
-  return (
-    <>
-      <button onClick={sendData}>Send Data To Cloud Firestore</button>
-    </>
-  )
 }
 
 export default WriteToCloudFirestore;

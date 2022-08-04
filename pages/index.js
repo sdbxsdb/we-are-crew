@@ -2,25 +2,10 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
-import WriteToCloudFirestore from '../components/cloudFirestore/Write';
-import { useUser } from "../firebase/useUser";
-import { useEffect } from "react";
-import { sendData } from '../components/cloudFirestore/Write';
-import Profile from '../components/realtimeDatabase/Profile';
-
+// import WriteToCloudFirestore from '../components/cloudFirestore/Write';
 
 
 export default function Home() {
-
-  const {user} = useUser();
-
-  console.log("USER-", user );
-
-  useEffect(() => {
-    if (user) {
-      sendData(user);
-    }
-  }), [user];
 
   
   return (
@@ -31,17 +16,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <Profile id={user?.id} dept={user?.dept}/>
-
       <div className="mt-[96px]">
-        {user?.name}
-        <br />
-        {user?.email}
         <Banner />
       </div>
-
-      <WriteToCloudFirestore />
 
 
       <div className=" h-[calc(100vh-296px)] flex w-full justify-around items-center">
