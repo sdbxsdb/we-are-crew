@@ -24,8 +24,29 @@ const IAmCrew = () => {
           <h1>My Crew</h1>
         </div>
 
-        <div className="flex">
-          <ul className="flex w-1/2 flex-col gap-y-8">
+        <div className="w-full mb-12">
+            <p className="text-center">Status</p>
+
+            <div className="flex justify-center">
+              <div className="radio_container">
+                <div id="notAvail">
+                  <input type="radio" name="radio" id="one" />
+                  <label htmlFor="one">Not Available</label>
+                </div>
+                <div id="semiAvail">
+                  <input type="radio" name="radio" id="two" />
+                  <label htmlFor="two">On Dailies</label>
+                </div>
+                <div id="avail">
+                  <input type="radio" name="radio" id="three"/>
+                  <label htmlFor="three">Available</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div className="">
+          <ul className="flex items-center w-full pt-12 flex-col gap-y-8 border border-emerald-500">
             <li className="relative styledList">
               <input
                 name="name"
@@ -79,37 +100,41 @@ const IAmCrew = () => {
               </label>
             </li>
 
-            <div className="flex flex-col relative styled-checkbox">
+            <div className="flex flex-col relative mb-4 styled-checkbox">
               <p className="text-sm text-wearecrewBlue">Will work in</p>
               <div className="flex flex-col gap-y-2">
-                <li>
-                  <input type="checkbox" className="chb chb-3" id="england" />
-                  <label htmlFor="england">England</label>
-                </li>
-                <li>
-                  <input type="checkbox" className="chb chb-3" id="scotland" />
-                  <label htmlFor="scotland">Scotland</label>
-                </li>
-                <li>
-                  <input type="checkbox" className="chb chb-3" id="wales" />
-                  <label htmlFor="wales">Wales</label>
-                </li>
-                <li>
-                  <input type="checkbox" className="chb chb-3" id="ireland" />
-                  <label htmlFor="ireland">Ireland</label>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    className="chb chb-3"
-                    id="northernIreland"
-                  />
-                  <label htmlFor="northernIreland">Northern Ireland</label>
-                </li>
-                <li>
-                  <input type="checkbox" className="chb chb-3" id="outsideUK" />
-                  <label htmlFor="outsideUK">Outside the UK</label>
-                </li>
+                <div className="flex gap-x-4">
+                  <li>
+                    <input type="checkbox" className="chb chb-3" id="england" />
+                    <label htmlFor="england">England</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" className="chb chb-3" id="scotland" />
+                    <label htmlFor="scotland">Scotland</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" className="chb chb-3" id="wales" />
+                    <label htmlFor="wales">Wales</label>
+                  </li>
+                </div>
+                <div className="flex gap-x-4">
+                  <li>
+                    <input type="checkbox" className="chb chb-3" id="ireland" />
+                    <label htmlFor="ireland">Ireland</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      className="chb chb-3"
+                      id="northernIreland"
+                    />
+                    <label htmlFor="northernIreland">Northern Ireland</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" className="chb chb-3" id="outsideUK" />
+                    <label htmlFor="outsideUK">Outside the UK</label>
+                  </li>
+                </div>
               </div>
             </div>
 
@@ -126,7 +151,7 @@ const IAmCrew = () => {
               <label htmlFor="email">Email</label>
             </li>
 
-            <div className="flex items-center">
+            <div className="">
               <li className="relative styledList">
                 <input
                   name="phone"
@@ -140,14 +165,12 @@ const IAmCrew = () => {
                 <span className="bar"></span>
                 <label htmlFor="phone">Phone</label>
               </li>
-              <span title="" className="tooltip ml-4 w-full">
+              <span title="" className="tooltip w-full ">
                 Area Code?
               </span>
             </div>
 
             <DynamicList />
-            <p>Upload CV</p>
-            <FileUpload />
 
             <li className="relative styledList">
               <LimitedTextarea limit={240} value="" rows={5} name="bio" />
@@ -155,28 +178,13 @@ const IAmCrew = () => {
               <span className="bar"></span>
               <label htmlFor="bio">Short Bio</label>
             </li>
-          </ul>
-          <div className="w-1/2">
-            <p className="text-center">Status</p>
 
-            <div className="flex justify-center">
-              <div className="radio_container">
-                <div id="notAvail">
-                  <input type="radio" name="radio" id="one" />
-                  <label htmlFor="one">Not Available</label>
-                </div>
-                <div id="semiAvail">
-                  <input type="radio" name="radio" id="two" />
-                  <label htmlFor="two">On Dailies</label>
-                </div>
-                <div id="avail">
-                  <input type="radio" name="radio" id="three" />
-                  <label htmlFor="three">Available</label>
-                </div>
-              </div>
-            </div>
-          </div>
+            <FileUpload />
+
+            
+          </ul>
         </div>
+        
         <div className="flex justify-center w-full mt-12">
           <button className="text-3xl">Save</button>
         </div>

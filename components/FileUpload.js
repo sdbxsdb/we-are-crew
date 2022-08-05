@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react'
 
 const FileUpload = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState('');
   const fileInput = useRef(null)
 
 
@@ -20,9 +20,9 @@ const FileUpload = () => {
   };
 
   return (
-      <div className="file-uploader">
-          <input type="file" onChange={handleFileInput} value={selectedFile} />
-          <button onClick={e => fileInput.current && fileInput.current.click()} className="btn btn-primary"/>
+      <div className="file-uploader relative">
+          <input className="absolute left-0 opacity-0" type="file" onChange={handleFileInput} value={selectedFile} />
+          <button className="p-2 rounded-md border-2 border-wearecrewBlue" onClick={e => fileInput.current && fileInput.current.click()}>Upload CV</button>
       </div>
   )
 }

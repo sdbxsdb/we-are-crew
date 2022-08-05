@@ -31,26 +31,27 @@ function DynamicList() {
       <h3>Credits</h3>
       {inputList.map((x, i) => {
         return (
-          <div className="flex mt-4 gap-x-4" key={i}>
-            {inputList.length !== 0 && (
-              <button className="text-red-500" onClick={() => handleRemoveClick(i)}>
+          <div className="flex mt-4 gap-x-4 styledList" key={i}>
+            {inputList.length > 1 && (
+              <button onClick={() => handleRemoveClick(i)}>
                 &#x2716;
               </button>
             )}
             <input
+            className="border shadow-md"
               name="jobTitle"
               placeholder="Job Title"
               value={x.jobTitle}
               onChange={(e) => handleInputChange(e, i)}
             />
             <input
-              className="ml-10"
+              className="ml-10 border shadow-md"
               name="yourRole"
               placeholder="Your role"
               value={x.yourRole}
               onChange={(e) => handleInputChange(e, i)}
             />
-            <div className="">
+            <div className="flex ">
               {inputList.length - 1 === i && (
                 <button onClick={handleAddClick}>Add</button>
               )}

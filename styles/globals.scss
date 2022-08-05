@@ -92,7 +92,13 @@ h1 {
     color: #f1f3f5;
     transition: 0.3s;
   }
+} 
+
+select:focus {
+  outline: none;
 }
+
+::-webkit-file-upload-button { cursor:pointer; }
 
 .styledList {
 
@@ -100,12 +106,13 @@ h1 {
   textarea,
   select {
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 10px 10px 10px;
     display: block;
-    width: 300px;
+    width: 380px;
     border: none;
-    border-bottom: 1px solid #4F97B9;
+    border-bottom: 1px solid #03ABEB;
     border-radius: 5px;
+
   }
 
   input:focus {
@@ -290,17 +297,18 @@ input::-webkit-inner-spin-button {
   display: inline;
   position: relative;
   cursor: pointer;
+  top: 5px;
 }
 .tooltip:hover:after{
   position: absolute;
-  top: 65px;
-  right: -260px;
+  bottom: -80px;
+  left: 0;
   -webkit-justify-content: center;
   justify-content: center;
   background: #444;
   border-radius: 8px;
   color: #fff;
-  content: "UK | 0044 then remove first 0 - eg. 0044 77 123 45678  \A IE | 00353 then remove first 0 - eg. 00353 87 123 45678";
+  content: "UK | 0044 then remove first 0 - eg. 0044 77 123 45678  \A\A IE | 00353 then remove first 0 - eg. 00353 87 123 45678";
   white-space: pre;
   margin: -82px auto 0;
   font-size: 16px;
