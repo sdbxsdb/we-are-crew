@@ -2,12 +2,14 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
+import { useUser } from "../firebase/useUser";
 
 
 // import WriteToCloudFirestore from '../components/cloudFirestore/Write';
 
 
 export default function Home() {
+  const { user, logout } = useUser();
 
   
   return (
@@ -22,10 +24,14 @@ export default function Home() {
         <Banner />
       </div>
 
-
-      <div className=" h-[calc(100vh-296px)] flex w-full justify-around items-center">
+      <div className="h-[calc(100vh-296px)] flex w-full justify-around items-center">
         <LargeButton text="I need crew" link="/I-need-crew/depts" />
-        <LargeButton text="I am crew" link="/I-am-crew" />
+        {user && (
+          <LargeButton text="I am crew" link="/I-am-crew" />
+        )}
+        {!user && (
+          <LargeButton text="I am crew" link="/auth" />
+        )}
       </div>
     </div>
   );

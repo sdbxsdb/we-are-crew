@@ -18,7 +18,7 @@ const NavBar = () => {
 
 
   return (
-    <nav className="w-full top-0 fixed p-4 flex justify-between bg-wearecrewLightGrey items-center z-50 backdrop-blur-sm">
+    <nav className="w-full top-0 fixed p-4 flex justify-between bg-wearecrewLightGrey items-center z-50 shadow-md">
       <Link href="/">
         <a className="h-full w-[150px] relative flex justify-center items-center">
           <img
@@ -31,7 +31,7 @@ const NavBar = () => {
         </a>
       </Link>
 
-      <div className="flex gap-x-4 px-4">
+      <div className="flex gap-x-4 px-4 text-wearecrewDarkestGrey font-bold">
         { !user?.email ? 
         <Link href="/auth">
           <a>Sign In / Register</a>

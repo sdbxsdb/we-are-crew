@@ -18,6 +18,7 @@ module.exports = {
         'wearecrewPink': '#E91E63',
         'wearecrewTeal': '#009688',
         'wearecrewDarkGrey': '#9E9E9E',
+        'wearecrewDarkestGrey': '#484848',
         'wearecrewLightGrey': '#F2F5F6',
       },
       fontFamily: {

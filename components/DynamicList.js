@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { DragDropContext } from 'react-beautiful-dnd';
 
 function DynamicList() {
   const [inputList, setInputList] = useState([{ jobTitle: "", yourRole: "" }]);
@@ -30,14 +29,13 @@ function DynamicList() {
   return (
     <div>
   
-
       <h3>Credits</h3>
       {inputList.map((x, i) => {
         return (
-          <DragDropContext key={i}>
+
             <div
               className="flex flex-col relative mt-8 gap-y-2 styledList"
-              
+              key={i}
             >
               {inputList.length > 1 && (
                 <button
@@ -66,9 +64,11 @@ function DynamicList() {
                   <button onClick={handleAddClick}>Add</button>
                 )}
               </div>
-              <span className="h-[2px] w-full border-b-4 rounded-md border-wearecrewBlue"></span>
+              <div className="flex justify-center">
+                <span className="h-[1px] w-1/4 border-b-2 rounded-lg border-wearecrewBlue"></span>
+                </div>
             </div>
-          </DragDropContext>
+
         );
       })}
     </div>

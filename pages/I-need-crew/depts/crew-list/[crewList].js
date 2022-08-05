@@ -3,7 +3,9 @@ import React from 'react'
 
 const crewList = ({dept}) => {
   return (
-    <div>crewList - {dept}</div>
+    <div className="px-12 pt-12">
+      <h1>crewList - {dept}</h1>
+    </div>
   )
 }
 
