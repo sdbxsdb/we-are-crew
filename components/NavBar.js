@@ -18,7 +18,7 @@ const NavBar = () => {
 
 
   return (
-    <nav className="w-full top-0 fixed p-4 flex justify-between bg-wearecrewLightGrey items-center">
+    <nav className="w-full top-0 fixed p-4 flex justify-between bg-wearecrewLightGrey items-center z-50 backdrop-blur-sm">
       <Link href="/">
         <a className="h-full w-[150px] relative flex justify-center items-center">
           <img
@@ -31,7 +31,7 @@ const NavBar = () => {
         </a>
       </Link>
 
-      <div className="flex gap-x-4">
+      <div className="flex gap-x-4 px-4">
         { !user?.email ? 
         <Link href="/auth">
           <a>Sign In / Register</a>
@@ -40,7 +40,9 @@ const NavBar = () => {
         <button onClick={() => logout()}>Logout</button>
         }
         { user?.email && (
-          <p>My Crew</p>
+          <Link href="/I-am-crew">
+            <a>My Crew</a>
+          </Link>
         )}
       </div>
     </nav>

@@ -9,6 +9,10 @@ const IAmCrew = () => {
   const { user, logout } = useUser();
   const [selectedFile, setSelectedFile] = useState(null);
 
+  if (!user) {
+    router.push("sign-up");
+  }
+
   return (
     <>
       <Head>
@@ -19,12 +23,13 @@ const IAmCrew = () => {
           content="Hello this is a test description for the About page"
         />
       </Head>
+
       <div className="px-12 py-20">
         <div className="flex justify-center">
-          <h1>My Crew</h1>
+          <h1 className="text-3xl">My Crew</h1>
         </div>
 
-        <div className="w-full mb-12">
+        <div className="w-full mt-16">
             <p className="text-center">Status</p>
 
             <div className="flex justify-center">
@@ -46,7 +51,7 @@ const IAmCrew = () => {
           </div>
 
         <div className="">
-          <ul className="flex items-center w-full pt-12 flex-col gap-y-8 border border-emerald-500">
+          <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
             <li className="relative styledList">
               <input
                 name="name"
@@ -165,7 +170,7 @@ const IAmCrew = () => {
                 <span className="bar"></span>
                 <label htmlFor="phone">Phone</label>
               </li>
-              <span title="" className="tooltip w-full ">
+              <span title="" className="tooltip w-full">
                 Area Code?
               </span>
             </div>
@@ -189,6 +194,8 @@ const IAmCrew = () => {
           <button className="text-3xl">Save</button>
         </div>
       </div>
+
+
     </>
   );
 };
