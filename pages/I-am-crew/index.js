@@ -25,20 +25,23 @@ const IAmCrew = () => {
         </div>
 
         <div className="flex">
-          <ul className="flex w-1/2 flex-col gap-y-4">
-            <li className="flex flex-col w-1/2">
-              <label htmlFor="name">Name</label>
+          <ul className="flex w-1/2 flex-col gap-y-8">
+            <li className="relative styledList">
               <input
                 name="name"
                 type="text"
                 value={user?.name}
-                className="border shadow-md w-full"
+                className="border shadow-md"
               />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <label htmlFor="name">Name</label>
             </li>
-            <li className="flex flex-col w-1/2">
-              <label htmlFor="dept">Department</label>
+
+            <li className="flex flex-col styledList">
+              <p className="text-sm text-wearecrewBlue">Department</p>
               <select name="dept">
-                <option value="null" disabled>
+                <option disabled>
                   Choose Deptartment
                 </option>
                 <option value="Assistant Directors">Assistant Directors</option>
@@ -46,107 +49,111 @@ const IAmCrew = () => {
                 <option value="Assistant Directors">Grips</option>
               </select>
             </li>
-            <li className="flex flex-col w-1/2">
-              <label htmlFor="grade">Grade / Title</label>
+
+            <li className="relative styledList">
               <input
                 name="grade"
                 type="text"
                 value={user?.grade}
-                className="border shadow-md w-full"
+                className="border shadow-md"
+                required
               />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <label htmlFor="grade">Grade / Title</label>
             </li>
-            <li className="flex flex-col w-1/2">
-              <label htmlFor="safetyQualifications">
-                Safety Qualifications
-              </label>
-              <small>(If applicable)</small>
+
+            <li className="relative styledList">
               <input
                 name="safetyQualifications"
                 type="text"
                 value={user?.safetyQualifications}
-                className="border shadow-md w-full"
+                className="border shadow-md"
+                required
               />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <small>Put N/A if none</small>
+              <label htmlFor="safetyQualifications">
+                Safety or other Qualifications
+              </label>
             </li>
-            <li className="flex flex-col w-1/2">
-              <p>Will work in</p>
-              <div className="flex gap-x-4">
-                <input
-                  type="checkbox"
-                  id="northernIreland"
-                  name="northernIreland"
-                  value="Northern Ireland"
-                />
-                <label htmlFor="northernIreland">Northern Ireland</label>
+
+            <div className="flex flex-col relative styled-checkbox">
+              <p className="text-sm text-wearecrewBlue">Will work in</p>
+              <div className="flex flex-col gap-y-2">
+                <li>
+                  <input type="checkbox" className="chb chb-3" id="england" />
+                  <label htmlFor="england">England</label>
+                </li>
+                <li>
+                  <input type="checkbox" className="chb chb-3" id="scotland" />
+                  <label htmlFor="scotland">Scotland</label>
+                </li>
+                <li>
+                  <input type="checkbox" className="chb chb-3" id="wales" />
+                  <label htmlFor="wales">Wales</label>
+                </li>
+                <li>
+                  <input type="checkbox" className="chb chb-3" id="ireland" />
+                  <label htmlFor="ireland">Ireland</label>
+                </li>
+                <li>
+                  <input
+                    type="checkbox"
+                    className="chb chb-3"
+                    id="northernIreland"
+                  />
+                  <label htmlFor="northernIreland">Northern Ireland</label>
+                </li>
+                <li>
+                  <input type="checkbox" className="chb chb-3" id="outsideUK" />
+                  <label htmlFor="outsideUK">Outside the UK</label>
+                </li>
               </div>
-              <div className="flex gap-x-4">
-                <input
-                  type="checkbox"
-                  id="southernIreland"
-                  name="southernIreland"
-                  value="Southern Ireland"
-                />
-                <label htmlFor="southernIreland">Southern Ireland</label>
-              </div>
-              <div className="flex gap-x-4">
-                <input
-                  type="checkbox"
-                  id="england"
-                  name="england"
-                  value="England"
-                />
-                <label htmlFor="england">England</label>
-              </div>
-              <div className="flex gap-x-4">
-                <input
-                  type="checkbox"
-                  id="scotland"
-                  name="scotland"
-                  value="Scotland"
-                />
-                <label htmlFor="sotland">Scotland</label>
-              </div>
-              <div className="flex gap-x-4">
-                <input
-                  type="checkbox"
-                  id="wales"
-                  name="wales"
-                  value="Scotland"
-                />
-                <label htmlFor="wales">Wales</label>
-              </div>
-            </li>
-            <li className="flex flex-col w-1/2">
-              <label htmlFor="email">Email</label>
+            </div>
+
+            <li className="relative styledList">
               <input
                 name="email"
                 type="text"
                 value={user?.email}
-                className="border shadow-md w-full"
+                className="border shadow-md"
+                required
               />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <label htmlFor="email">Email</label>
             </li>
-            <li className="flex flex-col w-1/2">
-              <label htmlFor="contactDetails">Phone</label>
-              <label htmlFor="contactDetails">Phone 1</label>
-              <input
-                name="contactDetails"
-                type="text"
-                value={user?.phone1}
-                className="border shadow-md w-full"
-              />
-              <label htmlFor="contactDetails">Phone 2</label>
-              <input
-                name="contactDetails"
-                type="text"
-                value={user?.phone2}
-                className="border shadow-md w-full"
-              />
-            </li>
+
+            <div className="flex items-center">
+              <li className="relative styledList">
+                <input
+                  name="phone"
+                  type="number"
+                  value={user?.phone}
+                  className="border shadow-md"
+                  required
+                />
+
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label htmlFor="phone">Phone</label>
+              </li>
+              <span title="" className="tooltip ml-4 w-full">
+                Area Code?
+              </span>
+            </div>
+
             <DynamicList />
             <p>Upload CV</p>
             <FileUpload />
-            <li className="flex flex-col w-1/2">
-              <label>Short Bio</label>
-              <LimitedTextarea limit={240} value="" rows={5} />
+
+            <li className="relative styledList">
+              <LimitedTextarea limit={240} value="" rows={5} name="bio" />
+              <span className="highlight"></span>
+              <span className="bar"></span>
+              <label htmlFor="bio">Short Bio</label>
             </li>
           </ul>
           <div className="w-1/2">

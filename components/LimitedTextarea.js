@@ -17,6 +17,7 @@ const LimitedTextarea = ({ rows, cols, value, limit }) => {
         cols={cols}
         onChange={(event) => setFormattedContent(event.target.value)}
         value={content}
+        required
       />
       <p>
         {content.length}/{limit}
