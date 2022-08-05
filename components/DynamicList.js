@@ -31,7 +31,7 @@ function DynamicList() {
       <h3>Credits</h3>
       {inputList.map((x, i) => {
         return (
-          <div className="flex flex-col relative mt-4 gap-y-2 styledList" key={i}>
+          <div className="flex flex-col relative mt-8 gap-y-2 styledList" key={i}>
             {inputList.length > 1 && (
               <button className="absolute top-0 -right-8" onClick={() => handleRemoveClick(i)}>
                 &#x2716;
@@ -56,7 +56,7 @@ function DynamicList() {
                 <button onClick={handleAddClick}>Add</button>
               )}
             </div>
-            <span className="h-[2px] w-full border-b border-wearecrewDarkGrey"></span>
+            <span className="h-[2px] w-full border-b-4 rounded-md border-wearecrewBlue"></span>
           </div>
         );
       })}
