@@ -9,6 +9,11 @@ const IAmCrew = () => {
   const { user, logout } = useUser();
   const [selectedFile, setSelectedFile] = useState(null);
 
+  const onInputChangeHandler = (e) => {
+    const newVal = e.target.value;
+    console.log(e.target.value);
+  }
+
   return (
     <>
       <Head>
@@ -51,8 +56,9 @@ const IAmCrew = () => {
                   <input
                     name="name"
                     type="text"
-                    value={user?.name}
+                    defaultValue={user?.name}
                     className="border shadow-md"
+                    onChange={onInputChangeHandler}
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
@@ -73,7 +79,7 @@ const IAmCrew = () => {
                   <input
                     name="grade"
                     type="text"
-                    value={user?.grade}
+                    defaultValue={user?.grade}
                     className="border shadow-md"
                     required
                   />
@@ -85,7 +91,7 @@ const IAmCrew = () => {
                   <input
                     name="safetyQualifications"
                     type="text"
-                    value={user?.safetyQualifications}
+                    defaultValue={user?.safetyQualifications}
                     className="border shadow-md"
                     required
                   />
@@ -156,23 +162,24 @@ const IAmCrew = () => {
                   </div>
                 </div>
                 <li className="relative styledList">
+                <p className="text-sm text-wearecrewBlue">Email</p>
                   <input
                     name="email"
                     type="text"
                     value={user?.email}
-                    className="border shadow-md"
-                    required
+                    className="border shadow-md opacity-30 cursor-not-allowed"
+                    disabled
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
-                  <label htmlFor="email">Email</label>
+
                 </li>
                 <div className="">
                   <li className="relative styledList">
                     <input
                       name="phone"
                       type="number"
-                      value={user?.phone}
+                      defaultValue={user?.phone}
                       className="border shadow-md"
                       required
                     />

@@ -5,9 +5,6 @@ import LargeButton from "../components/LargeButton";
 import { useUser } from "../firebase/useUser";
 
 
-// import WriteToCloudFirestore from '../components/cloudFirestore/Write';
-
-
 export default function Home() {
   const { user, logout } = useUser();
 
