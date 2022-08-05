@@ -31,9 +31,9 @@ function DynamicList() {
       <h3>Credits</h3>
       {inputList.map((x, i) => {
         return (
-          <div className="flex mt-4 gap-x-4 styledList" key={i}>
+          <div className="flex flex-col relative mt-4 gap-y-2 styledList" key={i}>
             {inputList.length > 1 && (
-              <button onClick={() => handleRemoveClick(i)}>
+              <button className="absolute top-0 -right-8" onClick={() => handleRemoveClick(i)}>
                 &#x2716;
               </button>
             )}
@@ -45,17 +45,18 @@ function DynamicList() {
               onChange={(e) => handleInputChange(e, i)}
             />
             <input
-              className="ml-10 border shadow-md"
+              className="border shadow-md"
               name="yourRole"
               placeholder="Your role"
               value={x.yourRole}
               onChange={(e) => handleInputChange(e, i)}
             />
-            <div className="flex ">
+            <div className="absolute -right-10 bottom-0">
               {inputList.length - 1 === i && (
                 <button onClick={handleAddClick}>Add</button>
               )}
             </div>
+            <span className="h-[2px] w-full border-b border-wearecrewDarkGrey"></span>
           </div>
         );
       })}
