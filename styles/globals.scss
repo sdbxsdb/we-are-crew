@@ -4,9 +4,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.borderRed {
+  border: 1px solid red;
+}
+.borderBlue {
+  border: 1px solid blue;
+}
+.borderGreen {
+  border: 1px solid green;
+}
+.borderYellow {
+  border: 1px solid yellow;
+}
+.borderOrange {
+  border: 1px solid orange;
+}
+.borderPurple {
+  border: 1px solid purple;
+}
+.borderPink {
+  border: 1px solid pink;
+}
+
 h1 {
   font-family: 'Anton';
 }
+
+body {
+  color: #484848;
+}
+
 
 .banner {
   background: rgb(3, 171, 235);
@@ -368,3 +395,9 @@ input::-webkit-inner-spin-button {
   border-color: #03ABEB!important;
 }
 
+
+.filterByList {
+  li {
+    @apply bg-white border-b border-wearecrewBlue p-2 rounded text-center;
+  }
+}

@@ -20,14 +20,14 @@ const NavBar = () => {
   return (
     <nav className="w-full top-0 fixed p-4 flex justify-between bg-wearecrewLightGrey items-center z-50 shadow-md">
       <Link href="/">
-        <a className="h-full w-[150px] relative flex justify-center items-center">
+        <a className="h-full w-[120px] relative flex justify-center items-center">
           <img
-            src="/images/logoSVG.svg"
+            src="/images/logoNew.png"
             className="z-50"
             alt="We Are Crew logo"
             layout="responsive"
           />
-          <div className="bg-wearecrewBlue h-[58px] w-[50px] absolute -left-4 top-1/2 transform -translate-y-1/2"></div>
+          
         </a>
       </Link>
 
