@@ -85,7 +85,7 @@ const CrewDetailBox = (crew) => {
     return (
       <Link
         key={crew + i}
-        href={`/I-need-crew/crew-list/department/${slugify(crew.name)}${crew.id}`}
+        href={`/I-need-crew/crew-list/<<department>>/${slugify(crew.name)}${crew.id}`}
       >
         <a className="p-4 flex items-center border-b border-wearecrewBlue gap-x-4 bg-white rounded shadow-md cursor-pointer">
           <div
