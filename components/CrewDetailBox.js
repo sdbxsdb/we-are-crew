@@ -35,8 +35,18 @@ const CrewDetailBox = (crew) => {
             className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
           ></div>
           <div className="w-[210px] flex flex-col">
-            <h2>{crew.name}</h2>
+            <h2>
+              <strong> {crew.name}</strong>
+            </h2>
             <h2>{crew.role}</h2>
+            {crew.qualis.map((quali, id) => (
+              <ul key={quali + id}>
+                <li>
+                  <span>- </span>
+                  <small>{quali}</small>
+                </li>
+              </ul>
+            ))}
 
             <strong
               className={`mt-4 ${
@@ -53,13 +63,11 @@ const CrewDetailBox = (crew) => {
 
           <div className="">
             <small>Will work in</small>
-            <ul>
-              <li>England</li>
-              <li>Northern Ireland</li>
-              <li>Ireland</li>
-              <li>Scotland</li>
-              <li>Wales</li>
-            </ul>
+            {crew.willWorkIn.map((willWorkIn, id) => (
+              <div key={willWorkIn + id} className="mt-1">
+                {willWorkIn}
+              </div>
+            ))}
           </div>
           <div className="flex flex-col gap-y-2">
             <a
@@ -74,13 +82,12 @@ const CrewDetailBox = (crew) => {
             >
               <h1 className="text-3xl">Email</h1>
             </a>
-          </div>
-
-          <div
-            onClick={() => setShowModal(true)}
-            className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center"
-          >
-            <button className="text-lg text-center">Full Profile</button>
+            <div
+              onClick={() => setShowModal(true)}
+              className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+            >
+              <h1 className="text-3xl text-center">Profile</h1>
+            </div>
           </div>
         </div>
 
@@ -93,33 +100,41 @@ const CrewDetailBox = (crew) => {
                 className="rounded-full overflow-hidden w-[60px] h-[60px] flex items-center justify-end shadow-md"
               ></div>
               <div className="w-[210px] text-right">
-                <strong>{crew.name}</strong>
+                <div className="flex flex-col">
+                  <strong
+                    className={`mt-4 ${
+                      crew.status === "Available"
+                        ? "text-wearecrewGreen"
+                        : crew.status === "Not Available"
+                        ? "text-wearecrewRed"
+                        : "text-wearecrewOrange"
+                    }`}
+                  >
+                    {crew.status}
+                  </strong>
+                  <strong>{crew.name}</strong>
+                </div>
                 <h2>{crew.role}</h2>
-                <strong
-                  className={`mt-4 ${
-                    crew.status === "Available"
-                      ? "text-wearecrewGreen"
-                      : crew.status === "Not Available"
-                      ? "text-wearecrewRed"
-                      : "text-wearecrewOrange"
-                  }`}
-                >
-                  {crew.status}
-                </strong>
+                <div className="mt-2">
+                  {crew.qualis.map((quali, id) => (
+                    <ul key={quali + id}>
+                      <li>
+                        <small>{quali}</small>
+                        <span> -</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="w-full text-center">
-              <small className="text-center">
-                <strong>Will work in</strong>
-              </small>
-              <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 w-full">
-                <li className="min-w-max">England</li>
-                <li className="min-w-max">Northern Ireland</li>
-                <li className="min-w-max">Ireland</li>
-                <li className="min-w-max">Scotland</li>
-                <li className="min-w-max">Wales</li>
-              </ul>
+            <div className="w-full text-center mt-4">
+              <strong className="text-sm">Will work in:</strong>
+              {crew.willWorkIn.map((willWorkIn) => (
+                <div key={willWorkIn} className="mt-1">
+                  <p className="text-base">{willWorkIn}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -141,20 +156,16 @@ const CrewDetailBox = (crew) => {
 
             <div
               onClick={() => setShowModal(true)}
-              className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center"
+              className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white"
             >
-              <button className="text-lg text-center">Full Profile</button>
+              <h1 className="text-3xl text-center">Profile</h1>
             </div>
           </div>
         </div>
       </div>
 
-      <CrewDetailModal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        title={crew?.name}
-      >
-        <div className="w-full flex justify-start gap-x-4 items-center borderRed mb-4 text-3xl">
+      <CrewDetailModal show={showModal} onClose={() => setShowModal(false)}>
+        <div className="w-full flex flex-col gap-x-4 gap-y-4 items-start mb-4 text-3xl">
           <div
             style={stylingLarge}
             className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
@@ -173,6 +184,27 @@ const CrewDetailBox = (crew) => {
             >
               {crew.status}
             </strong>
+          </div>
+
+          <div>
+            <p className="text-sm">Will work in</p>
+            {crew.willWorkIn.map((willWorkIn, id) => (
+              <div key={willWorkIn + id} className="mt-1">
+                <p className="text-base">{willWorkIn}</p>
+              </div>
+            ))}
+            <p>{crew.phone}</p>
+            <p>{crew.email}</p>
+
+            {crew.credits.map((credits, id) => (
+              <div key={credits + id} className="mt-1">
+                <p className="text-base">{credits.jobTitle}</p>
+                <p className="text-base">{credits.role}</p>
+              </div>
+            ))}
+
+            <p>{crew.bio}</p>
+            <button>Download CV</button>
           </div>
         </div>
       </CrewDetailModal>

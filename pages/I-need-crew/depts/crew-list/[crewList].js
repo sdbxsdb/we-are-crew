@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import CrewDetailBox from "../../../../components/CrewDetailBox";
 import Link from "next/link";
 
@@ -13,6 +13,19 @@ const listOfCrew = [
     email: "johndoe@test.com",
     phone: "34563456456",
     status: "Available",
+    willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
+    qualis: [],
+    credits: [
+      {
+        jobTitle: "America Physco",
+        role: "Director of Photography",
+      },
+      {
+        jobTitle: "Jumanji",
+        role: "Director of Photography",
+      },
+    ],
+    bio: "Jill Doe is a focus puller. She is a very good focus puller.",
   },
   {
     id: 2,
@@ -23,6 +36,19 @@ const listOfCrew = [
     email: "janedoe@test.com",
     phone: "754674567456",
     status: "Not Available",
+    willWorkIn: ["England", "Northern Ireland", "Ireland"],
+    qualis: [],
+    credits: [
+      {
+        jobTitle: "A Movie Title",
+        role: "A Camera Operator",
+      },
+      {
+        jobTitle: "Harry Potter 5",
+        role: "B Camera Operator",
+      },
+    ],
+    bio: "Jill Doe is a focus puller. She is a very good focus puller.",
   },
   {
     id: 3,
@@ -34,6 +60,19 @@ const listOfCrew = [
     email: "jackdoe@test.com",
     phone: "12341234645",
     status: "On Dalies",
+    willWorkIn: ["England"],
+    qualis: [ "Steadicam Course"],
+    credits: [
+      {
+        jobTitle: "Mission Impossible",
+        role: "B Camera Operator",
+      },
+      {
+        jobTitle: "Harry Potter 7",
+        role: "B Camera Operator",
+      },
+    ],
+    bio: "Jack Doe is a camera operator. He is a very good camera operator.",
   },
   {
     id: 4,
@@ -45,6 +84,19 @@ const listOfCrew = [
     email: "jilldoe@test.com",
     phone: "234234647432345",
     status: "On Dalies",
+    willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
+    qualis: [ "Focus Puller Course", "Focus Puller Course Grade 2",],
+    credits: [
+      {
+        jobTitle: "Fight Club",
+        role: "B Camera Focus Puller",
+      },
+      {
+        jobTitle: "Harry Potter 7",
+        role: "B Camera Focus Puller",
+      },
+    ],
+    bio: "Jill Doe is a focus puller. She is a very good focus puller.",
   },
   {
     id: 5,
@@ -56,6 +108,19 @@ const listOfCrew = [
     email: "joedoe@test.com",
     phone: "64634634563465",
     status: "Available",
+    willWorkIn: ["England", "Scotland", "Wales"],
+    qualis: [],
+    credits: [
+      {
+        jobTitle: "Some movie",
+        role: "B Camera Loader",
+      },
+      {
+        jobTitle: "Great Movie",
+        role: "A Camera Loader",
+      },
+    ],
+    bio: "Joe Doe is a loader. He is a very good loader.",
   },
   {
     id: 6,
@@ -67,11 +132,23 @@ const listOfCrew = [
     email: "juandoe@test.com",
     phone: "12345235345",
     status: "Not Available",
+    willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
+    qualis: [],
+    credits: [
+      {
+        jobTitle: "Harry Potter",
+        role: "B Camera Trainee",
+      },
+      {
+        jobTitle: "Harry Potter 2",
+        role: "A Camera Trainee",
+      },
+    ],
+    bio: "Juan Doe is a trainee. He is a very good trainee.",
   },
 ];
 
 const crewList = () => {
-
   return (
     <div className="px-12 pt-12">
       <Link href="/I-need-crew/depts">
@@ -84,13 +161,23 @@ const crewList = () => {
 
       <div className="w-full flex justify-center">
         <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
-
           <div className="flex flex-1 rounded-md flex-col gap-y-4 lg:overflow-scroll max-h-[calc(100vh-252px)]">
             {listOfCrew.map((crew) => (
-              <CrewDetailBox key={crew.id} name={crew.name} role={crew.role} image={crew.image} bio={crew.bio} phone={crew.phone} email={crew.email} status={crew.status} />
+              <CrewDetailBox
+                key={crew.id}
+                name={crew.name}
+                role={crew.role}
+                image={crew.image}
+                phone={crew.phone}
+                email={crew.email}
+                status={crew.status}
+                willWorkIn={crew.willWorkIn}
+                qualis={crew.qualis}
+                credits={crew.credits}
+                bio={crew.bio}
+              />
             ))}
           </div>
-
 
           <div className=" w-full lg:w-3/12 shadow-md bg-white border-b-wearecrewBlue rounded-md p-4 lg:h-fit">
             <p className="text-center mb-4 font-semibold text-lg">
