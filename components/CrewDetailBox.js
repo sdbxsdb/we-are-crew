@@ -165,16 +165,38 @@ const CrewDetailBox = (crew) => {
       </div>
 
       <CrewDetailModal show={showModal} onClose={() => setShowModal(false)}>
-        <div className="w-full flex flex-col gap-x-4 gap-y-4 items-start mb-4 text-3xl">
-          <div
-            style={stylingLarge}
-            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
-          ></div>
-          <div>
-            <h1>{crew?.name}</h1>
-            <h1 className="text-lg">{crew?.role}</h1>
+        <div className="flex gap-x-4">
+          <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
+            <div
+              style={stylingLarge}
+              className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md"
+            ></div>
+            <div>
+              <h1 className="text-3xl">{crew?.name}</h1>
+              <h1 className="text-lg">{crew?.role}</h1>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-x-2">
+                
+                <p>{crew.phone}</p>
+              </div>
+              <p>{crew.email}</p>
+              {crew.credits.map((credits, id) => (
+                <div key={credits + id} className="mt-1">
+                  <p className="text-base">{credits.jobTitle}</p>
+                  <p className="text-base">{credits.role}</p>
+                </div>
+              ))}
+              <p>{crew.bio}</p>
+              <button>Download CV</button>
+            </div>
+
+          </div>
+
+          <div className=" w-[240px] flex flex-col items-end pt-10">
             <strong
-              className={`mt-4 ${
+              className={`mt-4 text-3xl mb-4 ${
                 crew.status === "Available"
                   ? "text-wearecrewGreen"
                   : crew.status === "Not Available"
@@ -184,27 +206,17 @@ const CrewDetailBox = (crew) => {
             >
               {crew.status}
             </strong>
-          </div>
-
-          <div>
-            <p className="text-sm">Will work in</p>
-            {crew.willWorkIn.map((willWorkIn, id) => (
-              <div key={willWorkIn + id} className="mt-1">
-                <p className="text-base">{willWorkIn}</p>
-              </div>
-            ))}
-            <p>{crew.phone}</p>
-            <p>{crew.email}</p>
-
-            {crew.credits.map((credits, id) => (
-              <div key={credits + id} className="mt-1">
-                <p className="text-base">{credits.jobTitle}</p>
-                <p className="text-base">{credits.role}</p>
-              </div>
-            ))}
-
-            <p>{crew.bio}</p>
-            <button>Download CV</button>
+            <div className="text-right">
+              <strong className="text-sm">Will work in</strong>
+              {crew.willWorkIn.map((willWorkIn, id) => (
+                <div key={willWorkIn + id} className="mt-2 text-right">
+                  <p className="text-base">
+                    {willWorkIn}
+                    <span> -</span>
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </CrewDetailModal>
