@@ -80,7 +80,7 @@ const CrewDetailBox = (crew) => {
             onClick={() => setShowModal(true)}
             className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center"
           >
-            <p className="text-lg text-center">Full Profile</p>
+            <button className="text-lg text-center">Full Profile</button>
           </div>
         </div>
 
@@ -95,6 +95,17 @@ const CrewDetailBox = (crew) => {
               <div className="w-[210px] text-right">
                 <strong>{crew.name}</strong>
                 <h2>{crew.role}</h2>
+                <strong
+                  className={`mt-4 ${
+                    crew.status === "Available"
+                      ? "text-wearecrewGreen"
+                      : crew.status === "Not Available"
+                      ? "text-wearecrewRed"
+                      : "text-wearecrewOrange"
+                  }`}
+                >
+                  {crew.status}
+                </strong>
               </div>
             </div>
 
@@ -132,7 +143,7 @@ const CrewDetailBox = (crew) => {
               onClick={() => setShowModal(true)}
               className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center"
             >
-              <p className="text-lg text-center">Full Profile</p>
+              <button className="text-lg text-center">Full Profile</button>
             </div>
           </div>
         </div>
@@ -151,6 +162,17 @@ const CrewDetailBox = (crew) => {
           <div>
             <h1>{crew?.name}</h1>
             <h1 className="text-lg">{crew?.role}</h1>
+            <strong
+              className={`mt-4 ${
+                crew.status === "Available"
+                  ? "text-wearecrewGreen"
+                  : crew.status === "Not Available"
+                  ? "text-wearecrewRed"
+                  : "text-wearecrewOrange"
+              }`}
+            >
+              {crew.status}
+            </strong>
           </div>
         </div>
       </CrewDetailModal>
