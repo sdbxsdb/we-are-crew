@@ -26,6 +26,7 @@ const listOfCrew = [
       },
     ],
     bio: "Jill Doe is a focus puller. She is a very good focus puller.",
+    cv: "/images/logoNew2.png"
   },
   {
     id: 2,
@@ -49,6 +50,8 @@ const listOfCrew = [
       },
     ],
     bio: "Jill Doe is a focus puller. She is a very good focus puller.",
+    cv: "/images/logoNew2.png"
+
   },
   {
     id: 3,
@@ -73,6 +76,8 @@ const listOfCrew = [
       },
     ],
     bio: "Jack Doe is a camera operator. He is a very good camera operator.",
+    cv: "/images/logoNew2.png"
+
   },
   {
     id: 4,
@@ -95,8 +100,22 @@ const listOfCrew = [
         jobTitle: "Harry Potter 7",
         role: "B Camera Focus Puller",
       },
+      {
+        jobTitle: "Harry Potter 7",
+        role: "B Camera Focus Puller",
+      },
+      {
+        jobTitle: "Harry Potter 7",
+        role: "B Camera Focus Puller",
+      },
+      {
+        jobTitle: "Harry Potter 7",
+        role: "B Camera Focus Puller",
+      },
     ],
-    bio: "Jill Doe is a focus puller. She is a very good focus puller.",
+    bio: "Jill Doe fhfjdjkjs f dsaksdhklfha sdfk akjsfd kljasdfkjas dfkj  askfjsakjdfhklasdhf kjasfkljashdfkjahdf a kajsfkaskdjfha sdflkasjfkjasdfh asfkla skljfalksdfhkjashfd klasfdh alskf lkashfkjashfk jashfklashdfkljashdfkjashdf kjsdfhalksdfhsadkfsk",
+    cv: "/images/logoNew2.png"
+
   },
   {
     id: 5,
@@ -145,6 +164,8 @@ const listOfCrew = [
       },
     ],
     bio: "Juan Doe is a trainee. He is a very good trainee.",
+    cv: "/images/logoNew2.png"
+
   },
 ];
 
@@ -175,6 +196,7 @@ const crewList = () => {
                 qualis={crew.qualis}
                 credits={crew.credits}
                 bio={crew.bio}
+                cv={crew.cv}
               />
             ))}
           </div>

@@ -16,8 +16,8 @@ export default function CrewDetailModal({show, onClose, children}) {
   }
 
   const modalContent = show ? (
-    <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-x-hidden overflow-y-auto bg-white/80">
-      <div className='rounded-mg flex items-end flex-col z-50 overflow-scroll h-[calc(100vh-296px)] w-[95%] bg-white relative shadow-md'>
+    <div className="fixed top-12 left-0 flex items-center justify-center w-full h-screen overflow-x-hidden overflow-y-auto bg-wearecrewDarkestGrey/80">
+      <div className='rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-50 overflow-scroll h-[calc(100vh-150px)] w-[95%] bg-white relative shadow-md'>
  
         <button onClick={handleClose} className="h-[40px]  flex justify-end items-center fixed w-auto px-2 [95%] bg-white rounded-full">
         <svg className="transition fill-current hover:text-blue-400"  width="30px" height="30px" x="0px" y="0px" viewBox="0 0 252 252" >

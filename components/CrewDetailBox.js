@@ -171,32 +171,86 @@ const CrewDetailBox = (crew) => {
               style={stylingLarge}
               className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md"
             ></div>
-            <div>
+            <div className="mb-4">
               <h1 className="text-3xl">{crew?.name}</h1>
               <h1 className="text-lg">{crew?.role}</h1>
             </div>
 
-            <div>
-              <div className="flex items-center gap-x-2">
-                
+            <div className="flex flex-col gap-y-6 py-4">
+              <div className="flex items-center gap-x-4">
+                <span className="material-icons">phone_iphone</span>
                 <p>{crew.phone}</p>
               </div>
-              <p>{crew.email}</p>
-              {crew.credits.map((credits, id) => (
-                <div key={credits + id} className="mt-1">
-                  <p className="text-base">{credits.jobTitle}</p>
-                  <p className="text-base">{credits.role}</p>
+              <div className="flex items-center gap-x-4">
+                <span className="material-icons">mail</span>
+                <p>{crew.email}</p>
+              </div>
+              <div className="flex items-center gap-x-4">
+                <span className="material-icons">where_to_vote</span>
+                {crew.willWorkIn.map((willWorkIn, id) => (
+                  <div key={willWorkIn + id}>
+                    <p className="min-w-max">
+                      {willWorkIn}
+                      {/* <span className="text-wearecrewBlue">     |  </span> */}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-start gap-x-4">
+                <span className="material-icons">military_tech</span>
+                <div>
+                  {crew.credits.map((credits, id) => (
+                    <div key={credits + id} className="flex items-center mb-4">
+                      {/* <span>- </span> */}
+                      <div className="flex justify-center">
+                        <p className="text-base">
+                          <cite>{credits.jobTitle}</cite>
+                        </p>
+                        <span className="text-wearecrewBlue">  |  </span>
+                        <p className="text-base">{credits.role}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-              <p>{crew.bio}</p>
-              <button>Download CV</button>
-            </div>
+              </div>
+              {crew.qualis.length > 0 ? (
+                <div className="flex items-center gap-x-4 -mt-4">
+                  <span className="material-icons">school</span>
+                  {crew?.qualis.map((quali, id) => (
+                    <div key={quali + id}>
+                      <p className="min-w-max">
+                        {quali}
+                        {/* <span className="text-wearecrewBlue">     |  </span> */}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
 
+              <div
+                className={`flex items-center gap-x-4 ${
+                  crew.qualis.length > 0 ? "" : "-mt-4"
+                }`}
+              >
+                <span className="material-icons">emoji_people</span>
+                <p>{crew.bio}</p>
+              </div>
+
+              <a
+                download
+                href={crew.cv}
+                className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md"
+              >
+                Download Personal CV
+              </a>
+            </div>
           </div>
 
           <div className=" w-[240px] flex flex-col items-end pt-10">
             <strong
-              className={`mt-4 text-3xl mb-4 ${
+              className={`mt-4 text-3xl mb-4 min-w-max ${
                 crew.status === "Available"
                   ? "text-wearecrewGreen"
                   : crew.status === "Not Available"
@@ -206,17 +260,6 @@ const CrewDetailBox = (crew) => {
             >
               {crew.status}
             </strong>
-            <div className="text-right">
-              <strong className="text-sm">Will work in</strong>
-              {crew.willWorkIn.map((willWorkIn, id) => (
-                <div key={willWorkIn + id} className="mt-2 text-right">
-                  <p className="text-base">
-                    {willWorkIn}
-                    <span> -</span>
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </CrewDetailModal>
