@@ -9,18 +9,17 @@ const listOfCrew = [
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "John Doe is a director of photography. He is a very good director.",
-    email: "",
-    phone: "",
+    email: "johndoe@test.com",
+    phone: "34563456456",
   },
   {
     id: 2,
     name: "Jane Doe",
     role: "Camera Operator",
-    image:
-      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    image:"",
     bio: "Jane Doe is a camera operator. She is a very good camera operator.",
-    email: "",
-    phone: "",
+    email: "janedoe@test.com",
+    phone: "754674567456",
   },
   {
     id: 3,
@@ -29,8 +28,8 @@ const listOfCrew = [
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Jack Doe is a camera operator. He is a very good camera operator.",
-    email: "",
-    phone: "",
+    email: "jackdoe@test.com",
+    phone: "12341234645",
   },
   {
     id: 4,
@@ -39,8 +38,8 @@ const listOfCrew = [
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Jill Doe is a focus puller. She is a very good focus puller.",
-    email: "",
-    phone: "",
+    email: "jilldoe@test.com",
+    phone: "234234647432345",
   },
   {
     id: 5,
@@ -49,8 +48,8 @@ const listOfCrew = [
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Joe Doe is a loader. He is a very good loader.",
-    email: "",
-    phone: "",
+    email: "joedoe@test.com",
+    phone: "64634634563465",
   },
   {
     id: 6,
@@ -59,8 +58,8 @@ const listOfCrew = [
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Juan Doe is a trainee. He is a very good trainee.",
-    email: "",
-    phone: "",
+    email: "juandoe@test.com",
+    phone: "12345235345",
   },
 ];
 
@@ -75,28 +74,59 @@ const CrewDetailBox = (crew) => {
         .replace(/^-+|-+$/g, "");
 
     const styling = {
-      backgroundImage: `url(${crew.image})`,
+     
+      backgroundImage: `${crew?.image ? `url(${crew?.image} )` :  `url(/images/logoNew2.png)`} `,
       width: "100px",
       height: "100px",
-      backgroundSize: "cover",
+      backgroundSize: `${crew?.image ? 'cover' : 'contain'}`,
       backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
     };
 
     return (
-      <Link
-        key={crew + i}
-        href={`/I-need-crew/crew-list/<<department>>/${slugify(crew.name)}${crew.id}`}
-      >
-        <a className="p-4 flex items-center border-b border-wearecrewBlue gap-x-4 bg-white rounded shadow-md cursor-pointer">
+      <div key={crew + i}>
+        <div className="p-4 flex items-center border-b border-wearecrewBlue gap-x-4 bg-white rounded shadow-md h-full justify-between">
           <div
             style={styling}
-            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center"
+            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
           ></div>
-          <div className="">
+          <div className="w-[210px]">
             <h2>{crew.name}</h2>
+            <h2>{crew.role}</h2>
           </div>
-        </a>
-      </Link>
+          <div className=""></div>
+          <div className="">
+            <small>Will work in</small>
+            <ul>
+              <li>England</li>
+              <li>Northern Ireland</li>
+              <li>Ireland</li>
+              <li>Scotland</li>
+              <li>Wales</li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-y-2">
+            <a href={`tel:${crew.phone}`} className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white">
+              <h1 className="text-3xl">Call</h1>
+            </a>
+            <a
+              href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+              className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+            >
+              <h1 className="text-3xl">Email</h1>
+            </a>
+          </div>
+          <Link
+            href={`/I-need-crew/crew-list/<<department>>/${slugify(crew.name)}${
+              crew.id
+            }`}
+          >
+            <a className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center">
+              <p className="text-lg text-center">Full Profile</p>
+            </a>
+          </Link>
+        </div>
+      </div>
     );
   });
 };
