@@ -16,7 +16,7 @@ const listOfCrew = [
     id: 2,
     name: "Jane Doe",
     role: "Camera Operator",
-    image:"",
+    image: "",
     bio: "Jane Doe is a camera operator. She is a very good camera operator.",
     email: "janedoe@test.com",
     phone: "754674567456",
@@ -73,58 +73,131 @@ const CrewDetailBox = (crew) => {
         .replace(/[\s_-]+/g, "-")
         .replace(/^-+|-+$/g, "");
 
-    const styling = {
-     
-      backgroundImage: `${crew?.image ? `url(${crew?.image} )` :  `url(/images/logoNew2.png)`} `,
-      width: "100px",
-      height: "100px",
-      backgroundSize: `${crew?.image ? 'cover' : 'contain'}`,
+    const stylingLarge = {
+      backgroundImage: `${
+        crew?.image ? `url(${crew?.image} )` : `url(/images/logoNew2.png)`
+      } `,
+      minWidth: "100px",
+      minHeight: "100px",
+      backgroundSize: `${crew?.image ? "cover" : "contain"}`,
       backgroundPosition: "center",
-      backgroundRepeat: "no-repeat"
+      backgroundRepeat: "no-repeat",
+    };
+    const stylingSmall = {
+      backgroundImage: `${
+        crew?.image ? `url(${crew?.image} )` : `url(/images/logoNew2.png)`
+      } `,
+      minWidth: "60px",
+      minHeight: "60px",
+      backgroundSize: `${crew?.image ? "cover" : "contain"}`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     };
 
     return (
       <div key={crew + i}>
-        <div className="p-4 flex items-center border-b border-wearecrewBlue gap-x-4 bg-white rounded shadow-md h-full justify-between">
-          <div
-            style={styling}
-            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
-          ></div>
-          <div className="w-[210px]">
-            <h2>{crew.name}</h2>
-            <h2>{crew.role}</h2>
-          </div>
-          <div className=""></div>
-          <div className="">
-            <small>Will work in</small>
-            <ul>
-              <li>England</li>
-              <li>Northern Ireland</li>
-              <li>Ireland</li>
-              <li>Scotland</li>
-              <li>Wales</li>
-            </ul>
-          </div>
-          <div className="flex flex-col gap-y-2">
-            <a href={`tel:${crew.phone}`} className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white">
-              <h1 className="text-3xl">Call</h1>
-            </a>
-            <a
-              href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
-              className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+        <div className="border-b border-wearecrewBlue rounded shadow-md bg-white h-full">
+          {/*Larger screen layout*/}
+          <div className="hidden md:flex p-4 items-center gap-x-4 justify-between">
+            <div
+              style={stylingLarge}
+              className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
+            ></div>
+            <div className="w-[210px]">
+              <h2>{crew.name}</h2>
+              <h2>{crew.role}</h2>
+            </div>
+            <div className=""></div>
+            <div className="">
+              <small>Will work in</small>
+              <ul>
+                <li>England</li>
+                <li>Northern Ireland</li>
+                <li>Ireland</li>
+                <li>Scotland</li>
+                <li>Wales</li>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-y-2">
+              <a
+                href={`tel:${crew.phone}`}
+                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+              >
+                <h1 className="text-3xl">Call</h1>
+              </a>
+              <a
+                href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+              >
+                <h1 className="text-3xl">Email</h1>
+              </a>
+            </div>
+            <Link
+              href={`/I-need-crew/crew-list/<<department>>/${slugify(
+                crew.name
+              )}${crew.id}`}
             >
-              <h1 className="text-3xl">Email</h1>
-            </a>
+              <a className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center">
+                <p className="text-lg text-center">Full Profile</p>
+              </a>
+            </Link>
           </div>
-          <Link
-            href={`/I-need-crew/crew-list/<<department>>/${slugify(crew.name)}${
-              crew.id
-            }`}
-          >
-            <a className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center">
-              <p className="text-lg text-center">Full Profile</p>
-            </a>
-          </Link>
+
+          {/*Smaller screen layout*/}
+          <div className="flex flex-col md:hidden p-2 gap-x-2 gap-y-8">
+            <div className="w-full flex flex-col justify-between gap-x-2 gap-y-4">
+              
+              <div className="flex justify-between items-center">
+                <div
+                  style={stylingSmall}
+                  className="rounded-full overflow-hidden w-[60px] h-[60px] flex items-center justify-end shadow-md"
+                ></div>
+                <div className="w-[210px] text-right">
+                  <strong>{crew.name}</strong>
+                  <h2>{crew.role}</h2>
+                </div>
+              </div>
+
+              <div className="w-full text-center">
+                <small className="text-center">
+                  <strong>Will work in</strong>
+                </small>
+                <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 w-full">
+                  <li className="min-w-max">England</li>
+                  <li className="min-w-max">Northern Ireland</li>
+                  <li className="min-w-max">Ireland</li>
+                  <li className="min-w-max">Scotland</li>
+                  <li className="min-w-max">Wales</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-y-4">
+              <div className="flex justify-between gap-x-2">
+                <a
+                  href={`tel:${crew.phone}`}
+                  className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white"
+                >
+                  <h1 className="text-3xl">Call</h1>
+                </a>
+                <a
+                  href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+                  className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white"
+                >
+                  <h1 className="text-3xl">Email</h1>
+                </a>
+              </div>
+              <Link
+                href={`/I-need-crew/crew-list/<<department>>/${slugify(
+                  crew.name
+                )}${crew.id}`}
+              >
+                <a className="rounded p-2 border-b border-wearecrewBlue shadow-md flex items-center justify-center">
+                  <p className="text-lg text-center">Full Profile</p>
+                </a>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     );
