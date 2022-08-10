@@ -15,14 +15,25 @@ export default function CrewDetailModal({show, onClose, children}) {
     onClose();
   }
 
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '15px';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = '0px';
+    };
+  }, [show]);
+
   const modalContent = show ? (
     <>
     <div onClick={handleClose} className="fixed top-12 left-0 flex items-center justify-center w-full h-screen overflow-x-hidden overflow-y-auto z-40 bg-wearecrewDarkestGrey/80">
     </div>
-    <div className='rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-50 overflow-scroll max-h-[calc(100vh-150px)] w-[95%] bg-white  shadow-md absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+    <div className='rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-50 overflow-scroll max-h-[calc(100vh-150px)] w-[95%] bg-white  shadow-md fixed top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
  
         <button onClick={handleClose} className="h-[40px]  flex justify-end items-center fixed w-auto px-2 [95%] bg-white rounded-full">
-        <svg className="transition fill-current hover:text-blue-400"  width="30px" height="30px" x="0px" y="0px" viewBox="0 0 252 252" >
+        <svg className="transition fill-current hover:text-wearecrewDarkBlue"  width="30px" height="30px" x="0px" y="0px" viewBox="0 0 252 252" >
           <g>
             <path d="M126,0C56.523,0,0,56.523,0,126s56.523,126,126,126s126-56.523,126-126S195.477,0,126,0z M126,234
               c-59.551,0-108-48.449-108-108S66.449,18,126,18s108,48.449,108,108S185.551,234,126,234z"/>

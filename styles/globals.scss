@@ -35,6 +35,10 @@ body {
   color: #484848;
 }
 
+.transition {
+  @apply transition-all ease-in-out duration-300;
+}
+
 
 .banner {
   background: rgb(3, 171, 235);

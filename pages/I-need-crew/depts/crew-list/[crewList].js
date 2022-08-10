@@ -76,7 +76,7 @@ const listOfCrew = [
       },
     ],
     bio: "Jack Doe is a camera operator. He is a very good camera operator.",
-    cv: "/images/logoNew2.png"
+    cv: ""
 
   },
   {
