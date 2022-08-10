@@ -241,14 +241,16 @@ const CrewDetailBox = (crew) => {
                 </div>
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">where_to_vote</span>
-                  {crew.willWorkIn.map((willWorkIn, id) => (
-                    <div key={willWorkIn + id}>
-                      <p className="min-w-max">
-                        {willWorkIn}
-                        {/* <span className="text-wearecrewBlue">     |  </span> */}
-                      </p>
-                    </div>
-                  ))}
+                  <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                    {crew.willWorkIn.map((willWorkIn, id) => (
+                      <div key={willWorkIn + id}>
+                        <p className="min-w-max">
+                          {willWorkIn}
+                          {/* <span className="text-wearecrewBlue">     |  </span> */}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="flex items-start gap-x-4">
                   <span className="material-icons">military_tech</span>
