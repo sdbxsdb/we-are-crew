@@ -25,7 +25,7 @@ const IAmCrew = () => {
       </Head>
 
       {user && (
-        <div className=" w-full flex justify-center pt-12">
+        <div className=" w-full flex justify-center py-12">
           <div className="bg-white shadow-md rounded-md w-11/12 md:min-w-[400px] md:w-[600px] px-12 py-12">
             <div className="flex justify-center">
               <h1 className="text-3xl">My Crew</h1>
@@ -33,7 +33,7 @@ const IAmCrew = () => {
             <div className="w-full mt-16">
               <p className="text-center">Status</p>
               <div className="flex justify-center">
-                <div className="radio_container h-full px-4 py-2 text-sm sm:text-lg">
+                <div className="radio_container h-full px-1 md:px-4 py-2 text-sm sm:text-lg">
                   <div id="notAvail">
                     <input type="radio" name="radio" id="one" />
                     <label htmlFor="one" className="min-w-max">

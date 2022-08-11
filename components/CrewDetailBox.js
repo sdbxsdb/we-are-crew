@@ -46,10 +46,10 @@ const CrewDetailBox = (crew) => {
   return (
     <div>
       <div
-        className={`fixed top-0 z-50 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition
-        ${isCopied ? "translate-y-0" : "-translate-y-20"}`}
+        className={`fixed top-0 z-3000 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition min-w-[210px]
+        ${isCopied ? "translate-y-0" : "-translate-y-24"}`}
       >
-        <strong className="text-lg text-white">Copied to Clipboard!</strong>
+        <strong className="text-lg text-white min-w-max">Copied to Clipboard!</strong>
       </div>
       <div className="border-b border-wearecrewBlue rounded shadow-md bg-white h-full">
         {/*Larger screen layout*/}
@@ -214,27 +214,27 @@ const CrewDetailBox = (crew) => {
               <div className="flex flex-1 flex-col gap-y-6 py-4">
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">phone_iphone</span>
-                  <p>{crew.phone}</p>
+                  <a href={`tel:${crew.phone}`} className="underline">{crew.phone}</a>
                   <button
                     onClick={() => copyPhone()}
-                    className="text-wearecrewDarkGrey"
+                    className="text-wearecrewDarkGrey hidden md:block"
                   >
                     <cite>Copy Phone</cite>
                   </button>
                 </div>
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">mail</span>
-                  <p>{crew.email}</p>
+                  <a href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`} className="underline">{crew.email}</a>
                   <button
                     onClick={() => copyEmail()}
-                    className="text-wearecrewDarkGrey"
+                    className="text-wearecrewDarkGrey hidden md:block"
                   >
                     <cite>Copy Email</cite>
                   </button>
                 </div>
-                <div className="flex items-center gap-x-4">
+                <div className="flex items-start gap-x-4">
                   <span className="material-icons">where_to_vote</span>
-                  <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                  <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
                     {crew.willWorkIn.map((willWorkIn, id) => (
                       <div key={willWorkIn + id}>
                         <p className="min-w-max">
@@ -270,7 +270,7 @@ const CrewDetailBox = (crew) => {
                     <span className="material-icons">school</span>
 
                     <div>
-                      <p className="min-w-max">
+                      <p className="">
                         {crew.qualis}
                         {/* <span className="text-wearecrewBlue">     |  </span> */}
                       </p>

@@ -171,7 +171,7 @@ const listOfCrew = [
 
 const crewList = () => {
   return (
-    <div className="px-12 pt-12">
+    <div className="px-12 p-12 w-full h-fit border-2 border-blue-500">
       <Link href="/I-need-crew/depts">
         <a className="font-semibold">&#x2190; Back to Departments</a>
       </Link>
@@ -182,7 +182,7 @@ const crewList = () => {
 
       <div className="w-full flex justify-center">
         <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
-          <div className="flex flex-1 rounded-md flex-col gap-y-4 lg:overflow-scroll max-h-[calc(100vh-252px)]">
+          <div className="flex flex-1 rounded-md flex-col gap-y-4 mb-12">
             {listOfCrew.map((crew) => (
               <CrewDetailBox
                 key={crew.id}
@@ -201,11 +201,15 @@ const crewList = () => {
             ))}
           </div>
 
-          <div className=" w-full lg:w-3/12 shadow-md bg-white border-b-wearecrewBlue rounded-md p-4 lg:h-fit mb-4 md:mb-0">
+
+          <div className=" w-full lg:w-3/12 shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
             <p className="text-center mb-4 font-semibold text-lg">
               Filter by Role
             </p>
             <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
+              <li className="lg:w-full max-w-3/12">
+                <button className="w-full">All</button>
+              </li>
               <li className="lg:w-full max-w-3/12">
                 <button className="w-full">Director of Photography</button>
               </li>
