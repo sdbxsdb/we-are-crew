@@ -63,14 +63,12 @@ const CrewDetailBox = (crew) => {
               <strong> {crew.name}</strong>
             </h2>
             <h2>{crew.role}</h2>
-            {crew.qualis.map((quali, id) => (
-              <ul key={quali + id}>
-                <li>
-                  <span>- </span>
-                  <small>{quali}</small>
-                </li>
-              </ul>
-            ))}
+
+            {crew?.qualis && (
+              <div className="flex items-center">
+                <small>{crew?.qualis}</small>
+              </div>
+            )}
 
             <strong
               className={`mt-4 ${
@@ -85,8 +83,10 @@ const CrewDetailBox = (crew) => {
             </strong>
           </div>
 
-          <div className="">
-            <small>Will work in</small>
+          <div className="flex flex-col justify-start min-w-[120px] min-h-[161px]">
+            <small>
+              <strong>Will work in</strong>
+            </small>
             {crew.willWorkIn.map((willWorkIn, id) => (
               <div key={willWorkIn + id} className="mt-1">
                 {willWorkIn}
@@ -140,14 +140,7 @@ const CrewDetailBox = (crew) => {
                 </div>
                 <h2>{crew.role}</h2>
                 <div className="mt-2">
-                  {crew.qualis.map((quali, id) => (
-                    <ul key={quali + id}>
-                      <li>
-                        <small>{quali}</small>
-                        <span> -</span>
-                      </li>
-                    </ul>
-                  ))}
+                  <small>{crew?.qualis}</small>
                 </div>
               </div>
             </div>
@@ -272,24 +265,23 @@ const CrewDetailBox = (crew) => {
                     ))}
                   </div>
                 </div>
-                {crew.qualis.length > 0 ? (
+                {crew.qualis ? (
                   <div className="flex items-center gap-x-4 -mt-4">
                     <span className="material-icons">school</span>
-                    {crew?.qualis.map((quali, id) => (
-                      <div key={quali + id}>
-                        <p className="min-w-max">
-                          {quali}
-                          {/* <span className="text-wearecrewBlue">     |  </span> */}
-                        </p>
-                      </div>
-                    ))}
+
+                    <div>
+                      <p className="min-w-max">
+                        {crew.qualis}
+                        {/* <span className="text-wearecrewBlue">     |  </span> */}
+                      </p>
+                    </div>
                   </div>
                 ) : (
                   ""
                 )}
                 <div
                   className={`flex items-center gap-x-4 ${
-                    crew.qualis.length > 0 ? "" : "-mt-4"
+                    crew.qualis ? "" : "-mt-4"
                   }`}
                 >
                   <span className="material-icons">emoji_people</span>

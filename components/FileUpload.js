@@ -21,7 +21,7 @@ const FileUpload = () => {
 
   return (
       <div className="file-uploader relative">
-          <input className="absolute left-0 opacity-0" type="file" onChange={handleFileInput} value={selectedFile} />
+          <input className="absolute left-0 opacity-0 borderRed h-[40px] w-[100px]" type="file" onChange={handleFileInput} value={selectedFile} />
           <button className="p-2 rounded-md border-2 border-wearecrewBlue" onClick={e => fileInput.current && fileInput.current.click()}>Upload CV</button>
       </div>
   )

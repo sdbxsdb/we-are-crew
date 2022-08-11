@@ -90,7 +90,7 @@ const listOfCrew = [
     phone: "234234647432345",
     status: "On Dalies",
     willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
-    qualis: "Focus Puller Course, Focus Puller Course Grade 2",
+    qualis: "Focus Puller Course - Focus Puller Course Grade 2",
     credits: [
       {
         jobTitle: "Fight Club",
@@ -201,7 +201,7 @@ const crewList = () => {
             ))}
           </div>
 
-          <div className=" w-full lg:w-3/12 shadow-md bg-white border-b-wearecrewBlue rounded-md p-4 lg:h-fit">
+          <div className=" w-full lg:w-3/12 shadow-md bg-white border-b-wearecrewBlue rounded-md p-4 lg:h-fit mb-4 md:mb-0">
             <p className="text-center mb-4 font-semibold text-lg">
               Filter by Role
             </p>

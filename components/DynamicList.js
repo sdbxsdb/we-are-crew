@@ -59,9 +59,9 @@ function DynamicList() {
                 value={x.yourRole}
                 onChange={(e) => handleInputChange(e, i)}
               />
-              <div className="absolute -right-10 bottom-0">
+              <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 text-2xl font-bold">
                 {inputList.length - 1 === i && (
-                  <button onClick={handleAddClick}>Add</button>
+                  <button onClick={handleAddClick}>&#43;</button>
                 )}
               </div>
               <div className="flex justify-center">
