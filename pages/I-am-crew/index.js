@@ -27,44 +27,44 @@ const IAmCrew = () => {
 
       {user && (
         <div className="flex w-full justify-center pt-12">
-          <div className="bg-white shadow-md rounded-md min-w-[400px] w-[600px] px-12 py-12">
+          <div className="bg-white shadow-md rounded-md w-11/12 md:min-w-[400px] md:w-[600px] px-12 py-12">
             <div className="flex justify-center">
               <h1 className="text-3xl">My Crew</h1>
             </div>
             <div className="w-full mt-16">
               <p className="text-center">Status</p>
               <div className="flex justify-center">
-                <div className="radio_container">
+                <div className="radio_container h-full px-4 py-2 text-md md:text-lg">
                   <div id="notAvail">
                     <input type="radio" name="radio" id="one" />
-                    <label htmlFor="one">Not Available</label>
+                    <label htmlFor="one" className="min-w-max">Not Available</label>
                   </div>
                   <div id="semiAvail">
                     <input type="radio" name="radio" id="two" />
-                    <label htmlFor="two">On Dailies</label>
+                    <label htmlFor="two" className="min-w-max">On Dailies</label>
                   </div>
                   <div id="avail">
                     <input type="radio" name="radio" id="three" />
-                    <label htmlFor="three">Available</label>
+                    <label htmlFor="three" className="min-w-max">Available</label>
                   </div>
                 </div>
               </div>
             </div>
             <div className="">
               <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
-                <li className="relative styledList">
+                <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="name"
                     type="text"
                     defaultValue={user?.name}
-                    className="border shadow-md"
+                    className="border shadow-md w-full"
                     onChange={onInputChangeHandler}
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
                   <label htmlFor="name">Name</label>
                 </li>
-                <li className="flex flex-col styledList">
+                <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Department</p>
                   <select name="dept">
                     <option disabled>Choose Deptartment</option>
@@ -75,24 +75,24 @@ const IAmCrew = () => {
                     <option value="Assistant Directors">Grips</option>
                   </select>
                 </li>
-                <li className="relative styledList">
+                <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="grade"
                     type="text"
                     defaultValue={user?.grade}
-                    className="border shadow-md"
+                    className="border shadow-md w-full"
                     required
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
                   <label htmlFor="grade">Grade / Title</label>
                 </li>
-                <li className="relative styledList">
+                <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="safetyQualifications"
                     type="text"
                     defaultValue={user?.safetyQualifications}
-                    className="border shadow-md"
+                    className="border shadow-md w-full"
                     required
                   />
                   <span className="highlight"></span>
@@ -102,97 +102,97 @@ const IAmCrew = () => {
                     Safety or other Qualifications
                   </label>
                 </li>
-                <div className="flex flex-col relative mb-4 w-[420px]">
+                <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Will work in</p>
-                  <div className="flex flex-col gap-y-2">
-                    <div className="flex gap-x-4">
-                      <li>
+                  <div className="flex flex-wrap flex-col sm:flex-row gap-y-2 gap-x-4">
+
+                      <li className="w-auto">
                         <input
                           type="checkbox"
                           className="chb chb-3"
                           id="england"
                         />
-                        <label htmlFor="england">England</label>
+                        <label className="min-w-max" htmlFor="england">England</label>
                       </li>
-                      <li>
+                      <li className="w-auto">
                         <input
                           type="checkbox"
                           className="chb chb-3"
                           id="scotland"
                         />
-                        <label htmlFor="scotland">Scotland</label>
+                        <label className="min-w-max" htmlFor="scotland">Scotland</label>
                       </li>
-                      <li>
+                      <li className="w-auto">
                         <input
                           type="checkbox"
                           className="chb chb-3"
                           id="wales"
                         />
-                        <label htmlFor="wales">Wales</label>
+                        <label className="min-w-max" htmlFor="wales">Wales</label>
                       </li>
-                    </div>
-                    <div className="flex gap-x-4">
-                      <li>
+
+
+                      <li className="w-auto">
                         <input
                           type="checkbox"
                           className="chb chb-3"
                           id="ireland"
                         />
-                        <label htmlFor="ireland">Ireland</label>
+                        <label className="min-w-max" htmlFor="ireland">Ireland</label>
                       </li>
-                      <li>
+                      <li className="w-auto">
                         <input
                           type="checkbox"
                           className="chb chb-3"
                           id="northernIreland"
                         />
-                        <label htmlFor="northernIreland">
+                        <label className="min-w-max" htmlFor="northernIreland">
                           Northern Ireland
                         </label>
                       </li>
-                      <li>
+                      <li className="w-auto">
                         <input
                           type="checkbox"
                           className="chb chb-3"
                           id="outsideUK"
                         />
-                        <label htmlFor="outsideUK">Outside the UK</label>
+                        <label className="min-w-max" htmlFor="outsideUK">Outside the UK</label>
                       </li>
-                    </div>
+
                   </div>
                 </div>
-                <li className="relative styledList">
+                <li className="relative styledList w-full md:w-[420px]">
                 <p className="text-sm text-wearecrewBlue">Email</p>
                   <input
                     name="email"
                     type="text"
                     value={user?.email}
-                    className="border shadow-md opacity-30 cursor-not-allowed"
+                    className="border shadow-md w-full opacity-30 cursor-not-allowed"
                     disabled
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
 
                 </li>
-                <div className="">
-                  <li className="relative styledList">
+                <>
+                  <li className="relative styledList w-full md:w-[420px]">
                     <input
                       name="phone"
                       type="number"
                       defaultValue={user?.phone}
-                      className="border shadow-md"
+                      className="border shadow-md w-full"
                       required
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <label htmlFor="phone">Phone</label>
                   </li>
-                  <span title="" className="tooltip w-full">
+                  <span title="" className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px]">
                     Area Code?
                   </span>
-                </div>
+                </>
                 <DynamicList />
-                <li className="relative styledList">
+                <li className="relative styledList w-full md:w-[420px]">
                   <LimitedTextarea limit={240} value="" rows={5} name="bio" />
                   <span className="highlight"></span>
                   <span className="bar"></span>

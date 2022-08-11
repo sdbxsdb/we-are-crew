@@ -14,7 +14,7 @@ const listOfCrew = [
     phone: "34563456456",
     status: "Available",
     willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
-    qualis: [],
+    qualis: '',
     credits: [
       {
         jobTitle: "America Physco",
@@ -38,7 +38,7 @@ const listOfCrew = [
     phone: "754674567456",
     status: "Not Available",
     willWorkIn: ["England", "Northern Ireland", "Ireland"],
-    qualis: [],
+    qualis: '',
     credits: [
       {
         jobTitle: "A Movie Title",
@@ -64,7 +64,7 @@ const listOfCrew = [
     phone: "12341234645",
     status: "On Dalies",
     willWorkIn: ["England"],
-    qualis: [ "Steadicam Course"],
+    qualis: "Steadicam Course",
     credits: [
       {
         jobTitle: "Mission Impossible",
@@ -90,7 +90,7 @@ const listOfCrew = [
     phone: "234234647432345",
     status: "On Dalies",
     willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
-    qualis: [ "Focus Puller Course", "Focus Puller Course Grade 2",],
+    qualis: "Focus Puller Course, Focus Puller Course Grade 2",
     credits: [
       {
         jobTitle: "Fight Club",
@@ -128,7 +128,7 @@ const listOfCrew = [
     phone: "64634634563465",
     status: "Available",
     willWorkIn: ["England", "Scotland", "Wales"],
-    qualis: [],
+    qualis: '',
     credits: [
       {
         jobTitle: "Some movie",
@@ -152,7 +152,7 @@ const listOfCrew = [
     phone: "12345235345",
     status: "Not Available",
     willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
-    qualis: [],
+    qualis: '',
     credits: [
       {
         jobTitle: "Harry Potter",

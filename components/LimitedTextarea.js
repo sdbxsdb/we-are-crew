@@ -13,6 +13,7 @@ const LimitedTextarea = ({ rows, cols, value, limit }) => {
   return (
     <>
       <textarea
+        className="border shadow-md w-full"
         rows={rows}
         cols={cols}
         onChange={(event) => setFormattedContent(event.target.value)}

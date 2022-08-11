@@ -21,7 +21,7 @@ export default function Home() {
         <Banner />
       </div>
 
-      <div className="h-[calc(100vh-296px)] flex w-full justify-around items-center">
+      <div className="h-[calc(100vh-296px)] flex gap-x-4 flex-col md:flex-row w-full justify-around items-center px-8">
         <LargeButton text="I need crew" link="/I-need-crew/depts" />
         {user && (
           <LargeButton text="I am crew" link="/I-am-crew" />

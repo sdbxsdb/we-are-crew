@@ -31,7 +31,10 @@ const NavBar = () => {
         </a>
       </Link>
 
-      <div className="flex gap-x-4 px-4 text-wearecrewDarkestGrey font-bold">
+      <div className="flex gap-x-6 md:gap-x-8 px-4 text-wearecrewDarkestGrey font-bold">
+      <Link href="/I-am-crew">
+          <a>About</a>
+        </Link>
         { !user?.email ? 
         <Link href="/auth">
           <a>Sign In / Register</a>
