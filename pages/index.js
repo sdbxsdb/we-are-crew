@@ -2,12 +2,13 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
-import firebase from "../firebase/initFirebase";
-import WriteToCloudFirestore from '../components/cloudFirestore/Write';
+import { useUser } from "../firebase/useUser";
 
-firebase();
 
 export default function Home() {
+  const { user, logout } = useUser();
+
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -20,12 +21,16 @@ export default function Home() {
         <Banner />
       </div>
 
-      <WriteToCloudFirestore />
-      
-      <div className=" h-[calc(100vh-296px)] flex w-full justify-around items-center">
+      <div className="md:h-[calc(100vh-296px)] flex gap-x-4 gap-y-4 flex-col md:flex-row w-full justify-around items-center px-8 py-12">
         <LargeButton text="I need crew" link="/I-need-crew/depts" />
-        <LargeButton text="I am crew" link="/I-am-crew" />
+        {user && (
+          <LargeButton text="I am crew" link="/I-am-crew" />
+        )}
+        {!user && (
+          <LargeButton text="I am crew" link="/auth" />
+        )}
       </div>
+      
     </div>
   );
 }
