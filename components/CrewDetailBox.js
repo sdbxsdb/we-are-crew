@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from "react";
 import CrewDetailModal from "./CrewDetailModal";
 import { useRouter } from "next/router";
+import copy from 'copy-to-clipboard';
+
 
 const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
@@ -42,37 +44,37 @@ const CrewDetailBox = (crew) => {
   const [copiedText, setCopiedText] = useState('');
 
   const copyPhone = () => {
-    navigator.clipboard.writeText(`${crew.phone}`);
+    copy(crew.phone);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
-    setCopiedText('Copied Phone!');
+    setCopiedText('Phone Copied!');
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(`${crew.email}`);
+    copy(crew.email);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
-    setCopiedText('Copied Email!');
+    setCopiedText('Email Eopied!');
   };
 
 
   const shareProfileHandler = () => {
-    navigator.clipboard.writeText(`localhost:3000${router.asPath}`);
+    copy(`localhost:3000${router.asPath}`);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
-    setCopiedText('Copied Profile!');
+    setCopiedText('Profile Copied!');
   };
 
   return (
     <div>
       <div
-        className={`fixed top-0 z-3000 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition flex justify-center min-w-[100px]
+        className={`fixed top-0 z-4000 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition flex justify-center min-w-[100px]
         ${isCopied ? "translate-y-0" : "-translate-y-24"}`}
       >
         <strong className="text-lg text-white min-w-max">
@@ -252,7 +254,7 @@ const CrewDetailBox = (crew) => {
                   </a>
                   <button
                     onClick={() => copyPhone()}
-                    className="text-wearecrewDarkGrey hidden md:block"
+                    className="text-wearecrewDarkGrey"
                   >
                     <cite>Copy Phone</cite>
                   </button>
@@ -267,7 +269,7 @@ const CrewDetailBox = (crew) => {
                   </a>
                   <button
                     onClick={() => copyEmail()}
-                    className="text-wearecrewDarkGrey hidden md:block"
+                    className="text-wearecrewDarkGrey"
                   >
                     <cite>Copy Email</cite>
                   </button>
