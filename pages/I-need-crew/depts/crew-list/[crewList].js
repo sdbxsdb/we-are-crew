@@ -171,7 +171,7 @@ const listOfCrew = [
 
 const crewList = () => {
   return (
-    <div className="px-12 p-12 w-full h-fit border-2 border-blue-500">
+    <div className="px-12 p-12 w-full h-fit">
       <Link href="/I-need-crew/depts">
         <a className="font-semibold">&#x2190; Back to Departments</a>
       </Link>
@@ -186,6 +186,7 @@ const crewList = () => {
             {listOfCrew.map((crew) => (
               <CrewDetailBox
                 key={crew.id}
+                id={crew.id}
                 name={crew.name}
                 role={crew.role}
                 image={crew.image}

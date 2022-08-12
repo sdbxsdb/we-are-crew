@@ -1,8 +1,21 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import CrewDetailModal from "./CrewDetailModal";
+import { useRouter } from "next/router";
 
 const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
+
+
+  useEffect(() => {
+  
+  if (router.asPath.includes("user=" && "&showModal=true")) {
+    console.log("TEST" , router);
+    if ( router.query.user === crew.name + "_" + crew.id) {
+      setShowModal(true);
+    }
+  }}, [router.asPath, crew.id, crew.name]);
+
 
   const stylingLarge = {
     backgroundImage: `${
@@ -43,13 +56,24 @@ const CrewDetailBox = (crew) => {
     }, 2000);
   };
 
+
+  const shareProfileHandler = () => {
+    navigator.clipboard.writeText(`localhost:3000${router.asPath}`);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  };
+
   return (
     <div>
       <div
-        className={`fixed top-0 z-3000 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition min-w-[210px]
+        className={`fixed top-0 z-3000 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition flex justify-center min-w-[100px]
         ${isCopied ? "translate-y-0" : "-translate-y-24"}`}
       >
-        <strong className="text-lg text-white min-w-max">Copied to Clipboard!</strong>
+        <strong className="text-lg text-white min-w-max">
+          Copied!
+        </strong>
       </div>
       <div className="border-b border-wearecrewBlue rounded shadow-md bg-white h-full">
         {/*Larger screen layout*/}
@@ -181,7 +205,12 @@ const CrewDetailBox = (crew) => {
         </div>
       </div>
 
-      <CrewDetailModal show={showModal} onClose={() => setShowModal(false)}>
+      <CrewDetailModal
+        show={showModal}
+        id={crew.id}
+        name={crew.name}
+        onClose={() => setShowModal(false)}
+      >
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
             <div className="w-full flex justify-between">
@@ -214,7 +243,9 @@ const CrewDetailBox = (crew) => {
               <div className="flex flex-1 flex-col gap-y-6 py-4">
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">phone_iphone</span>
-                  <a href={`tel:${crew.phone}`} className="underline">{crew.phone}</a>
+                  <a href={`tel:${crew.phone}`} className="underline">
+                    {crew.phone}
+                  </a>
                   <button
                     onClick={() => copyPhone()}
                     className="text-wearecrewDarkGrey hidden md:block"
@@ -224,7 +255,12 @@ const CrewDetailBox = (crew) => {
                 </div>
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">mail</span>
-                  <a href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`} className="underline">{crew.email}</a>
+                  <a
+                    href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+                    className="underline"
+                  >
+                    {crew.email}
+                  </a>
                   <button
                     onClick={() => copyEmail()}
                     className="text-wearecrewDarkGrey hidden md:block"
@@ -311,6 +347,12 @@ const CrewDetailBox = (crew) => {
                       <h1 className="text-lg">Download Personal CV</h1>
                     </a>
                   )}
+
+                  <button onClick={() => shareProfileHandler()}
+                    className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md"
+                  >
+                    <h1 className="text-lg">Share This Profile</h1>
+                  </button>
                 </div>
               </div>
             </div>
