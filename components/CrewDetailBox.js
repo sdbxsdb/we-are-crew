@@ -39,6 +39,7 @@ const CrewDetailBox = (crew) => {
   };
 
   const [isCopied, setIsCopied] = useState(false);
+  const [copiedText, setCopiedText] = useState('');
 
   const copyPhone = () => {
     navigator.clipboard.writeText(`${crew.phone}`);
@@ -46,6 +47,7 @@ const CrewDetailBox = (crew) => {
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
+    setCopiedText('Copied Phone!');
   };
 
   const copyEmail = () => {
@@ -54,6 +56,7 @@ const CrewDetailBox = (crew) => {
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
+    setCopiedText('Copied Email!');
   };
 
 
@@ -63,6 +66,7 @@ const CrewDetailBox = (crew) => {
     setTimeout(() => {
       setIsCopied(false);
     }, 2000);
+    setCopiedText('Copied Profile!');
   };
 
   return (
@@ -72,7 +76,7 @@ const CrewDetailBox = (crew) => {
         ${isCopied ? "translate-y-0" : "-translate-y-24"}`}
       >
         <strong className="text-lg text-white min-w-max">
-          Copied!
+          {copiedText}
         </strong>
       </div>
       <div className="border-b border-wearecrewBlue rounded shadow-md bg-white h-full">
