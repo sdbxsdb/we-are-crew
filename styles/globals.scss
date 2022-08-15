@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300;400;500;600;700&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
 @import 'material-icons/iconfont/material-icons.css';
+@import "@fontsource/anton";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,7 +27,7 @@
 }
 
 h1 {
-  font-family: 'Anton';
+  font-family: 'Anton', sans-serif;
 }
 
 body {
