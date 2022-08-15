@@ -5,10 +5,10 @@ const about = () => {
     <div className="aboutPage pb-12">
 
       <div className="w-full banner flex justify-center items-center p-12 mb-12 text-white">
-        <h1 className=" text-2xl text-center md:text-3xl">Any experience. Any department. Anyone.</h1>
+        <h1 className="text-2xl text-center md:text-3xl">Any experience. Any department. Anyone.</h1>
       </div>
 
-      <div className="px-12 flex flex-col md:flex-row gap-x-4 gap-y-4 mb-4">
+      <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4 mb-4">
         <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
           <h1 className="text-2xl mb-2">What is it?</h1>
           <p>

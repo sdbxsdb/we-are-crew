@@ -33,7 +33,7 @@ const IAmCrew = () => {
             <div className="w-full mt-16">
               <p className="text-center">Status</p>
               <div className="flex justify-center">
-                <div className="radio_container h-full px-1 md:px-4 py-2 text-sm sm:text-lg">
+                <div className="radio_container h-full gap-x-8 md:rounded-full px-4 py-2 text-sm sm:text-lg">
                   <div id="notAvail">
                     <input type="radio" name="radio" id="one" />
                     <label htmlFor="one" className="min-w-max">

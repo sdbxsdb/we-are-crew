@@ -171,7 +171,7 @@ const listOfCrew = [
 
 const crewList = () => {
   return (
-    <div className="px-12 p-12 w-full h-fit">
+    <div className="px-4 md:px-12 p-12 w-full h-fit">
       <Link href="/I-need-crew/depts">
         <a className="font-semibold">&#x2190; Back to Departments</a>
       </Link>
