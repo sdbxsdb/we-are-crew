@@ -2,7 +2,14 @@ import React from "react";
 import Head from "next/head";
 import DeptCard from "../../../components/DeptCard";
 
+
+ const searchInputHandler = (e) => {
+  console.log(e.target.value);
+ }
+
+
 const INeedCrew = () => {
+  
   return (
     <>
       <Head>
@@ -15,8 +22,11 @@ const INeedCrew = () => {
       </Head>
       <div className="px-4 md:px-12 py-12">
         <h1 className="text-3xl">Which Department are you looking for?</h1>
+        <div className="w-full  flex justify-center mt-12 mb-4">
+          <input type="text" onChange={searchInputHandler} className="bg-white border-b w-[400px] border-wearecrewBlue rounded-md p-4 outline-0" placeholder="Search Departments..." />
+        </div>
         <div className= "flex justify-center w-full">
-          <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mt-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <DeptCard dept="Action Vehicles" imgUrl="../../../images/icons/actionVeh.png"/>
             <DeptCard dept="Acting" imgUrl="../../../images/icons/acting.png"/>
             <DeptCard dept="Animals" imgUrl="../../../images/icons/animals.png"/>
@@ -29,8 +39,9 @@ const INeedCrew = () => {
             <DeptCard dept="Construction" imgUrl="../../../images/icons/construction.png"/>
             <DeptCard dept="Continuity" imgUrl="../../../images/icons/continuity.png"/>
             <DeptCard dept="Costume" imgUrl="../../../images/icons/costume.png"/>
+            <DeptCard dept="Covid" imgUrl="../../../images/icons/covid.png"/>
             <DeptCard dept="Directors" imgUrl="../../../images/icons/directors.png"/>
-            <DeptCard dept="Editoral / Post" imgUrl="../../../images/icons/editorial.png"/>
+            <DeptCard dept="Editoral & Post" imgUrl="../../../images/icons/editorial.png"/>
             <DeptCard dept="Electrical" imgUrl="../../../images/icons/electrical.png"/>
             <DeptCard dept="Grip" imgUrl="../../../images/icons/grip.png"/>
             <DeptCard dept="Hair & Make-up" imgUrl="../../../images/icons/hairMakeUp.png"/>

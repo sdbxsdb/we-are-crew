@@ -80,7 +80,34 @@ const IAmCrew = () => {
                     <option value="Assistant Directors">Grips</option>
                   </select>
                 </li>
-                <li className="relative styledList w-full md:w-[420px]">
+                <li className="flex flex-col styledList w-full md:w-[420px]">
+                  <p className="text-sm text-wearecrewBlue">Grade / Title</p>
+                  <select name="dept">
+                    <option disabled>Choose Grade / Title</option>
+                    <option value="Assistant Directors">
+                      Director of Photography
+                    </option>
+                    <option value="Assistant Directors">Camera Operator</option>
+                    <option value="Assistant Directors">Focus Puller</option>
+                    <option value="Assistant Directors">Loader</option>
+                    <option value="Assistant Directors">Trainee</option>
+                  </select>
+                </li>
+
+                    <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
+                      <small className="flex items-center">
+                        <input
+                          type="checkbox"
+                          className="chb chb-3"
+                          id="stepUp"
+                        />
+                        <label className="min-w-max" htmlFor="stepUp">
+                          Willing / able to step up a grade
+                        </label>
+                      </small>
+                    </li>
+
+                {/* <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="grade"
                     type="text"
@@ -91,7 +118,7 @@ const IAmCrew = () => {
                   <span className="highlight"></span>
                   <span className="bar"></span>
                   <label htmlFor="grade">Grade / Title</label>
-                </li>
+                </li> */}
                 <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="safetyQualifications"

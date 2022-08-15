@@ -6,7 +6,9 @@ const listOfCrew = [
   {
     id: 1,
     name: "John Doe",
+    dept: "Acting",
     role: "Director of Photography",
+    canStepUp: true,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "John Doe is a director of photography. He is a very good director.",
@@ -32,6 +34,7 @@ const listOfCrew = [
     id: 2,
     name: "Jane Doe",
     role: "Camera Operator",
+    canStepUp: true,
     image: "",
     bio: "Jane Doe is a camera operator. She is a very good camera operator.",
     email: "janedoe@test.com",
@@ -56,7 +59,9 @@ const listOfCrew = [
   {
     id: 3,
     name: "Jack Doe",
+    dept: "ADs",
     role: "Camera Operator Steadicam",
+    canStepUp: false,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Jack Doe is a camera operator. He is a very good camera operator.",
@@ -82,7 +87,9 @@ const listOfCrew = [
   {
     id: 4,
     name: "Jill Doe",
+    dept: "Art",
     role: "Focus Puller",
+    canStepUp: false,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Jill Doe is a focus puller. She is a very good focus puller.",
@@ -120,7 +127,9 @@ const listOfCrew = [
   {
     id: 5,
     name: "Joe Doe",
+    dept: "Camera",
     role: "Loader",
+    canStepUp: true,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Joe Doe is a loader. He is a very good loader.",
@@ -144,6 +153,7 @@ const listOfCrew = [
   {
     id: 6,
     name: "Juan Doe",
+    dept: "Grips",
     role: "Trainee",
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -170,6 +180,7 @@ const listOfCrew = [
 ];
 
 const crewList = () => {
+
   return (
     <div className="px-4 md:px-12 p-12 w-full h-fit">
       <Link href="/I-need-crew/depts">
@@ -177,17 +188,19 @@ const crewList = () => {
       </Link>
 
       <div className="w-full flex justify-start mt-4">
-        <h1 className="text-4xl">Camera</h1>
+        <h1 className="text-4xl">**Department name from query or passed through**</h1>
       </div>
 
       <div className="w-full flex justify-center">
         <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
+
           <div className="flex flex-1 rounded-md flex-col gap-y-4 mb-12">
             {listOfCrew.map((crew) => (
               <CrewDetailBox
                 key={crew.id}
                 id={crew.id}
                 name={crew.name}
+                dept={crew.dept}
                 role={crew.role}
                 image={crew.image}
                 phone={crew.phone}
@@ -201,7 +214,6 @@ const crewList = () => {
               />
             ))}
           </div>
-
 
           <div className=" w-full lg:w-3/12 shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
             <p className="text-center mb-4 font-semibold text-lg">
