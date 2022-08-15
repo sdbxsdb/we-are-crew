@@ -14,12 +14,11 @@ const INeedCrew = () => {
         />
       </Head>
       <div className="px-4 md:px-12 py-12">
-        <h1 className="text-black text-3xl">Depts page</h1>
+        <h1 className="text-3xl">Which Department are you looking for?</h1>
         <div className= "flex justify-center w-full">
           <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <DeptCard dept="Accounts" imgUrl="../../../images/icons/accounts.png"/>
-            <DeptCard dept="Acting / Dialogue" imgUrl="../../../images/icons/acting.png"/>
             <DeptCard dept="Action Vehicles" imgUrl="../../../images/icons/actionVeh.png"/>
+            <DeptCard dept="Acting" imgUrl="../../../images/icons/acting.png"/>
             <DeptCard dept="Animals" imgUrl="../../../images/icons/animals.png"/>
             <DeptCard dept="Armoury" imgUrl="../../../images/icons/armoury.png"/>
             <DeptCard dept="Art" imgUrl="../../../images/icons/art.png"/>
