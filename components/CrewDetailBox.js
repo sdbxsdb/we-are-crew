@@ -21,7 +21,7 @@ const CrewDetailBox = (crew) => {
         setShowModal(true);
       }
     }
-  }, [router.asPath, crew.id, crew.name]);
+  }, [router.asPath, crew.id, crew.name, router.query.user]);
 
   const stylingLarge = {
     backgroundImage: `${

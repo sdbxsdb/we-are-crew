@@ -13,7 +13,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
   const handleClose = (e) => {
     e.preventDefault();
     onClose();
-    router.push(`${router.asPath.split('?')[0]}`);
+    router.push(`${router.asPath.split('?')[0]}`, undefined, {scroll: false});
   };
 
 
@@ -32,13 +32,12 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
       const param = slugify(name) + "_" + id;
       router.query.user = param;
       router.query.showModal = true;
-      router.push(router);
-
+      router.push(router, undefined, {scroll: false});
     }
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [show]);
+  });
 
 
 
@@ -48,7 +47,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
         onClick={handleClose}
         className="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-x-hidden overflow-y-auto z-2000 bg-wearecrewDarkestGrey/80"
       ></div>
-      <div className="rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-3000 overflow-scroll max-h-[calc(100vh-150px)] w-[95%] bg-white  shadow-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-3000 overflow-scroll max-h-[calc(100vh-150px)] w-[95%] bg-white shadow-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <button
           onClick={handleClose}
           className="h-[40px]  flex justify-end items-center fixed w-auto px-2 [95%] bg-white rounded-full"
