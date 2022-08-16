@@ -95,7 +95,7 @@ const listOfCrew = [
     dept: "Art",
     role: "Focus Puller",
     status: "Avail",
-    canStepUp: false,
+    canStepUp: true,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Jill Doe is a focus puller. She is a very good focus puller.",
@@ -132,7 +132,7 @@ const listOfCrew = [
   },
   {
     id: 5,
-    name: "Joe Doe",
+    name: "Mynameis Verylongsoitis",
     dept: "Camera",
     role: "Loader",
     status: "NotAvail",
@@ -159,7 +159,7 @@ const listOfCrew = [
   },
   {
     id: 6,
-    name: "Juan Doe",
+    name: "Juandoe - Doublebarrelled",
     dept: "Grips",
     role: "Trainee",
     status: "SemiAvail",
@@ -210,6 +210,7 @@ const crewList = () => {
                 name={crew.name}
                 dept={crew.dept}
                 role={crew.role}
+                canStepUp={crew.canStepUp}
                 image={crew.image}
                 phone={crew.phone}
                 email={crew.email}

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 export default function CrewDetailModal({ show, onClose, children, id, name }) {
   const [isBrowser, setIsBrowser] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setIsBrowser(true);
@@ -12,11 +13,9 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
   const handleClose = (e) => {
     e.preventDefault();
     onClose();
-    router.query.user = "";
-    router.push(router);
+    router.push(`${router.asPath.split('?')[0]}`);
   };
 
-  const router = useRouter();
 
   const slugify = (str) =>
   str
@@ -26,6 +25,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
+
   useEffect(() => {
     if (show) {
       document.body.style.overflow = "hidden";
@@ -33,9 +33,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
       router.query.user = param;
       router.query.showModal = true;
       router.push(router);
-    }
-    if (!show) {
-      router.query.user = "";
+
     }
     return () => {
       document.body.style.overflow = "unset";

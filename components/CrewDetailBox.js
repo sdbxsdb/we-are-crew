@@ -115,12 +115,6 @@ const CrewDetailBox = (crew) => {
           </div>
 
           <div className="flex flex-col justify-start items-start w-[332px] min-h-[161px]">
-            {/* <div className="mb-4">
-              <small>
-                <strong>Based in:</strong>
-              </small>
-              <p>London</p>
-            </div> */}
             <small>
               <strong>Can work in</strong>
             </small>
@@ -246,7 +240,7 @@ const CrewDetailBox = (crew) => {
                 ></div>
                 <div className="mb-4">
                   <h1 className="text-3xl">{crew?.name}</h1>
-                  <h1 className="text-lg">{crew?.role}</h1>
+                  <h1 className="text-lg min-w-max">{crew?.role}</h1>
                 </div>
               </div>
               <div className=" w-[240px] flex flex-col items-end pt-10">
@@ -265,7 +259,17 @@ const CrewDetailBox = (crew) => {
             </div>
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
-              <div className="flex flex-1 flex-col gap-y-6 py-4">
+              <div className="flex flex-1 flex-col gap-y-6 py-4 md:py-0">
+
+              {crew.canStepUp && (
+                    <div className="flex items-center gap-x-4">
+                    <span className="material-icons">move_up</span>
+                    <p>
+                      Able to step up a grade 
+                    </p>
+                    
+                  </div>
+                  )}
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">phone_iphone</span>
                   <a href={`tel:${crew.phone}`} className="underline">
@@ -350,7 +354,7 @@ const CrewDetailBox = (crew) => {
                 </div>
               </div>
               <div className="w-full flex justify-center md:w-3/12 ">
-                <div className="w-1/2 md:w-full flex flex-col gap-y-4">
+                <div className="w-full md:w-full flex flex-col gap-y-4">
                   <a
                     href={`tel:${crew.phone}`}
                     className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white"
