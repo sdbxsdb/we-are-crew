@@ -8,7 +8,6 @@ const NavBar = () => {
 
   const {user, logout} = useUser();
 
-  console.log("USER-", user );
 
   useEffect(() => {
     if (user) {

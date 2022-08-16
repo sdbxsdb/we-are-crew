@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import CrewDetailBox from "../../../../components/CrewDetailBox";
 import Link from "next/link";
+import DeptCard from "../../../../components/DeptCard";
+
 
 const listOfCrew = [
   {
@@ -8,6 +10,7 @@ const listOfCrew = [
     name: "John Doe",
     dept: "Acting",
     role: "Director of Photography",
+    status: "Avail",
     canStepUp: true,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -34,6 +37,7 @@ const listOfCrew = [
     id: 2,
     name: "Jane Doe",
     role: "Camera Operator",
+    status: "NotAvail",
     canStepUp: true,
     image: "",
     bio: "Jane Doe is a camera operator. She is a very good camera operator.",
@@ -61,6 +65,7 @@ const listOfCrew = [
     name: "Jack Doe",
     dept: "ADs",
     role: "Camera Operator Steadicam",
+    status: "SemiAvail",
     canStepUp: false,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -89,6 +94,7 @@ const listOfCrew = [
     name: "Jill Doe",
     dept: "Art",
     role: "Focus Puller",
+    status: "Avail",
     canStepUp: false,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -129,6 +135,7 @@ const listOfCrew = [
     name: "Joe Doe",
     dept: "Camera",
     role: "Loader",
+    status: "NotAvail",
     canStepUp: true,
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -155,6 +162,7 @@ const listOfCrew = [
     name: "Juan Doe",
     dept: "Grips",
     role: "Trainee",
+    status: "SemiAvail",
     image:
       "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     bio: "Juan Doe is a trainee. He is a very good trainee.",

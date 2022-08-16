@@ -108,23 +108,11 @@ input:-webkit-autofill:active{
   }
 
 
-  #notAvail input[type="radio"]:checked+label {
-    background-color: #D50000;
+   input[type="radio"]:checked+label {
     color: #f1f3f5;
     transition: 0.3s;
   }
 
-  #semiAvail input[type="radio"]:checked+label {
-    background-color: #FF9100;
-    color: #f1f3f5;
-    transition: 0.3s;
-  }
-
-  #avail input[type="radio"]:checked+label {
-    background-color: #26DB3E;
-    color: #f1f3f5;
-    transition: 0.3s;
-  }
 } 
 
 select:focus {

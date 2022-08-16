@@ -10,13 +10,13 @@ const ReadToCloudFirestore = () => {
     try {
     firebase
       .firestore()
-      .collection("depts")
+      .collection("crew")
       .doc(user.id)
       .onSnapshot((doc) => {
         console.log(doc.data());
       });
     } catch (err) {
-      console.log(err);
+      console.log("ERROR -", err);
       alert(err)
     }
   };
