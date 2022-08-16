@@ -1,15 +1,15 @@
 import { useState } from "react";
 import CrewDetailModal from "./CrewDetailModal";
 
-
 const ShowDemoModal = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
 
   const stylingLarge = {
-    backgroundImage: "url(/images/logoNew2.png)",
+    backgroundImage:
+      "url('https://www.looper.com/img/gallery/the-untold-truth-of-marty-mcfly/intro-1597857837.jpg')",
     minWidth: "100px",
     minHeight: "100px",
-    backgroundSize: "contain",
+    backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
@@ -18,7 +18,12 @@ const ShowDemoModal = () => {
     <>
       <div className="w-full flex justify-center">
         <button>
-          <h1 onClick={() => setShowDemoModal(true)} className="text-wearecrewBlue text-center text-lg">View an example profile</h1>
+          <h1
+            onClick={() => setShowDemoModal(true)}
+            className="text-wearecrewBlue text-center text-lg"
+          >
+            View an example profile
+          </h1>
         </button>
       </div>
 
@@ -28,7 +33,6 @@ const ShowDemoModal = () => {
         name="Name"
         onClose={() => setShowDemoModal(false)}
       >
-        
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
             <div className="w-full flex justify-between">
@@ -51,6 +55,12 @@ const ShowDemoModal = () => {
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-6 py-4">
+                <div className="flex items-center gap-x-4">
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons">move_up</span>
+                    <p>Able to step up a grade</p>
+                  </div>
+                </div>
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">phone_iphone</span>
                   <a href={`tel:0044 123 456 78`} className="underline">

@@ -260,16 +260,12 @@ const CrewDetailBox = (crew) => {
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-6 py-4 md:py-0">
-
-              {crew.canStepUp && (
-                    <div className="flex items-center gap-x-4">
+                {crew.canStepUp && (
+                  <div className="flex items-center gap-x-4">
                     <span className="material-icons">move_up</span>
-                    <p>
-                      Able to step up a grade 
-                    </p>
-                    
+                    <p>Able to step up a grade</p>
                   </div>
-                  )}
+                )}
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">phone_iphone</span>
                   <a href={`tel:${crew.phone}`} className="underline">
