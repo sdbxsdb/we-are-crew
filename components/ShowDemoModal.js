@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CrewDetailModal from "./CrewDetailModal";
 
+
 const ShowDemoModal = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
 
@@ -17,7 +18,7 @@ const ShowDemoModal = () => {
     <>
       <div className="w-full flex justify-center">
         <button>
-          <h1 onClick={() => setShowDemoModal(true)} className="text-wearecrewBlue text-center">View an example profile</h1>
+          <h1 onClick={() => setShowDemoModal(true)} className="text-wearecrewBlue text-center text-lg">View an example profile</h1>
         </button>
       </div>
 
@@ -27,6 +28,7 @@ const ShowDemoModal = () => {
         name="Name"
         onClose={() => setShowDemoModal(false)}
       >
+        
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
             <div className="w-full flex justify-between">
@@ -74,19 +76,19 @@ const ShowDemoModal = () => {
                   <span className="material-icons">where_to_vote</span>
                   <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
                     <div>
-                      <p className="min-w-max">Endland</p>
+                      <p className="min-w-max">London</p>
                     </div>
                     <div>
-                      <p className="min-w-max">Scotland</p>
+                      <p className="min-w-max">Liverpool</p>
                     </div>
                     <div>
-                      <p className="min-w-max">Wales</p>
+                      <p className="min-w-max">Glasgow</p>
                     </div>
                     <div>
-                      <p className="min-w-max">Ireland</p>
+                      <p className="min-w-max">Belfast</p>
                     </div>
                     <div>
-                      <p className="min-w-max">Northern Ireland</p>
+                      <p className="min-w-max">Dublin</p>
                     </div>
                   </div>
                 </div>

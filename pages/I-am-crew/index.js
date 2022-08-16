@@ -102,23 +102,12 @@ const IAmCrew = () => {
                           id="stepUp"
                         />
                         <label className="min-w-max" htmlFor="stepUp">
-                          Willing / able to step up a grade
+                          Willing / able to step up a grade if required
                         </label>
                       </small>
                     </li>
 
-                {/* <li className="relative styledList w-full md:w-[420px]">
-                  <input
-                    name="grade"
-                    type="text"
-                    defaultValue={user?.grade}
-                    className="border shadow-md w-full"
-                    required
-                  />
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <label htmlFor="grade">Grade / Title</label>
-                </li> */}
+                
                 <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="safetyQualifications"
@@ -138,7 +127,7 @@ const IAmCrew = () => {
                 </li>
                 <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Can work in</p>
-                  <div className="grid grid-cols-2 gap-y-2 gap-x-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
                     <li className="w-auto">
                       <input
                         type="checkbox"
