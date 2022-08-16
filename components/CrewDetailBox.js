@@ -8,12 +8,12 @@ const CrewDetailBox = (crew) => {
   const router = useRouter();
 
   const slugify = (str) =>
-  str
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
   useEffect(() => {
     if (router.asPath.includes("user=" && "&showModal=true")) {
@@ -65,7 +65,7 @@ const CrewDetailBox = (crew) => {
     setCopiedText("Email Copied!");
   };
 
-  const shareProfileHandler = () => {    
+  const shareProfileHandler = () => {
     copy(`localhost:3000${router.asPath}`);
     setIsCopied(true);
     setTimeout(() => {
@@ -114,15 +114,23 @@ const CrewDetailBox = (crew) => {
             </strong>
           </div>
 
-          <div className="flex flex-col justify-start min-w-[120px] min-h-[161px]">
+          <div className="flex flex-col justify-start items-start w-[332px] min-h-[161px]">
+            {/* <div className="mb-4">
+              <small>
+                <strong>Based in:</strong>
+              </small>
+              <p>London</p>
+            </div> */}
             <small>
-              <strong>Will work in</strong>
+              <strong>Can work in</strong>
             </small>
-            {crew.willWorkIn.map((willWorkIn, id) => (
-              <div key={willWorkIn + id} className="mt-1">
-                {willWorkIn}
-              </div>
-            ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
+              {crew.willWorkIn.map((willWorkIn, id) => (
+                <div key={willWorkIn + id} className="mt-1 min-w-max">
+                  {willWorkIn}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex flex-col gap-y-2">
             <a
@@ -149,15 +157,15 @@ const CrewDetailBox = (crew) => {
         {/*Smaller screen layout*/}
         <div className="flex flex-col md:hidden p-2 gap-x-2 gap-y-8">
           <div className="w-full flex flex-col justify-between gap-x-2 gap-y-4">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-start">
               <div
                 style={stylingSmall}
-                className="rounded-full overflow-hidden w-[60px] h-[60px] flex items-center justify-end shadow-md"
+                className="rounded-full overflow-hidden w-[80px] h-[80px] shadow-md"
               ></div>
               <div className="w-[210px] text-right">
                 <div className="flex flex-col">
                   <strong
-                    className={`mt-4 ${
+                    className={`${
                       crew.status === "Available"
                         ? "text-wearecrewGreen"
                         : crew.status === "Not Available"
@@ -176,13 +184,23 @@ const CrewDetailBox = (crew) => {
               </div>
             </div>
 
-            <div className="w-full text-center mt-4">
-              <strong className="text-sm">Will work in:</strong>
-              {crew.willWorkIn.map((willWorkIn) => (
-                <div key={willWorkIn} className="mt-1">
-                  <p className="text-base">{willWorkIn}</p>
+            <div className="w-full flex gap-x-4 justify-center mt-4">
+              {/* <div>
+                <small>
+                  <strong>Based in:</strong>
+                </small>
+                <p>London</p>
+              </div> */}
+              <div className="flex flex-col items-center">
+                <strong className="text-sm">Can work in</strong>
+                <div className="flex flex-wrap gap-x-4 justify-center">
+                  {crew.willWorkIn.map((willWorkIn) => (
+                    <div key={willWorkIn} className="mt-1">
+                      <p className="text-base">{willWorkIn}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 

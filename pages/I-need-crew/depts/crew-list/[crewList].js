@@ -15,7 +15,7 @@ const listOfCrew = [
     email: "johndoe@test.com",
     phone: "34563456456",
     status: "Available",
-    willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
+    willWorkIn: ["London", "Liverpool", "Newcastle upon Tyne", "Birmingham", "Exeter", "Norwich", "Glasgow", "Edinbrugh", "Aberdeen", "Belfast", "Derry / L'Derry", "Enniskillen", "Dublin", "Galway", "Cork", "Donegal", "Outside the UK & Ireland"],
     qualis: '',
     credits: [
       {

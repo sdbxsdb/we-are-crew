@@ -137,62 +137,172 @@ const IAmCrew = () => {
                   </label>
                 </li>
                 <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
-                  <p className="text-sm text-wearecrewBlue">Will work in</p>
-                  <div className="flex flex-wrap flex-col sm:flex-row gap-y-2 gap-x-4">
+                  <p className="text-sm text-wearecrewBlue">Can work in</p>
+                  <div className="grid grid-cols-2 gap-y-2 gap-x-4">
                     <li className="w-auto">
                       <input
                         type="checkbox"
                         className="chb chb-3"
-                        id="england"
+                        id="london"
                       />
-                      <label className="min-w-max" htmlFor="england">
-                        England
+                      <label className="min-w-max" htmlFor="london">
+                        London
                       </label>
                     </li>
                     <li className="w-auto">
                       <input
                         type="checkbox"
                         className="chb chb-3"
-                        id="scotland"
+                        id="liverpool"
                       />
-                      <label className="min-w-max" htmlFor="scotland">
-                        Scotland
+                      <label className="min-w-max" htmlFor="liverpool">
+                        Liverpool
                       </label>
                     </li>
                     <li className="w-auto">
-                      <input type="checkbox" className="chb chb-3" id="wales" />
-                      <label className="min-w-max" htmlFor="wales">
-                        Wales
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="ireland"
-                      />
-                      <label className="min-w-max" htmlFor="ireland">
-                        Ireland
+                      <input type="checkbox" className="chb chb-3" id="newcastle" />
+                      <label className="min-w-max" htmlFor="newcastle">
+                        Newcastle upon Tyne
                       </label>
                     </li>
                     <li className="w-auto">
                       <input
                         type="checkbox"
                         className="chb chb-3"
-                        id="northernIreland"
+                        id="leeds"
                       />
-                      <label className="min-w-max" htmlFor="northernIreland">
-                        Northern Ireland
+                      <label className="min-w-max" htmlFor="leeds">
+                        Birmingham
                       </label>
                     </li>
                     <li className="w-auto">
                       <input
                         type="checkbox"
                         className="chb chb-3"
-                        id="outsideUK"
+                        id="exeter"
                       />
-                      <label className="min-w-max" htmlFor="outsideUK">
-                        Outside the UK
+                      <label className="min-w-max" htmlFor="exeter">
+                        Exeter
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="norwich"
+                      />
+                      <label className="min-w-max" htmlFor="norwich">
+                        Norwich
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="glasgow"
+                      />
+                      <label className="min-w-max" htmlFor="glasgow">
+                        Glasgow
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="edinbrugh"
+                      />
+                      <label className="min-w-max" htmlFor="edinbrugh">
+                        Edinbrugh
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="aberdeen"
+                      />
+                      <label className="min-w-max" htmlFor="aberdeen">
+                        Aberdeen
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="belfast"
+                      />
+                      <label className="min-w-max" htmlFor="belfast">
+                        Belfast
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="derry"
+                      />
+                      <label className="min-w-max" htmlFor="derry">
+                        Derry / L’Derry
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="enniskillen"
+                      />
+                      <label className="min-w-max" htmlFor="enniskillen">
+                        Enniskillen
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="dublin"
+                      />
+                      <label className="min-w-max" htmlFor="dublin">
+                        Dublin
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="galway"
+                      />
+                      <label className="min-w-max" htmlFor="galway">
+                        Galway
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="cork"
+                      />
+                      <label className="min-w-max" htmlFor="cork">
+                        Cork
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="donegal"
+                      />
+                      <label className="min-w-max" htmlFor="donegal">
+                        Donegal
+                      </label>
+                    </li>
+                    <li className="w-auto">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="outsideUKandIre"
+                      />
+                      <label className="min-w-max" htmlFor="outsideUKandIre">
+                        Outside the UK &amp; Ireland
                       </label>
                     </li>
                   </div>
