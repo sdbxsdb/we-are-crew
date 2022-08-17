@@ -42,11 +42,11 @@ const FilteredDept = () => {
   const [foundDept, setFoundDept] = useState(deptList);
 
   const filter = (e) => {
-    const keyword = e.target.value;
+    const searchTerm = e.target.value;
 
-    if (keyword !== "") {
+    if (searchTerm !== "") {
       const results = deptList.filter((dept) => {
-        return dept.dept.toLowerCase().startsWith(keyword.toLowerCase());
+        return dept.dept.toLowerCase().startsWith(searchTerm.toLowerCase());
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
