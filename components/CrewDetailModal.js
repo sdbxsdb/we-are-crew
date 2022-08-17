@@ -31,11 +31,13 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
       router.query.showModal = true;
       const param = slugify(name) + "_" + id;
       router.query.user = param;
-      
-      router.push({
-        pathname: '/I-need-crew/depts/crew-list/'+router.query.crewList,
-        query: 'user='+router.query.user + "&showModal=" + router.query.showModal,
-      }, undefined, { shallow: true });
+
+      if (!window.location.href.includes("about")) {
+        router.push({
+          pathname: '/I-need-crew/depts/crew-list/'+router.query.crewList,
+          query: 'user='+router.query.user + "&showModal=" + router.query.showModal,
+        }, undefined, { shallow: true });
+      } 
     }
     return () => {
       document.body.style.overflow = "unset";
