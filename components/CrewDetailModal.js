@@ -19,27 +19,28 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
     setIsBrowser(true);
   }, []);
 
-  const handleClose = (e) => {
-    e.preventDefault();
-    onClose();
-    router.push(`${router.asPath.split('?')[0]}`, undefined, {scroll: false});
+  const handleClose = () => {
+    onClose()
+    router.push(`${router.asPath.split('?')[0]}`, undefined, {scroll: false}, { shallow: true });
   };
 
 
   useEffect(() => {
     if (show) {
       document.body.style.overflow = "hidden";
+      router.query.showModal = true;
       const param = slugify(name) + "_" + id;
       router.query.user = param;
-      router.query.showModal = true;
-      // console.log(router.asPath);
-      router.push(router.asPath, undefined, {scroll: false});
-
+      
+      router.push({
+        pathname: '/I-need-crew/depts/crew-list/'+router.query.crewList,
+        query: 'user='+router.query.user + "&showModal=" + router.query.showModal,
+      }, undefined, { shallow: true });
     }
     return () => {
       document.body.style.overflow = "unset";
     };
-  });
+  }, [show]);
 
 
 

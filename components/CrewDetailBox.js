@@ -17,11 +17,18 @@ const CrewDetailBox = (crew) => {
 
   useEffect(() => {
     if (router.asPath.includes("user=" && "&showModal=true")) {
-      if (router.query.user === slugify(crew.name) + "_" + crew.id) {
+      // console.log("Show modal");
+      // console.log(router.query.user + "      " + slugify(crew.name) + "_" + crew.id);
+      if (
+        router.query.user === slugify(crew.name) + "_" + crew.id
+      ) {
+        // console.log("CREW NAME-", crew.name);
         setShowModal(true);
       }
     }
-  }, [router.asPath, crew.id, crew.name, router.query.user]);
+  }, [router.asPath]);
+
+  
 
   const stylingLarge = {
     backgroundImage: `${
