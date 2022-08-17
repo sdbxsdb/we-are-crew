@@ -73,7 +73,7 @@ const CrewDetailBox = (crew) => {
   };
 
   const shareProfileHandler = () => {
-    copy(`localhost:3000${router.asPath}`);
+    copy(`${window.location.href+router.asPath}`);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
