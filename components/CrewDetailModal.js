@@ -40,7 +40,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
       } 
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "scroll";
     };
   }, [show]);
 
