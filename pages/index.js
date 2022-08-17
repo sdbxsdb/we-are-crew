@@ -8,9 +8,6 @@ import { useUser } from "../firebase/useUser";
 export default function Home() {
   const { user, logout } = useUser();
 
-  const URL = window.location.href;
-
-  console.log("URL -", URL);
   
   return (
     <div className={styles.container}>
