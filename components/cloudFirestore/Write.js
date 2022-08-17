@@ -38,7 +38,7 @@ export const sendData = (user) => {
         // time_stamp: firebase.firestore.Timestamp.fromDate(new Date(`${month}-${date}-${year}`,)),
       })
       .then(
-        console.log("User Data Added to Cloud Firestore")
+        // console.log("User Data Added to Cloud Firestore")
         )
   } catch (err) {
     console.log(err);

@@ -6,6 +6,15 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
   const [isBrowser, setIsBrowser] = useState(false);
   const router = useRouter();
 
+  const slugify = (str) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+
   useEffect(() => {
     setIsBrowser(true);
   }, []);
@@ -17,22 +26,15 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
   };
 
 
-  const slugify = (str) =>
-  str
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-
-
   useEffect(() => {
     if (show) {
       document.body.style.overflow = "hidden";
       const param = slugify(name) + "_" + id;
       router.query.user = param;
       router.query.showModal = true;
-      router.push(router, undefined, {scroll: false});
+      // console.log(router.asPath);
+      router.push(router.asPath, undefined, {scroll: false});
+
     }
     return () => {
       document.body.style.overflow = "unset";

@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import CrewDetailBox from "../../../../components/CrewDetailBox";
 import Link from "next/link";
-import DeptCard from "../../../../components/DeptCard";
 
 
 const listOfCrew = [
