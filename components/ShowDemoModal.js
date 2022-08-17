@@ -156,7 +156,7 @@ const ShowDemoModal = () => {
                 </div>
               </div>
               <div className="w-full flex justify-center md:w-3/12 ">
-                <div className="w-1/2 md:w-full flex flex-col gap-y-4">
+                <div className="w-full flex flex-col gap-y-4">
                   <a
                     href="tel:0044123456789"
                     className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white"
