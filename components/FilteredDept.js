@@ -26,6 +26,7 @@ const deptList = [
   { dept: "Producers", imgUrl: "../../../images/icons/producer.png" },
   { dept: "Production Crew", imgUrl: "../../../images/icons/production.png" },
   { dept: "Props", imgUrl: "../../../images/icons/props.png" },
+  { dept: "Rigging", imgUrl: "../../../images/icons/rigging.png" },
   { dept: "Set Decoration", imgUrl: "../../../images/icons/setDec.png" },
   { dept: "Sound", imgUrl: "../../../images/icons/sound.png" },
   { dept: "Special Effects", imgUrl: "../../../images/icons/sfx.png" },
