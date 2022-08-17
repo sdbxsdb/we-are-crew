@@ -17,7 +17,7 @@ const deptList = [
   { dept: "Covid", imgUrl: "../../../images/icons/covid.png" },
   { dept: "Directors", imgUrl: "../../../images/icons/directors.png" },
   { dept: "Dialogue", imgUrl: "../../../images/icons/dialogue.png" },
-  { dept: "D.I.T", imgUrl: "../../../images/icons/dit.png" },
+  { dept: "D I T", imgUrl: "../../../images/icons/dit.png" },
   { dept: "Drone", imgUrl: "../../../images/icons/drone.png" },
   { dept: "Editoral & Post", imgUrl: "../../../images/icons/editorial.png" },
   { dept: "Electrical", imgUrl: "../../../images/icons/electrical.png" },

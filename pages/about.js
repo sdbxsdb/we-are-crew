@@ -13,7 +13,7 @@ const about = () => {
         <div className="flex flex-col items-center justify-center max-w-[1200px]">
           <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4 mb-4">
             <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
-              <h1 className="text-2xl mb-2">What is it?</h1>
+              <h1 className="text-2xl mb-2">What is We Are Crew?</h1>
               <p>
                 We Are Crew has been designed and built with ALL crew in mind.
                 <br />
@@ -26,7 +26,9 @@ const about = () => {
                 crew in the UK or Ireland.
                 <br />
                 <br />
-                We work for you. We Are Crew.
+                The only place for crew. 
+                <br/>
+                We Are Crew.
               </p>
             </div>
             <div className="w-full md:w-1/2 aboutPageListTicks shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
@@ -80,8 +82,7 @@ const about = () => {
                 <li>
                   <h1>3.</h1>
                   <span>
-                    That’s it! Your profile will be live and ready to be viewed by
-                    the biggest productions crewing up or looking for dailies.
+                    That’s it! Your profile will be live and ready to be viewed and shared across the biggest productions crewing up or looking for dailies.
                   </span>
                 </li>
                 <ShowDemoModal/>
@@ -90,12 +91,12 @@ const about = () => {
             <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
               <h1 className="text-2xl mb-2">Extreamely Affordable?</h1>
               <p>
-                Yes, extremely. £180 per year which works out at 50p a day is all it
+                Yes, extremely. £180 per year which works out at <strong>50p a day</strong> is all it
                 costs to have your profile listed on We Are Crew.
                 <br />
                 <br />
                 One price for all no hidden charges and your listing will be visable
-                to productions for 365 days from your payment.
+                to productions for 365 days from payment.
               </p>
             </div>
           </div>
@@ -109,10 +110,10 @@ const about = () => {
             </div>
             <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
               <h1 className="text-2xl mb-2">
-                Two for the price of one?
+                Questions?
               </h1>
               <p>
-                If you’d like to list yourself as an individual but also list your company we won’t charge you for two different listings!  <br/><br/> Just send us an email to <a href="mailto:crew@wearecrew.com" className="text-wearecrewBlue">crew@wearecrew.com</a> and we’ll guide you in the process.
+                If you’ve any questions about any aspect of We Are Crew just send us an email to <a href="mailto:crew@wearecrew.com" className="text-wearecrewBlue">crew@wearecrew.co</a>.
               </p>
             </div>
           </div>
@@ -127,7 +128,10 @@ const about = () => {
                 hundreds of call sheets and sides printed, engines running all day
                 the list goes on. <br/><br/>So for every person that signs up to We Are Crew
                 we will plant a tree to help combat the Film and Television
-                industries carbon footprint!  Every little helps!
+                industries carbon footprint!  
+                <br/>
+                <br/>
+                Every little helps!
               </p>
             </div>
           </div>
