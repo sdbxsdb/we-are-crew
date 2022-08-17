@@ -113,7 +113,7 @@ const about = () => {
                 Questions?
               </h1>
               <p>
-                If you’ve any questions about any aspect of We Are Crew just send us an email to <a href="mailto:crew@wearecrew.com" className="text-wearecrewBlue">crew@wearecrew.co</a>.
+                If you’ve any questions about any aspect of We Are Crew just send us an email to <a href="mailto:crew@wearecrew.com" className="text-wearecrewBlue">crew@wearecrew.co</a>
               </p>
             </div>
           </div>
