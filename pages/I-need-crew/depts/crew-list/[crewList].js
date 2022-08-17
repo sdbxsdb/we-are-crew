@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import CrewDetailBox from "../../../../components/CrewDetailBox";
 import Link from "next/link";
+import DeptTitle from "../../../../components/DeptTitle";
 
 
 const listOfCrew = [
@@ -188,6 +189,9 @@ const listOfCrew = [
 
 const crewList = () => {
 
+
+  
+
   return (
     <div className="px-4 md:px-12 p-12 w-full h-fit">
       <Link href="/I-need-crew/depts">
@@ -195,7 +199,7 @@ const crewList = () => {
       </Link>
 
       <div className="w-full flex justify-start mt-4">
-        <h1 className="text-4xl">**Department name from query or passed through**</h1>
+        <h1 className="text-4xl"><DeptTitle/></h1>
       </div>
 
       <div className="w-full flex justify-center">
