@@ -32,6 +32,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
       const param = slugify(name) + "_" + id;
       router.query.user = param;
 
+
       if (!window.location.href.includes("about")) {
         router.push({
           pathname: '/I-need-crew/depts/crew-list/'+router.query.crewList,

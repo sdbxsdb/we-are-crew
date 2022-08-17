@@ -189,9 +189,6 @@ const listOfCrew = [
 
 const crewList = () => {
 
-
-  
-
   return (
     <div className="px-4 md:px-12 p-12 w-full h-fit">
       <Link href="/I-need-crew/depts">

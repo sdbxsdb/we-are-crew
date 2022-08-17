@@ -18,11 +18,12 @@ const CrewDetailBox = (crew) => {
   useEffect(() => {
     if (router.asPath.includes("user=" && "&showModal=true")) {
       // console.log("Show modal");
+      console.log("TEST");
+
       // console.log(router.query.user + "      " + slugify(crew.name) + "_" + crew.id);
       if (
         router.query.user === slugify(crew.name) + "_" + crew.id
       ) {
-        // console.log("CREW NAME-", crew.name);
         setShowModal(true);
       }
     }
