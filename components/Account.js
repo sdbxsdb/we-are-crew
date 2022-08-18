@@ -1,8 +1,11 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect } from "react";
+
 import { supabase } from "../utils/supabaseClient";
 import { Head } from "next/head";
 import DynamicList from "./DynamicList";
 import FileUpload from "./FileUpload";
+
+
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -17,6 +20,8 @@ const Account = ({ session }) => {
   const [qualis, setQualis] = useState(null);
   const [phone, setPhone] = useState(null);
   const [bio, setBio] = useState('');
+
+
 
   useEffect(() => {
     getProfile();
