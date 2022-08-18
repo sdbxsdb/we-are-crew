@@ -1,5 +1,7 @@
-import {useEffect} from "react";
+import {useEffect, useContext} from "react";
 import Link from "next/link";
+import { supabase } from "../utils/supabaseClient";
+
 
 
 
@@ -7,6 +9,10 @@ const NavBar = () => {
 
 
 
+
+const signOutHandler = () => {
+  supabase.auth.signOut()
+}
 
 
   return (
@@ -27,11 +33,14 @@ const NavBar = () => {
           <a>About</a>
         </Link>
 
+
+
         <Link href="/login">
           <a>Sign In / Register</a>
         </Link>
 
-        <button>Logout</button>
+
+        <button onClick={() => signOutHandler()}>Logout</button>
 
 
           <Link href="/I-am-crew">

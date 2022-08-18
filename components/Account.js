@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, createContext } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { Head } from "next/head";
 import DynamicList from "./DynamicList";
@@ -16,11 +16,12 @@ const Account = ({ session }) => {
   const [canStepUp, setCanStepUp] = useState(false);
   const [qualis, setQualis] = useState(null);
   const [phone, setPhone] = useState(null);
-  const [bio, setBio] = useState(null);
+  const [bio, setBio] = useState('');
 
   useEffect(() => {
     getProfile();
   }, [session]);
+
 
   async function getCurrentUser() {
     const {
@@ -44,8 +45,6 @@ const Account = ({ session }) => {
       setLoading(true);
       const user = await getCurrentUser();
 
-      console.log(user);
-
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
@@ -60,7 +59,7 @@ const Account = ({ session }) => {
 
       if (data) {
         setUsername(data.username);
-        setEmail(data.email);
+        setEmail(data.email)
         setWebsite(data.website);
         setAvatarUrl(data.avatar_url);
         setStatus(data.status);
@@ -80,7 +79,7 @@ const Account = ({ session }) => {
 
   async function updateProfile({
     username,
-    email,
+    email = session.user.email,
     website,
     avatar_url,
     status,
@@ -98,8 +97,8 @@ const Account = ({ session }) => {
       const updates = {
         id: user.id,
         username,
-        website,
         email,
+        website,
         avatar_url,
         status,
         dept,
@@ -125,9 +124,6 @@ const Account = ({ session }) => {
     }
   }
 
-  const [avail, setAvail] = useState(true);
-  const [semiAvail, setSemiAvail] = useState(false);
-  const [notAvail, setNotAvail] = useState(false);
   const [profileChanged, setProfileChanged] = useState(false);
 
   const availHandler = () => {
@@ -145,98 +141,10 @@ const Account = ({ session }) => {
   };
 
 
+
   return (
-    <div>
-      <div className="form-widget">
+    <div className="borderRed w-full">
 
-
-        <div className="mb-12">
-          <div>
-            <label htmlFor="email">Email</label>
-            <input id="email" type="text" value={session.user.email} disabled />
-          </div>
-          <div>
-            <label htmlFor="username">Name</label>
-            <input
-              id="username"
-              type="text"
-              value={username || ""}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="website">Website</label>
-            <input
-              id="website"
-              type="website"
-              value={website || ""}
-              onChange={(e) => setWebsite(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="status">Status</label>
-            <input
-              id="status"
-              type="status"
-              value={status || ""}
-              onChange={(e) => setStatus(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="dept">Department</label>
-            <input
-              id="dept"
-              type="dept"
-              value={dept || ""}
-              onChange={(e) => setDept(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="title">Title</label>
-            <input
-              id="title"
-              type="title"
-              value={title || ""}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="canStepUp">Can Step Up?</label>
-            <input
-              id="canStepUp"
-              type="canStepUp"
-              value={canStepUp || ""}
-              onChange={(e) => setCanStepUp(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="qualis">Qualifications</label>
-            <input
-              id="qualis"
-              type="qualis"
-              value={qualis || ""}
-              onChange={(e) => setQualis(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="phone">Phone</label>
-            <input
-              id="phone"
-              type="phone"
-              value={phone || ""}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="bio">Bio</label>
-            <input
-              id="bio"
-              type="bio"
-              value={bio || ""}
-              onChange={(e) => setBio(e.target.value)}
-            />
-          </div>
-        </div>
 
         <form
           onChange={onChangeHandler}
@@ -611,38 +519,18 @@ const Account = ({ session }) => {
 
         <div>
           <button
-            className="button primary block"
-            onClick={() =>
-              updateProfile({
-                username,
-                website,
-                avatar_url,
-                status,
-                dept,
-                title,
-                canStepUp,
-                qualis,
-                phone,
-                bio,
-              })
-            }
-            disabled={loading}
-          >
-            {loading ? "Saving ..." : "Update"}
-          </button>
-        </div>
-
-        <div>
-          <button
             className="button block"
             onClick={() => supabase.auth.signOut()}
           >
             Sign Out
           </button>
         </div>
-      </div>
+
     </div>
   );
 };
 
 export default Account;
+
+
+
