@@ -1,12 +1,129 @@
-import { React, useState, useEffect } from "react";
-import Head from "next/head";
-import LimitedTextarea from "../../components/LimitedTextarea";
-import DynamicList from "../../components/DynamicList";
-import FileUpload from "../../components/FileUpload";
+import { useState, useEffect } from "react";
+import { supabase } from "../utils/supabaseClient";
+import { Head } from "next/head";
+import LimitedTextarea from "./LimitedTextarea";
+import DynamicList from "./DynamicList";
+import FileUpload from "./FileUpload";
 
+const Account = ({ session }) => {
+  const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [website, setWebsite] = useState(null);
+  const [avatar_url, setAvatarUrl] = useState(null);
+  const [status, setStatus] = useState(null);
+  const [dept, setDept] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [canStepUp, setCanStepUp] = useState(false);
+  const [qualis, setQualis] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [bio, setBio] = useState(null);
 
-const IAmCrew = () => {
+  useEffect(() => {
+    getProfile();
+  }, [session]);
 
+  async function getCurrentUser() {
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.getSession();
+
+    if (error) {
+      throw error;
+    }
+
+    if (!session?.user) {
+      throw new Error("User not logged in");
+    }
+
+    return session.user;
+  }
+
+  async function getProfile() {
+    try {
+      setLoading(true);
+      const user = await getCurrentUser();
+
+      console.log(user);
+
+      let { data, error, status } = await supabase
+        .from("profiles")
+        .select(
+          `username, email, website, avatar_url, status, dept, title, canStepUp, qualis, phone, bio`
+        )
+        .eq("id", user.id)
+        .single();
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setUsername(data.username);
+        setEmail(data.email);
+        setWebsite(data.website);
+        setAvatarUrl(data.avatar_url);
+        setStatus(data.status);
+        setDept(data.dept);
+        setTitle(data.title);
+        setCanStepUp(data.canStepUp);
+        setQualis(data.qualis);
+        setPhone(data.phone);
+        setBio(data.bio);
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function updateProfile({
+    username,
+    email,
+    website,
+    avatar_url,
+    status,
+    dept,
+    title,
+    canStepUp,
+    qualis,
+    phone,
+    bio,
+  }) {
+    try {
+      setLoading(true);
+      const user = await getCurrentUser();
+
+      const updates = {
+        id: user.id,
+        username,
+        website,
+        email,
+        avatar_url,
+        status,
+        dept,
+        title,
+        canStepUp,
+        qualis,
+        phone,
+        bio,
+
+        updated_at: new Date(),
+      };
+
+      let { error } = await supabase.from("profiles").upsert(updates);
+
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const [avail, setAvail] = useState(true);
   const [semiAvail, setSemiAvail] = useState(false);
@@ -35,16 +152,96 @@ const IAmCrew = () => {
   };
 
   return (
-    <>
-      <Head>
-        <title>I Am Crew | We Are Crew</title>
-        <meta name="keywords" content="I Am Crew" />
-        <meta
-          name="description"
-          content="Hello this is a test description for the My Crew page"
-        />
-      </Head>
+    <div>
 
+      <div className="form-widget">
+        <div className="mb-12">
+          <div>
+            <label htmlFor="email">Email</label>
+            <input id="email" type="text" value={session.user.email} disabled />
+          </div>
+          <div>
+            <label htmlFor="username">Name</label>
+            <input
+              id="username"
+              type="text"
+              value={username || ""}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="website">Website</label>
+            <input
+              id="website"
+              type="website"
+              value={website || ""}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="status">Status</label>
+            <input
+              id="status"
+              type="status"
+              value={status || ""}
+              onChange={(e) => setStatus(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="dept">Department</label>
+            <input
+              id="dept"
+              type="dept"
+              value={dept || ""}
+              onChange={(e) => setDept(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="title">Title</label>
+            <input
+              id="title"
+              type="title"
+              value={title || ""}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="canStepUp">Can Step Up?</label>
+            <input
+              id="canStepUp"
+              type="canStepUp"
+              value={canStepUp || ""}
+              onChange={(e) => setCanStepUp(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="qualis">Qualifications</label>
+            <input
+              id="qualis"
+              type="qualis"
+              value={qualis || ""}
+              onChange={(e) => setQualis(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="phone">Phone</label>
+            <input
+              id="phone"
+              type="phone"
+              value={phone || ""}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="bio">Bio</label>
+            <input
+              id="bio"
+              type="bio"
+              value={bio || ""}
+              onChange={(e) => setBio(e.target.value)}
+            />
+          </div>
+        </div>
 
         <form
           onChange={onChangeHandler}
@@ -102,7 +299,7 @@ const IAmCrew = () => {
                   <input
                     name="name"
                     type="text"
-                    defaultValue="name"
+                    defaultValue={username}
                     className="border shadow-md w-full"
                   />
                   <span className="highlight"></span>
@@ -378,16 +575,50 @@ const IAmCrew = () => {
             </div>
             <div className="top-12 w-full left-0 justify-center mt-12">
               {profileChanged === false ? (
-                ''
+                ""
               ) : (
-                <button className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen">Save</button>
+                <button className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen">
+                  Save
+                </button>
               )}
             </div>
           </div>
         </form>
 
-    </>
+        <div>
+          <button
+            className="button primary block"
+            onClick={() =>
+              updateProfile({
+                username,
+                website,
+                avatar_url,
+                status,
+                dept,
+                title,
+                canStepUp,
+                qualis,
+                phone,
+                bio,
+              })
+            }
+            disabled={loading}
+          >
+            {loading ? "Loading ..." : "Update"}
+          </button>
+        </div>
+
+        <div>
+          <button
+            className="button block"
+            onClick={() => supabase.auth.signOut()}
+          >
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default IAmCrew;
+export default Account;

@@ -11,9 +11,8 @@
   "dependencies": {
     "@fontsource/abril-fatface": "^4.5.8",
     "@fontsource/anton": "^4.5.8",
+    "@supabase/supabase-js": "^2.0.0-rc.3",
     "copy-to-clipboard": "^3.3.2",
-    "firebase": "^8.10.1",
-    "firebase-admin": "^10.0.0",
     "js-cookie": "^3.0.1",
     "material-icons": "^1.11.8",
     "next": "12.2.2",

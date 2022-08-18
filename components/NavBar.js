@@ -1,19 +1,12 @@
 import {useEffect} from "react";
 import Link from "next/link";
-import { useUser } from "../firebase/useUser";
-import { sendData } from '../components/cloudFirestore/Write';
+
 
 
 const NavBar = () => {
 
-  const {user, logout} = useUser();
 
 
-  useEffect(() => {
-    if (user) {
-      sendData(user);
-    }
-  }), [user];
 
 
   return (
@@ -33,18 +26,18 @@ const NavBar = () => {
       <Link href="/about">
           <a>About</a>
         </Link>
-        { !user?.email ? 
-        <Link href="/auth">
+
+        <Link href="/login">
           <a>Sign In / Register</a>
         </Link>
-        : 
-        <button onClick={() => logout()}>Logout</button>
-        }
-        { user?.email && (
+
+        <button>Logout</button>
+
+
           <Link href="/I-am-crew">
             <a>My Crew</a>
           </Link>
-        )}
+
       </div>
     </nav>
   );
