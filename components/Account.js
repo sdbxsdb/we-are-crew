@@ -122,6 +122,7 @@ const Account = ({ session }) => {
       alert(error.message);
     } finally {
       setLoading(false);
+      setProfileChanged(false);
     }
   }
 
@@ -151,7 +152,6 @@ const Account = ({ session }) => {
 
   const onChangeHandler = () => {
     setProfileChanged(true);
-    console.log("Changed");
   };
 
 
@@ -597,8 +597,22 @@ const Account = ({ session }) => {
               {profileChanged === false ? (
                 ""
               ) : (
-                <button className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen">
-                  Save
+                <button className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen" onClick={() =>
+                  updateProfile({
+                    username,
+                    website,
+                    avatar_url,
+                    status,
+                    dept,
+                    title,
+                    canStepUp,
+                    qualis,
+                    phone,
+                    bio,
+                  })
+                }
+                disabled={loading}>
+                  {loading ? "Saving ..." : "Save"}
                 </button>
               )}
             </div>
@@ -624,7 +638,7 @@ const Account = ({ session }) => {
             }
             disabled={loading}
           >
-            {loading ? "Loading ..." : "Update"}
+            {loading ? "Saving ..." : "Update"}
           </button>
         </div>
 
