@@ -1,6 +1,9 @@
 import React from 'react';
 
-const LimitedTextarea = ({ rows, cols, value, limit }) => {
+
+const LimitedTextarea = ({ rows, cols, value, limit, bio }) => {
+
+
   const [content, setContent] = React.useState(value.slice(0, limit));
 
   const setFormattedContent = React.useCallback(
@@ -10,19 +13,22 @@ const LimitedTextarea = ({ rows, cols, value, limit }) => {
     [limit, setContent]
   );
 
+
   return (
     <>
       <textarea
         className="border shadow-md w-full"
         rows={rows}
         cols={cols}
-        onChange={(event) => setFormattedContent(event.target.value)}
-        value={content}
+        onChange={((event) => setFormattedContent(event.target.value))}
+        value={bio}
         required
       />
       <p>
         {content.length}/{limit}
       </p>
+
+      
     </>
   );
 };

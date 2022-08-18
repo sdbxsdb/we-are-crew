@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { Head } from "next/head";
 import LimitedTextarea from "./LimitedTextarea";
@@ -11,7 +11,7 @@ const Account = ({ session }) => {
   const [email, setEmail] = useState(null);
   const [website, setWebsite] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState("Available");
   const [dept, setDept] = useState(null);
   const [title, setTitle] = useState(null);
   const [canStepUp, setCanStepUp] = useState(false);
@@ -131,16 +131,19 @@ const Account = ({ session }) => {
   const [profileChanged, setProfileChanged] = useState(false);
 
   const availHandler = () => {
+    setStatus("Available");
     setAvail(true);
     setSemiAvail(false);
     setNotAvail(false);
   };
   const semiAvailHandler = () => {
+    setStatus("On Dalies");
     setSemiAvail(true);
     setAvail(false);
     setNotAvail(false);
   };
   const notAvailHandler = () => {
+    setStatus("Not Available");
     setNotAvail(true);
     setSemiAvail(false);
     setAvail(false);
@@ -151,10 +154,12 @@ const Account = ({ session }) => {
     console.log("Changed");
   };
 
+
   return (
     <div>
-
       <div className="form-widget">
+
+
         <div className="mb-12">
           <div>
             <label htmlFor="email">Email</label>
@@ -301,6 +306,7 @@ const Account = ({ session }) => {
                     type="text"
                     defaultValue={username}
                     className="border shadow-md w-full"
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
@@ -344,9 +350,10 @@ const Account = ({ session }) => {
                   <input
                     name="safetyQualifications"
                     type="text"
-                    defaultValue="safetyQualifications"
+                    defaultValue={qualis}
                     className="border shadow-md w-full"
                     required
+                    onChange={(e) => setQualis(e.target.value)}
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
@@ -525,7 +532,7 @@ const Account = ({ session }) => {
                   <input
                     name="email"
                     type="text"
-                    value="email"
+                    value={session.user.email}
                     className="border shadow-md w-full opacity-30 cursor-not-allowed"
                     disabled
                   />
@@ -536,8 +543,9 @@ const Account = ({ session }) => {
                   <input
                     name="name"
                     type="text"
-                    defaultValue="website"
+                    defaultValue={website}
                     className="border shadow-md w-full"
+                    onChange={(e) => setWebsite(e.target.value)}
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
@@ -548,9 +556,10 @@ const Account = ({ session }) => {
                     <input
                       name="phone"
                       type="number"
-                      defaultValue="phone"
+                      defaultValue={phone}
                       className="border shadow-md w-full"
                       required
+                      onChange={(e) => setPhone(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -565,7 +574,18 @@ const Account = ({ session }) => {
                 </>
                 <DynamicList />
                 <li className="relative styledList w-full md:w-[420px]">
-                  <LimitedTextarea limit={240} value="" rows={5} name="bio" />
+                  <textarea
+                    className="border shadow-md w-full"
+                    rows="5"
+                    cols=""
+                    onChange={((e) => setCount(e.target.value.length), (e) => setBio(e.target.value))}
+                    value={bio}
+                    maxLength="240"
+                    required
+                  />
+                  <p>
+                    {bio?.length}/240
+                  </p>
                   <span className="highlight"></span>
                   <span className="bar"></span>
                   <label htmlFor="bio">Short Bio</label>
