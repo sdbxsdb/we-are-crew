@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from "react";
 import Head from "next/head";
-import LimitedTextarea from "../../components/LimitedTextarea";
 import DynamicList from "../../components/DynamicList";
 import FileUpload from "../../components/FileUpload";
 

@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { Head } from "next/head";
-import LimitedTextarea from "./LimitedTextarea";
 import DynamicList from "./DynamicList";
 import FileUpload from "./FileUpload";
 
@@ -11,7 +10,7 @@ const Account = ({ session }) => {
   const [email, setEmail] = useState(null);
   const [website, setWebsite] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
-  const [status, setStatus] = useState("Available");
+  const [status, setStatus] = useState(null);
   const [dept, setDept] = useState(null);
   const [title, setTitle] = useState(null);
   const [canStepUp, setCanStepUp] = useState(false);
@@ -133,21 +132,12 @@ const Account = ({ session }) => {
 
   const availHandler = () => {
     setStatus("Available");
-    setAvail(true);
-    setSemiAvail(false);
-    setNotAvail(false);
   };
   const semiAvailHandler = () => {
     setStatus("On Dalies");
-    setSemiAvail(true);
-    setAvail(false);
-    setNotAvail(false);
   };
   const notAvailHandler = () => {
     setStatus("Not Available");
-    setNotAvail(true);
-    setSemiAvail(false);
-    setAvail(false);
   };
 
   const onChangeHandler = () => {
@@ -267,7 +257,7 @@ const Account = ({ session }) => {
                       htmlFor="avail"
                       id="notAvail"
                       className={`min-w-max ${
-                        notAvail === true ? "bg-wearecrewRed" : ""
+                        status === "Not Available" ? "bg-wearecrewRed" : ""
                       }`}
                     >
                       Not Available
@@ -276,7 +266,7 @@ const Account = ({ session }) => {
                     <label
                       onClick={semiAvailHandler}
                       className={`min-w-max ${
-                        semiAvail === true ? "bg-wearecrewOrange" : ""
+                        status === "On Dalies" ? "bg-wearecrewOrange" : ""
                       }`}
                       htmlFor="semiAvail"
                       id="semiAvail"
@@ -287,7 +277,7 @@ const Account = ({ session }) => {
                     <label
                       onClick={availHandler}
                       className={`min-w-max ${
-                        avail === true ? "bg-wearecrewGreen" : ""
+                        status === "Available" ? "bg-wearecrewGreen" : ""
                       }`}
                       htmlFor="notAvail"
                       id="avail"
