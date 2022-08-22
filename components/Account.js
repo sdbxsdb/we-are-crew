@@ -158,35 +158,45 @@ const Account = ({ session }) => {
   const onUpdateProfileHandler = () => {
     setProfileChanged(true);
   };
+  
+  
+  const ListCheckbox = ({place}) => {
 
-  const ListCheckbox = (place, i) => {
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState( canWorkIn.includes(place) );
+    
+    useEffect(() => {
+
+      if (checked) {
+        canWorkIn.indexOf(place) === -1
+        ? setCanWorkIn([...canWorkIn, place])
+        : null;
+      } 
+      else {
+
+        canWorkIn.indexOf(place) > -1
+        ? setCanWorkIn(canWorkIn.filter(item => item !== place))
+        : null;
+      }
+      console.log(canWorkIn);
+    }, [checked]);
+
 
     const handleChange = () => {
       setChecked(!checked);
-      
-      var newItem = place.place;
-
-canWorkIn.indexOf(newItem) === -1 ? canWorkIn.push(newItem) : console.log("This item already exists");
-
-console.log(canWorkIn)
-
-      
     };
-    
 
     return (
       <li className="w-auto">
         <input
           type="checkbox"
           className="chb chb-3"
-          id={place.place}
-          onChange={handleChange}
-          value={place.place}
-          checked={place.checked}
+          id={place}
+          onChange={() => handleChange()}
+          value={place}
+          checked={checked}
         />
-        <label className="min-w-max" htmlFor={place.place}>
-          {place.place}
+        <label className="min-w-max" htmlFor={place}>
+          {place}
         </label>
       </li>
     );
@@ -338,7 +348,6 @@ console.log(canWorkIn)
                 <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Can work in</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
-                    
                     {places.map((place, i) => (
                       <ListCheckbox key={i} place={place} />
                     ))}
@@ -602,7 +611,7 @@ console.log(canWorkIn)
                       qualis,
                       phone,
                       bio,
-                      canWorkIn
+                      canWorkIn,
                     })
                   }
                   disabled={loading}
