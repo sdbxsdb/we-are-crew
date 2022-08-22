@@ -58,6 +58,8 @@ const Account = ({ session }) => {
       }
 
       if (data) {
+        console.log("DATA-", data);
+
         setUsername(data.username);
         setEmail(data.email);
         setWebsite(data.website);
@@ -76,6 +78,7 @@ const Account = ({ session }) => {
       setLoading(false);
     }
   }
+
 
   async function updateProfile({
     username,
@@ -128,6 +131,7 @@ const Account = ({ session }) => {
     }
   }
 
+
   const [profileChanged, setProfileChanged] = useState(false);
   const [showProfileSaved, setShowProfileSaved] = useState(false);
 
@@ -144,9 +148,16 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
+  const canStepUpHandler = () => {
+    setCanStepUp(!canStepUp);
+    setProfileChanged(true);
+    console.log("Can step up changed", !canStepUp);
+  }
+
   const onChangeHandler = () => {
     setProfileChanged(true);
   };
+
 
   return (
     <>
@@ -255,7 +266,7 @@ const Account = ({ session }) => {
                 {/* STEP UP */}
                 <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
                   <small className="flex items-center">
-                    <input type="checkbox" className="chb chb-3" id="stepUp" />
+                    <input type="checkbox" className="chb chb-3" id="stepUp" onChange={canStepUpHandler} checked={canStepUp}/>
                     <label className="min-w-max" htmlFor="stepUp">
                       Willing / able to step up a grade if required
                     </label>

@@ -5,9 +5,6 @@ import Head from "next/head";
 
 const IAmCrew = () => {
 
-
-
-
   return (
     <>
       <Head>
