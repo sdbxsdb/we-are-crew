@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
 import FileUpload from "./FileUpload";
-
+import places from "../places.json";
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -18,6 +18,7 @@ const Account = ({ session }) => {
   const [qualis, setQualis] = useState("");
   const [phone, setPhone] = useState("");
   const [bio, setBio] = useState("");
+  const [canWorkIn, setCanWorkIn] = useState([]);
 
   useEffect(() => {
     getProfile();
@@ -48,7 +49,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, avatar_url, status, dept, title, canStepUp, qualis, phone, bio`
+          `username, email, website, avatar_url, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn`
         )
         .eq("id", user.id)
         .single();
@@ -71,6 +72,7 @@ const Account = ({ session }) => {
         setQualis(data.qualis);
         setPhone(data.phone);
         setBio(data.bio);
+        setCanWorkIn(data.canWorkIn);
       }
     } catch (error) {
       alert(error.message);
@@ -78,7 +80,6 @@ const Account = ({ session }) => {
       setLoading(false);
     }
   }
-
 
   async function updateProfile({
     username,
@@ -92,6 +93,7 @@ const Account = ({ session }) => {
     qualis,
     phone,
     bio,
+    canWorkIn,
   }) {
     try {
       setLoading(true);
@@ -110,6 +112,7 @@ const Account = ({ session }) => {
         qualis,
         phone,
         bio,
+        canWorkIn,
 
         updated_at: new Date(),
       };
@@ -131,7 +134,6 @@ const Account = ({ session }) => {
     }
   }
 
-
   const [profileChanged, setProfileChanged] = useState(false);
   const [showProfileSaved, setShowProfileSaved] = useState(false);
 
@@ -151,13 +153,44 @@ const Account = ({ session }) => {
   const canStepUpHandler = () => {
     setCanStepUp(!canStepUp);
     setProfileChanged(true);
-    console.log("Can step up changed", !canStepUp);
-  }
+  };
 
   const onUpdateProfileHandler = () => {
     setProfileChanged(true);
   };
 
+  const ListCheckbox = (place, i) => {
+    const [checked, setChecked] = useState(false);
+
+    const handleChange = () => {
+      setChecked(!checked);
+      
+      var newItem = place.place;
+
+canWorkIn.indexOf(newItem) === -1 ? canWorkIn.push(newItem) : console.log("This item already exists");
+
+console.log(canWorkIn)
+
+      
+    };
+    
+
+    return (
+      <li className="w-auto">
+        <input
+          type="checkbox"
+          className="chb chb-3"
+          id={place.place}
+          onChange={handleChange}
+          value={place.place}
+          checked={place.checked}
+        />
+        <label className="min-w-max" htmlFor={place.place}>
+          {place.place}
+        </label>
+      </li>
+    );
+  };
 
   return (
     <>
@@ -170,7 +203,7 @@ const Account = ({ session }) => {
             <div className="flex justify-center">
               <h1 className="text-3xl">My Crew</h1>
             </div>
-            
+
             {/* STATUS */}
             <div className="w-full text-center mt-16">
               <p className="text-wearecrewBlue text-sm">Status</p>
@@ -266,7 +299,13 @@ const Account = ({ session }) => {
                 {/* STEP UP */}
                 <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
                   <small className="flex items-center">
-                    <input type="checkbox" className="chb chb-3" id="stepUp" onChange={canStepUpHandler} checked={canStepUp}/>
+                    <input
+                      type="checkbox"
+                      className="chb chb-3"
+                      id="stepUp"
+                      onChange={canStepUpHandler}
+                      checked={canStepUp}
+                    />
                     <label className="min-w-max" htmlFor="stepUp">
                       Willing / able to step up a grade if required
                     </label>
@@ -299,26 +338,25 @@ const Account = ({ session }) => {
                 <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Can work in</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="london"
-                      />
-                      <label className="min-w-max" htmlFor="london">
-                        London
-                      </label>
-                    </li>
-                    <li className="w-auto">
+                    
+                    {places.map((place, i) => (
+                      <ListCheckbox key={i} place={place} />
+                    ))}
+
+                    {/* <li className="w-auto">
                       <input
                         type="checkbox"
                         className="chb chb-3"
                         id="liverpool"
+                        onChange={(e) => canWorkInHandler(e, e.target.checked)}
+                        value="Liverpool"
+                        checked={checked}
                       />
                       <label className="min-w-max" htmlFor="liverpool">
                         Liverpool
                       </label>
                     </li>
+
                     <li className="w-auto">
                       <input
                         type="checkbox"
@@ -456,7 +494,7 @@ const Account = ({ session }) => {
                       <label className="min-w-max" htmlFor="outsideUKandIre">
                         Outside the UK &amp; Ireland
                       </label>
-                    </li>
+                    </li> */}
                   </div>
                 </div>
                 {/* //END OF CAN WORK IN */}
@@ -564,6 +602,7 @@ const Account = ({ session }) => {
                       qualis,
                       phone,
                       bio,
+                      canWorkIn
                     })
                   }
                   disabled={loading}
