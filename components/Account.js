@@ -1,32 +1,27 @@
 import { useState, useEffect } from "react";
 
 import { supabase } from "../utils/supabaseClient";
-import { Head } from "next/head";
 import DynamicList from "./DynamicList";
 import FileUpload from "./FileUpload";
 
 
-
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
-  const [username, setUsername] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [website, setWebsite] = useState(null);
-  const [avatar_url, setAvatarUrl] = useState(null);
-  const [status, setStatus] = useState(null);
-  const [dept, setDept] = useState(null);
-  const [title, setTitle] = useState(null);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [avatar_url, setAvatarUrl] = useState("");
+  const [status, setStatus] = useState("");
+  const [dept, setDept] = useState("");
+  const [title, setTitle] = useState("");
   const [canStepUp, setCanStepUp] = useState(false);
-  const [qualis, setQualis] = useState(null);
-  const [phone, setPhone] = useState(null);
-  const [bio, setBio] = useState('');
-
-
+  const [qualis, setQualis] = useState("");
+  const [phone, setPhone] = useState("");
+  const [bio, setBio] = useState("");
 
   useEffect(() => {
     getProfile();
   }, [session]);
-
 
   async function getCurrentUser() {
     const {
@@ -64,7 +59,7 @@ const Account = ({ session }) => {
 
       if (data) {
         setUsername(data.username);
-        setEmail(data.email)
+        setEmail(data.email);
         setWebsite(data.website);
         setAvatarUrl(data.avatar_url);
         setStatus(data.status);
@@ -84,7 +79,7 @@ const Account = ({ session }) => {
 
   async function updateProfile({
     username,
-    email = session.user.email,
+    email = session?.user.email,
     website,
     avatar_url,
     status,
@@ -117,6 +112,7 @@ const Account = ({ session }) => {
       };
 
       let { error } = await supabase.from("profiles").upsert(updates);
+      setShowProfileSaved(true);
 
       if (error) {
         throw error;
@@ -126,31 +122,35 @@ const Account = ({ session }) => {
     } finally {
       setLoading(false);
       setProfileChanged(false);
+      setTimeout(() => {
+        setShowProfileSaved(false);
+      }, 3000);
     }
   }
 
   const [profileChanged, setProfileChanged] = useState(false);
+  const [showProfileSaved, setShowProfileSaved] = useState(false);
 
   const availHandler = () => {
     setStatus("Available");
+    setProfileChanged(true);
   };
   const semiAvailHandler = () => {
     setStatus("On Dalies");
+    setProfileChanged(true);
   };
   const notAvailHandler = () => {
     setStatus("Not Available");
+    setProfileChanged(true);
   };
 
   const onChangeHandler = () => {
     setProfileChanged(true);
   };
 
-
-
   return (
-    <div className="borderRed w-full">
-
-
+    <>
+      <div className="w-full">
         <form
           onChange={onChangeHandler}
           className=" w-full flex justify-center py-12 relative"
@@ -159,6 +159,8 @@ const Account = ({ session }) => {
             <div className="flex justify-center">
               <h1 className="text-3xl">My Crew</h1>
             </div>
+            
+            {/* STATUS */}
             <div className="w-full text-center mt-16">
               <p className="text-wearecrewBlue text-sm">Status</p>
               <div className="flex justify-center mt-2">
@@ -201,8 +203,11 @@ const Account = ({ session }) => {
                 </div>
               </div>
             </div>
+            {/* //END OF STATUS */}
+
             <div className="">
               <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
+                {/* NAME */}
                 <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="name"
@@ -215,6 +220,9 @@ const Account = ({ session }) => {
                   <span className="bar"></span>
                   <label htmlFor="name">Name</label>
                 </li>
+                {/* //END OF NAME */}
+
+                {/* DEPARTMENT */}
                 <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Department</p>
                   <select name="dept">
@@ -226,6 +234,9 @@ const Account = ({ session }) => {
                     <option value="Assistant Directors">Grips</option>
                   </select>
                 </li>
+                {/* //END OF DEPARTMENT */}
+
+                {/* GRADE/TITLE */}
                 <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Grade / Title</p>
                   <select name="dept">
@@ -239,7 +250,9 @@ const Account = ({ session }) => {
                     <option value="Assistant Directors">Trainee</option>
                   </select>
                 </li>
+                {/* //END OF GRADE/TITLE */}
 
+                {/* STEP UP */}
                 <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
                   <small className="flex items-center">
                     <input type="checkbox" className="chb chb-3" id="stepUp" />
@@ -248,7 +261,9 @@ const Account = ({ session }) => {
                     </label>
                   </small>
                 </li>
+                {/* //END OF STEP UP */}
 
+                {/* QUALIS */}
                 <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="safetyQualifications"
@@ -267,6 +282,9 @@ const Account = ({ session }) => {
                     Safety or other Qualifications
                   </label>
                 </li>
+                {/* //END OF QUALIS */}
+
+                {/* CAN WORK IN */}
                 <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Can work in</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
@@ -430,18 +448,25 @@ const Account = ({ session }) => {
                     </li>
                   </div>
                 </div>
+                {/* //END OF CAN WORK IN */}
+
+                {/* EMAIL */}
                 <li className="relative styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Email</p>
                   <input
                     name="email"
                     type="text"
-                    value={session.user.email}
+                    value={email}
+                    placeholder={session?.user?.email}
                     className="border shadow-md w-full opacity-30 cursor-not-allowed"
                     disabled
                   />
                   <span className="highlight"></span>
                   <span className="bar"></span>
                 </li>
+                {/* //END OF EMAIL */}
+
+                {/* WEBSITE */}
                 <li className="relative styledList w-full md:w-[420px]">
                   <input
                     name="name"
@@ -454,6 +479,9 @@ const Account = ({ session }) => {
                   <span className="bar"></span>
                   <label htmlFor="name">Website</label>
                 </li>
+                {/* //END OF WEBSITE */}
+
+                {/* PHONE */}
                 <>
                   <li className="relative styledList w-full md:w-[420px]">
                     <input
@@ -475,59 +503,93 @@ const Account = ({ session }) => {
                     Area Code?
                   </span>
                 </>
+                {/* //END OF PHONE */}
+
+                {/* CREDITS */}
                 <DynamicList />
+                {/* //END OF CREDITS */}
+
+                {/* BIO */}
                 <li className="relative styledList w-full md:w-[420px]">
                   <textarea
                     className="border shadow-md w-full"
                     rows="5"
                     cols=""
-                    onChange={((e) => setCount(e.target.value.length), (e) => setBio(e.target.value))}
+                    onChange={
+                      ((e) => setCount(e.target.value.length),
+                      (e) => setBio(e.target.value))
+                    }
                     value={bio}
                     maxLength="240"
                     required
                   />
-                  <p>
-                    {bio?.length}/240
-                  </p>
+                  <p>{bio?.length}/240</p>
                   <span className="highlight"></span>
                   <span className="bar"></span>
                   <label htmlFor="bio">Short Bio</label>
                 </li>
+                {/* //END OF BIO */}
+
+                {/* UPLOAD CV */}
                 <FileUpload />
+                {/* //END OF UPLOAD CV */}
               </ul>
             </div>
             <div className="top-12 w-full left-0 justify-center mt-12">
               {profileChanged === false ? (
                 ""
               ) : (
-                <button className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen" onClick={() =>
-                  updateProfile({
-                    username,
-                    website,
-                    avatar_url,
-                    status,
-                    dept,
-                    title,
-                    canStepUp,
-                    qualis,
-                    phone,
-                    bio,
-                  })
-                }
-                disabled={loading}>
+                <button
+                  className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen"
+                  onClick={() =>
+                    updateProfile({
+                      username,
+                      website,
+                      avatar_url,
+                      status,
+                      dept,
+                      title,
+                      canStepUp,
+                      qualis,
+                      phone,
+                      bio,
+                    })
+                  }
+                  disabled={loading}
+                >
                   {loading ? "Saving ..." : "Save"}
                 </button>
               )}
             </div>
           </div>
         </form>
+      </div>
 
-
-    </div>
+      {showProfileSaved && (
+        <div className="w-screen h-screen fixed bg-white bg-opacity-80 flex flex-col justify-center items-center bottom-0 left-0 z-3000 gap-y-6">
+          <h1 className="text-3xl">Profile Saved!</h1>
+          <svg
+            className="checkmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+          >
+            <circle
+              className="checkmark__circle"
+              cx="26"
+              cy="26"
+              r="25"
+              fill="none"
+            />
+            <path
+              className="checkmark__check"
+              fill="none"
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
+          </svg>
+        </div>
+      )}
+    </>
   );
 };
 
 export default Account;
-
-
-

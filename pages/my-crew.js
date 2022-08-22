@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
-import { supabase } from '../utils/supabaseClient'
-import Auth from '../components/Auth'
-import Account from '../components/Account'
+import { useState, useEffect } from 'react';
+import { supabase } from '../utils/supabaseClient';
+import Auth from '../components/Auth';
+import Account from '../components/Account';
+import Head from 'next/head';
 
 
 const Login = () => {
@@ -42,6 +43,16 @@ const Login = () => {
   }, [])
 
   return (
+    <>
+    <Head>
+        <title>My Crew | We Are Crew</title>
+        <meta name="keywords" content="My Crew" />
+        <meta
+          name="description"
+          content="Hello this is a test description for the My Crew page"
+        />
+      </Head>
+
     <div>
       {!session ? (
         <Auth />
@@ -49,6 +60,7 @@ const Login = () => {
         <Account key={session.user.id} session={session} />
       )}
     </div>
+    </>
   )
 }
 

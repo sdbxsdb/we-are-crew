@@ -1,18 +1,19 @@
 import Link from "next/link";
-import {useState} from 'react';
+import { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { useUser } from "../context/user";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
-  const  { user, logout }  = useUser();
+  const { user, logout } = useUser();
+  const router = useRouter();
 
- const userEmail = user?.data?.user?.email
-
-
+  const userEmail = user?.data?.user?.email;
 
   const signOutHandler = () => {
     supabase.auth.signOut();
     logout();
+    router.push("/");
   };
 
   return (
@@ -28,27 +29,24 @@ const NavBar = () => {
         </a>
       </Link>
 
-      
-
       <div className="flex gap-x-6 md:gap-x-8 px-4 text-wearecrewDarkestGrey font-bold">
         <Link href="/about">
           <a>About</a>
         </Link>
 
-
-        { !userEmail && (
-          <Link href="/login">
-          <a>Sign In / Register</a>
-        </Link>
+        {!userEmail && (
+          <Link href="/my-crew">
+            <a>Sign In / Register</a>
+          </Link>
         )}
 
-        { userEmail && (
-        <button onClick={() => signOutHandler()}>Logout</button>
-        )}
+        {userEmail && <button onClick={() => signOutHandler()}>Logout</button>}
 
-        <Link href="/I-am-crew">
-          <a>My Crew</a>
-        </Link>
+        {userEmail && (
+          <Link href="/my-crew">
+            <a>My Crew</a>
+          </Link>
+        )}
       </div>
     </nav>
   );
