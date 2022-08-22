@@ -154,7 +154,7 @@ const Account = ({ session }) => {
     console.log("Can step up changed", !canStepUp);
   }
 
-  const onChangeHandler = () => {
+  const onUpdateProfileHandler = () => {
     setProfileChanged(true);
   };
 
@@ -163,7 +163,7 @@ const Account = ({ session }) => {
     <>
       <div className="w-full">
         <form
-          onChange={onChangeHandler}
+          onChange={onUpdateProfileHandler}
           className=" w-full flex justify-center py-12 relative"
         >
           <div className="bg-white shadow-md rounded-md w-11/12 md:min-w-[400px] md:w-[600px] px-12 py-12">
