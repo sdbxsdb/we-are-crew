@@ -4,6 +4,8 @@ import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
 import FileUpload from "./FileUpload";
 import places from "../places.json";
+import depts from "../depts.json";
+
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -159,27 +161,22 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
   
-  
+  //CAN WORK IN//
   const ListCheckbox = ({place}) => {
 
     const [checked, setChecked] = useState( canWorkIn.includes(place) );
     
     useEffect(() => {
-
       if (checked) {
         canWorkIn.indexOf(place) === -1
         ? setCanWorkIn([...canWorkIn, place])
         : null;
-      } 
-      else {
-
+      } else {
         canWorkIn.indexOf(place) > -1
         ? setCanWorkIn(canWorkIn.filter(item => item !== place))
         : null;
       }
-      console.log(canWorkIn);
     }, [checked]);
-
 
     const handleChange = () => {
       setChecked(!checked);
@@ -201,6 +198,32 @@ const Account = ({ session }) => {
       </li>
     );
   };
+
+  
+  const ListDept = () => {
+
+    const [selected, setSelected] = useState("")
+    
+    const handleDeptChange = (e) => {
+
+      setDept(e.target.value);
+      setSelected(e.target.value);
+      console.log("DEPT-", e.target.value);
+    };
+
+    return (
+      <select name="dept" onChange={handleDeptChange} value={selected}>
+        <option disabled>Choose Deptartment</option>
+        
+        {depts.map((department) =>
+        <option key={department} value={department}>
+          {department}
+        </option>
+        )}
+    </select>
+    )
+  }
+
 
   return (
     <>
@@ -279,14 +302,7 @@ const Account = ({ session }) => {
                 {/* DEPARTMENT */}
                 <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Department</p>
-                  <select name="dept">
-                    <option disabled>Choose Deptartment</option>
-                    <option value="Assistant Directors">
-                      Assistant Directors
-                    </option>
-                    <option value="Assistant Directors">Camera</option>
-                    <option value="Assistant Directors">Grips</option>
-                  </select>
+                 <ListDept/>
                 </li>
                 {/* //END OF DEPARTMENT */}
 
