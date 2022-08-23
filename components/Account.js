@@ -21,6 +21,7 @@ const Account = ({ session }) => {
   const [phone, setPhone] = useState("");
   const [bio, setBio] = useState("");
   const [canWorkIn, setCanWorkIn] = useState([]);
+  const [credits, setCredits] = useState(null);
 
   useEffect(() => {
     getProfile();
@@ -51,7 +52,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, avatar_url, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn`
+          `username, email, website, avatar_url, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits`
         )
         .eq("id", user.id)
         .single();
@@ -75,6 +76,7 @@ const Account = ({ session }) => {
         setPhone(data.phone);
         setBio(data.bio);
         setCanWorkIn(data.canWorkIn);
+        setCredits(data.credits);
       }
     } catch (error) {
       alert(error.message);
@@ -96,6 +98,7 @@ const Account = ({ session }) => {
     phone,
     bio,
     canWorkIn,
+    credits
   }) {
     try {
       setLoading(true);
@@ -115,6 +118,7 @@ const Account = ({ session }) => {
         phone,
         bio,
         canWorkIn,
+        credits,
 
         updated_at: new Date(),
       };
@@ -368,159 +372,6 @@ const Account = ({ session }) => {
                     {places.map((place, i) => (
                       <ListCheckbox key={i} place={place} />
                     ))}
-
-                    {/* <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="liverpool"
-                        onChange={(e) => canWorkInHandler(e, e.target.checked)}
-                        value="Liverpool"
-                        checked={checked}
-                      />
-                      <label className="min-w-max" htmlFor="liverpool">
-                        Liverpool
-                      </label>
-                    </li>
-
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="newcastle"
-                      />
-                      <label className="min-w-max" htmlFor="newcastle">
-                        Newcastle upon Tyne
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input type="checkbox" className="chb chb-3" id="leeds" />
-                      <label className="min-w-max" htmlFor="leeds">
-                        Birmingham
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="exeter"
-                      />
-                      <label className="min-w-max" htmlFor="exeter">
-                        Exeter
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="norwich"
-                      />
-                      <label className="min-w-max" htmlFor="norwich">
-                        Norwich
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="glasgow"
-                      />
-                      <label className="min-w-max" htmlFor="glasgow">
-                        Glasgow
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="edinbrugh"
-                      />
-                      <label className="min-w-max" htmlFor="edinbrugh">
-                        Edinbrugh
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="aberdeen"
-                      />
-                      <label className="min-w-max" htmlFor="aberdeen">
-                        Aberdeen
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="belfast"
-                      />
-                      <label className="min-w-max" htmlFor="belfast">
-                        Belfast
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input type="checkbox" className="chb chb-3" id="derry" />
-                      <label className="min-w-max" htmlFor="derry">
-                        Derry / L’Derry
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="enniskillen"
-                      />
-                      <label className="min-w-max" htmlFor="enniskillen">
-                        Enniskillen
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="dublin"
-                      />
-                      <label className="min-w-max" htmlFor="dublin">
-                        Dublin
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="galway"
-                      />
-                      <label className="min-w-max" htmlFor="galway">
-                        Galway
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input type="checkbox" className="chb chb-3" id="cork" />
-                      <label className="min-w-max" htmlFor="cork">
-                        Cork
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="donegal"
-                      />
-                      <label className="min-w-max" htmlFor="donegal">
-                        Donegal
-                      </label>
-                    </li>
-                    <li className="w-auto">
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id="outsideUKandIre"
-                      />
-                      <label className="min-w-max" htmlFor="outsideUKandIre">
-                        Outside the UK &amp; Ireland
-                      </label>
-                    </li> */}
                   </div>
                 </div>
                 {/* //END OF CAN WORK IN */}
@@ -557,7 +408,6 @@ const Account = ({ session }) => {
                 {/* //END OF WEBSITE */}
 
                 {/* PHONE */}
-                <>
                   <li className="relative styledList w-full md:w-[420px]">
                     <input
                       name="phone"
@@ -577,11 +427,10 @@ const Account = ({ session }) => {
                   >
                     Area Code?
                   </span>
-                </>
                 {/* //END OF PHONE */}
 
                 {/* CREDITS */}
-                <DynamicList />
+                <DynamicList credits={credits} setCredits={setCredits} />
                 {/* //END OF CREDITS */}
 
                 {/* BIO */}
@@ -629,6 +478,7 @@ const Account = ({ session }) => {
                       phone,
                       bio,
                       canWorkIn,
+                      credits
                     })
                   }
                   disabled={loading}
