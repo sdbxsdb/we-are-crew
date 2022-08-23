@@ -201,28 +201,20 @@ const Account = ({ session }) => {
 
   
   const ListDept = () => {
-
-    const [selected, setSelected] = useState("")
-    
-    const handleDeptChange = (e) => {
-
-      setDept(e.target.value);
-      setSelected(e.target.value);
-      console.log("DEPT-", e.target.value);
-    };
-
     return (
-      <select name="dept" onChange={handleDeptChange} value={selected}>
+      <select name="dept" 
+      onChange={(e) => setDept(e.target.value) } value={dept}>
         <option disabled>Choose Deptartment</option>
-        
         {depts.map((department) =>
         <option key={department} value={department}>
           {department}
         </option>
         )}
-    </select>
+      </select>
     )
   }
+
+  
 
 
   return (
@@ -302,7 +294,7 @@ const Account = ({ session }) => {
                 {/* DEPARTMENT */}
                 <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Department</p>
-                 <ListDept/>
+                  <ListDept/>
                 </li>
                 {/* //END OF DEPARTMENT */}
 
