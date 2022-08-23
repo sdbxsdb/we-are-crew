@@ -1,6 +1,24 @@
 [
   {
     "dept": "Assistant Directors",
-    "roles": ["1st Assistant Director", "2nd Assistant Director", "3rd Assistant Director", "Trainee"]
+    "titles": [
+      "1st Assistant Director",
+      "2nd Assistant Director",
+      "3rd Assistant Director",
+      "Trainee"
+    ]
+  },
+  {
+    "dept": "Camera",
+    "titles": [
+      "1st Assistant Camera",
+      "2nd Assistant Camera",
+      "Central Loader",
+      "Trainee"
+    ]
+  },
+  {
+    "dept": "Grips",
+    "titles": ["Key Grip", "Dolly Grip", "Best Boy", "Trainee"]
   }
 ]

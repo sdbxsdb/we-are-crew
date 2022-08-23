@@ -206,15 +206,33 @@ const Account = ({ session }) => {
       onChange={(e) => setDept(e.target.value) } value={dept}>
         <option disabled>Choose Deptartment</option>
         {depts.map((department) =>
-        <option key={department} value={department}>
-          {department}
+        <option key={department.dept} value={department.dept}>
+          {department.dept}
         </option>
         )}
       </select>
     )
   }
 
-  
+  const ListTitle = () => {
+    const selectedDept = depts.find(item => item.dept === dept);
+
+    return (
+      <select name="title" 
+      onChange={(e) => setTitle(e.target.value) } value={title}>
+        <option disabled>Choose Title</option>
+        
+        {selectedDept?.titles?.map((title) => (
+        <option key={title} value={title}>
+          {title}
+        </option>
+        ))}
+
+      </select>
+    )
+  }
+
+
 
 
   return (
@@ -301,16 +319,7 @@ const Account = ({ session }) => {
                 {/* GRADE/TITLE */}
                 <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Grade / Title</p>
-                  <select name="dept">
-                    <option disabled>Choose Grade / Title</option>
-                    <option value="Assistant Directors">
-                      Director of Photography
-                    </option>
-                    <option value="Assistant Directors">Camera Operator</option>
-                    <option value="Assistant Directors">Focus Puller</option>
-                    <option value="Assistant Directors">Loader</option>
-                    <option value="Assistant Directors">Trainee</option>
-                  </select>
+                  <ListTitle/>
                 </li>
                 {/* //END OF GRADE/TITLE */}
 
