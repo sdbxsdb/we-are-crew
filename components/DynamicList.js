@@ -14,7 +14,6 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
     setInputList(list);
     setCredits(list);
     setProfileChanged(true);
-
   };
 
 
@@ -32,7 +31,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
     const newCredits = (credits.filter((credit, index) => {
       return i !== index
     }))
-    console.log("NEW CREDITS-", newCredits);
+    // console.log("NEW CREDITS-", newCredits);
     setCredits(newCredits);
     setProfileChanged(true);
   };

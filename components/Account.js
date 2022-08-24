@@ -249,8 +249,6 @@ const Account = ({ session }) => {
   const {data: {publicUrl}} = supabase.storage
   .from("images")
   .getPublicUrl(imgURL);
-  console.log("XXXXXX -", publicUrl);
-  console.log("AAAAAA -", imgURL);
 
   const imgStyling = {
     backgroundImage: `${
