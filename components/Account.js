@@ -323,6 +323,7 @@ const Account = ({ session }) => {
 
             <div className="">
               <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
+                
                 {/* IMAGE */}
                 <li className="relative styledList w-full md:w-[420px] flex flex-col items-center justify-center">
                   <div
@@ -485,7 +486,7 @@ const Account = ({ session }) => {
                 {/* //END OF PHONE */}
 
                 {/* CREDITS */}
-                <DynamicList credits={credits} setCredits={setCredits} />
+                <DynamicList credits={credits} setCredits={setCredits} setProfileChanged={setProfileChanged} />
                 {/* //END OF CREDITS */}
 
                 {/* BIO */}

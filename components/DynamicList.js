@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function DynamicList({ credits, setCredits }) {
+function DynamicList({ credits, setCredits, setProfileChanged }) {
   const [inputList, setInputList] = useState(credits);
   const [input, setInput] = useState("");
 
@@ -13,6 +13,8 @@ function DynamicList({ credits, setCredits }) {
     setInput(e.target.value);
     setInputList(list);
     setCredits(list);
+    setProfileChanged(true);
+
   };
 
 
@@ -27,6 +29,12 @@ function DynamicList({ credits, setCredits }) {
   // handle click event of the Remove button
   const handleRemoveClick = (e, i) => {
     e.preventDefault();
+    const newCredits = (credits.filter((credit, index) => {
+      return i !== index
+    }))
+    console.log("NEW CREDITS-", newCredits);
+    setCredits(newCredits);
+    setProfileChanged(true);
   };
 
 
