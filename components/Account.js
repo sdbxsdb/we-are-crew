@@ -21,7 +21,8 @@ const Account = ({ session }) => {
   const [phone, setPhone] = useState("");
   const [bio, setBio] = useState("");
   const [canWorkIn, setCanWorkIn] = useState([]);
-  const [credits, setCredits] = useState(null);
+  const [credits, setCredits] = useState([{}]);
+
 
   useEffect(() => {
     getProfile();
@@ -101,6 +102,10 @@ const Account = ({ session }) => {
     credits
   }) {
     try {
+      if ( username === "") {
+        alert("Please fill out your name");
+        return
+      }
       setLoading(true);
       const user = await getCurrentUser();
 
@@ -168,15 +173,15 @@ const Account = ({ session }) => {
   //CAN WORK IN//
   const ListCheckbox = ({place}) => {
 
-    const [checked, setChecked] = useState( canWorkIn.includes(place) );
+    const [checked, setChecked] = useState( canWorkIn?.includes(place) );
     
     useEffect(() => {
       if (checked) {
-        canWorkIn.indexOf(place) === -1
+        canWorkIn?.indexOf(place) === -1
         ? setCanWorkIn([...canWorkIn, place])
         : null;
       } else {
-        canWorkIn.indexOf(place) > -1
+        canWorkIn?.indexOf(place) > -1
         ? setCanWorkIn(canWorkIn.filter(item => item !== place))
         : null;
       }
@@ -208,7 +213,7 @@ const Account = ({ session }) => {
     return (
       <select name="dept" 
       onChange={(e) => setDept(e.target.value) } value={dept}>
-        <option disabled>Choose Deptartment</option>
+        <option value="Choose Department" default>Choose Department</option>
         {depts.map((department) =>
         <option key={department.dept} value={department.dept}>
           {department.dept}
