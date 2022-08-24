@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react'
 
-const FileUpload = () => {
+const UploadCV = () => {
   const [selectedFile, setSelectedFile] = useState('');
   const fileInput = useRef(null)
 
@@ -27,4 +27,4 @@ const FileUpload = () => {
   )
 }
 
-export default FileUpload;
+export default UploadCV;

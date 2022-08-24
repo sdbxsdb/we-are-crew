@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 
 import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
-import FileUpload from "./FileUpload";
+import UploadCV from "./UploadCV";
+import UploadImg from './UploadImg';
 import places from "../places.json";
 import depts from "../depts.json";
-
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
-  const [avatar_url, setAvatarUrl] = useState("");
+  const [imgURL, setImgURL] = useState("");
   const [status, setStatus] = useState("Available");
   const [dept, setDept] = useState("");
   const [title, setTitle] = useState("");
@@ -22,7 +22,6 @@ const Account = ({ session }) => {
   const [bio, setBio] = useState("");
   const [canWorkIn, setCanWorkIn] = useState([]);
   const [credits, setCredits] = useState([{}]);
-
 
   useEffect(() => {
     getProfile();
@@ -53,7 +52,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, avatar_url, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits`
+          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits`
         )
         .eq("id", user.id)
         .single();
@@ -68,7 +67,7 @@ const Account = ({ session }) => {
         setUsername(data.username);
         setEmail(data.email);
         setWebsite(data.website);
-        setAvatarUrl(data.avatar_url);
+        setImgURL(data.imgURL);
         setStatus(data.status);
         setDept(data.dept);
         setTitle(data.title);
@@ -90,7 +89,7 @@ const Account = ({ session }) => {
     username,
     email = session?.user.email,
     website,
-    avatar_url,
+    imgURL,
     status,
     dept,
     title,
@@ -99,12 +98,12 @@ const Account = ({ session }) => {
     phone,
     bio,
     canWorkIn,
-    credits
+    credits,
   }) {
     try {
-      if ( username === "") {
+      if (username === "") {
         alert("Please fill out your name");
-        return
+        return;
       }
       setLoading(true);
       const user = await getCurrentUser();
@@ -114,7 +113,7 @@ const Account = ({ session }) => {
         username,
         email,
         website,
-        avatar_url,
+        imgURL,
         status,
         dept,
         title,
@@ -169,21 +168,20 @@ const Account = ({ session }) => {
   const onUpdateProfileHandler = () => {
     setProfileChanged(true);
   };
-  
-  //CAN WORK IN//
-  const ListCheckbox = ({place}) => {
 
-    const [checked, setChecked] = useState( canWorkIn?.includes(place) );
-    
+  //CAN WORK IN//
+  const ListCheckbox = ({ place }) => {
+    const [checked, setChecked] = useState(canWorkIn?.includes(place));
+
     useEffect(() => {
       if (checked) {
         canWorkIn?.indexOf(place) === -1
-        ? setCanWorkIn([...canWorkIn, place])
-        : null;
+          ? setCanWorkIn([...canWorkIn, place])
+          : null;
       } else {
         canWorkIn?.indexOf(place) > -1
-        ? setCanWorkIn(canWorkIn.filter(item => item !== place))
-        : null;
+          ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
+          : null;
       }
     }, [checked]);
 
@@ -208,40 +206,56 @@ const Account = ({ session }) => {
     );
   };
 
-  
   const ListDept = () => {
     return (
-      <select name="dept" 
-      onChange={(e) => setDept(e.target.value) } value={dept}>
-        <option value="Choose Department" default>Choose Department</option>
-        {depts.map((department) =>
-        <option key={department.dept} value={department.dept}>
-          {department.dept}
+      <select
+        name="dept"
+        onChange={(e) => setDept(e.target.value)}
+        value={dept}
+      >
+        <option value="Choose Department" default>
+          Choose Department
         </option>
-        )}
+        {depts.map((department) => (
+          <option key={department.dept} value={department.dept}>
+            {department.dept}
+          </option>
+        ))}
       </select>
-    )
-  }
+    );
+  };
 
   const ListTitle = () => {
-    const selectedDept = depts.find(item => item.dept === dept);
+    const selectedDept = depts.find((item) => item.dept === dept);
 
     return (
-      <select name="title" 
-      onChange={(e) => setTitle(e.target.value) } value={title}>
-        <option value="Choose Department" default >Choose Title</option>
-        {selectedDept?.titles?.map((title) => (
-        <option key={title} value={title}>
-          {title}
+      <select
+        name="title"
+        onChange={(e) => setTitle(e.target.value)}
+        value={title}
+      >
+        <option value="Choose Department" default>
+          Choose Title
         </option>
+        {selectedDept?.titles?.map((title) => (
+          <option key={title} value={title}>
+            {title}
+          </option>
         ))}
-
       </select>
-    )
-  }
+    );
+  };
 
-
-
+  const imgStyling = {
+    backgroundImage: `${
+    imgURL ?.image ? `url(${imgURL} )` : `url(/images/logoNew2.png)`
+    } `,
+    minWidth: "100px",
+    minHeight: "100px",
+    backgroundSize: `${imgURL ? "cover" : "contain"}`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
 
   return (
     <>
@@ -302,6 +316,23 @@ const Account = ({ session }) => {
 
             <div className="">
               <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
+                
+                {/* IMAGE */}
+                <li className="relative styledList w-full md:w-[420px] flex flex-col items-center justify-center">
+                  <div
+                    style={imgStyling}
+                    className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                  >
+                  </div>
+                  <UploadImg url={imgURL}
+                    size={150}
+                    onUpload={(url) => {
+                      setImgURL(url)
+                      updateProfile({ imgURL: url })
+                    }}/>
+                </li>
+                {/* //END OF IMAGE */}
+
                 {/* NAME */}
                 <li className="relative styledList w-full md:w-[420px]">
                   <input
@@ -320,14 +351,14 @@ const Account = ({ session }) => {
                 {/* DEPARTMENT */}
                 <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Department</p>
-                  <ListDept/>
+                  <ListDept />
                 </li>
                 {/* //END OF DEPARTMENT */}
 
                 {/* GRADE/TITLE */}
                 <li className="flex flex-col styledList w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Grade / Title</p>
-                  <ListTitle/>
+                  <ListTitle />
                 </li>
                 {/* //END OF GRADE/TITLE */}
 
@@ -412,25 +443,25 @@ const Account = ({ session }) => {
                 {/* //END OF WEBSITE */}
 
                 {/* PHONE */}
-                  <li className="relative styledList w-full md:w-[420px]">
-                    <input
-                      name="phone"
-                      type="number"
-                      defaultValue={phone}
-                      className="border shadow-md w-full"
-                      required
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    <label htmlFor="phone">Phone</label>
-                  </li>
-                  <span
-                    title=""
-                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px]"
-                  >
-                    Area Code?
-                  </span>
+                <li className="relative styledList w-full md:w-[420px]">
+                  <input
+                    name="phone"
+                    type="number"
+                    defaultValue={phone}
+                    className="border shadow-md w-full"
+                    required
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                  <span className="highlight"></span>
+                  <span className="bar"></span>
+                  <label htmlFor="phone">Phone</label>
+                </li>
+                <span
+                  title=""
+                  className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px]"
+                >
+                  Area Code?
+                </span>
                 {/* //END OF PHONE */}
 
                 {/* CREDITS */}
@@ -459,7 +490,7 @@ const Account = ({ session }) => {
                 {/* //END OF BIO */}
 
                 {/* UPLOAD CV */}
-                <FileUpload />
+                <UploadCV/>
                 {/* //END OF UPLOAD CV */}
               </ul>
             </div>
@@ -473,7 +504,7 @@ const Account = ({ session }) => {
                     updateProfile({
                       username,
                       website,
-                      avatar_url,
+                      imgURL,
                       status,
                       dept,
                       title,
@@ -482,7 +513,7 @@ const Account = ({ session }) => {
                       phone,
                       bio,
                       canWorkIn,
-                      credits
+                      credits,
                     })
                   }
                   disabled={loading}
