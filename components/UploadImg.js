@@ -1,28 +1,16 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 
-export default function Avatar({ url, size, onUpload }) {
-  const [imageUrl, setImageUrl] = useState(null);
+export default function UploadImg({ url, size, onUpload }) {
+
   const [uploading, setUploading] = useState(false);
 
-  useEffect(() => {
-    if (url) downloadImage(url);
-  }, [url]);
 
-  async function downloadImage(path) {
-    try {
-      const { data, error } = await supabase.storage
-        .from("images")
-        .download(path);
-      if (error) {
-        throw error;
-      }
-      const url = URL.createObjectURL(data);
-      setImageUrl(url);
-    } catch (error) {
-      console.log("Error downloading image: ", error.message);
-    }
-  }
+  const {data: {publicUrl}} = supabase.storage
+  .from("images")
+  .getPublicUrl(url);
+  console.log("IMG -", publicUrl);
+
 
   async function uploadImg(event) {
     try {
@@ -50,26 +38,17 @@ export default function Avatar({ url, size, onUpload }) {
       alert(error.message);
     } finally {
       setUploading(false);
+      console.log("EVENT-", event.target.files);
     }
   }
 
+
   return (
     <div>
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt="Profile Image"
-          className="avatar image"
-          style={{ height: size, width: size }}
-        />
-      ) : (
-        <div className="" style={{ height: size, width: size }}>
-          <h1>no image</h1>
-        </div>
-      )}
+
       
-      <div style={{ width: size }} className="borderRed h-20">
-        <label className="" htmlFor="single">
+      <div style={{ width: size }}>
+        <label className="" htmlFor="image">
           {uploading ? "Uploading ..." : "Upload"}
         </label>
         <input
@@ -78,7 +57,7 @@ export default function Avatar({ url, size, onUpload }) {
           //   position: "absolute",
           // }}
           type="file"
-          id="single"
+          id="image"
           accept="image/*"
           onChange={uploadImg}
           disabled={uploading}

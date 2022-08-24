@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
 import UploadCV from "./UploadCV";
-import UploadImg from './UploadImg';
+import UploadImg from "./UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 
@@ -62,7 +62,7 @@ const Account = ({ session }) => {
       }
 
       if (data) {
-        console.log("DATA-", data);
+        // console.log("DATA-", data);
 
         setUsername(data.username);
         setEmail(data.email);
@@ -246,16 +246,23 @@ const Account = ({ session }) => {
     );
   };
 
+  const {data: {publicUrl}} = supabase.storage
+  .from("images")
+  .getPublicUrl(imgURL);
+  console.log("XXXXXX -", publicUrl);
+  console.log("AAAAAA -", imgURL);
+
   const imgStyling = {
     backgroundImage: `${
-    imgURL ?.image ? `url(${imgURL} )` : `url(/images/logoNew2.png)`
+      imgURL ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
-    backgroundSize: `${imgURL ? "cover" : "contain"}`,
+    backgroundSize: `${publicUrl ? "cover" : "contain"}`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
+
 
   return (
     <>
@@ -316,20 +323,33 @@ const Account = ({ session }) => {
 
             <div className="">
               <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
-                
                 {/* IMAGE */}
                 <li className="relative styledList w-full md:w-[420px] flex flex-col items-center justify-center">
                   <div
                     style={imgStyling}
                     className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
-                  >
-                  </div>
-                  <UploadImg url={imgURL}
+                  ></div>
+                  <UploadImg
+                    url={imgURL}
                     size={150}
                     onUpload={(url) => {
-                      setImgURL(url)
-                      updateProfile({ imgURL: url })
-                    }}/>
+                      setImgURL(url);
+                      updateProfile({
+                        imgURL: url,
+                        username,
+                        website,
+                        status,
+                        dept,
+                        title,
+                        canStepUp,
+                        qualis,
+                        phone,
+                        bio,
+                        canWorkIn,
+                        credits,
+                      });
+                    }}
+                  />
                 </li>
                 {/* //END OF IMAGE */}
 
@@ -490,7 +510,7 @@ const Account = ({ session }) => {
                 {/* //END OF BIO */}
 
                 {/* UPLOAD CV */}
-                <UploadCV/>
+                <UploadCV />
                 {/* //END OF UPLOAD CV */}
               </ul>
             </div>
