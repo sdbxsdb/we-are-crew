@@ -3,9 +3,6 @@ import React, { useState } from "react";
 function DynamicList({ credits, setCredits }) {
   const [inputList, setInputList] = useState(credits);
   const [input, setInput] = useState("");
-  
-
-  console.log("Input List", inputList);
 
 
   // handle input change
@@ -37,10 +34,6 @@ function DynamicList({ credits, setCredits }) {
 
   if ( credits?.length > 0) {
     shownList = [...credits];
-    console.log("CREDITS EXIST", shownList);
-
-  } else {
-    console.log("CREDITS DONT EXIST");
   }
 
   return (

@@ -13,7 +13,7 @@ const Account = ({ session }) => {
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [avatar_url, setAvatarUrl] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("Available");
   const [dept, setDept] = useState("");
   const [title, setTitle] = useState("");
   const [canStepUp, setCanStepUp] = useState(false);
@@ -229,7 +229,7 @@ const Account = ({ session }) => {
     return (
       <select name="title" 
       onChange={(e) => setTitle(e.target.value) } value={title}>
-        <option disabled>Choose Title</option>
+        <option value="Choose Department" default >Choose Title</option>
         
         {selectedDept?.titles?.map((title) => (
         <option key={title} value={title}>
