@@ -38,11 +38,11 @@ function DynamicList({ credits, setCredits }) {
 
   return (
     <li className="relative styledList w-full md:w-[420px]">
-      <h3>Credits</h3>
+      <h3 className="text-sm text-wearecrewBlue">Credits</h3>
       {shownList.map((x, i) => {
         return (
           <div
-            className="flex w-full flex-col relative mt-8 gap-y-2 styledList"
+            className="flex w-full flex-col relative gap-y-2 styledList"
             key={i}
           >
             {shownList.length > 1 && (

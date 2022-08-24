@@ -230,7 +230,6 @@ const Account = ({ session }) => {
       <select name="title" 
       onChange={(e) => setTitle(e.target.value) } value={title}>
         <option value="Choose Department" default >Choose Title</option>
-        
         {selectedDept?.titles?.map((title) => (
         <option key={title} value={title}>
           {title}
