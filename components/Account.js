@@ -13,6 +13,8 @@ const Account = ({ session }) => {
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [imgURL, setImgURL] = useState("");
+  const [cvURL, setCvURL] = useState("");
+  const [cvFileName, setCvFileName] = useState("");
   const [status, setStatus] = useState("Available");
   const [dept, setDept] = useState("");
   const [title, setTitle] = useState("");
@@ -52,7 +54,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits`
+          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL`
         )
         .eq("id", user.id)
         .single();
@@ -77,6 +79,7 @@ const Account = ({ session }) => {
         setBio(data.bio);
         setCanWorkIn(data.canWorkIn);
         setCredits(data.credits);
+        setCvURL(data.cvURL);
       }
     } catch (error) {
       alert(error.message);
@@ -99,6 +102,7 @@ const Account = ({ session }) => {
     bio,
     canWorkIn,
     credits,
+    cvURL,
   }) {
     try {
       if (username === "") {
@@ -123,6 +127,7 @@ const Account = ({ session }) => {
         bio,
         canWorkIn,
         credits,
+        cvURL,
 
         updated_at: new Date(),
       };
@@ -188,6 +193,9 @@ const Account = ({ session }) => {
     const handleChange = () => {
       setChecked(!checked);
     };
+
+
+    console.log("CV FILENAME-", cvFileName);
 
     return (
       <li className="w-auto">
@@ -261,6 +269,8 @@ const Account = ({ session }) => {
     backgroundRepeat: "no-repeat",
   };
 
+  console.log("TEST-", cvFileName );
+
 
   return (
     <>
@@ -330,7 +340,6 @@ const Account = ({ session }) => {
                   ></div>
                   <UploadImg
                     url={imgURL}
-                    size={150}
                     onUpload={(url) => {
                       setImgURL(url);
                       updateProfile({
@@ -509,7 +518,29 @@ const Account = ({ session }) => {
                 {/* //END OF BIO */}
 
                 {/* UPLOAD CV */}
-                <UploadCV />
+                <div>
+                  <UploadCV url={cvURL}
+                  setCvFileName={setCvFileName}
+                  cvFileName={cvFileName}
+                      onUpload={(url) => {
+                        setCvURL(url);
+                        updateProfile({
+                          imgURL,
+                          username,
+                          website,
+                          status,
+                          dept,
+                          title,
+                          canStepUp,
+                          qualis,
+                          phone,
+                          bio,
+                          canWorkIn,
+                          credits,
+                          cvURL: url,
+                        });
+                      }}/>
+                </div>
                 {/* //END OF UPLOAD CV */}
               </ul>
             </div>
@@ -533,6 +564,7 @@ const Account = ({ session }) => {
                       bio,
                       canWorkIn,
                       credits,
+                      cvURL
                     })
                   }
                   disabled={loading}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 
-export default function UploadImg({ url, size, onUpload }) {
+export default function UploadImg({ url, onUpload }) {
 
   const [uploading, setUploading] = useState(false);
 
@@ -9,7 +9,7 @@ export default function UploadImg({ url, size, onUpload }) {
   const {data: {publicUrl}} = supabase.storage
   .from("images")
   .getPublicUrl(url);
-  console.log("IMG -", publicUrl);
+  // console.log("IMG -", publicUrl);
 
 
   async function uploadImg(event) {
@@ -44,18 +44,13 @@ export default function UploadImg({ url, size, onUpload }) {
 
 
   return (
-    <div>
 
-      
-      <div style={{ width: size }}>
-        <label className="" htmlFor="image">
-          {uploading ? "Uploading ..." : "Upload"}
+      <div className="file-uploader  group relative w-full mb-12">
+        <label className="text-sm text-wearecrewBlue left-[39%] absolute opacity-50 group-hover:opacity-100" htmlFor="image">
+          {uploading ? "Uploading ..." : "Change  Image"}
         </label>
         <input
-          // style={{
-          //   visibility: "hidden",
-          //   position: "absolute",
-          // }}
+          className="opacity-0 w-[120px] h-[30px] border-0 left-[35%] absolute"
           type="file"
           id="image"
           accept="image/*"
@@ -63,6 +58,6 @@ export default function UploadImg({ url, size, onUpload }) {
           disabled={uploading}
         />
       </div>
-    </div>
+
   );
 }
