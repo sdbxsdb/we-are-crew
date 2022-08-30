@@ -29,6 +29,7 @@ const Account = ({ session }) => {
   const [paid, setPaid] = useState(false);
   const [dateOfPayment, setdateOfPayment] = useState("");
 
+
   const newDate = new Date()
   const date = newDate.getDate();
   const month = newDate.getMonth() + 1;
@@ -44,7 +45,7 @@ const Account = ({ session }) => {
     if (paid === true ) {
       setdateOfPayment(`${date}-${month<10?`0${month}`:`${month}`}-${year}`)
     }
-  }, [paid]);
+  });
 
   async function getCurrentUser() {
     const {
@@ -81,7 +82,7 @@ const Account = ({ session }) => {
       }
 
       if (data) {
-        // console.log("DATA-", data);
+        console.log("DATA-", data);
 
         setUsername(data.username);
         setEmail(data.email);
@@ -133,6 +134,8 @@ const Account = ({ session }) => {
       }
       setLoading(true);
       const user = await getCurrentUser();
+      console.log("PAID-", paid);
+
 
       const updates = {
         id: user.id,
@@ -167,11 +170,19 @@ const Account = ({ session }) => {
     } finally {
       setLoading(false);
       setProfileChanged(false);
-      setTimeout(() => {
-        setShowProfileSaved(false);
-      }, 3000);
+      if (paid === true) {
+        setTimeout(() => {
+          setShowProfileSaved(false);
+        }, 3000);
+      } else {
+        setShowProfileSaved(true);
+      }
+      
+      
     }
   }
+
+
 
   const [profileChanged, setProfileChanged] = useState(false);
   const [showProfileSaved, setShowProfileSaved] = useState(false);
@@ -275,6 +286,7 @@ const Account = ({ session }) => {
     );
   };
 
+
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
@@ -292,6 +304,7 @@ const Account = ({ session }) => {
 
   return (
     <>
+
       <div className="w-full">
         <form
           onChange={onUpdateProfileHandler}
@@ -610,7 +623,8 @@ const Account = ({ session }) => {
                       canWorkIn,
                       credits,
                       cvURL,
-                      dateOfPayment
+                      dateOfPayment, 
+                      paid
                     })
                   }
                   disabled={loading}
@@ -644,6 +658,13 @@ const Account = ({ session }) => {
               d="M14.1 27.2l7.1 7.2 16.7-16.8"
             />
           </svg>
+          {!paid && (
+            <div className="w-full flex flex-col bg-wearecrewOrange py-12 shadow-md text-center">
+              <h1 className="text-3xl mb-4">Your profile isnt live yet</h1>
+              <a href="https://www.stripe.com" rel="noreferrer" target="_blank" className="text-white underline mt-4">Go live now</a>
+              <button onClick={() => setShowProfileSaved(false)} className="mt-2">Ill go live later</button>
+            </div>
+          )}
         </div>
       )}
     </>
