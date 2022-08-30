@@ -23,8 +23,6 @@ const INeedCrew = ({ profiles }) => {
   const [foundDept, setFoundDept] = useState(uniqueDepts);
   const filter = (e) => {
     const searchTerm = e.target.value;
-    console.log("SEARCH-", searchTerm);
-
     if (searchTerm !== "") {
       const results = uniqueDepts.filter((dept) => {
         return dept.toLowerCase().startsWith(searchTerm.toLowerCase());
