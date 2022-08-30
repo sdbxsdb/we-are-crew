@@ -24,6 +24,7 @@ const Account = ({ session }) => {
   const [bio, setBio] = useState("");
   const [canWorkIn, setCanWorkIn] = useState([]);
   const [credits, setCredits] = useState([{}]);
+  const [updatedAt, setUpdatedAt] = useState("");
 
   useEffect(() => {
     getProfile();
@@ -54,7 +55,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL`
+          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at`
         )
         .eq("id", user.id)
         .single();
@@ -80,6 +81,7 @@ const Account = ({ session }) => {
         setCanWorkIn(data.canWorkIn);
         setCredits(data.credits);
         setCvURL(data.cvURL);
+        setUpdatedAt(data.updated_at);
       }
     } catch (error) {
       alert(error.message);
@@ -128,6 +130,7 @@ const Account = ({ session }) => {
         canWorkIn,
         credits,
         cvURL,
+
 
         updated_at: new Date(),
       };
@@ -195,8 +198,6 @@ const Account = ({ session }) => {
     };
 
 
-    console.log("CV FILENAME-", cvFileName);
-
     return (
       <li className="w-auto">
         <input
@@ -257,6 +258,7 @@ const Account = ({ session }) => {
   const {data: {publicUrl}} = supabase.storage
   .from("images")
   .getPublicUrl(imgURL);
+  
 
   const imgStyling = {
     backgroundImage: `${
@@ -268,8 +270,6 @@ const Account = ({ session }) => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
-
-  console.log("TEST-", cvFileName );
 
 
   return (
@@ -518,10 +518,11 @@ const Account = ({ session }) => {
                 {/* //END OF BIO */}
 
                 {/* UPLOAD CV */}
-                <div>
+                <li className="w-full md:w-[420px] styledList">
                   <UploadCV url={cvURL}
                   setCvFileName={setCvFileName}
-                  cvFileName={cvFileName}
+                  cvFileName={cvURL}
+                  updatedAt={updatedAt}
                       onUpload={(url) => {
                         setCvURL(url);
                         updateProfile({
@@ -540,7 +541,7 @@ const Account = ({ session }) => {
                           cvURL: url,
                         });
                       }}/>
-                </div>
+                </li>
                 {/* //END OF UPLOAD CV */}
               </ul>
             </div>
