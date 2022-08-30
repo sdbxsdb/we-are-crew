@@ -7,6 +7,7 @@ import UploadImg from "./UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 
+
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState("");
@@ -25,10 +26,25 @@ const Account = ({ session }) => {
   const [canWorkIn, setCanWorkIn] = useState([]);
   const [credits, setCredits] = useState([{}]);
   const [updatedAt, setUpdatedAt] = useState("");
+  const [paid, setPaid] = useState(false);
+  const [firstReg, setFirstReg] = useState("");
+
+  const newDate = new Date()
+  const date = newDate.getDate();
+  const month = newDate.getMonth() + 1;
+  const year = newDate.getFullYear();
+
+// console.log( `${year}-${month<10?`0${month}`:`${month}`}-${date}`)
 
   useEffect(() => {
     getProfile();
   }, [session]);
+
+  useEffect(() => {
+    if (paid === true ) {
+      setFirstReg(`${date}-${month<10?`0${month}`:`${month}`}-${year}`)
+    }
+  }, [paid]);
 
   async function getCurrentUser() {
     const {
@@ -55,7 +71,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at`
+          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, firstReg`
         )
         .eq("id", user.id)
         .single();
@@ -82,6 +98,8 @@ const Account = ({ session }) => {
         setCredits(data.credits);
         setCvURL(data.cvURL);
         setUpdatedAt(data.updated_at);
+        setPaid(data.paid);
+        setFirstReg(data.firstReg);
       }
     } catch (error) {
       alert(error.message);
@@ -105,6 +123,8 @@ const Account = ({ session }) => {
     canWorkIn,
     credits,
     cvURL,
+    paid,
+    firstReg
   }) {
     try {
       if (username === "") {
@@ -130,6 +150,8 @@ const Account = ({ session }) => {
         canWorkIn,
         credits,
         cvURL,
+        paid,
+        firstReg,
 
         updated_at: new Date(),
       };
@@ -280,6 +302,7 @@ const Account = ({ session }) => {
               <h1 className="text-3xl">My Crew</h1>
             </div>
 
+
             {/* STATUS */}
             <div className="w-full text-center mt-16">
               <p className="text-wearecrewBlue text-sm">Status</p>
@@ -355,6 +378,26 @@ const Account = ({ session }) => {
                   />
                 </li>
                 {/* //END OF IMAGE */}
+
+                {/* IS PROFILE LIVE */}
+              <div className="w-full md:w-[420px]">
+                <p className="text-sm text-wearecrewBlue">Profile Status</p>
+                {paid === false ? (
+                <div className=" items-center">
+                  <h1 className="text-wearecrewOrange text-xl">Pending</h1>
+                  <small>Your profile isn&apos;t currently live.</small>
+                  <a href="https://www.stripe.com" target="_blank" rel="noreferrer" className="text-xs underline ml-2 text-wearecrewBlue">
+                  Go live now
+                  </a>
+                </div>
+                ) : 
+                <div className="">
+                  <h1 className="text-wearecrewGreen text-xl">Live</h1>
+                  <small>Your profile has been live since {firstReg}</small>
+                </div>
+                }
+              </div>
+                {/* //END OF IS PROFILE LIVE */}
 
                 {/* NAME */}
                 <li className="relative styledList w-full md:w-[420px]">
@@ -567,6 +610,7 @@ const Account = ({ session }) => {
                       canWorkIn,
                       credits,
                       cvURL,
+                      firstReg
                     })
                   }
                   disabled={loading}
