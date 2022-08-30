@@ -4,6 +4,7 @@ import Link from "next/link";
 import DeptTitle from "../../../../components/DeptTitle";
 
 
+
 const listOfCrew = [
   {
     id: 1,
@@ -187,7 +188,11 @@ const listOfCrew = [
   },
 ];
 
+
+
+
 const crewList = () => {
+  
 
   return (
     <div className="px-4 md:px-12 p-12 w-full h-fit">
@@ -259,3 +264,5 @@ const crewList = () => {
 };
 
 export default crewList;
+
+

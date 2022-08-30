@@ -39,51 +39,67 @@ const deptList = [
   { dept: "Stand-bys", imgUrl: "../../../images/icons/standby.png" },
   { dept: "Stills", imgUrl: "../../../images/icons/stills.png" },
   { dept: "Stunts", imgUrl: "../../../images/icons/stunts.png" },
-  { dept: "Tracking Vehicles", imgUrl: "../../../images/icons/trackingVeh.png" },
+  {
+    dept: "Tracking Vehicles",
+    imgUrl: "../../../images/icons/trackingVeh.png",
+  },
   { dept: "Transport", imgUrl: "../../../images/icons/transport.png" },
   { dept: "Video", imgUrl: "../../../images/icons/video.png" },
   { dept: "Visual Effects", imgUrl: "../../../images/icons/vfx.png" },
 ];
 
-const FilteredDept = () => {
-  const [foundDept, setFoundDept] = useState(deptList);
+const FilteredDept = ({ dept, imgUrl }) => {
+  const [foundDept, setFoundDept] = useState(dept);
 
-  const filter = (e) => {
-    const searchTerm = e.target.value;
+  const slugify = (str) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
-    if (searchTerm !== "") {
-      const results = deptList.filter((dept) => {
-        return dept.dept.toLowerCase().startsWith(searchTerm.toLowerCase());
-        // Use the toLowerCase() method to make it case-insensitive
-      });
-      setFoundDept(results);
-    } else {
-      setFoundDept(deptList);
-      // If the text field is empty, show all users
-    }
-  };
+  // const filter = (e) => {
+  //   const searchTerm = e.target.value;
+
+  //   if (searchTerm !== "") {
+  //     const results = deptList.filter((dept) => {
+  //       return dept.dept.toLowerCase().startsWith(searchTerm.toLowerCase());
+  //       // Use the toLowerCase() method to make it case-insensitive
+  //     });
+  //     setFoundDept(results);
+  //   } else {
+  //     setFoundDept(deptList);
+  //     // If the text field is empty, show all users
+  //   }
+  // };
 
   return (
     <div>
       <div className="w-full flex justify-center mt-12 mb-4">
-        <input
+        {/* <input
           type="text"
           onChange={filter}
           className="bg-white border-b w-[400px] border-wearecrewBlue rounded-md p-4 outline-0"
           placeholder="Search Departments..."
-        />
+        /> */}
       </div>
+      <div className="mt-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <DeptCard dept={dept} imgUrl={`../../../images/icons/`+slugify(imgUrl)+'.png'} />
+      </div>
+
+      {/* 
       {foundDept && foundDept.length > 0 ? (
         <div className="mt-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {foundDept.map((dept, i) => (
-            <DeptCard key={i} dept={dept.dept} imgUrl={dept.imgUrl} />
+            <DeptCard key={i} dept={dept} imgUrl={dept.imgUrl} />
           ))}
         </div>
       ) : (
         <div className="mt-4 w-full text-center">
           <h1>No department found!</h1>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

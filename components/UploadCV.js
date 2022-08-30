@@ -54,7 +54,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     <div className="mb-12 w-full">
       <div className="file-uploader group relative w-full h-12">
         <label
-          className="text-sm text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md left-[39%] absolute opacity-50 group-hover:opacity-100 transition"
+          className="text-sm text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md left-[39%] top-2 absolute"
           htmlFor="cv"
         >
           {!cvFileName && (
@@ -64,10 +64,9 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
             uploading ? "Uploading ..." : "Upload New CV"
           )}
 
-
         </label>
         <input
-          className="opacity-0 w-[120px] h-[30px] border-0 left-[35%] absolute"
+          className="opacity-0 w-[120px] h-[45px] borderRed top-0 left-[35%] absolute"
           type="file"
           id="cv"
           accept="application/pdf"

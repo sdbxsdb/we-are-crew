@@ -4,8 +4,8 @@ import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
 
 
-export default function Home() {
 
+export default function Home() {
 
   
   return (
@@ -30,3 +30,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+ 

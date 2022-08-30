@@ -131,7 +131,6 @@ const Account = ({ session }) => {
         credits,
         cvURL,
 
-
         updated_at: new Date(),
       };
 
@@ -197,7 +196,6 @@ const Account = ({ session }) => {
       setChecked(!checked);
     };
 
-
     return (
       <li className="w-auto">
         <input
@@ -255,10 +253,9 @@ const Account = ({ session }) => {
     );
   };
 
-  const {data: {publicUrl}} = supabase.storage
-  .from("images")
-  .getPublicUrl(imgURL);
-  
+  const {
+    data: { publicUrl },
+  } = supabase.storage.from("images").getPublicUrl(imgURL);
 
   const imgStyling = {
     backgroundImage: `${
@@ -270,7 +267,6 @@ const Account = ({ session }) => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
-
 
   return (
     <>
@@ -331,7 +327,6 @@ const Account = ({ session }) => {
 
             <div className="">
               <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
-                
                 {/* IMAGE */}
                 <li className="relative styledList w-full md:w-[420px] flex flex-col items-center justify-center">
                   <div
@@ -493,7 +488,11 @@ const Account = ({ session }) => {
                 {/* //END OF PHONE */}
 
                 {/* CREDITS */}
-                <DynamicList credits={credits} setCredits={setCredits} setProfileChanged={setProfileChanged} />
+                <DynamicList
+                  credits={credits}
+                  setCredits={setCredits}
+                  setProfileChanged={setProfileChanged}
+                />
                 {/* //END OF CREDITS */}
 
                 {/* BIO */}
@@ -519,28 +518,30 @@ const Account = ({ session }) => {
 
                 {/* UPLOAD CV */}
                 <li className="w-full md:w-[420px] styledList">
-                  <UploadCV url={cvURL}
-                  setCvFileName={setCvFileName}
-                  cvFileName={cvURL}
-                  updatedAt={updatedAt}
-                      onUpload={(url) => {
-                        setCvURL(url);
-                        updateProfile({
-                          imgURL,
-                          username,
-                          website,
-                          status,
-                          dept,
-                          title,
-                          canStepUp,
-                          qualis,
-                          phone,
-                          bio,
-                          canWorkIn,
-                          credits,
-                          cvURL: url,
-                        });
-                      }}/>
+                  <UploadCV
+                    url={cvURL}
+                    setCvFileName={setCvFileName}
+                    cvFileName={cvURL}
+                    updatedAt={updatedAt}
+                    onUpload={(url) => {
+                      setCvURL(url);
+                      updateProfile({
+                        imgURL,
+                        username,
+                        website,
+                        status,
+                        dept,
+                        title,
+                        canStepUp,
+                        qualis,
+                        phone,
+                        bio,
+                        canWorkIn,
+                        credits,
+                        cvURL: url,
+                      });
+                    }}
+                  />
                 </li>
                 {/* //END OF UPLOAD CV */}
               </ul>
@@ -565,7 +566,7 @@ const Account = ({ session }) => {
                       bio,
                       canWorkIn,
                       credits,
-                      cvURL
+                      cvURL,
                     })
                   }
                   disabled={loading}
