@@ -27,7 +27,7 @@ const Account = ({ session }) => {
   const [credits, setCredits] = useState([{}]);
   const [updatedAt, setUpdatedAt] = useState("");
   const [paid, setPaid] = useState(false);
-  const [firstReg, setFirstReg] = useState("");
+  const [dateOfPayment, setdateOfPayment] = useState("");
 
   const newDate = new Date()
   const date = newDate.getDate();
@@ -42,7 +42,7 @@ const Account = ({ session }) => {
 
   useEffect(() => {
     if (paid === true ) {
-      setFirstReg(`${date}-${month<10?`0${month}`:`${month}`}-${year}`)
+      setdateOfPayment(`${date}-${month<10?`0${month}`:`${month}`}-${year}`)
     }
   }, [paid]);
 
@@ -71,7 +71,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, firstReg`
+          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment`
         )
         .eq("id", user.id)
         .single();
@@ -99,7 +99,7 @@ const Account = ({ session }) => {
         setCvURL(data.cvURL);
         setUpdatedAt(data.updated_at);
         setPaid(data.paid);
-        setFirstReg(data.firstReg);
+        setdateOfPayment(data.dateOfPayment);
       }
     } catch (error) {
       alert(error.message);
@@ -124,7 +124,7 @@ const Account = ({ session }) => {
     credits,
     cvURL,
     paid,
-    firstReg
+    dateOfPayment
   }) {
     try {
       if (username === "") {
@@ -151,7 +151,7 @@ const Account = ({ session }) => {
         credits,
         cvURL,
         paid,
-        firstReg,
+        dateOfPayment,
 
         updated_at: new Date(),
       };
@@ -393,7 +393,7 @@ const Account = ({ session }) => {
                 ) : 
                 <div className="">
                   <h1 className="text-wearecrewGreen text-xl">Live</h1>
-                  <small>Your profile has been live since {firstReg}</small>
+                  <small>Your profile has been live since {dateOfPayment}</small>
                 </div>
                 }
               </div>
@@ -610,7 +610,7 @@ const Account = ({ session }) => {
                       canWorkIn,
                       credits,
                       cvURL,
-                      firstReg
+                      dateOfPayment
                     })
                   }
                   disabled={loading}
