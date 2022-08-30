@@ -58,6 +58,7 @@ const FilteredDept = ({ dept, imgUrl }) => {
     .replace(/[^\w\s-]/g, "")
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
+    
 
   // const filter = (e) => {
   //   const searchTerm = e.target.value;
