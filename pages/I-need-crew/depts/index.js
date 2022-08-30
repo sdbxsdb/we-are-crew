@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { supabase } from "../../../utils/supabaseClient";
-import DeptCard from "../../../components/DeptCard";
+import Link from "next/link";
 
 const INeedCrew = ({ profiles }) => {
   const slugify = (str) =>
@@ -20,12 +20,7 @@ const INeedCrew = ({ profiles }) => {
   const uniqueDepts = Array.from(new Set(depts));
 
 
-
   const [foundDept, setFoundDept] = useState(uniqueDepts);
-  // console.log("FD-", foundDept);
-
-
-
   const filter = (e) => {
     const searchTerm = e.target.value;
     console.log("SEARCH-", searchTerm);
@@ -36,7 +31,6 @@ const INeedCrew = ({ profiles }) => {
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
-      console.log(foundDept);
     } else {
       setFoundDept(uniqueDepts);
       // If the text field is empty, show all users
@@ -57,20 +51,37 @@ const INeedCrew = ({ profiles }) => {
         <h1 className="text-3xl">For which department do you need crew?</h1>
 
         <div className="flex justify-center w-full">
-          <div className="">
-            <input
-              type="text"
-              onChange={filter}
-              className="bg-white border-b w-[400px] border-wearecrewBlue rounded-md p-4 outline-0"
-              placeholder="Search Departments..."
-            />
+          <div className="w-full">
+            <div className="w-full flex justify-center mt-12 mb-4">
+              <input
+                type="text"
+                onChange={filter}
+                className="bg-white border-b w-[400px] border-wearecrewBlue rounded-md p-4 outline-0"
+                placeholder="Search Departments..."
+              />
+            </div>
 
             {foundDept && foundDept.length > 0 ? (
-              <div className="mt-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {foundDept.map((dept, i) => (
-                  <DeptCard  key={i}
-                  dept={dept}
-                  imgUrl={`../../../images/icons/` + slugify(dept) + ".png"} />
+                  <div
+                    key={i}
+                    className="w-full flex items-center justify-center"
+                  >
+                    <Link href={`./depts/crew-list/${dept}`}>
+                      <a className="bg-white w-full sm:min-w-[180px] sm:w-[180px] h-[180px] flex flex-col items-center justify-center text-center rounded border-b-2 border-wearecrewBlue shadow-md hoverScale gap-y-2 p-2">
+                        <h1 className="text-5xl sm:text-3xl">{dept}</h1>
+                        <img
+                          src={
+                            `../../../images/icons/` + slugify(dept) + ".png"
+                          }
+                          alt={`${dept} img`}
+                          width="50"
+                          height="50"
+                        />
+                      </a>
+                    </Link>
+                  </div>
                 ))}
               </div>
             ) : (

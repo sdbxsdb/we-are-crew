@@ -2,8 +2,7 @@ import { React, useState } from "react";
 import CrewDetailBox from "../../../../components/CrewDetailBox";
 import Link from "next/link";
 import DeptTitle from "../../../../components/DeptTitle";
-
-
+import { supabase } from "../../../../utils/supabaseClient";
 
 const listOfCrew = [
   {
@@ -19,8 +18,26 @@ const listOfCrew = [
     email: "johndoe@test.com",
     phone: "34563456456",
     status: "Available",
-    willWorkIn: ["London", "Liverpool", "Newcastle upon Tyne", "Birmingham", "Exeter", "Norwich", "Glasgow", "Edinbrugh", "Aberdeen", "Belfast", "Derry / L'Derry", "Enniskillen", "Dublin", "Galway", "Cork", "Donegal", "Outside the UK & Ireland"],
-    qualis: '',
+    willWorkIn: [
+      "London",
+      "Liverpool",
+      "Newcastle upon Tyne",
+      "Birmingham",
+      "Exeter",
+      "Norwich",
+      "Glasgow",
+      "Edinbrugh",
+      "Aberdeen",
+      "Belfast",
+      "Derry / L'Derry",
+      "Enniskillen",
+      "Dublin",
+      "Galway",
+      "Cork",
+      "Donegal",
+      "Outside the UK & Ireland",
+    ],
+    qualis: "",
     credits: [
       {
         jobTitle: "America Physco",
@@ -32,7 +49,7 @@ const listOfCrew = [
       },
     ],
     bio: "Jill Doe is a focus puller. She is a very good focus puller.",
-    cv: "/images/logoNew2.png"
+    cv: "/images/logoNew2.png",
   },
   {
     id: 2,
@@ -46,7 +63,7 @@ const listOfCrew = [
     phone: "754674567456",
     status: "Not Available",
     willWorkIn: ["England", "Northern Ireland", "Ireland"],
-    qualis: '',
+    qualis: "",
     credits: [
       {
         jobTitle: "A Movie Title",
@@ -58,8 +75,7 @@ const listOfCrew = [
       },
     ],
     bio: "Jill Doe is a focus puller. She is a very good focus puller.",
-    cv: "/images/logoNew2.png"
-
+    cv: "/images/logoNew2.png",
   },
   {
     id: 3,
@@ -87,8 +103,7 @@ const listOfCrew = [
       },
     ],
     bio: "Jack Doe is a camera operator. He is a very good camera operator.",
-    cv: ""
-
+    cv: "",
   },
   {
     id: 4,
@@ -128,8 +143,7 @@ const listOfCrew = [
       },
     ],
     bio: "Jill Doe fhfjdjkjs f dsaksdhklfha sdfk akjsfd kljasdfkjas dfkj  askfjsakjdfhklasdhf kjasfkljashdfkjahdf a kajsfkaskdjfha sdflkasjfkjasdfh asfkla skljfalksdfhkjashfd klasfdh alskf lkashfkjashfk jashfklashdfkljashdfkjashdf kjsdfhalksdfhsadkfsk",
-    cv: "/images/logoNew2.png"
-
+    cv: "/images/logoNew2.png",
   },
   {
     id: 5,
@@ -145,7 +159,7 @@ const listOfCrew = [
     phone: "64634634563465",
     status: "Available",
     willWorkIn: ["England", "Scotland", "Wales"],
-    qualis: '',
+    qualis: "",
     credits: [
       {
         jobTitle: "Some movie",
@@ -171,7 +185,7 @@ const listOfCrew = [
     phone: "12345235345",
     status: "Not Available",
     willWorkIn: ["England", "Northern Ireland", "Scotland", "Wales", "Ireland"],
-    qualis: '',
+    qualis: "",
     credits: [
       {
         jobTitle: "Harry Potter",
@@ -183,17 +197,11 @@ const listOfCrew = [
       },
     ],
     bio: "Juan Doe is a trainee. He is a very good trainee.",
-    cv: "/images/logoNew2.png"
-
+    cv: "/images/logoNew2.png",
   },
 ];
 
-
-
-
 const crewList = () => {
-  
-
   return (
     <div className="px-4 md:px-12 p-12 w-full h-fit">
       <Link href="/I-need-crew/depts">
@@ -201,12 +209,13 @@ const crewList = () => {
       </Link>
 
       <div className="w-full flex justify-start mt-4">
-        <h1 className="text-4xl"><DeptTitle/></h1>
+        <h1 className="text-4xl">
+          <DeptTitle />
+        </h1>
       </div>
 
       <div className="w-full flex justify-center">
         <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
-
           <div className="flex flex-1 rounded-md flex-col gap-y-4 mb-12">
             {listOfCrew.map((crew) => (
               <CrewDetailBox
@@ -238,22 +247,7 @@ const crewList = () => {
                 <button className="w-full">All</button>
               </li>
               <li className="lg:w-full max-w-3/12">
-                <button className="w-full">Director of Photography</button>
-              </li>
-              <li className="lg:w-full max-w-3/12">
-                <button className="w-full">Camera Operator</button>
-              </li>
-              <li className="lg:w-full max-w-3/12">
-                <button className="w-full">Camera Operator / Steadicam</button>
-              </li>
-              <li className="lg:w-full max-w-3/12">
-                <button className="w-full">Focus Puller</button>
-              </li>
-              <li className="lg:w-full max-w-3/12">
-                <button className="w-full">Loader</button>
-              </li>
-              <li className="lg:w-full max-w-3/12">
-                <button className="w-full">Trainee</button>
+                <button className="w-full">LIST OF ALL ROLES GOES HERE</button>
               </li>
             </ul>
           </div>
@@ -264,5 +258,6 @@ const crewList = () => {
 };
 
 export default crewList;
+
 
 
