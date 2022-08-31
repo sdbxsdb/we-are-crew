@@ -10,6 +10,7 @@ const NavBar = () => {
 
   const userEmail = user?.data?.user?.email;
 
+
   const signOutHandler = () => {
     supabase.auth.signOut();
     logout();
