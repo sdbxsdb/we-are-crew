@@ -45,7 +45,7 @@ const Account = ({ session }) => {
     if (paid === true ) {
       setdateOfPayment(`${date}-${month<10?`0${month}`:`${month}`}-${year}`)
     }
-  });
+  }, [paid]);
 
   async function getCurrentUser() {
     const {

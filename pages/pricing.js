@@ -12,21 +12,21 @@ const pricing = () => {
         <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
           <h1 className="text-3xl mb-4">One Year Listing</h1>
           <strong className="text-2xl">50p per day</strong>
-          {/* <p>£180 per year</p> */}
+
           <p className="mt-4">Profile visable for <strong>356 days</strong> from when you go live.</p>
           <button className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition">Select</button>
         </div>
         <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
           <h1 className="text-3xl mb-4">Two Year Listing</h1>
           <strong className="text-2xl">36p per day</strong>
-          {/* <p>£270 per year</p> */}
+
           <p className="mt-4">Profile visable for <strong>730 days</strong> from when you go live.</p>
           <button className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition">Select</button>
         </div>
         <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
           <h1 className="text-3xl mb-4">Lifetime Listing</h1>
           <strong className="text-2xl">3p per day</strong>
-          {/* <p>£399 per working lifetime</p> */}
+
           <p className="mt-4">Profile visable for <strong>30 <cite>years</cite></strong> when you go live.</p>
           <button className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition">Select</button>
         </div>

@@ -39,7 +39,7 @@ const Provider = ({ children }) => {
     // getData();
   }, []);
 
-  console.log("USER PROFILE-", user);
+  // console.log("USER PROFILE-", user);
 
 
   const logout = async () => {

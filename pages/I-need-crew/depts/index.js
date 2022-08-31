@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../../../utils/supabaseClient";
 import Link from "next/link";
 
-const INeedCrew = ({ profiles }) => {
+const INeedCrew = ({ depts }) => {
   const slugify = (str) =>
     str
       .toLowerCase()
@@ -12,25 +12,18 @@ const INeedCrew = ({ profiles }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  const depts = [];
 
-  profiles.map((profile) => {
-    depts.push(profile.dept);
-  });
-  const uniqueDepts = Array.from(new Set(depts));
-
-
-  const [foundDept, setFoundDept] = useState(uniqueDepts);
+  const [foundDept, setFoundDept] = useState(depts);
   const filter = (e) => {
     const searchTerm = e.target.value;
     if (searchTerm !== "") {
-      const results = uniqueDepts.filter((dept) => {
+      const results = depts.filter((dept) => {
         return dept.toLowerCase().startsWith(searchTerm.toLowerCase());
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
     } else {
-      setFoundDept(uniqueDepts);
+      setFoundDept(depts);
       // If the text field is empty, show all users
     }
   };
@@ -99,9 +92,18 @@ export default INeedCrew;
 export const getStaticProps = async () => {
   const { data: profiles } = await supabase.from("profiles").select("dept");
 
+  console.log("PROFILES)-", profiles);
+
+  const depts = [];
+
+  profiles.forEach((profile) => {
+    depts.push(profile.dept);
+  });
+  const uniqueDepts = Array.from(new Set(depts));
+
   return {
     props: {
-      profiles,
+      depts: uniqueDepts,
     },
   };
 };
