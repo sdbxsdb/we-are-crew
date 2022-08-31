@@ -46,7 +46,7 @@ const INeedCrew = ({ profiles }) => {
         />
       </Head>
       <div className="px-4 md:px-12 py-12">
-        <h1 className="text-3xl">For which department do you need crew?</h1>
+        <h1 className="text-3xl">Which department do you need crew?</h1>
 
         <div className="flex justify-center w-full">
           <div className="w-full">
