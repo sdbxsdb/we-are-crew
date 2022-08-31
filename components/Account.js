@@ -401,7 +401,7 @@ const Account = ({ session }) => {
                 <div className=" items-center">
                   <h1 className="text-wearecrewOrange text-xl">Pending</h1>
                   <small>Your profile isn&apos;t currently live.</small>
-                  <a href="https://www.stripe.com" target="_blank" rel="noreferrer" className="text-xs underline ml-2 text-wearecrewBlue">
+                  <a href="/pricing" className="text-xs underline ml-2 text-wearecrewBlue">
                   Go live now
                   </a>
                 </div>
@@ -663,7 +663,7 @@ const Account = ({ session }) => {
           {!paid && (
             <div className="w-full flex flex-col bg-wearecrewOrange py-12 shadow-md text-center">
               <h1 className="text-3xl mb-4">Your profile isnt live yet</h1>
-              <a href="https://www.stripe.com" rel="noreferrer" target="_blank" className="text-white underline mt-4">Go live now</a>
+              <a href="/pricing" className="text-white underline mt-4">Go live now</a>
               <button onClick={() => setShowProfileSaved(false)} className="mt-2">Ill go live later</button>
             </div>
           )}
