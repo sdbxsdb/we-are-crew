@@ -21,8 +21,9 @@ const Provider = ({ children }) => {
 
   const exposed = { 
     user,
-    logout
+    logout,
   }
+
 
   return (
     <Context.Provider value={exposed}>
@@ -34,3 +35,5 @@ const Provider = ({ children }) => {
 export const useUser = () => useContext(Context);
 
 export default Provider;
+
+

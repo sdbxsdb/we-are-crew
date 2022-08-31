@@ -10,6 +10,7 @@ import depts from "../depts.json";
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
+  const [id, setID] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
@@ -35,7 +36,6 @@ const Account = ({ session }) => {
   const month = newDate.getMonth() + 1;
   const year = newDate.getFullYear();
 
-// console.log( `${year}-${month<10?`0${month}`:`${month}`}-${date}`)
 
   useEffect(() => {
     getProfile();
@@ -69,10 +69,12 @@ const Account = ({ session }) => {
       setLoading(true);
       const user = await getCurrentUser();
 
+      setID(user.id);
+
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment`
+          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
         )
         .eq("id", user.id)
         .single();
@@ -84,6 +86,7 @@ const Account = ({ session }) => {
       if (data) {
         console.log("DATA-", data);
 
+        setID(data.id);
         setUsername(data.username);
         setEmail(data.email);
         setWebsite(data.website);
@@ -108,6 +111,8 @@ const Account = ({ session }) => {
       setLoading(false);
     }
   }
+
+  
 
   async function updateProfile({
     username,
@@ -134,8 +139,6 @@ const Account = ({ session }) => {
       }
       setLoading(true);
       const user = await getCurrentUser();
-      console.log("PAID-", paid);
-
 
       const updates = {
         id: user.id,
@@ -177,7 +180,6 @@ const Account = ({ session }) => {
       } else {
         setShowProfileSaved(true);
       }
-      
       
     }
   }
