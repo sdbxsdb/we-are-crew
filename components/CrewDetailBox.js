@@ -2,10 +2,15 @@ import { React, useState, useEffect } from "react";
 import CrewDetailModal from "./CrewDetailModal";
 import { useRouter } from "next/router";
 import copy from "copy-to-clipboard";
+import { supabase } from "../utils/supabaseClient";
+
+
 
 const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
+
+  console.log("CREW DETAIL PG- ", crew);
 
   const slugify = (str) =>
     str
@@ -20,33 +25,37 @@ const CrewDetailBox = (crew) => {
       // console.log("Show modal");
 
       // console.log(router.query.user + "      " + slugify(crew.name) + "_" + crew.id);
-      if (
-        router.query.user === slugify(crew.name) + "_" + crew.id
-      ) {
+      if (router.query.user === slugify(crew.name) + "_" + crew.id) {
         setShowModal(true);
       }
     }
   }, [router.asPath]);
 
-  
+
+
+  const {
+    data: { publicUrl },
+  } = supabase.storage.from("images").getPublicUrl(crew.imgURL);
+
+  console.log("PUBLIC-", publicUrl);
 
   const stylingLarge = {
     backgroundImage: `${
-      crew?.image ? `url(${crew?.image} )` : `url(/images/logoNew2.png)`
+      publicUrl ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
-    backgroundSize: `${crew?.image ? "cover" : "contain"}`,
+    backgroundSize: `${publicUrl ? "cover" : "contain"}`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
   const stylingSmall = {
     backgroundImage: `${
-      crew?.image ? `url(${crew?.image} )` : `url(/images/logoNew2.png)`
+      publicUrl ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
     } `,
     minWidth: "60px",
     minHeight: "60px",
-    backgroundSize: `${crew?.image ? "cover" : "contain"}`,
+    backgroundSize: `${publicUrl ? "cover" : "contain"}`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
@@ -72,8 +81,17 @@ const CrewDetailBox = (crew) => {
     setCopiedText("Email Copied!");
   };
 
+  const copyWebsite = () => {
+    copy(crew.website);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+    setCopiedText("Website Copied!");
+  };
+
   const shareProfileHandler = () => {
-    copy(`${window.location.href+router.asPath}`);
+    copy(`${window.location.href + router.asPath}`);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -92,22 +110,33 @@ const CrewDetailBox = (crew) => {
       <div className="border-b border-wearecrewBlue rounded shadow-md bg-white h-full">
         {/*Larger screen layout*/}
         <div className="hidden md:flex p-4 items-center gap-x-4 justify-between">
+          {/*IMAGE*/}
           <div
             style={stylingLarge}
             className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
           ></div>
+          {/* //END OF IMAGE*/}
+
           <div className="w-[210px] flex flex-col">
+            {/*NAME*/}
             <h2>
               <strong> {crew.name}</strong>
             </h2>
-            <h2>{crew.role}</h2>
+            {/* //END OF NAME */}
 
+            {/*TITLE*/}
+            <h2>{crew.title}</h2>
+            {/* // END OF TITLE*/}
+
+            {/*QUALIS*/}
             {crew?.qualis && (
               <div className="flex items-center">
                 <small>{crew?.qualis}</small>
               </div>
             )}
+            {/* // END OF QUALIS*/}
 
+            {/*STATUS*/}
             <strong
               className={`mt-4 ${
                 crew.status === "Available"
@@ -119,8 +148,10 @@ const CrewDetailBox = (crew) => {
             >
               {crew.status}
             </strong>
+            {/* //END OF STATUS */}
           </div>
 
+          {/*CAN WORK IN*/}
           <div className="flex flex-col justify-start items-start w-[332px] min-h-[161px]">
             <small>
               <strong>Can work in</strong>
@@ -133,25 +164,35 @@ const CrewDetailBox = (crew) => {
               ))}
             </div>
           </div>
+          {/* //END OF CAN WORK IN*/}
+
           <div className="flex flex-col gap-y-2">
+            {/*PHONE*/}
             <a
               href={`tel:${crew.phone}`}
               className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
             >
               <h1 className="text-3xl">Call</h1>
             </a>
+            {/* //END OF PHONE*/}
+
+            {/*EMAIL*/}
             <a
               href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
               className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
             >
               <h1 className="text-3xl">Email</h1>
             </a>
+            {/* //END OF EMAIL*/}
+
+            {/*PROFILE*/}
             <div
               onClick={() => setShowModal(true)}
               className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
             >
               <h1 className="text-3xl text-center">Profile</h1>
             </div>
+            {/* // END OF PROFILE*/}
           </div>
         </div>
 
@@ -159,12 +200,16 @@ const CrewDetailBox = (crew) => {
         <div className="flex flex-col md:hidden p-2 gap-x-2 gap-y-8">
           <div className="w-full flex flex-col justify-between gap-x-2 gap-y-4">
             <div className="flex justify-between items-start">
+              {/*MOBILE IMAGE*/}
               <div
                 style={stylingSmall}
                 className="rounded-full overflow-hidden w-[80px] h-[80px] shadow-md"
               ></div>
+              {/* //END OF MOBILE IMAGE*/}
+
               <div className="w-[210px] text-right">
                 <div className="flex flex-col">
+                  {/* MOBILE STATUS*/}
                   <strong
                     className={`${
                       crew.status === "Available"
@@ -176,22 +221,27 @@ const CrewDetailBox = (crew) => {
                   >
                     {crew.status}
                   </strong>
+                  {/* // END OF MOBILE STATUS */}
+
+                  {/* MOBILE NAME*/}
                   <strong>{crew.name}</strong>
+                  {/* //END OF MOBILE NAME*/}
                 </div>
-                <h2>{crew.role}</h2>
+
+                {/* MOBILE TITLE*/}
+                <h2>{crew.title}</h2>
+                {/* //END OF MOBILE TITLE*/}
+
+                {/* MOBILE QUALIS*/}
                 <div className="mt-2">
                   <small>{crew?.qualis}</small>
                 </div>
+                {/* //END OF MOBILE QUALIS*/}
               </div>
             </div>
 
+            {/* MOBILE CAN WORK IN*/}
             <div className="w-full flex gap-x-4 justify-center mt-4">
-              {/* <div>
-                <small>
-                  <strong>Based in:</strong>
-                </small>
-                <p>London</p>
-              </div> */}
               <div className="flex flex-col items-center">
                 <strong className="text-sm">Can work in</strong>
                 <div className="flex flex-wrap gap-x-4 justify-center">
@@ -203,30 +253,38 @@ const CrewDetailBox = (crew) => {
                 </div>
               </div>
             </div>
+            {/* //END OF MOBILE CAN WORK IN*/}
           </div>
 
           <div className="flex flex-col gap-y-4">
             <div className="flex justify-between gap-x-2">
+              {/* MOBILE PHONE*/}
               <a
                 href={`tel:${crew.phone}`}
                 className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white"
               >
                 <h1 className="text-3xl">Call</h1>
               </a>
+              {/* //END OF MOBILE PHONE*/}
+
+              {/* MOBILE EMAIL*/}
               <a
                 href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
                 className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white"
               >
                 <h1 className="text-3xl">Email</h1>
               </a>
+              {/* //END OF MOBILE EMAIL*/}
             </div>
 
+            {/* MOBILE PROFILE*/}
             <div
               onClick={() => setShowModal(true)}
               className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white"
             >
               <h1 className="text-3xl text-center">Profile</h1>
             </div>
+            {/* //END OF MOBILE PROFILE*/}
           </div>
         </div>
       </div>
@@ -300,15 +358,22 @@ const CrewDetailBox = (crew) => {
                     <cite>Copy Email</cite>
                   </button>
                 </div>
+                <div className="flex items-center gap-x-4">
+                  <span className="material-icons">public</span>
+                  <a className="underline">{crew.website}</a>
+                  <button
+                    onClick={() => copyWebsite()}
+                    className="text-wearecrewDarkGrey"
+                  >
+                    <cite>Copy Website</cite>
+                  </button>
+                </div>
                 <div className="flex items-start gap-x-4">
                   <span className="material-icons">where_to_vote</span>
                   <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
                     {crew.willWorkIn.map((willWorkIn, id) => (
                       <div key={willWorkIn + id}>
-                        <p className="min-w-max">
-                          {willWorkIn}
-                          {/* <span className="text-wearecrewBlue">     |  </span> */}
-                        </p>
+                        <p className="min-w-max">{willWorkIn}</p>
                       </div>
                     ))}
                   </div>
@@ -321,13 +386,12 @@ const CrewDetailBox = (crew) => {
                         key={credits + id}
                         className="flex items-center mb-4"
                       >
-                        {/* <span>- </span> */}
                         <div className="flex justify-center">
                           <p className="text-base">
                             <cite>{credits.jobTitle}</cite>
                           </p>
                           <span className="text-wearecrewBlue">  |  </span>
-                          <p className="text-base">{credits.role}</p>
+                          <p className="text-base">{credits.yourRole}</p>
                         </div>
                       </div>
                     ))}
@@ -340,7 +404,6 @@ const CrewDetailBox = (crew) => {
                     <div>
                       <p className="">
                         {crew.qualis}
-                        {/* <span className="text-wearecrewBlue">     |  </span> */}
                       </p>
                     </div>
                   </div>

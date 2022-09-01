@@ -4,6 +4,7 @@ import Link from "next/link";
 import DeptTitle from "../../../../components/DeptTitle";
 import { supabase } from "../../../../utils/supabaseClient";
 
+
 // const listOfCrew = [
 //   {
 //     id: 1,
@@ -201,9 +202,7 @@ import { supabase } from "../../../../utils/supabaseClient";
 //   },
 // ];
 
-const crewList = ({users}) => {
-
-  console.log({users});
+const crewList = ({users, image}) => {
 
   return (
     <div className="px-4 md:px-12 p-12 w-full h-fit">
@@ -226,11 +225,12 @@ const crewList = ({users}) => {
                 id={crew.id}
                 name={crew.username}
                 dept={crew.dept}
-                role={crew.role}
+                title={crew.title}
                 canStepUp={crew.canStepUp}
-                image={crew.image}
+                imgURL={crew.imgURL}
                 phone={crew.phone}
                 email={crew.email}
+                website={crew.website}
                 status={crew.status}
                 willWorkIn={crew.canWorkIn}
                 qualis={crew.qualis}
@@ -288,16 +288,17 @@ export async function getStaticPaths() {
 
 
 export const getStaticProps = async (context) => {
-console.log("DEPT-", context.params.crewList);
-const dept = context.params.crewList
+  const dept = context.params.crewList
+  
+  const data = await supabase.from("profiles").select("*").eq("dept", dept);
+  
+// console.log("CREW DATA-", context.params.crewList);
+// console.log("PROFILES_", data.data.map((item) => item.imgURL));
 
-const data = await supabase.from("profiles").select("*").eq("dept", dept);
-
-console.log("PROFILES_", data);
 
   return {
     props: {
-      users: data.data
+      users: data.data,
     }
   }
 };
