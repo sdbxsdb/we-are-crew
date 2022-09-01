@@ -7,7 +7,6 @@ import UploadImg from "./UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 
-
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
   const [id, setID] = useState("");
@@ -30,20 +29,20 @@ const Account = ({ session }) => {
   const [paid, setPaid] = useState(false);
   const [dateOfPayment, setdateOfPayment] = useState("");
 
-
-  const newDate = new Date()
+  const newDate = new Date();
   const date = newDate.getDate();
   const month = newDate.getMonth() + 1;
   const year = newDate.getFullYear();
-
 
   useEffect(() => {
     getProfile();
   }, [session]);
 
   useEffect(() => {
-    if (paid === true ) {
-      setdateOfPayment(`${date}-${month<10?`0${month}`:`${month}`}-${year}`)
+    if (paid === true) {
+      setdateOfPayment(
+        `${date}-${month < 10 ? `0${month}` : `${month}`}-${year}`
+      );
     }
   }, [paid]);
 
@@ -112,7 +111,6 @@ const Account = ({ session }) => {
     }
   }
 
-  
 
   async function updateProfile({
     username,
@@ -130,13 +128,9 @@ const Account = ({ session }) => {
     credits,
     cvURL,
     paid,
-    dateOfPayment
+    dateOfPayment,
   }) {
     try {
-      if (username === "") {
-        alert("Please fill out your name");
-        return;
-      }
       setLoading(true);
       const user = await getCurrentUser();
 
@@ -168,11 +162,13 @@ const Account = ({ session }) => {
       if (error) {
         throw error;
       }
-    } catch (error) {
-      alert(error.message);
-    } finally {
       setLoading(false);
       setProfileChanged(false);
+      
+    } catch (error) {
+      alert(error.message);
+    }
+    finally {
       if (paid === true) {
         setTimeout(() => {
           setShowProfileSaved(false);
@@ -180,11 +176,8 @@ const Account = ({ session }) => {
       } else {
         setShowProfileSaved(true);
       }
-      
     }
   }
-
-
 
   const [profileChanged, setProfileChanged] = useState(false);
   const [showProfileSaved, setShowProfileSaved] = useState(false);
@@ -249,6 +242,7 @@ const Account = ({ session }) => {
   };
 
   const ListDept = () => {
+    console.log(dept);
     return (
       <select
         name="dept"
@@ -288,7 +282,6 @@ const Account = ({ session }) => {
     );
   };
 
-
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
@@ -304,9 +297,14 @@ const Account = ({ session }) => {
     backgroundRepeat: "no-repeat",
   };
 
+
+  const profileNotComplete = (e) => {
+    e.preventDefault();
+    alert("Fill in your name and department");
+  }
+
   return (
     <>
-
       <div className="w-full">
         <form
           onChange={onUpdateProfileHandler}
@@ -316,7 +314,6 @@ const Account = ({ session }) => {
             <div className="flex justify-center">
               <h1 className="text-3xl">My Crew</h1>
             </div>
-
 
             {/* STATUS */}
             <div className="w-full text-center mt-16">
@@ -395,23 +392,28 @@ const Account = ({ session }) => {
                 {/* //END OF IMAGE */}
 
                 {/* IS PROFILE LIVE */}
-              <div className="w-full md:w-[420px]">
-                <p className="text-sm text-wearecrewBlue">Profile Status</p>
-                {paid === false ? (
-                <div className=" items-center">
-                  <h1 className="text-wearecrewOrange text-xl">Pending</h1>
-                  <small>Your profile isn&apos;t currently live.</small>
-                  <a href="/pricing" className="text-xs underline ml-2 text-wearecrewBlue">
-                  Go live now
-                  </a>
+                <div className="w-full md:w-[420px]">
+                  <p className="text-sm text-wearecrewBlue">Profile Status</p>
+                  {paid === false ? (
+                    <div className=" items-center">
+                      <h1 className="text-wearecrewOrange text-xl">Pending</h1>
+                      <small>Your profile isn&apos;t currently live.</small>
+                      <a
+                        href="/pricing"
+                        className="text-xs underline ml-2 text-wearecrewBlue"
+                      >
+                        Go live now
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="">
+                      <h1 className="text-wearecrewGreen text-xl">Live</h1>
+                      <small>
+                        Your profile has been live since {dateOfPayment}
+                      </small>
+                    </div>
+                  )}
                 </div>
-                ) : 
-                <div className="">
-                  <h1 className="text-wearecrewGreen text-xl">Live</h1>
-                  <small>Your profile has been live since {dateOfPayment}</small>
-                </div>
-                }
-              </div>
                 {/* //END OF IS PROFILE LIVE */}
 
                 {/* NAME */}
@@ -465,7 +467,7 @@ const Account = ({ session }) => {
                   <input
                     name="safetyQualifications"
                     type="text"
-                    defaultValue={qualis}
+                    defaultValue={qualis || "N/A"}
                     className="border shadow-md w-full"
                     required
                     onChange={(e) => setQualis(e.target.value)}
@@ -514,6 +516,7 @@ const Account = ({ session }) => {
                     name="name"
                     type="text"
                     defaultValue={website}
+                    placeholder="www.mywebsite.com"
                     className="border shadow-md w-full"
                     onChange={(e) => setWebsite(e.target.value)}
                   />
@@ -610,7 +613,7 @@ const Account = ({ session }) => {
               ) : (
                 <button
                   className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen"
-                  onClick={() =>
+                  onClick={(e) => ( dept !== "" && dept !== "Choose Department" && username !== "") ? 
                     updateProfile({
                       username,
                       website,
@@ -625,9 +628,9 @@ const Account = ({ session }) => {
                       canWorkIn,
                       credits,
                       cvURL,
-                      dateOfPayment, 
-                      paid
-                    })
+                      dateOfPayment,
+                      paid,
+                    }) : profileNotComplete(e)
                   }
                   disabled={loading}
                 >
@@ -663,8 +666,15 @@ const Account = ({ session }) => {
           {!paid && (
             <div className="w-full flex flex-col bg-wearecrewOrange py-12 shadow-md text-center">
               <h1 className="text-3xl mb-4">Your profile isnt live yet</h1>
-              <a href="/pricing" className="text-white underline mt-4">Go live now</a>
-              <button onClick={() => setShowProfileSaved(false)} className="mt-2">Ill go live later</button>
+              <a href="/pricing" className="text-white underline mt-4">
+                Go live now
+              </a>
+              <button
+                onClick={() => setShowProfileSaved(false)}
+                className="mt-2"
+              >
+                Ill go live later
+              </button>
             </div>
           )}
         </div>

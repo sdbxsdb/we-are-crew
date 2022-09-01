@@ -4,13 +4,11 @@ import { useRouter } from "next/router";
 import copy from "copy-to-clipboard";
 import { supabase } from "../utils/supabaseClient";
 
-
-
 const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
-  console.log("CREW DETAIL PG- ", crew);
+  // console.log("CREW DETAIL PG- ", crew);
 
   const slugify = (str) =>
     str
@@ -31,31 +29,31 @@ const CrewDetailBox = (crew) => {
     }
   }, [router.asPath]);
 
-
-
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(crew.imgURL);
 
   console.log("PUBLIC-", publicUrl);
 
+
+
   const stylingLarge = {
     backgroundImage: `${
-      publicUrl ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
+      publicUrl.includes("public/images/0.") ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
-    backgroundSize: `${publicUrl ? "cover" : "contain"}`,
+    backgroundSize: `${publicUrl.includes("public/images/0.") ? "cover" : "contain"}`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
   const stylingSmall = {
     backgroundImage: `${
-      publicUrl ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
+      publicUrl.includes("public/images/0.") ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
     } `,
     minWidth: "60px",
     minHeight: "60px",
-    backgroundSize: `${publicUrl ? "cover" : "contain"}`,
+    backgroundSize: `${publicUrl.includes("public/images/0.") ? "cover" : "contain"}`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
@@ -98,6 +96,10 @@ const CrewDetailBox = (crew) => {
     }, 2000);
     setCopiedText("Profile Copied!");
   };
+
+  const website = crew.website.split("://").pop(0);
+
+
 
   return (
     <div>
@@ -153,9 +155,11 @@ const CrewDetailBox = (crew) => {
 
           {/*CAN WORK IN*/}
           <div className="flex flex-col justify-start items-start w-[332px] min-h-[161px]">
-            <small>
-              <strong>Can work in</strong>
-            </small>
+            {crew.willWorkIn.length > 0 && (
+              <small>
+                <strong>Can work in</strong>
+              </small>
+            )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
               {crew.willWorkIn.map((willWorkIn, id) => (
                 <div key={willWorkIn + id} className="mt-1 min-w-max">
@@ -168,12 +172,14 @@ const CrewDetailBox = (crew) => {
 
           <div className="flex flex-col gap-y-2">
             {/*PHONE*/}
+            {crew.phone && (
             <a
               href={`tel:${crew.phone}`}
               className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
             >
               <h1 className="text-3xl">Call</h1>
             </a>
+            )}
             {/* //END OF PHONE*/}
 
             {/*EMAIL*/}
@@ -184,6 +190,20 @@ const CrewDetailBox = (crew) => {
               <h1 className="text-3xl">Email</h1>
             </a>
             {/* //END OF EMAIL*/}
+
+            {/*WEBSITE*/}
+            {website && (
+              <a
+              href={`http://${website}`}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+            >
+              <h1 className="text-3xl">Website</h1>
+            </a>
+            )}
+            
+            {/* //END OF WEBSITE*/}
 
             {/*PROFILE*/}
             <div
@@ -243,7 +263,9 @@ const CrewDetailBox = (crew) => {
             {/* MOBILE CAN WORK IN*/}
             <div className="w-full flex gap-x-4 justify-center mt-4">
               <div className="flex flex-col items-center">
-                <strong className="text-sm">Can work in</strong>
+                {crew.willWorkIn.length > 0 && (
+                  <strong className="text-sm">Can work in</strong>
+                )}
                 <div className="flex flex-wrap gap-x-4 justify-center">
                   {crew.willWorkIn.map((willWorkIn) => (
                     <div key={willWorkIn} className="mt-1">
@@ -258,23 +280,39 @@ const CrewDetailBox = (crew) => {
 
           <div className="flex flex-col gap-y-4">
             <div className="flex justify-between gap-x-2">
+              
               {/* MOBILE PHONE*/}
+              {crew.phone && (
               <a
                 href={`tel:${crew.phone}`}
-                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white"
+                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
               >
                 <h1 className="text-3xl">Call</h1>
               </a>
+              )}
               {/* //END OF MOBILE PHONE*/}
 
               {/* MOBILE EMAIL*/}
               <a
                 href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
-                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white"
+                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
               >
                 <h1 className="text-3xl">Email</h1>
               </a>
               {/* //END OF MOBILE EMAIL*/}
+
+              {/* MOBILE WEBSITE*/}
+              { website && (
+              <a
+                href={`http://${website}`}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
+              >
+                <h1 className="text-3xl">Website</h1>
+              </a>
+              )}
+              {/* //END OF MOBILE WEBSITE*/}
             </div>
 
             {/* MOBILE PROFILE*/}
@@ -360,7 +398,14 @@ const CrewDetailBox = (crew) => {
                 </div>
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">public</span>
-                  <a className="underline">{crew.website}</a>
+                  <a
+                    href={`http://${website}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    {website}
+                  </a>
                   <button
                     onClick={() => copyWebsite()}
                     className="text-wearecrewDarkGrey"
@@ -402,9 +447,7 @@ const CrewDetailBox = (crew) => {
                     <span className="material-icons">school</span>
 
                     <div>
-                      <p className="">
-                        {crew.qualis}
-                      </p>
+                      <p className="">{crew.qualis}</p>
                     </div>
                   </div>
                 ) : (
