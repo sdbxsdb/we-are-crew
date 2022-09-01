@@ -33,27 +33,33 @@ const CrewDetailBox = (crew) => {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(crew.imgURL);
 
-  console.log("PUBLIC-", publicUrl);
-
-
+  // console.log("PUBLIC-", publicUrl);
 
   const stylingLarge = {
     backgroundImage: `${
-      publicUrl.includes("public/images/0.") ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
+      publicUrl.includes("public/images/0.")
+        ? `url(${publicUrl} )`
+        : `url(/images/logoNew2.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
-    backgroundSize: `${publicUrl.includes("public/images/0.") ? "cover" : "contain"}`,
+    backgroundSize: `${
+      publicUrl.includes("public/images/0.") ? "cover" : "contain"
+    }`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
   const stylingSmall = {
     backgroundImage: `${
-      publicUrl.includes("public/images/0.") ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
+      publicUrl.includes("public/images/0.")
+        ? `url(${publicUrl} )`
+        : `url(/images/logoNew2.png)`
     } `,
     minWidth: "60px",
     minHeight: "60px",
-    backgroundSize: `${publicUrl.includes("public/images/0.") ? "cover" : "contain"}`,
+    backgroundSize: `${
+      publicUrl.includes("public/images/0.") ? "cover" : "contain"
+    }`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
@@ -99,7 +105,7 @@ const CrewDetailBox = (crew) => {
 
   const website = crew.website.split("://").pop(0);
 
-
+  const creditsExist = crew?.credits?.some((credit) => credit.jobTitle);
 
   return (
     <div>
@@ -173,12 +179,12 @@ const CrewDetailBox = (crew) => {
           <div className="flex flex-col gap-y-2">
             {/*PHONE*/}
             {crew.phone && (
-            <a
-              href={`tel:${crew.phone}`}
-              className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
-            >
-              <h1 className="text-3xl">Call</h1>
-            </a>
+              <a
+                href={`tel:${crew.phone}`}
+                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+              >
+                <h1 className="text-3xl">Call</h1>
+              </a>
             )}
             {/* //END OF PHONE*/}
 
@@ -194,15 +200,15 @@ const CrewDetailBox = (crew) => {
             {/*WEBSITE*/}
             {website && (
               <a
-              href={`http://${website}`}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
-            >
-              <h1 className="text-3xl">Website</h1>
-            </a>
+                href={`http://${website}`}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+              >
+                <h1 className="text-3xl">Website</h1>
+              </a>
             )}
-            
+
             {/* //END OF WEBSITE*/}
 
             {/*PROFILE*/}
@@ -280,15 +286,14 @@ const CrewDetailBox = (crew) => {
 
           <div className="flex flex-col gap-y-4">
             <div className="flex justify-between gap-x-2">
-              
               {/* MOBILE PHONE*/}
               {crew.phone && (
-              <a
-                href={`tel:${crew.phone}`}
-                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
-              >
-                <h1 className="text-3xl">Call</h1>
-              </a>
+                <a
+                  href={`tel:${crew.phone}`}
+                  className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
+                >
+                  <h1 className="text-3xl">Call</h1>
+                </a>
               )}
               {/* //END OF MOBILE PHONE*/}
 
@@ -302,15 +307,15 @@ const CrewDetailBox = (crew) => {
               {/* //END OF MOBILE EMAIL*/}
 
               {/* MOBILE WEBSITE*/}
-              { website && (
-              <a
-                href={`http://${website}`}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
-              >
-                <h1 className="text-3xl">Website</h1>
-              </a>
+              {website && (
+                <a
+                  href={`http://${website}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
+                >
+                  <h1 className="text-3xl">Website</h1>
+                </a>
               )}
               {/* //END OF MOBILE WEBSITE*/}
             </div>
@@ -343,7 +348,9 @@ const CrewDetailBox = (crew) => {
                 ></div>
                 <div className="mb-4">
                   <h1 className="text-3xl">{crew?.name}</h1>
-                  <h1 className="text-lg min-w-max">{crew?.role}</h1>
+                  {crew?.role && (
+                    <h1 className="text-lg min-w-max">{crew?.role}</h1>
+                  )}
                 </div>
               </div>
               <div className=" w-[240px] flex flex-col items-end pt-10">
@@ -369,18 +376,20 @@ const CrewDetailBox = (crew) => {
                     <p>Able to step up a grade</p>
                   </div>
                 )}
-                <div className="flex items-center gap-x-4">
-                  <span className="material-icons">phone_iphone</span>
-                  <a href={`tel:${crew.phone}`} className="underline">
-                    {crew.phone}
-                  </a>
-                  <button
-                    onClick={() => copyPhone()}
-                    className="text-wearecrewDarkGrey"
-                  >
-                    <cite>Copy Phone</cite>
-                  </button>
-                </div>
+                {crew?.phone && (
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons">phone_iphone</span>
+                    <a href={`tel:${crew.phone}`} className="underline">
+                      {crew.phone}
+                    </a>
+                    <button
+                      onClick={() => copyPhone()}
+                      className="text-wearecrewDarkGrey"
+                    >
+                      <cite>Copy Phone</cite>
+                    </button>
+                  </div>
+                )}
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">mail</span>
                   <a
@@ -396,52 +405,62 @@ const CrewDetailBox = (crew) => {
                     <cite>Copy Email</cite>
                   </button>
                 </div>
-                <div className="flex items-center gap-x-4">
-                  <span className="material-icons">public</span>
-                  <a
-                    href={`http://${website}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline"
-                  >
-                    {website}
-                  </a>
-                  <button
-                    onClick={() => copyWebsite()}
-                    className="text-wearecrewDarkGrey"
-                  >
-                    <cite>Copy Website</cite>
-                  </button>
-                </div>
-                <div className="flex items-start gap-x-4">
-                  <span className="material-icons">where_to_vote</span>
-                  <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
-                    {crew.willWorkIn.map((willWorkIn, id) => (
-                      <div key={willWorkIn + id}>
-                        <p className="min-w-max">{willWorkIn}</p>
-                      </div>
-                    ))}
+
+                {website && (
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons">public</span>
+                    <a
+                      href={`http://${website}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline"
+                    >
+                      {website}
+                    </a>
+                    <button
+                      onClick={() => copyWebsite()}
+                      className="text-wearecrewDarkGrey"
+                    >
+                      <cite>Copy Website</cite>
+                    </button>
                   </div>
-                </div>
-                <div className="flex items-start gap-x-4">
-                  <span className="material-icons">military_tech</span>
-                  <div>
-                    {crew.credits.map((credits, id) => (
-                      <div
-                        key={credits + id}
-                        className="flex items-center mb-4"
-                      >
-                        <div className="flex justify-center">
-                          <p className="text-base">
-                            <cite>{credits.jobTitle}</cite>
-                          </p>
-                          <span className="text-wearecrewBlue">  |  </span>
-                          <p className="text-base">{credits.yourRole}</p>
+                )}
+
+                {crew?.willWorkIn.length > 0 && (
+                  <div className="flex items-start gap-x-4">
+                    <span className="material-icons">where_to_vote</span>
+                    <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
+                      {crew?.willWorkIn.map((willWorkIn, id) => (
+                        <div key={willWorkIn + id}>
+                          <p className="min-w-max">{willWorkIn}</p>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {creditsExist && (
+                  <div className="flex items-start gap-x-4">
+                    <span className="material-icons">military_tech</span>
+                    <div>
+                      {crew.credits.map((credits, id) => (
+                        <div
+                          key={credits + id}
+                          className="flex items-center mb-4"
+                        >
+                          <div className="flex justify-center">
+                            <p className="text-base">
+                              <cite>{credits.jobTitle}</cite>
+                            </p>
+                            <span className="text-wearecrewBlue">  |  </span>
+                            <p className="text-base">{credits.yourRole}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {crew.qualis ? (
                   <div className="flex items-center gap-x-4 -mt-4">
                     <span className="material-icons">school</span>
@@ -458,18 +477,24 @@ const CrewDetailBox = (crew) => {
                     crew.qualis ? "" : "-mt-4"
                   }`}
                 >
-                  <span className="material-icons">emoji_people</span>
-                  <p>{crew.bio}</p>
+                  {crew.bio && (
+                    <>
+                      <span className="material-icons">emoji_people</span>
+                      <p>{crew.bio}</p>
+                    </>
+                  )}
                 </div>
               </div>
               <div className="w-full flex justify-center md:w-3/12 ">
                 <div className="w-full md:w-full flex flex-col gap-y-4">
+                  { crew?.phone && (
                   <a
                     href={`tel:${crew.phone}`}
                     className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white"
                   >
                     <h1 className="text-3xl">Call</h1>
                   </a>
+                  )}
                   <a
                     href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
                     className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
