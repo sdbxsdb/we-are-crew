@@ -18,16 +18,19 @@ const CrewDetailBox = (crew) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+
   useEffect(() => {
     if (router.asPath.includes("user=" && "&showModal=true")) {
-      // console.log("Show modal");
+      console.log("CREW SLUG -" + slugify(crew.name) + "_" + crew.id)
+      console.log("ROUTER USERNAME-" + router.query.user);
+      console.log("ROUTER-", router);
 
-      // console.log(router.query.user + "      " + slugify(crew.name) + "_" + crew.id);
       if (router.query.user === slugify(crew.name) + "_" + crew.id) {
         setShowModal(true);
+        console.log("TEST");
       }
     }
-  }, [router.asPath]);
+  }, [router]);
 
   const {
     data: { publicUrl },
@@ -95,7 +98,7 @@ const CrewDetailBox = (crew) => {
   };
 
   const shareProfileHandler = () => {
-    copy(`${window.location.href + router.asPath}`);
+    copy(`${window.location.origin}` + router.asPath);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
