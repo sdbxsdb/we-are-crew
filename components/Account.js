@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Link from 'next/link';
 
 import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
@@ -398,12 +399,12 @@ const Account = ({ session }) => {
                     <div className=" items-center">
                       <h1 className="text-wearecrewOrange text-xl">Pending</h1>
                       <small>Your profile isn&apos;t currently live.</small>
-                      <a
+                      <Link
                         href="/pricing"
                         className="text-xs underline ml-2 text-wearecrewBlue"
                       >
                         Go live now
-                      </a>
+                      </Link>
                     </div>
                   ) : (
                     <div className="">
@@ -666,9 +667,9 @@ const Account = ({ session }) => {
           {!paid && (
             <div className="w-full flex flex-col bg-wearecrewOrange py-12 shadow-md text-center">
               <h1 className="text-3xl mb-4">Your profile isnt live yet</h1>
-              <a href="/pricing" className="text-white underline mt-4">
+              <Link href="/pricing" className="text-white underline mt-4">
                 Go live now
-              </a>
+              </Link>
               <button
                 onClick={() => setShowProfileSaved(false)}
                 className="mt-2"
