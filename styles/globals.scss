@@ -43,8 +43,8 @@ body {
 .banner {
   background: rgb(3, 171, 235);
   background: linear-gradient(180deg,
-      rgba(3, 171, 235, 1) 0%,
-      rgba(0, 118, 163, 1) 100%);
+  rgba(0, 118, 163, 1) 40%,
+      rgba(44, 66, 88, 1) 110%);
 }
 
 .transition {
@@ -379,7 +379,7 @@ input::-webkit-inner-spin-button {
 
 .filterByList {
   li {
-    @apply bg-white border-b border-wearecrewBlue p-2 rounded text-center;
+    @apply bg-white border-b border-wearecrewBlueNew p-2 rounded text-center;
   }
 }
 

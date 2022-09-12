@@ -45,7 +45,7 @@ const Login = () => {
   return (
     <>
     <Head>
-        <title>My Crew | We Are Crew</title>
+        <title>My Crew | Get Crew</title>
         <meta name="keywords" content="My Crew" />
         <meta
           name="description"

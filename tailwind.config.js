@@ -11,6 +11,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'wearecrewBlueNew': '#2C4258',
         'wearecrewBlue': '#03ABEB',
         'wearecrewDarkBlue': '#4F97B9',
         'wearecrewOrange': '#FF9100',

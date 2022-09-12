@@ -22,9 +22,9 @@ const NavBar = () => {
       <Link href="/">
         <a className="h-full w-[120px] relative flex justify-center items-center">
           <img
-            src="/images/logoNew2.png"
+            src="/images/newGCLogo.png"
             className="z-50"
-            alt="We Are Crew logo"
+            alt="Get Crew logo"
             layout="responsive"
           />
         </a>

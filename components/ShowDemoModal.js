@@ -73,7 +73,7 @@ const ShowDemoModal = () => {
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">mail</span>
                   <a
-                    href={`mailto:email@email.com?subject=I found your profile on We Are Crew and want to check your availability!`}
+                    href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
                     className="underline"
                   >
                     marty@mcfly.com
@@ -164,7 +164,7 @@ const ShowDemoModal = () => {
                     <h1 className="text-3xl">Call</h1>
                   </a>
                   <a
-                    href={`mailto:email@email.com?subject=I found your profile on We Are Crew and want to check your availability!`}
+                    href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
                     className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
                   >
                     <h1 className="text-3xl">Email</h1>

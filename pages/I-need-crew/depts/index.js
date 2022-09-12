@@ -31,7 +31,7 @@ const INeedCrew = ({ depts }) => {
   return (
     <>
       <Head>
-        <title>I Need Crew | We Are Crew</title>
+        <title>I Need Crew | Get Crew</title>
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"

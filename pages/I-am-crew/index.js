@@ -8,7 +8,7 @@ const IAmCrew = () => {
   return (
     <>
       <Head>
-        <title>I Am Crew | We Are Crew</title>
+        <title>I Am Crew | Get Crew</title>
         <meta name="keywords" content="I Am Crew" />
         <meta
           name="description"

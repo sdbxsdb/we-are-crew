@@ -192,7 +192,7 @@ const CrewDetailBox = (crew) => {
 
             {/*EMAIL*/}
             <a
-              href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+              href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
               className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
             >
               <h1 className="text-3xl">Email</h1>
@@ -301,7 +301,7 @@ const CrewDetailBox = (crew) => {
 
               {/* MOBILE EMAIL*/}
               <a
-                href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+                href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
                 className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
               >
                 <h1 className="text-3xl">Email</h1>
@@ -395,7 +395,7 @@ const CrewDetailBox = (crew) => {
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">mail</span>
                   <a
-                    href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+                    href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
                     className="underline"
                   >
                     {crew.email}
@@ -498,7 +498,7 @@ const CrewDetailBox = (crew) => {
                   </a>
                   )}
                   <a
-                    href={`mailto:${crew.email}?subject=I found your profile on We Are Crew and want to check your availability!`}
+                    href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
                     className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
                   >
                     <h1 className="text-3xl">Email</h1>

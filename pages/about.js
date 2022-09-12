@@ -5,17 +5,18 @@ const about = () => {
   return (
     <div className="aboutPage pb-12 ">
 
-      <div className="w-full banner flex justify-center items-center p-12 mb-12 text-white">
+      <div className="w-full banner overflow-hidden flex justify-center items-center p-12 mb-12 text-white relative">
         <h1 className="text-2xl text-center md:text-3xl">Any experience. Any department. Anyone.</h1>
+        <img src="/images/bannerBg4.png" alt="" width="100%" height="100%" className="absolute z-30 opacity-10 -top-[40px] md:-top-[110px]" />
       </div>
 
       <div className="w-full flex justify-center">
         <div className="flex flex-col items-center justify-center max-w-[1200px]">
           <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4 mb-4">
             <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
-              <h1 className="text-2xl mb-2">What is We Are Crew?</h1>
+              <h1 className="text-2xl mb-2">What is Get Crew?</h1>
               <p>
-                We Are Crew has been designed and built with ALL crew in mind.
+                Get Crew has been designed and built with ALL crew in mind.
                 <br />
                 <br />
                 Gone are the days of dated, regional crew listing pages hidden in the depths of a website.
@@ -28,7 +29,7 @@ const about = () => {
                 <br />
                 The only place for crew. 
                 <br/>
-                We Are Crew.
+                Get Crew.
               </p>
             </div>
             <div className="w-full md:w-1/2 aboutPageListTicks shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
@@ -92,7 +93,7 @@ const about = () => {
               <h1 className="text-2xl mb-2">Extreamely Affordable?</h1>
               <p>
                 Yes, extremely. £180 per year which works out at <strong>50p a day</strong> is all it
-                costs to have your profile listed on We Are Crew.
+                costs to have your profile listed on Get Crew.
                 <br />
                 <br />
                 One price for all no hidden charges and your listing will be visable
@@ -104,7 +105,7 @@ const about = () => {
             <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
               <h1 className="text-2xl mb-2">We Share.</h1>
               <p>
-                We actively share the platform and encourage the use of We Are Crew amongst
+                We actively share the platform and encourage the use of Get Crew amongst
                 Producers, Line Producers, Production Managers and anyone else who needs crew in the UK and Ireland.
               </p>
             </div>
@@ -113,7 +114,7 @@ const about = () => {
                 Questions?
               </h1>
               <p>
-                If you’ve any questions about any aspect of We Are Crew just send us an email to <a href="mailto:crew@wearecrew.com" className="text-wearecrewBlue">crew@wearecrew.co</a>
+                If you’ve any questions about any aspect of Get Crew just send us an email to <a href="mailto:crew@wearecrew.com" className="text-wearecrewBlue">crew@getcrew.pro</a>
               </p>
             </div>
           </div>
@@ -126,7 +127,7 @@ const about = () => {
               <p>
                 We all know the film industry isn’t exactly green. Waste food,
                 hundreds of call sheets and sides printed, engines running all day
-                the list goes on. <br/><br/>So for every person that signs up to We Are Crew
+                the list goes on. <br/><br/>So for every person that signs up to Get Crew
                 we will plant a tree to help combat the Film and Television
                 industries carbon footprint!  
                 <br/>
