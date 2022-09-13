@@ -8,7 +8,7 @@ const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
-  // console.log("CREW DETAIL PG- ", crew);
+  console.log("CREW DETAIL PG- ", crew);
 
   const slugify = (str) =>
     str
@@ -31,11 +31,18 @@ const CrewDetailBox = (crew) => {
     }
   }, [router]);
 
+
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(crew.imgURL);
 
-  // console.log("PUBLIC-", publicUrl);
+  const {
+    data: { publicCVUrl },
+  } = supabase.storage.from("cvs").getPublicUrl(crew.cvURL);
+
+  console.log("CV-", publicCVUrl);
+  console.log("IMG-", publicUrl);
+  
 
   const stylingLarge = {
     backgroundImage: `${
@@ -130,7 +137,7 @@ const CrewDetailBox = (crew) => {
           <div className="w-[210px] flex flex-col">
             {/*NAME*/}
             <h2>
-              <strong> {crew.name}</strong>
+              <strong>{crew.name}</strong>
             </h2>
             {/* //END OF NAME */}
 
@@ -503,11 +510,12 @@ const CrewDetailBox = (crew) => {
                   >
                     <h1 className="text-3xl">Email</h1>
                   </a>
-                  {crew?.cv && (
+                  
+                  {crew?.cvURL && (
                     <a
                       download
-                      href={crew.cv}
-                      className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md"
+                      href={""}
+                      className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md cursor-pointer"
                     >
                       <h1 className="text-lg">Download Personal CV</h1>
                     </a>

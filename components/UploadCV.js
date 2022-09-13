@@ -28,7 +28,9 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
 
       const file = event.target.files[0];
       const fileExt = file.name.split(".").pop();
-      const fileName = `${updatedAt}?${slugify(file.name)}.${fileExt}`;
+      // const fileName = `${updatedAt}?${slugify(file.name)}.${fileExt}`;
+      const fileName = `${Math.random()}.${fileExt}`;
+
       const filePath = `${fileName}`;
 
       setCvFileName(fileName);
@@ -57,13 +59,8 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
           className="text-sm text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md left-[39%] top-2 absolute"
           htmlFor="cv"
         >
-          {!cvFileName && (
-            uploading ? "Uploading ..." : "Upload CV"
-          )}
-          {cvFileName && (
-            uploading ? "Uploading ..." : "Upload New CV"
-          )}
-
+          {!cvFileName && (uploading ? "Uploading ..." : "Upload CV")}
+          {cvFileName && (uploading ? "Uploading ..." : "Upload New CV")}
         </label>
         <input
           className="opacity-0 w-[120px] h-[45px] borderRed top-0 left-[35%] absolute"
@@ -78,11 +75,10 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
 
       {cvFileName && (
         <div className="mt-4">
-          <p className="text-sm text-wearecrewBlue">CV on file:</p>
-          <p className="">{cvFileName.split("?").pop()}</p>
+          <p className="text-sm text-wearecrewBlue">CV on file: YES</p>
+          
         </div>
       )}
-
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Link from 'next/link';
+import Link from "next/link";
 
 import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
@@ -112,7 +112,6 @@ const Account = ({ session }) => {
     }
   }
 
-
   async function updateProfile({
     username,
     email = session?.user.email,
@@ -165,11 +164,9 @@ const Account = ({ session }) => {
       }
       setLoading(false);
       setProfileChanged(false);
-      
     } catch (error) {
       alert(error.message);
-    }
-    finally {
+    } finally {
       if (paid === true) {
         setTimeout(() => {
           setShowProfileSaved(false);
@@ -243,7 +240,7 @@ const Account = ({ session }) => {
   };
 
   const ListDept = () => {
-    console.log(dept);
+    // console.log(dept);
     return (
       <select
         name="dept"
@@ -261,6 +258,7 @@ const Account = ({ session }) => {
       </select>
     );
   };
+
 
   const ListTitle = () => {
     const selectedDept = depts.find((item) => item.dept === dept);
@@ -287,6 +285,7 @@ const Account = ({ session }) => {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
 
+
   const imgStyling = {
     backgroundImage: `${
       imgURL ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
@@ -298,11 +297,10 @@ const Account = ({ session }) => {
     backgroundRepeat: "no-repeat",
   };
 
-
   const profileNotComplete = (e) => {
     e.preventDefault();
     alert("Fill in your name and department");
-  }
+  };
 
   return (
     <>
@@ -399,11 +397,10 @@ const Account = ({ session }) => {
                     <div className=" items-center">
                       <h1 className="text-wearecrewOrange text-xl">Pending</h1>
                       <small>Your profile isn&apos;t currently live.</small>
-                      <Link
-                        href="/pricing"
-                        className="text-xs underline ml-2 text-wearecrewBlue"
-                      >
-                        Go live now
+                      <Link href="/pricing">
+                        <a className="text-xs underline ml-2 text-wearecrewBlue">
+                          Go live now
+                        </a>
                       </Link>
                     </div>
                   ) : (
@@ -614,24 +611,28 @@ const Account = ({ session }) => {
               ) : (
                 <button
                   className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen"
-                  onClick={(e) => ( dept !== "" && dept !== "Choose Department" && username !== "") ? 
-                    updateProfile({
-                      username,
-                      website,
-                      imgURL,
-                      status,
-                      dept,
-                      title,
-                      canStepUp,
-                      qualis,
-                      phone,
-                      bio,
-                      canWorkIn,
-                      credits,
-                      cvURL,
-                      dateOfPayment,
-                      paid,
-                    }) : profileNotComplete(e)
+                  onClick={(e) =>
+                    dept !== "" &&
+                    dept !== "Choose Department" &&
+                    username !== ""
+                      ? updateProfile({
+                          username,
+                          website,
+                          imgURL,
+                          status,
+                          dept,
+                          title,
+                          canStepUp,
+                          qualis,
+                          phone,
+                          bio,
+                          canWorkIn,
+                          credits,
+                          cvURL,
+                          dateOfPayment,
+                          paid,
+                        })
+                      : profileNotComplete(e)
                   }
                   disabled={loading}
                 >
