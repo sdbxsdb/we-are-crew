@@ -25,7 +25,7 @@ const CrewList = ({ users }) => {
 
   const clearFilter = () => {
     setFoundTitle(users);
-  }
+  };
 
   return (
     <div className="px-4 md:px-12 p-12 w-full h-fit">
@@ -38,7 +38,6 @@ const CrewList = ({ users }) => {
           <DeptTitle />
         </h1>
       </div>
-
 
       <div className="w-full flex justify-center">
         <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
@@ -76,14 +75,25 @@ const CrewList = ({ users }) => {
             </p>
             <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
               <li className="lg:w-full max-w-3/12">
-                <button className="w-full" onClick={clearFilter}>All</button>
+                <button className="w-full" onClick={clearFilter}>
+                  All
+                </button>
               </li>
+
               {users.map((crew) => (
-                <li key={crew.id} className="lg:w-full max-w-3/12">
-                  <button className="w-full" value={crew.title} onClick={filter}>
-                    {crew.title}
-                  </button>
-                </li>
+                <>
+                  {crew.title && (
+                    <li key={crew.id} className="lg:w-full max-w-3/12">
+                      <button
+                        className="w-full"
+                        value={crew.title}
+                        onClick={filter}
+                      >
+                        {crew.title}
+                      </button>
+                    </li>
+                  )}
+                </>
               ))}
             </ul>
           </div>
