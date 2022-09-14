@@ -26,7 +26,8 @@ const PricingOptions = () => {
             <h1 className="text-2xl text-center md:text-3xl">
               Simple plans. Better prices.
             </h1>
-            <p>Get yourself out there</p>
+            {/* <p>Get yourself out there</p> */}
+            <img src="/images/bannerBg4.png" alt="" width="100%" height="100%" className="absolute z-30 opacity-10 -top-[40px] md:-top-[110px]" />
           </div>
 
           <div className="flex justify-around items-center h-full mt-12 flex-wrap gap-4 w-full px-4 max-w-[1200px]">

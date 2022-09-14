@@ -82,6 +82,22 @@ const ShowDemoModal = () => {
                     <cite>Copy Email</cite>
                   </button>
                 </div>
+                <div className="flex items-center gap-x-4">
+                    <span className="material-icons">public</span>
+                    <a
+                      href='https://backtothefuture.com'
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline"
+                    >
+                      https://backtothefuture.com
+                    </a>
+                    <button
+                      className="text-wearecrewDarkGrey"
+                    >
+                      <cite>Copy Website</cite>
+                    </button>
+                  </div>
                 <div className="flex items-start gap-x-4">
                   <span className="material-icons">where_to_vote</span>
                   <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
@@ -108,7 +124,7 @@ const ShowDemoModal = () => {
                     <div className="flex items-center mb-4">
                       <div className="flex justify-center">
                         <p className="text-base">
-                          <cite>Mission Impossible 8</cite>
+                          <cite>Mission Could Be A Bit Tricky </cite>
                         </p>
                         <span className="text-wearecrewBlue">  |  </span>
                         <p className="text-base">Focus Puller</p>
@@ -164,10 +180,18 @@ const ShowDemoModal = () => {
                     <h1 className="text-3xl">Call</h1>
                   </a>
                   <a
-                    href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
+                    href={`mailto:email@email.com?subject=I found your profile on Get Crew!`}
                     className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
                   >
                     <h1 className="text-3xl">Email</h1>
+                  </a>
+                  <a
+                    href="http://backtothefuture.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center text-white"
+                  >
+                    <h1 className="text-3xl">Website</h1>
                   </a>
 
                   <a

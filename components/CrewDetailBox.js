@@ -201,7 +201,7 @@ const CrewDetailBox = (crew) => {
 
             {/*EMAIL*/}
             <a
-              href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
+              href={`mailto:${crew.email}?subject=I found your profile on Get Crew!`}
               className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
             >
               <h1 className="text-3xl">Email</h1>
