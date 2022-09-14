@@ -37,11 +37,13 @@ const CrewDetailBox = (crew) => {
   } = supabase.storage.from("images").getPublicUrl(crew.imgURL);
 
   const {
-    data: { publicCVUrl },
+    data: { publicUrl: publicCVUrl }
   } = supabase.storage.from("cvs").getPublicUrl(crew.cvURL);
 
-  console.log("CV-", publicCVUrl);
-  console.log("IMG-", publicUrl);
+  // console.log("Data- ", data);
+  // console.log("CREW DETAIL CV- ", crew.cvURL);
+  // console.log("CV-", publicCVUrl);
+
   
 
   const stylingLarge = {
@@ -514,7 +516,7 @@ const CrewDetailBox = (crew) => {
                   {crew?.cvURL && (
                     <a
                       download
-                      href={""}
+                      href={publicCVUrl}
                       className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md cursor-pointer"
                     >
                       <h1 className="text-lg">Download Personal CV</h1>
