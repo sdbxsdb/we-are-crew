@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useUser } from "../context/user";
 import { useRouter } from "next/router";
+// import initStripe from 'stripe';
 
-const PricingOptions = () => {
+const PricingOptions = ({ plans }) => {
   const [canViewPricing, setCanViewPricing] = useState(false);
   const router = useRouter();
   const { user } = useUser();
@@ -18,6 +19,10 @@ const PricingOptions = () => {
     }
   });
 
+  const processPayment = planId => async() => {
+    
+  }
+
   return (
     <>
       {canViewPricing && (
@@ -27,23 +32,45 @@ const PricingOptions = () => {
               Simple plans. Better prices.
             </h1>
             {/* <p>Get yourself out there</p> */}
-            <img src="/images/bannerBg4.png" alt="" width="100%" height="100%" className="absolute z-30 opacity-10 -top-[40px] md:-top-[110px]" />
+            <img
+              src="/images/bannerBg4.png"
+              alt=""
+              width="100%"
+              height="100%"
+              className="absolute z-30 opacity-10 -top-[40px] md:-top-[110px]"
+            />
           </div>
 
           <div className="flex justify-around items-center h-full mt-12 flex-wrap gap-4 w-full px-4 max-w-[1200px]">
-            <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
-              <h1 className="text-3xl mb-4">One Year Listing</h1>
-              <strong className="text-2xl">50p per day</strong>
+            {plans.map((plan) => (
+              <div
+                key={plan.id}
+                className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]"
+              >
+                <h1 className="text-3xl mb-4">{plan.name}</h1>
+                <strong className="text-2xl">{plan.description}</strong>
+                {plan.order}
+                <small>
+                  £{plan.price / 100}
+                  {plan.price === 26000
+                    ? " / 2 years"
+                    : plan.price === 18000
+                    ? " / year"
+                    : " one off payment"}
+                </small>
 
-              <p className="mt-4">
+                {/* <p className="mt-4">
                 Profile visable for <strong>356 days</strong> from when you go
                 live.
-              </p>
-              <button className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition">
-                Select
-              </button>
-            </div>
-            <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
+              </p> */}
+                <button onClick={processPayment(plan.id)} className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition">
+                  Select
+                </button>
+                {plan.price === 39900 && <strong>Best Value</strong>}
+              </div>
+            ))}
+
+            {/* <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
               <h1 className="text-3xl mb-4">Two Year Listing</h1>
               <strong className="text-2xl">36p per day</strong>
 
@@ -54,8 +81,8 @@ const PricingOptions = () => {
               <button className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition">
                 Select
               </button>
-            </div>
-            <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
+            </div> */}
+            {/* <div className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-[300px]">
               <h1 className="text-3xl mb-4">30 Year Listing</h1>
               <strong className="text-2xl">3p per day</strong>
 
@@ -69,7 +96,7 @@ const PricingOptions = () => {
               <button className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition">
                 Select
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

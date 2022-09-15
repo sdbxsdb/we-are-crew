@@ -3,6 +3,8 @@ import CrewDetailBox from "../../../../components/CrewDetailBox";
 import Link from "next/link";
 import DeptTitle from "../../../../components/DeptTitle";
 import { supabase } from "../../../../utils/supabaseClient";
+import Head from "next/head";
+
 
 const CrewList = ({ users }) => {
   const sortedUsersByTitle = [...users].sort((a, b) =>
@@ -34,6 +36,16 @@ const CrewList = ({ users }) => {
   };
 
   return (
+    <>
+    <Head>
+        <title>I Need Crew | Get Crew</title>
+        <meta name="keywords" content="I Need Crew" />
+        <meta
+          name="description"
+          content="Hello this is a test description for the About page"
+        />
+      </Head>
+
     <div className="px-4 md:px-12 p-12 w-full h-fit">
       <Link href="/I-need-crew/depts">
         <a className="font-semibold">&#x2190; Back to Departments</a>
@@ -106,6 +118,7 @@ const CrewList = ({ users }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

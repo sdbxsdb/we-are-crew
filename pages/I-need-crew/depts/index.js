@@ -4,6 +4,8 @@ import { supabase } from "../../../utils/supabaseClient";
 import Link from "next/link";
 
 const INeedCrew = ({ depts }) => {
+  console.log({ depts });
+
   const slugify = (str) =>
     str
       .toLowerCase()
@@ -12,18 +14,20 @@ const INeedCrew = ({ depts }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+  const sortedDepts = [...depts].sort((a, b) => (a > b ? 1 : -1));
 
-  const [foundDept, setFoundDept] = useState(depts);
+
+  const [foundDept, setFoundDept] = useState(sortedDepts);
   const filter = (e) => {
     const searchTerm = e.target.value;
     if (searchTerm !== "") {
-      const results = depts.filter((dept) => {
+      const results = sortedDepts.filter((dept) => {
         return dept.toLowerCase().startsWith(searchTerm.toLowerCase());
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
     } else {
-      setFoundDept(depts);
+      setFoundDept(sortedDepts);
       // If the text field is empty, show all users
     }
   };
