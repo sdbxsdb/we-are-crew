@@ -45,7 +45,10 @@ const Login = () => {
   return (
     <>
     <Head>
-        <title>My Crew | Get Crew</title>
+        <title>
+          {!session ? "Sign In " : "My Crew "}
+          | Get Crew
+        </title>
         <meta name="keywords" content="My Crew" />
         <meta
           name="description"
