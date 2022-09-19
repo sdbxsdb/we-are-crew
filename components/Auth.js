@@ -1,12 +1,31 @@
+import Router from "next/router";
 import { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
+import { useRouter } from "next/router";
 
 export default function Auth() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [showCheckEmail, setShowCheckEmail] = useState(false);
+  const [showEmailError, setShowEmailError] = useState(false)
+
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleEmailInput = (e) => {
+    setEmail(e.target.value);
+
+    if (isValidEmail(email) === true) {
+      setShowEmailError(false);
+    }
+  }
+
 
   const handleLogin = async (email) => {
+    if (isValidEmail(email) === true) {
+      setShowEmailError(false);
     try {
       setLoading(true);
       setTimeout(() => {
@@ -14,30 +33,37 @@ export default function Auth() {
       }, 2000);
       const { error } = await supabase.auth.signInWithOtp({ email });
       if (error) throw error;
-    } catch (error) {
-      alert(error.error_description || error.message);
-    } finally {
+
       setLoading(false);
       setTimeout(() => {
         setShowCheckEmail(false);
       }, 8000);
-    }
+    } catch (error) {
+      alert(error.error_description || error.message);
+    } 
+  } else {
+    setShowEmailError(true);
+  }
   };
+
 
   return (
     <>
       <div className="flex justify-center items-center">
         <div className="w-[400px] mt-20 flex flex-col items-center">
-          <p className="mb-4">Sign in via magic link with your email</p>
-          <div className="bg-white p-20 shadow-md rounded-md mt-6">
+          <p className="mb-4">Sign in / register with your email via magic link.</p>
+          <form className="bg-white p-20 shadow-md rounded-md mt-6">
             <div className="mb-12 rounded-md p-2 styledList">
               <input
                 className="inputField"
                 type="email"
                 placeholder="Email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmailInput}
               />
+              {showEmailError && (
+                <p className="text-center text-wearecrewRed mt-1">Please enter a valid email</p>
+              )}
             </div>
             <div>
               <button
@@ -51,7 +77,7 @@ export default function Auth() {
                 <span>{loading ? "Loading..." : "Send magic link"}</span>
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 

@@ -36,6 +36,8 @@ const Account = ({ session }) => {
   const month = newDate.getMonth() + 1;
   const year = newDate.getFullYear();
 
+  const [showFinsihProfileError, setShowFinishProfileError] = useState(false);
+
   useEffect(() => {
     getProfile();
   }, [session]);
@@ -272,7 +274,7 @@ const Account = ({ session }) => {
         onChange={(e) => setTitle(e.target.value)}
         value={title}
       >
-        <option value="Choose Department" default>
+        <option value="Choose Title" default>
           Choose Title
         </option>
         {selectedDept?.titles?.map((title) => (
@@ -295,18 +297,32 @@ const Account = ({ session }) => {
     } `,
     minWidth: "100px",
     minHeight: "100px",
-    backgroundSize: `${publicUrl ? "cover" : "contain"}`,
+    backgroundSize: `${imgURL ? "cover" : "contain"}`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
 
   const profileNotComplete = (e) => {
     e.preventDefault();
-    alert("Fill in your name and department");
+    setShowFinishProfileError(true)
+    setTimeout(() => {
+      setShowFinishProfileError(false)
+    }, 3000)
   };
 
   return (
     <>
+    {showFinsihProfileError && (
+      
+    <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
+      <div className="p-4 rounded-md shadow-md bg-wearecrewOrange text-center w-full text-wearecrewLightGrey border-wearecrewOrange border-2 relative">
+        <p>Fill in your Name, Department and Grade/Title before saving.</p>
+      {/* <div onClick={() => setShowFinishProfileError(false)} className="flex items-center justify-center w-full  ">
+        <h1 className="text-sm text-wearecrewDarkestGrey px-2 py-1 rounded-full cursor-pointer mt-2">Okay</h1>
+      </div> */}
+      </div>
+    </div>
+    )}
       <div className="w-full">
         <form
           onChange={onUpdateProfileHandler}
@@ -617,7 +633,9 @@ const Account = ({ session }) => {
                   onClick={(e) =>
                     dept !== "" &&
                     dept !== "Choose Department" &&
-                    username !== ""
+                    username !== "" &&
+                    title !== "" && 
+                    title !== "Choose Title"
                       ? updateProfile({
                           username,
                           website,

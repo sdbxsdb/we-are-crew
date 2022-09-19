@@ -3,6 +3,8 @@ import { supabase } from '../utils/supabaseClient';
 import axios from 'axios'
 
 const Context = createContext();
+export const useUser = () => useContext(Context);
+
 
 const Provider = ({ children }) => {
   const [user, setUser] = useState(supabase.auth.getUser());
@@ -33,15 +35,15 @@ const Provider = ({ children }) => {
     })
   }, []);
 
-  useEffect(() => {
-    const getSession = async () => {
-      const session = await supabase.auth.getSession();
+  // useEffect(() => {
+  //   const getSession = async () => {
+  //     const session = await supabase.auth.getSession();
     
-      // console.log("SESSION-", session.data.session.access_token);
-    }
-    getSession();
-    // console.log("USER -", user.data);
-  }, [user])
+  //     // console.log("SESSION-", session.data.session.access_token);
+  //   }
+  //   getSession();
+  //   // console.log("USER -", user.data);
+  // }, [user])
 
 
   const logout = async () => {
@@ -62,7 +64,6 @@ const Provider = ({ children }) => {
   )
 }
 
-export const useUser = () => useContext(Context);
 
 export default Provider;
 
