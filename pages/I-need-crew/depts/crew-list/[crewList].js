@@ -18,7 +18,7 @@ const CrewList = ({ users }) => {
 
   const filter = (e) => {
     const searchTerm = e.target.value;
-    console.log(searchTerm);
+    // console.log(searchTerm);
     if (searchTerm !== "") {
       const results = sortedUsersByName.filter((user) => {
         return user.title.toLowerCase().startsWith(searchTerm.toLowerCase());

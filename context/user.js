@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { supabase } from '../utils/supabaseClient';
+import axios from 'axios'
 
 const Context = createContext();
 
@@ -30,16 +31,17 @@ const Provider = ({ children }) => {
     supabase.auth.onAuthStateChange(() => {
       getUserProfile();
     })
-
-    // const getData = async () => {
-    //   const profile = await supabase.auth.getUser();
-    //   setUser(profile);
-    //   // console.log(profile);
-    // } 
-    // getData();
   }, []);
 
-  // console.log("USER PROFILE-", user);
+  useEffect(() => {
+    const getSession = async () => {
+      const session = await supabase.auth.getSession();
+    
+      // console.log("SESSION-", session.data.session.access_token);
+    }
+    getSession();
+    // console.log("USER -", user.data);
+  }, [user])
 
 
   const logout = async () => {

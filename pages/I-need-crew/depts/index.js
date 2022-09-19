@@ -4,7 +4,7 @@ import { supabase } from "../../../utils/supabaseClient";
 import Link from "next/link";
 
 const INeedCrew = ({ depts }) => {
-  console.log({ depts });
+  // console.log({ depts });
 
   const slugify = (str) =>
     str
@@ -96,7 +96,7 @@ export default INeedCrew;
 export const getStaticProps = async () => {
   const { data: profiles } = await supabase.from("profiles").select("dept");
 
-  console.log("PROFILES)-", profiles);
+  // console.log("PROFILES)-", profiles);
 
   const depts = [];
 

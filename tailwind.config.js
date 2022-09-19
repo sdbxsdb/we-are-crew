@@ -23,6 +23,7 @@ module.exports = {
         'wearecrewDarkGrey': '#9E9E9E',
         'wearecrewDarkestGrey': '#484848',
         'wearecrewLightGrey': '#F2F5F6',
+        'oneTreeGreen': '#609F44'
       },
       fontFamily: {
         anton: ['anton', 'sans-serif'],

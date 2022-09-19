@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
+
 import { supabase } from "../utils/supabaseClient";
 
 
@@ -16,14 +17,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="mt-[96px]">
+      <div className="mt-[105px]">
         <Banner />
       </div>
+      
 
-      <div className="md:h-[calc(100vh-296px)] flex gap-x-4 gap-y-4 flex-col md:flex-row w-full justify-around items-center px-4 py-12">
+      <div className="md:h-[calc(100vh-305px)] flex gap-x-4 gap-y-4 flex-col md:flex-row w-full justify-around items-center px-4 py-12">
         <LargeButton text="I need crew" link="/I-need-crew/depts" />
         <LargeButton text="I am crew" link="/my-crew" />
       </div>
+
+
       
     </div>
   );

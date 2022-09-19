@@ -8,6 +8,7 @@ import UploadImg from "./UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 
+
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
   const [id, setID] = useState("");
@@ -38,6 +39,8 @@ const Account = ({ session }) => {
   useEffect(() => {
     getProfile();
   }, [session]);
+
+
 
   useEffect(() => {
     if (paid === true) {
