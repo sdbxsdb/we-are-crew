@@ -6,9 +6,8 @@ import { useRouter } from "next/router";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  console.log("REQ-", req.body);
-
-  console.log("RES-", res.statusCode);
+  // console.log("REQ-", req.body);
+  // console.log("RES-", res.statusCode);
 
   const { planId, token } = await req.body;
 

@@ -30,7 +30,7 @@ const PricingOptions = ({ plans }) => {
     console.log("RES STATUTS-", res.status);
     console.log("RES BODY-", res);
     if (res.status === 200) {
-      router.push(data.redirectURL);
+      location.replace(data.redirectURL);
     }
   };
 
