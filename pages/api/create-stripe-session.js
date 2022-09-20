@@ -1,12 +1,10 @@
-
-
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   // console.log("REQ-", req.body);
   // console.log("RES-", res.statusCode);
 
-  const { planId, token } = await req.body;
+  const { planId, token, stripeID } = await req.body;
 
   if (req.method === "POST") {
     try {
@@ -29,20 +27,15 @@ export default async function handler(req, res) {
         })
         .then((response) => {
           console.log("REQ HEADER-", req.headers.origin);
-          res.status(200).json({redirectURL: response.url})
-          res.send("REQ HEADERS ORIGIN-", req.headers.origin)
+          res.status(200).json({ redirectURL: response.url });
+          // res.send("REQ HEADERS ORIGIN-", req.headers.origin);
         });
-
     } catch (err) {
-      console.log("ERROR");
-      res.status(err.statusCode || 500).json(err.message);
+      console.log("ERROR-", err);
+      // res.status(err.statusCode || 500).json(err.message);
     }
   } else {
-    console.log("In ELSE");
-
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
   }
 }
-
-

@@ -9,7 +9,7 @@ const PricingOptions = ({ plans }) => {
   const [canViewPricing, setCanViewPricing] = useState(false);
   const router = useRouter();
   const { user } = useUser();
-  // console.log(user.data.user);
+  console.log("STRIPE CUSTOMER ID-", user.stripe_customer);
 
   useEffect(() => {
     if (user?.data?.user === null) {
@@ -24,6 +24,7 @@ const PricingOptions = ({ plans }) => {
     const res = await axios.post(`/api/create-stripe-session`, {
       planId: planId,
       token: session.data.session.access_token,
+      stripeID: user.stripe_customer
     });
 
     const data = res?.data;
@@ -32,6 +33,7 @@ const PricingOptions = ({ plans }) => {
     if (res.status === 200) {
       location.replace(data.redirectURL);
     }
+
   };
 
   return (
