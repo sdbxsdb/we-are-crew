@@ -1,7 +1,4 @@
-import initStripe from "stripe";
-import { supabase } from "../../utils/supabaseClient";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -27,11 +24,11 @@ export default async function handler(req, res) {
             },
           ],
           mode: "payment",
-          success_url: `${req.headers.origin}/?success=true`,
-          cancel_url: `${req.headers.origin}/?canceled=true`,
+          success_url: `${req.headers.origin}/paymentSuccess?=true`,
+          cancel_url: `${req.headers.origin}/?Payment-Canceled=true`,
         })
         .then((response) => {
-          console.log("RES-", response.url);
+          console.log("REQ HEADER-", req.headers.origin);
           res.status(200).json({redirectURL: response.url})
           res.send("REQ HEADERS ORIGIN-", req.headers.origin)
         });
