@@ -7,6 +7,9 @@ import Head from "next/head";
 
 
 const CrewList = ({ users }) => {
+
+  
+
   const sortedUsersByTitle = [...users].sort((a, b) =>
     a.title > b.title ? 1 : -1
   );
@@ -16,7 +19,19 @@ const CrewList = ({ users }) => {
 
   const [foundTitle, setFoundTitle] = useState(sortedUsersByName);
 
-  const filter = (e) => {
+
+
+  const allTitlesOnly = sortedUsersByTitle.map(user => (user.title));
+
+   console.log("TEST-", allTitlesOnly);
+   
+   const removedTitleDups = allTitlesOnly.filter(function(elem, pos) {
+     return allTitlesOnly.indexOf(elem) == pos;
+    }); 
+    
+    console.log("XXX-", removedTitleDups);
+
+  const filterByTitle = (e) => {
     const searchTerm = e.target.value;
     // console.log(searchTerm);
     if (searchTerm !== "") {
@@ -98,16 +113,16 @@ const CrewList = ({ users }) => {
                 </button>
               </li>
 
-              {sortedUsersByTitle.map((user, i) => (
+              {removedTitleDups.map((user, i) => (
                 <>
                   {sortedUsersByTitle.length > 1 && (
                     <li key={i} className="lg:w-full max-w-3/12">
                       <button
                         className="w-full"
-                        value={user.title}
-                        onClick={filter}
+                        value={user}
+                        onClick={filterByTitle}
                       >
-                        {user.title}
+                        {user}
                       </button>
                     </li>
                   )}
