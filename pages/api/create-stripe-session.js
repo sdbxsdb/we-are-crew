@@ -25,7 +25,7 @@ export default async function handler(req, res) {
           ],
           mode: "payment",
           success_url: `${req.headers.origin}/paymentSuccess?=true`,
-          cancel_url: `${req.headers.origin}/?Payment-Canceled=true`,
+          cancel_url: `${req.headers.origin}/paymentCancelled?=true`,
         })
         .then((response) => {
           console.log("REQ HEADER-", req.headers.origin);
