@@ -1,9 +1,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { supabase } from '../utils/supabaseClient';
-import axios from 'axios'
 
 const Context = createContext();
-export const useUser = () => useContext(Context);
 
 
 const Provider = ({ children }) => {
@@ -63,6 +61,8 @@ const Provider = ({ children }) => {
     </Context.Provider>
   )
 }
+
+export const useUser = () => useContext(Context);
 
 
 export default Provider;

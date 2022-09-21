@@ -13,6 +13,9 @@ const handler = async (req, res) => {
     email: req.body.record.email,
   });
 
+  console.log("REQUEST-", req.body.record.id);
+  console.log("CUST ID-", customer.id);
+
   await supabase
     .from("profiles")
     .update({
@@ -21,6 +24,8 @@ const handler = async (req, res) => {
     .eq("id", req.body.record.id);
 
   res.send({ message: `stripe customer creaded: ${customer.id}` });
+
+  console.log("TESTTESTTEST");
 };
 
 export default handler;
