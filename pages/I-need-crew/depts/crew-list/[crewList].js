@@ -35,7 +35,27 @@ const CrewList = ({ users }) => {
     }
   };
 
-  const clearFilter = () => {
+  const clearTitleFilter = () => {
+    setFoundTitle(sortedUsersByName);
+  };
+
+
+  const filterByAvailability = (e) => {
+    const searchTerm = e.target.value;
+    console.log(searchTerm);
+    if (searchTerm !== "") {
+      const results = sortedUsersByName.filter((user) => {
+        return user.status.toLowerCase().startsWith(searchTerm.toLowerCase());
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setFoundTitle(results);
+    } else {
+      setFoundTitle(sortedUsersByName);
+      // If the text field is empty, show all users
+    }
+  };
+
+  const clearAvailabilityFilter = () => {
     setFoundTitle(sortedUsersByName);
   };
 
@@ -50,73 +70,102 @@ const CrewList = ({ users }) => {
         />
       </Head>
 
-      <div className="px-4 md:px-12 p-12 w-full h-fit">
-        <Link href="/I-need-crew/depts">
-          <a className="font-semibold">&#x2190; Back to Departments</a>
-        </Link>
-
-        <div className="w-full flex justify-start mt-4">
-          <h1 className="text-4xl">
-            <DeptTitle />
-          </h1>
-        </div>
-
-        <div className="w-full flex justify-center">
-          <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
-            {foundTitle && foundTitle.length > 0 ? (
-              <div className="flex flex-1 rounded-md flex-col gap-y-4 mb-12">
-                {foundTitle.map((user, i) => (
-                  <CrewDetailBox
-                    key={user.id}
-                    id={user.id}
-                    name={user.username}
-                    dept={user.dept}
-                    title={user.title}
-                    canStepUp={user.canStepUp}
-                    imgURL={user.imgURL}
-                    phone={user.phone}
-                    email={user.email}
-                    website={user.website}
-                    status={user.status}
-                    willWorkIn={user.canWorkIn}
-                    qualis={user.qualis}
-                    credits={user.credits}
-                    bio={user.bio}
-                    cvURL={user.cvURL}
-                  />
-                ))}
+      <div className="px-4 md:px-12 p-12 w-full h-fit flex justify-center">
+        <div className="max-w-[1200px] w-full">
+          <Link href="/I-need-crew/depts">
+            <a className="font-semibold">&#x2190; Back to Departments</a>
+          </Link>
+          <div className="w-full flex justify-start mt-4">
+            <h1 className="text-4xl">
+              <DeptTitle />
+            </h1>
+          </div>
+          <div className="w-full flex justify-center">
+            <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
+              {foundTitle && foundTitle.length > 0 ? (
+                <div className="flex flex-1 rounded-md flex-col gap-y-4 mb-12">
+                  {foundTitle.map((user, i) => (
+                    <CrewDetailBox
+                      key={user.id}
+                      id={user.id}
+                      name={user.username}
+                      dept={user.dept}
+                      title={user.title}
+                      canStepUp={user.canStepUp}
+                      imgURL={user.imgURL}
+                      phone={user.phone}
+                      email={user.email}
+                      website={user.website}
+                      status={user.status}
+                      willWorkIn={user.canWorkIn}
+                      qualis={user.qualis}
+                      credits={user.credits}
+                      bio={user.bio}
+                      cvURL={user.cvURL}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-4 w-full text-center">
+                  <h1>No user found!</h1>
+                </div>
+              )}
+              <div className="w-full lg:w-3/12 flex flex-col gap-y-4">
+                <div className="  shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
+                  <p className="text-center mb-4 font-semibold text-lg">
+                    Filter by Availability
+                  </p>
+                  <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
+                    <li className="lg:w-full max-w-3/12">
+                      <button className="w-full" onClick={clearAvailabilityFilter}>
+                        All
+                      </button>
+                    </li>
+                    <li className="lg:w-full max-w-3/12 text-wearecrewGreen">
+                      <button className="w-full" value={"Available"} onClick={filterByAvailability}>
+                        Available
+                      </button>
+                    </li>
+                    <li className="lg:w-full max-w-3/12 text-wearecrewOrange">
+                      <button className="w-full" value={"On Dailies"} onClick={filterByAvailability}>
+                        On Dailies
+                      </button>
+                    </li>
+                    <li className="lg:w-full max-w-3/12 text-wearecrewRed">
+                      <button className="w-full" value={"Not Available"} onClick={filterByAvailability}>
+                        Not Available
+                      </button>
+                    </li>
+                    
+                  </ul>
+                </div>
+                <div className="  shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
+                  <p className="text-center mb-4 font-semibold text-lg">
+                    Filter by Role
+                  </p>
+                  <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
+                    <li className="lg:w-full max-w-3/12">
+                      <button className="w-full" onClick={clearTitleFilter}>
+                        All
+                      </button>
+                    </li>
+                    {removedTitleDups.map(
+                      (user, i) =>
+                        sortedUsersByTitle.length > 1 && (
+                          <li key={i} className="lg:w-full max-w-3/12">
+                            <button
+                              className="w-full"
+                              value={user}
+                              onClick={filterByTitle}
+                            >
+                              {user}
+                            </button>
+                          </li>
+                        )
+                    )}
+                  </ul>
+                </div>
               </div>
-            ) : (
-              <div className="mt-4 w-full text-center">
-                <h1>No user found!</h1>
-              </div>
-            )}
-            <div className=" w-full lg:w-3/12 shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
-              <p className="text-center mb-4 font-semibold text-lg">
-                Filter by Role
-              </p>
-              <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
-                <li className="lg:w-full max-w-3/12">
-                  <button className="w-full" onClick={clearFilter}>
-                    All
-                  </button>
-                </li>
-
-                {removedTitleDups.map(
-                  (user, i) =>
-                    sortedUsersByTitle.length > 1 && (
-                      <li key={i} className="lg:w-full max-w-3/12">
-                        <button
-                          className="w-full"
-                          value={user}
-                          onClick={filterByTitle}
-                        >
-                          {user}
-                        </button>
-                      </li>
-                    )
-                )}
-              </ul>
             </div>
           </div>
         </div>
