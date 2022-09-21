@@ -8,7 +8,6 @@ import UploadImg from "./UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 
-
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
   const [id, setID] = useState("");
@@ -19,6 +18,7 @@ const Account = ({ session }) => {
   const [cvURL, setCvURL] = useState("");
   const [cvFileName, setCvFileName] = useState("");
   const [status, setStatus] = useState("Available");
+  const [willBeAvailOn, setWillBeAvailOn] = useState("");
   const [dept, setDept] = useState("");
   const [title, setTitle] = useState("");
   const [canStepUp, setCanStepUp] = useState(false);
@@ -41,8 +41,6 @@ const Account = ({ session }) => {
   useEffect(() => {
     getProfile();
   }, [session]);
-
-
 
   useEffect(() => {
     if (paid === true) {
@@ -79,7 +77,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
         )
         .eq("id", user.id)
         .single();
@@ -97,6 +95,7 @@ const Account = ({ session }) => {
         setWebsite(data.website);
         setImgURL(data.imgURL);
         setStatus(data.status);
+        setWillBeAvailOn(data.willBeAvailOn);
         setDept(data.dept);
         setTitle(data.title);
         setCanStepUp(data.canStepUp);
@@ -123,6 +122,7 @@ const Account = ({ session }) => {
     website,
     imgURL,
     status,
+    willBeAvailOn,
     dept,
     title,
     canStepUp,
@@ -146,6 +146,7 @@ const Account = ({ session }) => {
         website,
         imgURL,
         status,
+        willBeAvailOn,
         dept,
         title,
         canStepUp,
@@ -264,7 +265,6 @@ const Account = ({ session }) => {
     );
   };
 
-
   const ListTitle = () => {
     const selectedDept = depts.find((item) => item.dept === dept);
 
@@ -290,7 +290,6 @@ const Account = ({ session }) => {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
 
-
   const imgStyling = {
     backgroundImage: `${
       imgURL ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
@@ -304,25 +303,25 @@ const Account = ({ session }) => {
 
   const profileNotComplete = (e) => {
     e.preventDefault();
-    setShowFinishProfileError(true)
+    setShowFinishProfileError(true);
     setTimeout(() => {
-      setShowFinishProfileError(false)
-    }, 3000)
+      setShowFinishProfileError(false);
+    }, 3000);
   };
+
 
   return (
     <>
-    {showFinsihProfileError && (
-      
-    <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
-      <div className="p-4 rounded-md shadow-md bg-wearecrewOrange text-center w-full text-wearecrewLightGrey border-wearecrewOrange border-2 relative">
-        <p>Fill in your Name, Department and Grade/Title before saving.</p>
-      {/* <div onClick={() => setShowFinishProfileError(false)} className="flex items-center justify-center w-full  ">
+      {showFinsihProfileError && (
+        <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
+          <div className="p-4 rounded-md shadow-md bg-wearecrewOrange text-center w-full text-wearecrewLightGrey border-wearecrewOrange border-2 relative">
+            <p>Fill in your Name, Department and Grade/Title before saving.</p>
+            {/* <div onClick={() => setShowFinishProfileError(false)} className="flex items-center justify-center w-full  ">
         <h1 className="text-sm text-wearecrewDarkestGrey px-2 py-1 rounded-full cursor-pointer mt-2">Okay</h1>
       </div> */}
-      </div>
-    </div>
-    )}
+          </div>
+        </div>
+      )}
       <div className="w-full">
         <form
           onChange={onUpdateProfileHandler}
@@ -336,7 +335,7 @@ const Account = ({ session }) => {
             {/* STATUS */}
             <div className="w-full text-center mt-16">
               <p className="text-wearecrewBlue text-sm">Status</p>
-              <div className="flex justify-center mt-2">
+              <div className="flex flex-col items-center justify-center mt-2">
                 <div className="radio_container h-full gap-x-8 md:rounded-full px-4 py-2 text-sm sm:text-lg">
                   <div className="flex justify-center w-[300px] md:w-auto gap-x-2 md:gap-x-8">
                     <input type="radio" name="radio" id="avail" />
@@ -374,6 +373,22 @@ const Account = ({ session }) => {
                     </label>
                   </div>
                 </div>
+                {status !== "Available" && (
+                  <li className="relative styledList w-full md:w-[420px] list-none mt-8">
+                    <input
+                      name="willBeAvailOn"
+                      type="text"
+                      className="border shadow-md w-full"
+                      placeholder="I will be available on..."
+                      defaultValue={willBeAvailOn}
+                      onChange={(e) => setWillBeAvailOn(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                  <span className="bar"></span>
+                  <label htmlFor="name">Next Available</label>
+                  {/* <span onClick={() => clearNextAvail()} className="absolute cursor-pointer right-2 top-1/4">Clear</span> */}
+                  </li>
+                )}
               </div>
             </div>
             {/* //END OF STATUS */}
@@ -395,6 +410,7 @@ const Account = ({ session }) => {
                         username,
                         website,
                         status,
+                        willBeAvailOn,
                         dept,
                         title,
                         canStepUp,
@@ -608,6 +624,7 @@ const Account = ({ session }) => {
                         username,
                         website,
                         status,
+                        willBeAvailOn,
                         dept,
                         title,
                         canStepUp,
@@ -634,13 +651,14 @@ const Account = ({ session }) => {
                     dept !== "" &&
                     dept !== "Choose Department" &&
                     username !== "" &&
-                    title !== "" && 
+                    title !== "" &&
                     title !== "Choose Title"
                       ? updateProfile({
                           username,
                           website,
                           imgURL,
                           status,
+                          willBeAvailOn,
                           dept,
                           title,
                           canStepUp,

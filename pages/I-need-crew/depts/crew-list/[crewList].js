@@ -111,7 +111,7 @@ const CrewList = ({ users }) => {
                 </div>
               )}
               <div className="w-full lg:w-3/12 flex flex-col gap-y-4">
-                <div className="  shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
+                {/* <div className="  shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
                   <p className="text-center mb-4 font-semibold text-lg">
                     Filter by Availability
                   </p>
@@ -138,7 +138,7 @@ const CrewList = ({ users }) => {
                     </li>
                     
                   </ul>
-                </div>
+                </div> */}
                 <div className="  shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
                   <p className="text-center mb-4 font-semibold text-lg">
                     Filter by Role
