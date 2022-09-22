@@ -32,7 +32,6 @@ const INeedCrew = ({ depts }) => {
     }
   };
 
-  console.log("TEST-", foundDept);
 
   return (
     <>

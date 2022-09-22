@@ -29,7 +29,7 @@ const about = () => {
 
         <div className="w-full flex justify-center">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
-            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
+            <div className="px-4 md:px-12 w-full flex flex-col md:flex-row gap-x-4 gap-y-4">
               <div className="w-full shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">
                   Keeping it green!{" "}
@@ -75,7 +75,7 @@ const about = () => {
                 </p>
               </div>
             </div>
-            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4 mb-4">
+            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
               <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">What is Get Crew?</h1>
                 <p>
@@ -129,7 +129,7 @@ const about = () => {
                 </ul>
               </div>
             </div>
-            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4 mb-4">
+            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
               <div className="w-full md:w-1/2 aboutPageListNumbers shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">How does it work?</h1>
                 <ul>
@@ -171,7 +171,7 @@ const about = () => {
                   <li>
                     <strong>- 2 Year Listing</strong>{" "}
                     <p className="ml-6">
-                      35p per day <small>- (biyearly payment of £255)</small>
+                      35p per day <small>- (biyearly payment of £260)</small>
                     </p>
                   </li>
                   <li>
@@ -188,7 +188,7 @@ const about = () => {
                 </p>
               </div>
             </div>
-            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4 mb-4">
+            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
               <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">We Share.</h1>
                 <p>

@@ -31,8 +31,8 @@ h1 {
 }
 
 body {
-  background-color: #F2F5F6;
-  color: #484848;
+  @apply bg-wearecrewLightGrey text-wearecrewDarkestGrey;
+
 }
 
 .transition {
