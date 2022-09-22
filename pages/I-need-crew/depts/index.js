@@ -22,7 +22,7 @@ const INeedCrew = ({ depts }) => {
     const searchTerm = e.target.value;
     if (searchTerm !== "") {
       const results = sortedDepts.filter((dept) => {
-        return dept.toLowerCase().startsWith(searchTerm.toLowerCase());
+        return dept?.toLowerCase().startsWith(searchTerm.toLowerCase());
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
@@ -31,6 +31,8 @@ const INeedCrew = ({ depts }) => {
       // If the text field is empty, show all users
     }
   };
+
+  console.log("TEST-", foundDept);
 
   return (
     <>
@@ -58,6 +60,7 @@ const INeedCrew = ({ depts }) => {
               {foundDept && foundDept.length > 0 ? (
                 <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                   {foundDept.map((dept, i) => (
+                    dept !== "" ? 
                     <div
                       key={i}
                       className="w-full flex items-center justify-center"
@@ -76,6 +79,7 @@ const INeedCrew = ({ depts }) => {
                         </a>
                       </Link>
                     </div>
+                    : ""
                   ))}
                 </div>
               ) : (
@@ -101,7 +105,7 @@ export const getStaticProps = async () => {
   const depts = [];
 
   profiles.forEach((profile) => {
-    depts.push(profile.dept);
+    depts.push(profile?.dept);
   });
   const uniqueDepts = Array.from(new Set(depts));
 
