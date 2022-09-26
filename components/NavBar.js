@@ -13,7 +13,7 @@ const NavBar = () => {
   const signOutHandler = () => {
     supabase.auth.signOut();
     logout();
-    router.push("/");
+    router.push("/my-crew");
   };
 
   return (

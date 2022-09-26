@@ -1,14 +1,14 @@
-import Router from "next/router";
 import { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
-import { useRouter } from "next/router";
+
+
 
 export default function Auth() {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [showCheckEmail, setShowCheckEmail] = useState(false);
   const [showEmailError, setShowEmailError] = useState(false);
+
 
   const handleEmailInput = (e) => {
     setEmail(e.target.value);
@@ -29,10 +29,13 @@ export default function Auth() {
         setTimeout(() => {
           setShowCheckEmail(true);
         }, 2000);
-        console.log("EMAIL-", email);
-        const { error } = await supabase.auth.signInWithOtp({ email });
-        if (error) throw error;
 
+        const { data, error } = await supabase.auth.signInWithOtp({ 
+          email: email,
+        });
+        console.log("DATA-", data);
+
+        if (error) throw error;
         setLoading(false);
         setTimeout(() => {
           setShowCheckEmail(false);
@@ -44,43 +47,65 @@ export default function Auth() {
     } else {
       setShowEmailError(true);
     }
+
   };
 
+  async function signInWithGoogle() {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google'
+    })
+    console.log("DATA-", data);
+  }
+
+  
+
   return (
-    <>
-      <div className="flex justify-center items-center">
-        <div className="w-[400px] mt-20 flex flex-col items-center">
-          <p className="mb-4">
-            Sign in / register with your email via magic link.
-          </p>
-          <form className="bg-white p-20 shadow-md rounded-md mt-6">
-            <div className="mb-12 rounded-md p-2 styledList">
-              <input
-                className="inputField"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={handleEmailInput}
-              />
-              {showEmailError && (
-                <p className="text-center text-wearecrewRed mt-1">
-                  Please enter a valid email
-                </p>
-              )}
+    <div className="flex item-center justify-center">
+      <div className="flex justify-center items-center md:h-[calc(100vh-107px)]">
+        <div className="flex flex-col items-center">
+          <h1 className="mb-4 text-2xl text-center">
+            Enter your email to get a sign in / register link.
+          </h1>
+          
+          <div className="bg-white rounded-md shadow-md flex flex-col items-center justify-center pt-4 pb-8">
+            <form className="px-20 mb-12">
+              <div className="mb-2 rounded-md p-2 styledList w-full">
+                <input
+                  className="inputField"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={handleEmailInput}
+                />
+                {showEmailError && (
+                  <p className="text-center text-wearecrewRed mt-1">
+                    Please enter a valid email
+                  </p>
+                )}
+              </div>
+              <div>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLogin(email);
+                  }}
+                  className="p-2 w-full rounded-md border-2 border-wearecrewBlue mt-2"
+                  disabled={loading}
+                >
+                  <span>{loading ? "Loading..." : "Send login link"}</span>
+                </button>
+              </div>
+            </form>
+            <div className="px-12 w-full relative h-[50px]">
+              <hr className="" />
+              <small className="p-2 bg-white absolute -top-1/2 left-1/2 transform -translate-x-1/2 mt-2 opacity-70">Or you can</small>
             </div>
-            <div>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLogin(email);
-                }}
-                className="p-2 w-full rounded-md border-2 border-wearecrewBlue mt-2"
-                disabled={loading}
-              >
-                <span>{loading ? "Loading..." : "Send magic link"}</span>
-              </button>
-            </div>
-          </form>
+              <div onClick={() => signInWithGoogle()} className="flex bg-white p-2 items-center gap-x-2 rounded-md shadow-md cursor-pointer border-2 border-wearecrewBlue w-fit">
+                  <img src="/images/7123025_logo_google_g_icon.png" alt="" width="30px" height="30px"/>
+                  <span className="">Sign in with Google</span>
+              </div>
+          </div>
+
         </div>
       </div>
 
@@ -107,6 +132,11 @@ export default function Auth() {
           </svg>
         </div>
       )}
-    </>
+    </div>
   );
+}
+
+export function handler(req, res) {
+  console.log("EMAIL-", email);
+  res.status(200).json({ email: email })
 }
