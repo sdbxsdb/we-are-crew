@@ -380,7 +380,7 @@ const Account = ({ session }) => {
                       type="text"
                       className="border shadow-md w-full"
                       placeholder="I will be available on..."
-                      defaultValue={willBeAvailOn}
+                      defaultValue={willBeAvailOn || ""}
                       onChange={(e) => setWillBeAvailOn(e.target.value)}
                     />
                     <span className="highlight"></span>
@@ -454,7 +454,7 @@ const Account = ({ session }) => {
                   <input
                     name="name"
                     type="text"
-                    defaultValue={username}
+                    defaultValue={username || ""}
                     className="border shadow-md w-full"
                     onChange={(e) => setUsername(e.target.value)}
                   />
@@ -479,8 +479,8 @@ const Account = ({ session }) => {
                 {/* //END OF GRADE/TITLE */}
 
                 {/* STEP UP */}
-                <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
-                  <small className="flex items-center">
+                {/* <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
+                  <div className="flex items-center borderRed">
                     <input
                       type="checkbox"
                       className="chb chb-3"
@@ -489,10 +489,10 @@ const Account = ({ session }) => {
                       checked={canStepUp}
                     />
                     <label className="min-w-max" htmlFor="stepUp">
-                      Willing / able to step up a grade if required
+                      <small className="mb-4">Willing / able to step up a grade if required</small>
                     </label>
-                  </small>
-                </li>
+                  </div>
+                </li> */}
                 {/* //END OF STEP UP */}
 
                 {/* QUALIS */}
@@ -548,7 +548,7 @@ const Account = ({ session }) => {
                   <input
                     name="name"
                     type="text"
-                    defaultValue={website}
+                    defaultValue={website || ""}
                     placeholder="www.mywebsite.com"
                     className="border shadow-md w-full"
                     onChange={(e) => setWebsite(e.target.value)}
@@ -564,7 +564,7 @@ const Account = ({ session }) => {
                   <input
                     name="phone"
                     type="number"
-                    defaultValue={phone}
+                    defaultValue={phone || ""}
                     className="border shadow-md w-full"
                     required
                     onChange={(e) => setPhone(e.target.value)}
@@ -599,7 +599,7 @@ const Account = ({ session }) => {
                       ((e) => setCount(e.target.value.length),
                       (e) => setBio(e.target.value))
                     }
-                    value={bio}
+                    defaultValue={bio || ""}
                     maxLength="240"
                     required
                   />

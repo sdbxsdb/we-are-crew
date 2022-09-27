@@ -10,20 +10,23 @@ const handler = async (req, res) => {
   const signingSecret = process.env.STRIPE_SIGNING_SECRET;
   const reqBuffer = await buffer(req);
 
-  let event
+  let event;
 
   try{
    event = stripe.webhooks.constructEvent(reqBuffer, signature, signingSecret)
   } catch(error){
-    console.log(error);
+    console.log("ERROR-", error);
     return res.status(400).send(`Webhook Error: ${error.message}`)
   }
 
   const supabase = getServiceSupabase();
 
-  await supabase.from('profiles').update({
-    paid: true
-  }).eq('stripe_customer', event.data.object.customer)
+  switch (event.type) {
+    case "payment_intent.succeeded":
+      await supabase.from('profiles').update({
+        paid: true
+      }).eq('stripe_customer', event.data.object.customer)
+  }
 
   console.log("EVENT RECIVED-", event);
 
