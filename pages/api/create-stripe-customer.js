@@ -9,6 +9,7 @@ const handler = async (req, res) => {
     return res.status(401).send('You are not authorized to call the API');
   }
 
+  const supabase = getServiceSupabase();
   const stripe = initStripe(process.env.STRIPE_SECRET_KEY);
 
   const test = await req.body 
@@ -18,7 +19,6 @@ const handler = async (req, res) => {
     email: req.body.record.email,
   });
 
-  const supabase = getServiceSupabase();
 
 
   // console.log("REQ BODY-", customer);
