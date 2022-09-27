@@ -33,6 +33,8 @@ const Provider = ({ children }) => {
     })
   }, []);
 
+   console.log("USER (STRIPE) -", user.stripe_customer);
+
 
   // useEffect(() => {
   //   const getSession = async () => {

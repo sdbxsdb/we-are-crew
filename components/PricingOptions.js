@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useUser } from "../context/user";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Cookies from 'cookies'
 import { supabase } from "../utils/supabaseClient";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -9,7 +10,14 @@ const PricingOptions = ({ plans }) => {
   const [canViewPricing, setCanViewPricing] = useState(false);
   const router = useRouter();
   const { user } = useUser();
-  console.log("STRIPE CUSTOMER ID-", user.stripe_customer);
+  // console.log("STRIPE CUSTOMER ID-", user.stripe_customer);
+
+  const cookies = new Cookies(req, res)
+
+  // Set a cookie
+  cookies.set('stripe_customer', user.stripe_customer, {
+    httpOnly: true // true by default
+})
 
   useEffect(() => {
     if (user?.data?.user === null) {
@@ -20,16 +28,16 @@ const PricingOptions = ({ plans }) => {
   });
 
   const processPayment = async (planId) => {
-    const session = await supabase.auth.getSession();
+    // const session = await supabase.auth.getSession();
     const res = await axios.post(`/api/create-stripe-session`, {
       planId: planId,
-      token: session.data.session.access_token,
-      stripeID: user.stripe_customer
+      // token: session.data.session.access_token,
+      // stripeID: user.stripe_customer
     });
 
     const data = res?.data;
-    console.log("RES STATUTS-", res.status);
-    console.log("RES BODY-", res);
+    // console.log("RES STATUTS-", res.status);
+    // console.log("RES BODY-", res);
     if (res.status === 200) {
       location.replace(data.redirectURL);
     }

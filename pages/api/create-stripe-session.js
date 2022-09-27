@@ -1,12 +1,17 @@
+
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-export default async function handler(req, res) {
-  // console.log("REQ-", req.body);
-  // console.log("RES-", res.statusCode);
+export default async function Handler(req, res) {
+  
+
+  
+
 
   const { planId, token, stripeID } = await req.body;
 
   if (req.method === "POST") {
+    
     try {
       // Create Checkout Sessions from body params.
       console.log("PLAN - ", planId);

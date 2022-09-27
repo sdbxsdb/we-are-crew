@@ -1,37 +1,56 @@
-import initStripe from 'stripe';
-import { buffer } from 'micro';
-import { getServiceSupabase } from '../../utils/supabaseClient';
+import initStripe from "stripe";
+import { buffer } from "micro";
+import { getServiceSupabase } from "../../utils/supabaseClient";
 
-export const config = { api: { bodyParser: false}}
+export const config = { api: { bodyParser: false } };
 
 const handler = async (req, res) => {
   const stripe = initStripe(process.env.STRIPE_SECRET_KEY);
-  const signature = req.headers['stripe-signature'];
+  const signature = req.headers["stripe-signature"];
   const signingSecret = process.env.STRIPE_SIGNING_SECRET;
   const reqBuffer = await buffer(req);
 
-  let event;
-
-  try{
-   event = stripe.webhooks.constructEvent(reqBuffer, signature, signingSecret)
-  } catch(error){
-    console.log("ERROR-", error);
-    return res.status(400).send(`Webhook Error: ${error.message}`)
-  }
-
   const supabase = getServiceSupabase();
 
-  switch (event.type) {
-    case "payment_intent.succeeded":
-      await supabase.from('profiles').update({
-        paid: true
-      }).eq('stripe_customer', event.data.object.customer)
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(reqBuffer, signature, signingSecret);
+  } catch (error) {
+    console.log("ERROR-", error);
+    return res.status(400).send(`Webhook Error: ${error.message}`);
   }
+
+  let intent = null;
+  switch (event['type']) {
+    case 'payment_intent.succeeded':
+      intent = event.data.object;
+      console.log("DATA-:", intent);
+      console.log("Succeeded:", intent.id);
+      break;
+    case 'payment_intent.payment_failed':
+      intent = event.data.object;
+      const message = intent.last_payment_error && intent.last_payment_error.message;
+      console.log('Failed:', intent.id, message);
+      break;
+  }
+
+  // switch (event.type) {
+  //   case "payment_intent.succeeded":
+  //     await supabase
+  //       .from("profiles")
+  //       .update({
+  //         paid: true,
+  //       })
+  //       .eq("stripe_customer", event.data.object.customer);
+  // }
+  
 
   console.log("EVENT RECIVED-", event);
 
-  res.send({recieved: true});
+  res.send({
+    recieved: true,
+  });
+};
 
-}
-
-export default handler
+export default handler;
