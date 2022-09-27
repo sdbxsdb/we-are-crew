@@ -15,8 +15,7 @@ const handler = async (req, res) => {
   console.log("TEST-", test);
 
   const customer = await stripe.customers.create({
-    email: req.body
-    // .record.email,
+    email: req.body.record.email,
   });
 
   const supabase = getServiceSupabase();
@@ -28,12 +27,12 @@ const handler = async (req, res) => {
   // console.log("RECORD ID-", req.body.record.id);
 
 
-  // await supabase
-  //   .from("profiles")
-  //   .update({
-  //     stripe_customer: customer.id,
-  //   })
-  //   .eq("id", req.body.record.id);
+  await supabase
+    .from("profiles")
+    .update({
+      stripe_customer: customer.id,
+    })
+    .eq("id", req.body.record.id);
 
   res.send({ message: `stripe customer creaded: ${customer.id}` });
 };
