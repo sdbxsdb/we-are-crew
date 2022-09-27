@@ -3,16 +3,22 @@ import { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { useUser } from "../context/user";
 import { useRouter } from "next/router";
+import { deleteCookie } from 'cookies-next';
 
-const NavBar = () => {
+
+const NavBar = ({req, res}) => {
   const { user, logout } = useUser();
   const router = useRouter();
+
+
 
   const userEmail = user?.data?.user?.email;
 
   const signOutHandler = () => {
     supabase.auth.signOut();
     logout();
+    deleteCookie('stripe_customer');
+
     router.push("/my-crew");
   };
 

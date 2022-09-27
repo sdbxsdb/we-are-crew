@@ -22,28 +22,17 @@ const handler = async (req, res) => {
   }
 
   let intent = null;
-  switch (event['type']) {
-    case 'payment_intent.succeeded':
-      intent = event.data.object;
-      console.log("DATA-:", intent);
-      console.log("Succeeded:", intent.id);
-      break;
-    case 'payment_intent.payment_failed':
-      intent = event.data.object;
-      const message = intent.last_payment_error && intent.last_payment_error.message;
-      console.log('Failed:', intent.id, message);
-      break;
-  }
 
-  // switch (event.type) {
-  //   case "payment_intent.succeeded":
-  //     await supabase
-  //       .from("profiles")
-  //       .update({
-  //         paid: true,
-  //       })
-  //       .eq("stripe_customer", event.data.object.customer);
-  // }
+
+  switch (event.type) {
+    case "payment_intent.succeeded":
+      await supabase
+        .from("profiles")
+        .update({
+          paid: true,
+        })
+        .eq("stripe_customer", event.data.object.customer);
+  }
   
 
   console.log("EVENT RECIVED-", event);

@@ -1,11 +1,14 @@
-
+import Cookies from 'cookies'
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function Handler(req, res) {
   
+  const cookies = new Cookies(req, res)
 
-  
+   // Get a cookie
+  const stripe_customer_from_cookie =  cookies.get('stripe_customer')
+  console.log("TEST-", stripe_customer_from_cookie);
 
 
   const { planId, token, stripeID } = await req.body;
@@ -18,12 +21,11 @@ export default async function Handler(req, res) {
 
       await stripe.checkout.sessions
         .create({
+          customer: stripe_customer_from_cookie,
           line_items: [
             {
-              // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
               price: planId,
               quantity: 1,
-              // user: user.id
             },
           ],
           mode: "payment",

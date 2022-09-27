@@ -2,22 +2,19 @@ import { useState, useEffect } from "react";
 import { useUser } from "../context/user";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Cookies from 'cookies'
+import { setCookie } from 'cookies-next';
+
 import { supabase } from "../utils/supabaseClient";
 import { loadStripe } from "@stripe/stripe-js";
 
-const PricingOptions = ({ plans }) => {
+const PricingOptions = ({ plans, req, res }) => {
   const [canViewPricing, setCanViewPricing] = useState(false);
   const router = useRouter();
   const { user } = useUser();
   // console.log("STRIPE CUSTOMER ID-", user.stripe_customer);
 
-  const cookies = new Cookies(req, res)
+  setCookie('stripe_customer', user.stripe_customer);
 
-  // Set a cookie
-  cookies.set('stripe_customer', user.stripe_customer, {
-    httpOnly: true // true by default
-})
 
   useEffect(() => {
     if (user?.data?.user === null) {
