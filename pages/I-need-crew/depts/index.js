@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import { supabase } from "../../../utils/supabaseClient";
 import Link from "next/link";
 
-const INeedCrew = ({ depts }) => {
+const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   // console.log({ depts });
+  console.log({ deptsWithAtLeastOnePaid });
 
   const slugify = (str) =>
     str
@@ -59,7 +60,7 @@ const INeedCrew = ({ depts }) => {
               {foundDept && foundDept?.length > 0 ? (
                 <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                   {foundDept?.map((dept, i) =>
-                    dept !== "" ? (
+                    dept !== ""  ? (
                       <div
                         key={i}
                         className="w-full flex items-center justify-center"
@@ -101,20 +102,23 @@ const INeedCrew = ({ depts }) => {
 export default INeedCrew;
 
 export const getStaticProps = async () => {
-  const { data: profiles } = await supabase.from("profiles").select("dept");
+  const { data: profiles } = await supabase.from("profiles").select("dept, paid");
 
-  // console.log("PROFILES)-", profiles);
+  console.log("PROFILES)-", profiles);
 
   const depts = [];
+  const deptsWithAtLeastOnePaid =  [];
 
   profiles.forEach((profile) => {
     depts.push(profile?.dept);
+    profile?.paid === true ? deptsWithAtLeastOnePaid.push({dept: profile?.dept, paid: profile?.paid}) : null;
   });
   const uniqueDepts = Array.from(new Set(depts));
 
   return {
     props: {
       depts: uniqueDepts,
+      deptsWithAtLeastOnePaid: deptsWithAtLeastOnePaid
     },
   };
 };

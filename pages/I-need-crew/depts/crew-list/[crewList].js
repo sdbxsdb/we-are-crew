@@ -39,7 +39,6 @@ const CrewList = ({ users }) => {
     setFoundTitle(sortedUsersByName);
   };
 
-
   const filterByAvailability = (e) => {
     const searchTerm = e.target.value;
     console.log(searchTerm);
@@ -82,27 +81,33 @@ const CrewList = ({ users }) => {
           </div>
           <div className="w-full flex justify-center">
             <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
-              {foundTitle && foundTitle.length > 0 ? (
+              {foundTitle && foundTitle?.length > 0 ? (
                 <div className="flex flex-1 rounded-md flex-col gap-y-4 mb-12">
-                  {foundTitle.map((user, i) => (
-                    <CrewDetailBox
-                      key={user.id}
-                      id={user.id}
-                      name={user.username}
-                      dept={user.dept}
-                      title={user.title}
-                      canStepUp={user.canStepUp}
-                      imgURL={user.imgURL}
-                      phone={user.phone}
-                      email={user.email}
-                      website={user.website}
-                      status={user.status}
-                      willWorkIn={user.canWorkIn}
-                      qualis={user.qualis}
-                      credits={user.credits}
-                      bio={user.bio}
-                      cvURL={user.cvURL}
-                    />
+                  {foundTitle?.map((user, i) => (
+                    <div key={i}>
+                      {user.paid === true ? (
+                        <CrewDetailBox
+                          key={user.id}
+                          id={user.id}
+                          name={user.username}
+                          dept={user.dept}
+                          title={user.title}
+                          canStepUp={user.canStepUp}
+                          imgURL={user.imgURL}
+                          phone={user.phone}
+                          email={user.email}
+                          website={user.website}
+                          status={user.status}
+                          willWorkIn={user.canWorkIn}
+                          qualis={user.qualis}
+                          credits={user.credits}
+                          bio={user.bio}
+                          cvURL={user.cvURL}
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   ))}
                 </div>
               ) : (
@@ -149,9 +154,9 @@ const CrewList = ({ users }) => {
                         All
                       </button>
                     </li>
-                    {removedTitleDups.map(
+                    {removedTitleDups?.map(
                       (user, i) =>
-                        sortedUsersByTitle.length > 1 && (
+                        sortedUsersByTitle?.length > 1 && (
                           <li key={i} className="lg:w-full max-w-3/12">
                             <button
                               className="w-full"
@@ -181,12 +186,12 @@ export async function getStaticPaths() {
 
   const depts = [];
 
-  profiles.forEach((profile) => {
+  profiles?.forEach((profile) => {
     depts.push(profile.dept);
   });
   const uniqueDepts = Array.from(new Set(depts));
 
-  const paths = uniqueDepts.map((dept) => {
+  const paths = uniqueDepts?.map((dept) => {
     return {
       params: {
         crewList: dept,

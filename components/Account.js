@@ -650,7 +650,7 @@ const Account = ({ session }) => {
                   onClick={(e) =>
                     dept !== "" &&
                     dept !== "Choose Department" &&
-                    username !== "" &&
+                    username !== "" && username !== null &&
                     title !== "" &&
                     title !== "Choose Title"
                       ? updateProfile({

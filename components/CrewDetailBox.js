@@ -119,7 +119,9 @@ const CrewDetailBox = (crew) => {
   const creditsExist = crew?.credits?.some((credit) => credit.jobTitle);
 
   return (
+
     <div>
+
       <div
         className={`fixed top-0 z-4000 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition flex justify-center min-w-[100px]
         ${isCopied ? "translate-y-0" : "-translate-y-24"}`}
@@ -537,7 +539,9 @@ const CrewDetailBox = (crew) => {
         </div>
       </CrewDetailModal>
     </div>
-  );
+    )
+
+
 };
 
 export default CrewDetailBox;
