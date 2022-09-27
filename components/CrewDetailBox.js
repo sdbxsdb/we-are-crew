@@ -114,7 +114,7 @@ const CrewDetailBox = (crew) => {
     setCopiedText("Profile Copied!");
   };
 
-  const website = crew.website.split("://").pop(0);
+  const website = crew?.website?.split("://").pop(0);
 
   const creditsExist = crew?.credits?.some((credit) => credit.jobTitle);
 
@@ -172,13 +172,13 @@ const CrewDetailBox = (crew) => {
 
           {/*CAN WORK IN*/}
           <div className="flex flex-col justify-start items-start w-[332px] min-h-[161px]">
-            {crew.willWorkIn.length > 0 && (
+            {crew?.willWorkIn?.length > 0 && (
               <small>
                 <strong>Can work in</strong>
               </small>
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
-              {crew.willWorkIn.map((willWorkIn, id) => (
+              {crew?.willWorkIn?.map((willWorkIn, id) => (
                 <div key={willWorkIn + id} className="mt-1 min-w-max">
                   {willWorkIn}
                 </div>
@@ -189,9 +189,9 @@ const CrewDetailBox = (crew) => {
 
           <div className="flex flex-col gap-y-2">
             {/*PHONE*/}
-            {crew.phone && (
+            {crew?.phone && (
               <a
-                href={`tel:${crew.phone}`}
+                href={`tel:${crew?.phone}`}
                 className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
               >
                 <h1 className="text-3xl">Call</h1>
@@ -249,24 +249,24 @@ const CrewDetailBox = (crew) => {
                   {/* MOBILE STATUS*/}
                   <strong
                     className={`${
-                      crew.status === "Available"
+                      crew?.status === "Available"
                         ? "text-wearecrewGreen"
-                        : crew.status === "Not Available"
+                        : crew?.status === "Not Available"
                         ? "text-wearecrewRed"
                         : "text-wearecrewOrange"
                     }`}
                   >
-                    {crew.status}
+                    {crew?.status}
                   </strong>
                   {/* // END OF MOBILE STATUS */}
 
                   {/* MOBILE NAME*/}
-                  <strong>{crew.name}</strong>
+                  <strong>{crew?.name}</strong>
                   {/* //END OF MOBILE NAME*/}
                 </div>
 
                 {/* MOBILE TITLE*/}
-                <h2>{crew.title}</h2>
+                <h2>{crew?.title}</h2>
                 {/* //END OF MOBILE TITLE*/}
 
                 {/* MOBILE QUALIS*/}
@@ -280,11 +280,11 @@ const CrewDetailBox = (crew) => {
             {/* MOBILE CAN WORK IN*/}
             <div className="w-full flex gap-x-4 justify-center mt-4">
               <div className="flex flex-col items-center">
-                {crew.willWorkIn.length > 0 && (
+                {crew?.willWorkIn?.length > 0 && (
                   <strong className="text-sm">Can work in</strong>
                 )}
                 <div className="flex flex-wrap gap-x-4 justify-center">
-                  {crew.willWorkIn.map((willWorkIn) => (
+                  {crew?.willWorkIn?.map((willWorkIn) => (
                     <div key={willWorkIn} className="mt-1">
                       <p className="text-base">{willWorkIn}</p>
                     </div>
@@ -298,7 +298,7 @@ const CrewDetailBox = (crew) => {
           <div className="flex flex-col gap-y-4">
             <div className="flex justify-between gap-x-2">
               {/* MOBILE PHONE*/}
-              {crew.phone && (
+              {crew?.phone && (
                 <a
                   href={`tel:${crew.phone}`}
                   className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
@@ -310,7 +310,7 @@ const CrewDetailBox = (crew) => {
 
               {/* MOBILE EMAIL*/}
               <a
-                href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
+                href={`mailto:${crew?.email}?subject=I found your profile on Get Crew and want to check your availability!`}
                 className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
               >
                 <h1 className="text-3xl">Email</h1>
@@ -345,8 +345,8 @@ const CrewDetailBox = (crew) => {
 
       <CrewDetailModal
         show={showModal}
-        id={crew.id}
-        name={crew.name}
+        id={crew?.id}
+        name={crew?.name}
         onClose={() => setShowModal(false)}
       >
         <div className="flex gap-x-4">
@@ -367,21 +367,21 @@ const CrewDetailBox = (crew) => {
               <div className=" w-[240px] flex flex-col items-end pt-10">
                 <strong
                   className={`mt-4 text-3xl mb-4 min-w-max ${
-                    crew.status === "Available"
+                    crew?.status === "Available"
                       ? "text-wearecrewGreen"
                       : crew.status === "Not Available"
                       ? "text-wearecrewRed"
                       : "text-wearecrewOrange"
                   }`}
                 >
-                  {crew.status}
+                  {crew?.status}
                 </strong>
               </div>
             </div>
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-6 py-4 md:py-0">
-                {crew.canStepUp && (
+                {crew?.canStepUp && (
                   <div className="flex items-center gap-x-4">
                     <span className="material-icons">move_up</span>
                     <p>Able to step up a grade</p>
@@ -390,8 +390,8 @@ const CrewDetailBox = (crew) => {
                 {crew?.phone && (
                   <div className="flex items-center gap-x-4">
                     <span className="material-icons">phone_iphone</span>
-                    <a href={`tel:${crew.phone}`} className="underline">
-                      {crew.phone}
+                    <a href={`tel:${crew?.phone}`} className="underline">
+                      {crew?.phone}
                     </a>
                     <button
                       onClick={() => copyPhone()}
@@ -404,10 +404,10 @@ const CrewDetailBox = (crew) => {
                 <div className="flex items-center gap-x-4">
                   <span className="material-icons">mail</span>
                   <a
-                    href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
+                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew and want to check your availability!`}
                     className="underline"
                   >
-                    {crew.email}
+                    {crew?.email}
                   </a>
                   <button
                     onClick={() => copyEmail()}
@@ -437,11 +437,11 @@ const CrewDetailBox = (crew) => {
                   </div>
                 )}
 
-                {crew?.willWorkIn.length > 0 && (
+                {crew?.willWorkIn?.length > 0 && (
                   <div className="flex items-start gap-x-4">
                     <span className="material-icons">where_to_vote</span>
                     <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
-                      {crew?.willWorkIn.map((willWorkIn, id) => (
+                      {crew?.willWorkIn?.map((willWorkIn, id) => (
                         <div key={willWorkIn + id}>
                           <p className="min-w-max">{willWorkIn}</p>
                         </div>
@@ -454,17 +454,17 @@ const CrewDetailBox = (crew) => {
                   <div className="flex items-start gap-x-4">
                     <span className="material-icons">military_tech</span>
                     <div>
-                      {crew.credits.map((credits, id) => (
+                      {crew?.credits?.map((credits, id) => (
                         <div
                           key={credits + id}
                           className="flex items-center mb-4"
                         >
                           <div className="flex justify-center">
                             <p className="text-base">
-                              <cite>{credits.jobTitle}</cite>
+                              <cite>{credits?.jobTitle}</cite>
                             </p>
                             <span className="text-wearecrewBlue">  |  </span>
-                            <p className="text-base">{credits.yourRole}</p>
+                            <p className="text-base">{credits?.yourRole}</p>
                           </div>
                         </div>
                       ))}
@@ -472,12 +472,12 @@ const CrewDetailBox = (crew) => {
                   </div>
                 )}
 
-                {crew.qualis ? (
+                {crew?.qualis ? (
                   <div className="flex items-center gap-x-4 -mt-4">
                     <span className="material-icons">school</span>
 
                     <div>
-                      <p className="">{crew.qualis}</p>
+                      <p className="">{crew?.qualis}</p>
                     </div>
                   </div>
                 ) : (
@@ -485,13 +485,13 @@ const CrewDetailBox = (crew) => {
                 )}
                 <div
                   className={`flex items-center gap-x-4 ${
-                    crew.qualis ? "" : "-mt-4"
+                    crew?.qualis ? "" : "-mt-4"
                   }`}
                 >
-                  {crew.bio && (
+                  {crew?.bio && (
                     <>
                       <span className="material-icons">emoji_people</span>
-                      <p>{crew.bio}</p>
+                      <p>{crew?.bio}</p>
                     </>
                   )}
                 </div>
@@ -500,14 +500,14 @@ const CrewDetailBox = (crew) => {
                 <div className="w-full md:w-full flex flex-col gap-y-4">
                   { crew?.phone && (
                   <a
-                    href={`tel:${crew.phone}`}
+                    href={`tel:${crew?.phone}`}
                     className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white"
                   >
                     <h1 className="text-3xl">Call</h1>
                   </a>
                   )}
                   <a
-                    href={`mailto:${crew.email}?subject=I found your profile on Get Crew and want to check your availability!`}
+                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew and want to check your availability!`}
                     className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
                   >
                     <h1 className="text-3xl">Email</h1>
