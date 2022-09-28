@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
@@ -7,6 +8,10 @@ import UploadCV from "./UploadCV";
 import UploadImg from "./UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
+import { useUser } from "../context/user";
+import { deleteCookie } from 'cookies-next';
+
+
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -36,12 +41,17 @@ const Account = ({ session }) => {
   const month = newDate.getMonth() + 1;
   const year = newDate.getFullYear();
 
+  const router = useRouter();
+  const { user, logout } = useUser();
+
+
   const [showFinsihProfileError, setShowFinishProfileError] = useState(false);
+  const [showDeleteProfileWarning, setShowDeleteProfileWarning] =
+    useState(false);
 
   useEffect(() => {
     getProfile();
   }, [session]);
-
 
   async function getCurrentUser() {
     const {
@@ -80,7 +90,7 @@ const Account = ({ session }) => {
       }
 
       if (data) {
-        console.log("DATA-", data);
+        // console.log("DATA-", data);
 
         setID(data.id);
         setUsername(data.username);
@@ -212,14 +222,11 @@ const Account = ({ session }) => {
           ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
           : null;
       }
-      console.log("CHECKED-", checked);
-
     }, [checked]);
 
     const handleChange = () => {
       setChecked(!checked);
     };
-
 
     return (
       <li className="w-auto">
@@ -308,6 +315,19 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
+  const deleteProfile = async () => {
+    console.log("DELETE PROFILE");
+    console.log("USER ID-", id);
+    const { data, error } = await supabase
+      .from("profiles")
+      .delete()
+      .match({ id: id });
+      supabase.auth.signOut();
+    logout();
+    deleteCookie('stripe_customer');
+    router.push("/profileDeleted");
+  };
+
   return (
     <>
       {showFinsihProfileError && (
@@ -320,339 +340,360 @@ const Account = ({ session }) => {
           </div>
         </div>
       )}
+      {showDeleteProfileWarning && (
+      <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
+        <div className="p-4 rounded-md shadow-md bg-wearecrewRed text-center w-full border-wearecrewRed border-2 relative flex flex-col items-center">
+          <p className="text-white">
+            Are you sure you want to delete your profile? This can&apos;t be
+            undone...
+          </p>
+          <div className="flex gap-x-4 mt-2">
+            <p onClick={() => deleteProfile()} className="bg-white cursor-pointer px-4 py-2 rounded-md shadow-md text-wearecrewRed min-w-[100px] ">
+              Yes
+            </p>
+            <p onClick={() => setShowDeleteProfileWarning(false)} className="bg-white cursor-pointer px-4 py-2 rounded-md shadow-md min-w-[100px] text-wearecrewBlue">
+              No take me back
+            </p>
+          </div>
+        </div>
+      </div>
+      )}
       <div className="w-full">
         <form
           onChange={onUpdateProfileHandler}
           className=" w-full flex justify-center py-12 relative"
         >
-          <div className="bg-white shadow-md rounded-md w-11/12 md:min-w-[400px] md:w-[600px] px-12 py-12">
-            <div className="flex justify-center">
-              <h1 className="text-3xl">My Crew</h1>
-            </div>
-
-            {/* STATUS */}
-            <div className="w-full text-center mt-16">
-              <p className="text-wearecrewBlue text-sm">Status</p>
-              <div className="flex flex-col items-center justify-center mt-2">
-                <div className="radio_container h-full gap-x-8 md:rounded-full px-4 py-2 text-sm sm:text-lg">
-                  <div className="flex justify-center w-[300px] md:w-auto gap-x-2 md:gap-x-8">
-                    <input type="radio" name="radio" id="avail" />
-                    <label
-                      onClick={notAvailHandler}
-                      htmlFor="avail"
-                      id="notAvail"
-                      className={`min-w-max ${
-                        status === "Not Available" ? "bg-wearecrewRed" : ""
-                      }`}
-                    >
-                      Not Available
-                    </label>
-                    <input type="radio" name="radio" id="semiAvail" />
-                    <label
-                      onClick={semiAvailHandler}
-                      className={`min-w-max ${
-                        status === "On Dalies" ? "bg-wearecrewOrange" : ""
-                      }`}
-                      htmlFor="semiAvail"
-                      id="semiAvail"
-                    >
-                      On Dailies
-                    </label>
-                    <input type="radio" name="radio" id="notAvail" />
-                    <label
-                      onClick={availHandler}
-                      className={`min-w-max ${
-                        status === "Available" ? "bg-wearecrewGreen" : ""
-                      }`}
-                      htmlFor="notAvail"
-                      id="avail"
-                    >
-                      Available
-                    </label>
+          <div>
+            <div className="bg-white shadow-md rounded-md w-11/12 md:min-w-[400px] md:w-[600px] px-12 py-12">
+              <div className="flex justify-center">
+                <h1 className="text-3xl">My Crew</h1>
+              </div>
+              {/* STATUS */}
+              <div className="w-full text-center mt-16">
+                <p className="text-wearecrewBlue text-sm">Status</p>
+                <div className="flex flex-col items-center justify-center mt-2">
+                  <div className="radio_container h-full gap-x-8 md:rounded-full px-4 py-2 text-sm sm:text-lg">
+                    <div className="flex justify-center w-[300px] md:w-auto gap-x-2 md:gap-x-8">
+                      <input type="radio" name="radio" id="avail" />
+                      <label
+                        onClick={notAvailHandler}
+                        htmlFor="avail"
+                        id="notAvail"
+                        className={`min-w-max ${
+                          status === "Not Available" ? "bg-wearecrewRed" : ""
+                        }`}
+                      >
+                        Not Available
+                      </label>
+                      <input type="radio" name="radio" id="semiAvail" />
+                      <label
+                        onClick={semiAvailHandler}
+                        className={`min-w-max ${
+                          status === "On Dalies" ? "bg-wearecrewOrange" : ""
+                        }`}
+                        htmlFor="semiAvail"
+                        id="semiAvail"
+                      >
+                        On Dailies
+                      </label>
+                      <input type="radio" name="radio" id="notAvail" />
+                      <label
+                        onClick={availHandler}
+                        className={`min-w-max ${
+                          status === "Available" ? "bg-wearecrewGreen" : ""
+                        }`}
+                        htmlFor="notAvail"
+                        id="avail"
+                      >
+                        Available
+                      </label>
+                    </div>
                   </div>
+                  {status !== "Available" && (
+                    <li className="relative styledList w-full md:w-[420px] list-none mt-8">
+                      <input
+                        name="willBeAvailOn"
+                        type="text"
+                        className="border shadow-md w-full"
+                        placeholder="I will be available on..."
+                        defaultValue={willBeAvailOn || ""}
+                        onChange={(e) => setWillBeAvailOn(e.target.value)}
+                      />
+                      <span className="highlight"></span>
+                      <span className="bar"></span>
+                      <label htmlFor="name">Next Available</label>
+                      {/* <span onClick={() => clearNextAvail()} className="absolute cursor-pointer right-2 top-1/4">Clear</span> */}
+                    </li>
+                  )}
                 </div>
-                {status !== "Available" && (
-                  <li className="relative styledList w-full md:w-[420px] list-none mt-8">
+              </div>
+              {/* //END OF STATUS */}
+              <div className="">
+                <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
+                  {/* IMAGE */}
+                  <li className="relative styledList w-full md:w-[420px] flex flex-col items-center justify-center">
+                    <div
+                      style={imgStyling}
+                      className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                    ></div>
+                    <UploadImg
+                      url={imgURL}
+                      onUpload={(url) => {
+                        setImgURL(url);
+                      }}
+                    />
+                  </li>
+                  {/* //END OF IMAGE */}
+                  {/* IS PROFILE LIVE */}
+                  <div className="w-full md:w-[420px]">
+                    <p className="text-sm text-wearecrewBlue">Profile Status</p>
+                    {paid !== true ? (
+                      <div className=" items-center">
+                        <h1 className="text-wearecrewOrange text-xl">
+                          Pending
+                        </h1>
+                        <small>Your profile isn&apos;t currently live.</small>
+                        <Link href="/pricing">
+                          <a className="text-xs underline ml-2 text-wearecrewBlue">
+                            Go live now
+                          </a>
+                        </Link>
+                      </div>
+                    ) : (
+                      <div className="">
+                        <h1 className="text-wearecrewGreen text-xl">Live</h1>
+                        <small>
+                          Your profile has been live since {dateOfPayment}
+                        </small>
+                      </div>
+                    )}
+                  </div>
+                  {/* //END OF IS PROFILE LIVE */}
+                  {/* NAME */}
+                  <li className="relative styledList w-full md:w-[420px]">
                     <input
-                      name="willBeAvailOn"
+                      name="name"
                       type="text"
+                      defaultValue={username}
                       className="border shadow-md w-full"
-                      placeholder="I will be available on..."
-                      defaultValue={willBeAvailOn || ""}
-                      onChange={(e) => setWillBeAvailOn(e.target.value)}
+                      onChange={(e) => setUsername(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="name">Next Available</label>
-                    {/* <span onClick={() => clearNextAvail()} className="absolute cursor-pointer right-2 top-1/4">Clear</span> */}
+                    <label htmlFor="name">Name</label>
                   </li>
+                  {/* //END OF NAME */}
+                  {/* DEPARTMENT */}
+                  <li className="flex flex-col styledList w-full md:w-[420px]">
+                    <p className="text-sm text-wearecrewBlue">Department</p>
+                    <ListDept />
+                  </li>
+                  {/* //END OF DEPARTMENT */}
+                  {/* GRADE/TITLE */}
+                  <li className="flex flex-col styledList w-full md:w-[420px]">
+                    <p className="text-sm text-wearecrewBlue">Grade / Title</p>
+                    <ListTitle />
+                  </li>
+                  {/* //END OF GRADE/TITLE */}
+                  {/* STEP UP */}
+                  {/* <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
+                    <div className="flex items-center borderRed">
+                      <input
+                        type="checkbox"
+                        className="chb chb-3"
+                        id="stepUp"
+                        onChange={canStepUpHandler}
+                        checked={canStepUp}
+                      />
+                      <label className="min-w-max" htmlFor="stepUp">
+                        <small className="mb-4">Willing / able to step up a grade if required</small>
+                      </label>
+                    </div>
+                  </li> */}
+                  {/* //END OF STEP UP */}
+                  {/* QUALIS */}
+                  <li className="relative styledList w-full md:w-[420px]">
+                    <input
+                      name="safetyQualifications"
+                      type="text"
+                      defaultValue={qualis}
+                      className="border shadow-md w-full"
+                      required
+                      onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <small className="text-wearecrewDarkGrey">
+                      Use hypen bewteen each item.  Leave empty if N/A.
+                    </small>
+                    <label htmlFor="safetyQualifications">
+                      Safety or other Qualifications
+                    </label>
+                  </li>
+                  {/* //END OF QUALIS */}
+                  {/* CAN WORK IN */}
+                  <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
+                    <p className="text-sm text-wearecrewBlue">Can work in</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
+                      {places.map((place, i) => (
+                        <ListCheckbox key={i} place={place} />
+                      ))}
+                    </div>
+                  </div>
+                  {/* //END OF CAN WORK IN */}
+                  {/* EMAIL */}
+                  <li className="relative styledList w-full md:w-[420px]">
+                    <p className="text-sm text-wearecrewBlue">Email</p>
+                    <input
+                      name="email"
+                      type="text"
+                      value={email}
+                      placeholder={session?.user?.email}
+                      className="border shadow-md w-full opacity-30 cursor-not-allowed"
+                      disabled
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                  </li>
+                  {/* //END OF EMAIL */}
+                  {/* WEBSITE */}
+                  <li className="relative styledList w-full md:w-[420px]">
+                    <input
+                      name="name"
+                      type="text"
+                      defaultValue={website}
+                      placeholder="www.mywebsite.com"
+                      className="border shadow-md w-full"
+                      onChange={(e) => setWebsite(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label htmlFor="name">Website</label>
+                  </li>
+                  {/* //END OF WEBSITE */}
+                  {/* PHONE */}
+                  <li className="relative styledList w-full md:w-[420px]">
+                    <input
+                      name="phone"
+                      type="number"
+                      defaultValue={phone}
+                      className="border shadow-md w-full"
+                      required
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label htmlFor="phone">Phone</label>
+                  </li>
+                  <span
+                    title=""
+                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px]"
+                  >
+                    Area Code?
+                  </span>
+                  {/* //END OF PHONE */}
+                  {/* CREDITS */}
+                  <DynamicList
+                    credits={credits}
+                    setCredits={setCredits}
+                    setProfileChanged={setProfileChanged}
+                  />
+                  {/* //END OF CREDITS */}
+                  {/* BIO */}
+                  <li className="relative styledList w-full md:w-[420px]">
+                    <textarea
+                      className="border shadow-md w-full"
+                      rows="5"
+                      cols=""
+                      onChange={
+                        ((e) => setCount(e.target.value.length),
+                        (e) => setBio(e.target.value))
+                      }
+                      defaultValue={bio}
+                      maxLength="240"
+                      required
+                    />
+                    <p>{bio?.length}/240</p>
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label htmlFor="bio">Short Bio</label>
+                  </li>
+                  {/* //END OF BIO */}
+                  {/* UPLOAD CV */}
+                  <li className=" w-full md:w-[420px] flex flex-col items-center styledList">
+                    <UploadCV
+                      url={cvURL}
+                      setCvFileName={setCvFileName}
+                      cvFileName={cvURL}
+                      updatedAt={updatedAt}
+                      onUpload={(url) => {
+                        setCvURL(url);
+                      }}
+                    />
+                    {cvURL && (
+                      <small
+                        onClick={() => deleteCV()}
+                        className="cursor-pointer mt-2"
+                      >
+                        Remove CV
+                      </small>
+                    )}
+                  </li>
+                  {/* //END OF UPLOAD CV */}
+                </ul>
+              </div>
+              <div className="top-12 w-full left-0 justify-center mt-12">
+                {profileChanged === false ? (
+                  ""
+                ) : (
+                  <button
+                    className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen"
+                    onClick={(e) =>
+                      dept !== "" &&
+                      dept !== "Choose Department" &&
+                      username !== "" &&
+                      username !== null &&
+                      title !== "" &&
+                      title !== "Choose Title"
+                        ? updateProfile({
+                            username,
+                            website,
+                            imgURL,
+                            status,
+                            willBeAvailOn,
+                            dept,
+                            title,
+                            canStepUp,
+                            qualis,
+                            phone,
+                            bio,
+                            canWorkIn,
+                            credits,
+                            cvURL,
+                            paid,
+                          })
+                        : profileNotComplete(e)
+                    }
+                    disabled={loading}
+                  >
+                    {loading ? "Saving ..." : "Save"}
+                  </button>
                 )}
               </div>
             </div>
-            {/* //END OF STATUS */}
-
-            <div className="">
-              <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
-                {/* IMAGE */}
-                <li className="relative styledList w-full md:w-[420px] flex flex-col items-center justify-center">
-                  <div
-                    style={imgStyling}
-                    className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
-                  ></div>
-                  <UploadImg
-                    url={imgURL}
-                    onUpload={(url) => {
-                      setImgURL(url);
-                    }}
-                  />
-                </li>
-                {/* //END OF IMAGE */}
-
-                {/* IS PROFILE LIVE */}
-                <div className="w-full md:w-[420px]">
-                  <p className="text-sm text-wearecrewBlue">Profile Status</p>
-                  {paid !== true ? (
-                    <div className=" items-center">
-                      <h1 className="text-wearecrewOrange text-xl">Pending</h1>
-                      <small>Your profile isn&apos;t currently live.</small>
-                      <Link href="/pricing">
-                        <a className="text-xs underline ml-2 text-wearecrewBlue">
-                          Go live now
-                        </a>
-                      </Link>
-                    </div>
-                  ) : (
-                    <div className="">
-                      <h1 className="text-wearecrewGreen text-xl">Live</h1>
-                      <small>
-                        Your profile has been live since {dateOfPayment}
-                      </small>
-                    </div>
-                  )}
-                </div>
-                {/* //END OF IS PROFILE LIVE */}
-
-                {/* NAME */}
-                <li className="relative styledList w-full md:w-[420px]">
-                  <input
-                    name="name"
-                    type="text"
-                    defaultValue={username}
-                    className="border shadow-md w-full"
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <label htmlFor="name">Name</label>
-                </li>
-                {/* //END OF NAME */}
-
-                {/* DEPARTMENT */}
-                <li className="flex flex-col styledList w-full md:w-[420px]">
-                  <p className="text-sm text-wearecrewBlue">Department</p>
-                  <ListDept />
-                </li>
-                {/* //END OF DEPARTMENT */}
-
-                {/* GRADE/TITLE */}
-                <li className="flex flex-col styledList w-full md:w-[420px]">
-                  <p className="text-sm text-wearecrewBlue">Grade / Title</p>
-                  <ListTitle />
-                </li>
-                {/* //END OF GRADE/TITLE */}
-
-                {/* STEP UP */}
-                {/* <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
-                  <div className="flex items-center borderRed">
-                    <input
-                      type="checkbox"
-                      className="chb chb-3"
-                      id="stepUp"
-                      onChange={canStepUpHandler}
-                      checked={canStepUp}
-                    />
-                    <label className="min-w-max" htmlFor="stepUp">
-                      <small className="mb-4">Willing / able to step up a grade if required</small>
-                    </label>
-                  </div>
-                </li> */}
-                {/* //END OF STEP UP */}
-
-                {/* QUALIS */}
-                <li className="relative styledList w-full md:w-[420px]">
-                  <input
-                    name="safetyQualifications"
-                    type="text"
-                    defaultValue={qualis}
-                    className="border shadow-md w-full"
-                    required
-                    onChange={(e) => setQualis(e.target.value)}
-                  />
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <small className="text-wearecrewDarkGrey">
-                    Use hypen bewteen each item.  Leave empty if N/A.
-                  </small>
-                  <label htmlFor="safetyQualifications">
-                    Safety or other Qualifications
-                  </label>
-                </li>
-                {/* //END OF QUALIS */}
-
-                {/* CAN WORK IN */}
-                <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
-                  <p className="text-sm text-wearecrewBlue">Can work in</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
-                    {places.map((place, i) => (
-                      <ListCheckbox key={i} place={place} />
-                    ))}
-                  </div>
-                </div>
-                {/* //END OF CAN WORK IN */}
-
-                {/* EMAIL */}
-                <li className="relative styledList w-full md:w-[420px]">
-                  <p className="text-sm text-wearecrewBlue">Email</p>
-                  <input
-                    name="email"
-                    type="text"
-                    value={email}
-                    placeholder={session?.user?.email}
-                    className="border shadow-md w-full opacity-30 cursor-not-allowed"
-                    disabled
-                  />
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                </li>
-                {/* //END OF EMAIL */}
-
-                {/* WEBSITE */}
-                <li className="relative styledList w-full md:w-[420px]">
-                  <input
-                    name="name"
-                    type="text"
-                    defaultValue={website}
-                    placeholder="www.mywebsite.com"
-                    className="border shadow-md w-full"
-                    onChange={(e) => setWebsite(e.target.value)}
-                  />
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <label htmlFor="name">Website</label>
-                </li>
-                {/* //END OF WEBSITE */}
-
-                {/* PHONE */}
-                <li className="relative styledList w-full md:w-[420px]">
-                  <input
-                    name="phone"
-                    type="number"
-                    defaultValue={phone}
-                    className="border shadow-md w-full"
-                    required
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <label htmlFor="phone">Phone</label>
-                </li>
+            <div className=" w-11/12 md:min-w-[400px] md:w-[600px] mt-8 flex flex-col items-center ">
+              <h1 className="text-center text-2xl mb-2">Danger Zone</h1>
+              <div className="bg-white/70 w-full border border-wearecrewRed px-12 py-6 flex justify-center flex-col items-center h-full shadow-md rounded-md ">
                 <span
-                  title=""
-                  className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px]"
+                  onClick={() => setShowDeleteProfileWarning(true)}
+                  className="cursor-pointer p-4 rounded-md shadow-md bg-wearecrewRed text-white"
                 >
-                  Area Code?
+                  Delete Profile
                 </span>
-                {/* //END OF PHONE */}
-
-                {/* CREDITS */}
-                <DynamicList
-                  credits={credits}
-                  setCredits={setCredits}
-                  setProfileChanged={setProfileChanged}
-                />
-                {/* //END OF CREDITS */}
-
-                {/* BIO */}
-                <li className="relative styledList w-full md:w-[420px]">
-                  <textarea
-                    className="border shadow-md w-full"
-                    rows="5"
-                    cols=""
-                    onChange={
-                      ((e) => setCount(e.target.value.length),
-                      (e) => setBio(e.target.value))
-                    }
-                    defaultValue={bio}
-                    maxLength="240"
-                    required
-                  />
-                  <p>{bio?.length}/240</p>
-                  <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <label htmlFor="bio">Short Bio</label>
-                </li>
-                {/* //END OF BIO */}
-
-                {/* UPLOAD CV */}
-                <li className=" w-full md:w-[420px] flex flex-col items-center styledList">
-                  <UploadCV
-                    url={cvURL}
-                    setCvFileName={setCvFileName}
-                    cvFileName={cvURL}
-                    updatedAt={updatedAt}
-                    onUpload={(url) => {
-                      setCvURL(url);
-                    }}
-                  />
-                  {cvURL && (
-                    <small
-                      onClick={() => deleteCV()}
-                      className="cursor-pointer mt-2"
-                    >
-                      Remove CV
-                    </small>
-                  )}
-                </li>
-                {/* //END OF UPLOAD CV */}
-              </ul>
-            </div>
-            <div className="top-12 w-full left-0 justify-center mt-12">
-              {profileChanged === false ? (
-                ""
-              ) : (
-                <button
-                  className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen"
-                  onClick={(e) =>
-                    dept !== "" &&
-                    dept !== "Choose Department" &&
-                    username !== "" &&
-                    username !== null &&
-                    title !== "" &&
-                    title !== "Choose Title"
-                      ? updateProfile({
-                          username,
-                          website,
-                          imgURL,
-                          status,
-                          willBeAvailOn,
-                          dept,
-                          title,
-                          canStepUp,
-                          qualis,
-                          phone,
-                          bio,
-                          canWorkIn,
-                          credits,
-                          cvURL,
-                          paid,
-                        })
-                      : profileNotComplete(e)
-                  }
-                  disabled={loading}
-                >
-                  {loading ? "Saving ..." : "Save"}
-                </button>
-              )}
+                <small className="text-wearecrewRed mt-1">
+                  *This will delete your profile permanently.
+                </small>
+              </div>
             </div>
           </div>
         </form>

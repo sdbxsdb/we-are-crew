@@ -4,7 +4,6 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
   const [inputList, setInputList] = useState(credits);
   const [input, setInput] = useState("");
 
-  console.log("CREDITS-", credits);
 
   // handle input change
   const handleInputChange = (e, index) => {
