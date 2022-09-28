@@ -15,8 +15,8 @@ const Account = ({ session }) => {
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [imgURL, setImgURL] = useState("");
-  const [cvURL, setCvURL] = useState("");
-  const [cvFileName, setCvFileName] = useState("");
+  const [cvURL, setCvURL] = useState(null);
+  const [cvFileName, setCvFileName] = useState();
   const [status, setStatus] = useState("Available");
   const [willBeAvailOn, setWillBeAvailOn] = useState("");
   const [dept, setDept] = useState("");
@@ -42,13 +42,13 @@ const Account = ({ session }) => {
     getProfile();
   }, [session]);
 
-  useEffect(() => {
-    if (paid === true) {
-      setdateOfPayment(
-        `${date}-${month < 10 ? `0${month}` : `${month}`}-${year}`
-      );
-    }
-  }, [paid]);
+  // useEffect(() => {
+  //   if (paid === true) {
+  //     setdateOfPayment(
+  //       `${date}-${month < 10 ? `0${month}` : `${month}`}-${year}`
+  //     );
+  //   }
+  // }, [paid]);
 
   async function getCurrentUser() {
     const {
@@ -133,7 +133,6 @@ const Account = ({ session }) => {
     credits,
     cvURL,
     paid,
-    dateOfPayment,
   }) {
     try {
       setLoading(true);
@@ -156,8 +155,6 @@ const Account = ({ session }) => {
         canWorkIn,
         credits,
         cvURL,
-        paid,
-        dateOfPayment,
 
         updated_at: new Date(),
       };
@@ -199,10 +196,10 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
-  const canStepUpHandler = () => {
-    setCanStepUp(!canStepUp);
-    setProfileChanged(true);
-  };
+  // const canStepUpHandler = () => {
+  //   setCanStepUp(!canStepUp);
+  //   setProfileChanged(true);
+  // };
 
   const onUpdateProfileHandler = () => {
     setProfileChanged(true);
@@ -309,7 +306,6 @@ const Account = ({ session }) => {
     }, 3000);
   };
 
-
   return (
     <>
       {showFinsihProfileError && (
@@ -384,9 +380,9 @@ const Account = ({ session }) => {
                       onChange={(e) => setWillBeAvailOn(e.target.value)}
                     />
                     <span className="highlight"></span>
-                  <span className="bar"></span>
-                  <label htmlFor="name">Next Available</label>
-                  {/* <span onClick={() => clearNextAvail()} className="absolute cursor-pointer right-2 top-1/4">Clear</span> */}
+                    <span className="bar"></span>
+                    <label htmlFor="name">Next Available</label>
+                    {/* <span onClick={() => clearNextAvail()} className="absolute cursor-pointer right-2 top-1/4">Clear</span> */}
                   </li>
                 )}
               </div>
@@ -405,21 +401,6 @@ const Account = ({ session }) => {
                     url={imgURL}
                     onUpload={(url) => {
                       setImgURL(url);
-                      updateProfile({
-                        imgURL: url,
-                        username,
-                        website,
-                        status,
-                        willBeAvailOn,
-                        dept,
-                        title,
-                        canStepUp,
-                        qualis,
-                        phone,
-                        bio,
-                        canWorkIn,
-                        credits,
-                      });
                     }}
                   />
                 </li>
@@ -619,22 +600,6 @@ const Account = ({ session }) => {
                     updatedAt={updatedAt}
                     onUpload={(url) => {
                       setCvURL(url);
-                      updateProfile({
-                        imgURL,
-                        username,
-                        website,
-                        status,
-                        willBeAvailOn,
-                        dept,
-                        title,
-                        canStepUp,
-                        qualis,
-                        phone,
-                        bio,
-                        canWorkIn,
-                        credits,
-                        cvURL: url,
-                      });
                     }}
                   />
                 </li>
@@ -650,7 +615,8 @@ const Account = ({ session }) => {
                   onClick={(e) =>
                     dept !== "" &&
                     dept !== "Choose Department" &&
-                    username !== "" && username !== null &&
+                    username !== "" &&
+                    username !== null &&
                     title !== "" &&
                     title !== "Choose Title"
                       ? updateProfile({
@@ -668,7 +634,6 @@ const Account = ({ session }) => {
                           canWorkIn,
                           credits,
                           cvURL,
-                          dateOfPayment,
                           paid,
                         })
                       : profileNotComplete(e)

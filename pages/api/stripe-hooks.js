@@ -21,7 +21,10 @@ const handler = async (req, res) => {
     return res.status(400).send(`Webhook Error: ${error.message}`);
   }
 
-  let intent = null;
+  const newDate = new Date();
+  const date = newDate.getDate();
+  const month = newDate.getMonth() + 1;
+  const year = newDate.getFullYear();
 
 
   switch (event.type) {
@@ -30,6 +33,7 @@ const handler = async (req, res) => {
         .from("profiles")
         .update({
           paid: true,
+          dateOfPayment:  `${date}-${month < 10 ? `0${month}` : `${month}`}-${year}`
         })
         .eq("stripe_customer", event.data.object.customer);
   }

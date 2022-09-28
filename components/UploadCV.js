@@ -45,6 +45,8 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     }
   }
 
+  console.log("CV-", cvFileName);
+
   return (
     <div className="mb-12 w-full">
       <div className="file-uploader group relative w-full h-12">
