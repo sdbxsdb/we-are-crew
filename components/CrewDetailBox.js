@@ -118,6 +118,10 @@ const CrewDetailBox = (crew) => {
 
   const creditsExist = crew?.credits?.some((credit) => credit.jobTitle);
 
+  const sortedLocations = [...crew.willWorkIn]
+  .sort((a, b) => (a > b ? 1 : -1))
+
+
   return (
 
     <div>
@@ -183,7 +187,7 @@ const CrewDetailBox = (crew) => {
               </small>
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
-              {crew?.willWorkIn?.map((willWorkIn, id) => (
+              {sortedLocations.map((willWorkIn, id) => (
                 <div key={willWorkIn + id} className="mt-1 min-w-max">
                   {willWorkIn}
                 </div>
@@ -292,7 +296,7 @@ const CrewDetailBox = (crew) => {
                   <strong className="text-sm">Can work in</strong>
                 )}
                 <div className="flex flex-wrap gap-x-4 justify-center">
-                  {crew?.willWorkIn?.map((willWorkIn) => (
+                  {sortedLocations.map((willWorkIn) => (
                     <div key={willWorkIn} className="mt-1">
                       <p className="text-base">{willWorkIn}</p>
                     </div>
@@ -452,7 +456,7 @@ const CrewDetailBox = (crew) => {
                   <div className="flex items-start gap-x-4">
                     <span className="material-icons">where_to_vote</span>
                     <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
-                      {crew?.willWorkIn?.map((willWorkIn, id) => (
+                      {sortedLocations.map((willWorkIn, id) => (
                         <div key={willWorkIn + id}>
                           <p className="min-w-max">{willWorkIn}</p>
                         </div>
