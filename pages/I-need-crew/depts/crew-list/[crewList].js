@@ -145,7 +145,7 @@ const CrewList = ({ users }) => {
                     
                   </ul>
                 </div> */}
-                <div className="  shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
+                <div className="min-w-[200px]  shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0">
                   <p className="text-center mb-4 font-semibold text-lg">
                     Filter by Role
                   </p>
@@ -157,7 +157,7 @@ const CrewList = ({ users }) => {
                     </li>
                     {removedTitleDups?.map(
                       (user, i) =>
-                        sortedUsersByTitle?.length > 1 && (
+                        sortedUsersByTitle?.length > 0 && (
                           <li key={i} className="lg:w-full max-w-3/12">
                             <button
                               className="w-full"

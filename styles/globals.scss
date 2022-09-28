@@ -327,12 +327,12 @@ input::-webkit-inner-spin-button {
   background: #484848;
   border-radius: 8px;
   color: #fff;
-  content: "UK | 0044 then remove first 0 - eg. 0044 77 123 45678  \A\A IE | 00353 then remove first 0 - eg. 00353 87 123 45678";
+  content: "UK | 0044 - Remove first 0 and add 0044 \A eg. 077123 45678   becomes   0044 77 123 45678  \A\A IE | 00353  - Remove first 0 and add 00353 \A eg. 087123 45678  becomes   00353 87 123 45678";
   white-space: pre;
   margin: -82px auto 0;
   font-size: 16px;
   padding: 13px;
-  width: 440px;
+  width: 420px;
 }
 
 .list-container {

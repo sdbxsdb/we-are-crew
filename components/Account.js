@@ -591,7 +591,7 @@ const Account = ({ session }) => {
                   </li>
                   <span
                     title=""
-                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px]"
+                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px] z-50"
                   >
                     Area Code?
                   </span>

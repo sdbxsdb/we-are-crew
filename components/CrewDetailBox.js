@@ -176,7 +176,7 @@ const CrewDetailBox = (crew) => {
           </div>
 
           {/*CAN WORK IN*/}
-          <div className="flex flex-col justify-start items-start w-[332px] min-h-[161px]">
+          <div className="flex flex-col mr-4 justify-start items-start w-[332px] min-h-[161px]">
             {crew?.willWorkIn?.length > 0 && (
               <small>
                 <strong>Can work in</strong>
