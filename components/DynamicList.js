@@ -4,6 +4,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
   const [inputList, setInputList] = useState(credits);
   const [input, setInput] = useState("");
 
+  console.log("CREDITS-", credits);
 
   // handle input change
   const handleInputChange = (e, index) => {
@@ -46,7 +47,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
   return (
     <li className="relative styledList w-full md:w-[420px]">
       <h3 className="text-sm text-wearecrewBlue">Credits</h3>
-      {shownList?.map((x, i) => {
+      {shownList.map((x, i) => {
         return (
           <div
             className="flex w-full flex-col relative gap-y-2 styledList"
@@ -64,14 +65,14 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
               className="border shadow-md w-full"
               name="jobTitle"
               placeholder="Job Title"
-              defaultValue={x?.jobTitle}
+              defaultValue={x.jobTitle}
               onChange={(e) => handleInputChange(e, i)}
             />
             <input
               className="border shadow-md w-full"
               name="yourRole"
               placeholder="Your role"
-              defaultValue={x?.yourRole}
+              defaultValue={x.yourRole}
               onChange={(e) => handleInputChange(e, i)}
             />
 
@@ -79,7 +80,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
               <span className="h-[1px] w-1/4 border-b-2 rounded-lg border-wearecrewBlue"></span>
             </div>
             <div className="text-lg text-right font-bold mt-2">
-              {shownList?.length - 1 === i && (
+              {shownList.length - 1 === i && (
                 <button onClick={handleAddClick}>Add New Credit</button>
               )}
             </div>

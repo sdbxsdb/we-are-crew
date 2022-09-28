@@ -45,13 +45,13 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     }
   }
 
-  console.log("CV-", cvFileName);
+
 
   return (
-    <div className="mb-12 w-full">
-      <div className="file-uploader group relative w-full h-12">
+    <div className="w-full">
+      <div className="file-uploader group relative h-12">
         <label
-          className="text-sm text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md left-[36%] top-2 absolute"
+          className="text-sm text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md left-1/2 transform -translate-x-1/2 top-2 absolute"
           htmlFor="cv"
         >
           {!cvFileName && (uploading ? "Uploading ..." : "Upload CV")}

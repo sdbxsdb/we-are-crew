@@ -42,13 +42,6 @@ const Account = ({ session }) => {
     getProfile();
   }, [session]);
 
-  // useEffect(() => {
-  //   if (paid === true) {
-  //     setdateOfPayment(
-  //       `${date}-${month < 10 ? `0${month}` : `${month}`}-${year}`
-  //     );
-  //   }
-  // }, [paid]);
 
   async function getCurrentUser() {
     const {
@@ -87,7 +80,7 @@ const Account = ({ session }) => {
       }
 
       if (data) {
-        // console.log("DATA-", data);
+        console.log("DATA-", data);
 
         setID(data.id);
         setUsername(data.username);
@@ -102,8 +95,8 @@ const Account = ({ session }) => {
         setQualis(data.qualis);
         setPhone(data.phone);
         setBio(data.bio);
-        setCanWorkIn(data.canWorkIn);
-        setCredits(data.credits);
+        setCanWorkIn(data.canWorkIn === null ? [] : data.canWorkIn);
+        setCredits(data.credits === null ? [{}] : data.credits);
         setCvURL(data.cvURL);
         setUpdatedAt(data.updated_at);
         setPaid(data.paid);
@@ -219,11 +212,14 @@ const Account = ({ session }) => {
           ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
           : null;
       }
+      console.log("CHECKED-", checked);
+
     }, [checked]);
 
     const handleChange = () => {
       setChecked(!checked);
     };
+
 
     return (
       <li className="w-auto">
@@ -304,6 +300,12 @@ const Account = ({ session }) => {
     setTimeout(() => {
       setShowFinishProfileError(false);
     }, 3000);
+  };
+
+  const deleteCV = () => {
+    console.log("DELETE CV");
+    setCvURL("");
+    setProfileChanged(true);
   };
 
   return (
@@ -409,7 +411,7 @@ const Account = ({ session }) => {
                 {/* IS PROFILE LIVE */}
                 <div className="w-full md:w-[420px]">
                   <p className="text-sm text-wearecrewBlue">Profile Status</p>
-                  {paid === false ? (
+                  {paid !== true ? (
                     <div className=" items-center">
                       <h1 className="text-wearecrewOrange text-xl">Pending</h1>
                       <small>Your profile isn&apos;t currently live.</small>
@@ -435,7 +437,7 @@ const Account = ({ session }) => {
                   <input
                     name="name"
                     type="text"
-                    defaultValue={username || ""}
+                    defaultValue={username}
                     className="border shadow-md w-full"
                     onChange={(e) => setUsername(e.target.value)}
                   />
@@ -481,7 +483,7 @@ const Account = ({ session }) => {
                   <input
                     name="safetyQualifications"
                     type="text"
-                    defaultValue={qualis || "N/A"}
+                    defaultValue={qualis}
                     className="border shadow-md w-full"
                     required
                     onChange={(e) => setQualis(e.target.value)}
@@ -529,7 +531,7 @@ const Account = ({ session }) => {
                   <input
                     name="name"
                     type="text"
-                    defaultValue={website || ""}
+                    defaultValue={website}
                     placeholder="www.mywebsite.com"
                     className="border shadow-md w-full"
                     onChange={(e) => setWebsite(e.target.value)}
@@ -545,7 +547,7 @@ const Account = ({ session }) => {
                   <input
                     name="phone"
                     type="number"
-                    defaultValue={phone || ""}
+                    defaultValue={phone}
                     className="border shadow-md w-full"
                     required
                     onChange={(e) => setPhone(e.target.value)}
@@ -580,7 +582,7 @@ const Account = ({ session }) => {
                       ((e) => setCount(e.target.value.length),
                       (e) => setBio(e.target.value))
                     }
-                    defaultValue={bio || ""}
+                    defaultValue={bio}
                     maxLength="240"
                     required
                   />
@@ -592,7 +594,7 @@ const Account = ({ session }) => {
                 {/* //END OF BIO */}
 
                 {/* UPLOAD CV */}
-                <li className="w-full md:w-[420px] styledList">
+                <li className=" w-full md:w-[420px] flex flex-col items-center styledList">
                   <UploadCV
                     url={cvURL}
                     setCvFileName={setCvFileName}
@@ -602,6 +604,14 @@ const Account = ({ session }) => {
                       setCvURL(url);
                     }}
                   />
+                  {cvURL && (
+                    <small
+                      onClick={() => deleteCV()}
+                      className="cursor-pointer mt-2"
+                    >
+                      Remove CV
+                    </small>
+                  )}
                 </li>
                 {/* //END OF UPLOAD CV */}
               </ul>
