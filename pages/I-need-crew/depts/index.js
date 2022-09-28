@@ -5,7 +5,11 @@ import Link from "next/link";
 
 const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   // console.log({ depts });
-  console.log({ deptsWithAtLeastOnePaid });
+  // console.log({ deptsWithAtLeastOnePaid });
+
+  const deptsWithOnePaidAnd = deptsWithAtLeastOnePaid.map((dept) => {
+    return dept.dept;
+  });
 
   const slugify = (str) =>
     str
@@ -15,9 +19,11 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  const sortedDepts = [...depts]
+  const sortedDepts = [...deptsWithOnePaidAnd]
     .sort((a, b) => (a > b ? 1 : -1))
     .filter((dept) => dept !== null);
+    
+    // console.log({sortedDepts});
 
   const [foundDept, setFoundDept] = useState(sortedDepts);
   const filterDept = (e) => {
@@ -28,6 +34,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
+      console.log({foundDept});
     } else {
       setFoundDept(sortedDepts);
       // If the text field is empty, show all users
@@ -59,32 +66,26 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
               </div>
               {foundDept && foundDept?.length > 0 ? (
                 <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                  {foundDept?.map((dept, i) =>
-                    dept !== ""  ? (
-                      <div
-                        key={i}
-                        className="w-full flex items-center justify-center"
-                      >
-                        <Link href={`./depts/crew-list/${dept}`}>
-                          <a className="bg-white w-full sm:min-w-[180px] sm:w-[180px] h-[180px] flex flex-col items-center justify-center text-center rounded border-b-2 border-wearecrewBlue shadow-md hoverScale gap-y-2 p-2">
-                            <h1 className="text-5xl sm:text-3xl">{dept}</h1>
-                            <img
-                              src={
-                                `../../../images/icons/` +
-                                slugify(dept) +
-                                ".png"
-                              }
-                              alt={`${dept} img`}
-                              width="50"
-                              height="50"
-                            />
-                          </a>
-                        </Link>
-                      </div>
-                    ) : (
-                      ""
-                    )
-                  )}
+                  {foundDept?.map((dept, i) => (
+                    <div
+                      key={i}
+                      className="w-full flex items-center justify-center"
+                    >
+                      <Link href={`./depts/crew-list/${dept}`}>
+                        <a className="bg-white w-full sm:min-w-[180px] sm:w-[180px] h-[180px] flex flex-col items-center justify-center text-center rounded border-b-2 border-wearecrewBlue shadow-md hoverScale gap-y-2 p-2">
+                          <h1 className="text-5xl sm:text-3xl">{dept}</h1>
+                          <img
+                            src={
+                              `../../../images/icons/` + slugify(dept) + ".png"
+                            }
+                            alt={`${dept} img`}
+                            width="50"
+                            height="50"
+                          />
+                        </a>
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <div className="mt-4 w-full text-center">
@@ -102,23 +103,30 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
 export default INeedCrew;
 
 export const getStaticProps = async () => {
-  const { data: profiles } = await supabase.from("profiles").select("dept, paid");
+  const { data: profiles } = await supabase
+    .from("profiles")
+    .select("dept, paid");
 
   console.log("PROFILES)-", profiles);
 
   const depts = [];
-  const deptsWithAtLeastOnePaid =  [];
+  const deptsWithAtLeastOnePaid = [];
 
   profiles.forEach((profile) => {
     depts.push(profile?.dept);
-    profile?.paid === true ? deptsWithAtLeastOnePaid.push({dept: profile?.dept, paid: profile?.paid}) : null;
+    profile?.paid === true
+      ? deptsWithAtLeastOnePaid.push({
+          dept: profile?.dept,
+          paid: profile?.paid,
+        })
+      : null;
   });
   const uniqueDepts = Array.from(new Set(depts));
 
   return {
     props: {
       depts: uniqueDepts,
-      deptsWithAtLeastOnePaid: deptsWithAtLeastOnePaid
+      deptsWithAtLeastOnePaid: deptsWithAtLeastOnePaid,
     },
   };
 };
