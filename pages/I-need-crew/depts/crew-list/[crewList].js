@@ -103,6 +103,7 @@ const CrewList = ({ users }) => {
                           credits={user.credits}
                           bio={user.bio}
                           cvURL={user.cvURL}
+                          willBeAvailOn={user.willBeAvailOn}
                         />
                       ) : (
                         ""

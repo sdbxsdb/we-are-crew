@@ -158,17 +158,20 @@ const CrewDetailBox = (crew) => {
             {/* // END OF QUALIS*/}
 
             {/*STATUS*/}
-            <strong
-              className={`mt-4 ${
+            <div
+              className="mt-4 flex flex-col"
+            >
+              <strong className={`${
                 crew.status === "Available"
                   ? "text-wearecrewGreen"
                   : crew.status === "Not Available"
                   ? "text-wearecrewRed"
                   : "text-wearecrewOrange"
-              }`}
-            >
-              {crew.status}
-            </strong>
+              }`}>{crew.status}</strong>
+              {crew.status !== "Available" && crew.willBeAvailOn !== "" && (
+                  <small>Available from: {crew.willBeAvailOn}</small>
+                )}
+            </div>
             {/* //END OF STATUS */}
           </div>
 
@@ -249,17 +252,20 @@ const CrewDetailBox = (crew) => {
               <div className="w-[210px] text-right">
                 <div className="flex flex-col">
                   {/* MOBILE STATUS*/}
-                  <strong
-                    className={`${
-                      crew?.status === "Available"
-                        ? "text-wearecrewGreen"
-                        : crew?.status === "Not Available"
-                        ? "text-wearecrewRed"
-                        : "text-wearecrewOrange"
-                    }`}
-                  >
-                    {crew?.status}
-                  </strong>
+                  <div
+              className="flex flex-col"
+            >
+              <strong className={`${
+                crew.status === "Available"
+                  ? "text-wearecrewGreen"
+                  : crew.status === "Not Available"
+                  ? "text-wearecrewRed"
+                  : "text-wearecrewOrange"
+              }`}>{crew.status}</strong>
+              {crew.status !== "Available" && crew.willBeAvailOn !== "" && (
+                  <small>Available from: {crew.willBeAvailOn}</small>
+                )}
+            </div>
                   {/* // END OF MOBILE STATUS */}
 
                   {/* MOBILE NAME*/}
@@ -366,9 +372,9 @@ const CrewDetailBox = (crew) => {
                   )}
                 </div>
               </div>
-              <div className=" w-[240px] flex flex-col items-end pt-10">
+              <div className=" w-[240px] flex flex-col items-end pt-10 mb-4">
                 <strong
-                  className={`mt-4 text-3xl mb-4 min-w-max ${
+                  className={`mt-4 text-3xl  min-w-max ${
                     crew?.status === "Available"
                       ? "text-wearecrewGreen"
                       : crew.status === "Not Available"
@@ -378,6 +384,9 @@ const CrewDetailBox = (crew) => {
                 >
                   {crew?.status}
                 </strong>
+                {crew.status !== "Available" && crew.willBeAvailOn !== "" && (
+                  <small>Available from: {crew.willBeAvailOn}</small>
+                )}
               </div>
             </div>
 

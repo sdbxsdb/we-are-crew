@@ -9,9 +9,7 @@ import UploadImg from "./UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
-import { deleteCookie } from 'cookies-next';
-
-
+import { deleteCookie } from "cookies-next";
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -43,7 +41,6 @@ const Account = ({ session }) => {
 
   const router = useRouter();
   const { user, logout } = useUser();
-
 
   const [showFinsihProfileError, setShowFinishProfileError] = useState(false);
   const [showDeleteProfileWarning, setShowDeleteProfileWarning] =
@@ -189,6 +186,7 @@ const Account = ({ session }) => {
   const availHandler = () => {
     setStatus("Available");
     setProfileChanged(true);
+    setWillBeAvailOn("");
   };
   const semiAvailHandler = () => {
     setStatus("On Dalies");
@@ -322,9 +320,9 @@ const Account = ({ session }) => {
       .from("profiles")
       .delete()
       .match({ id: id });
-      supabase.auth.signOut();
+    supabase.auth.signOut();
     logout();
-    deleteCookie('stripe_customer');
+    deleteCookie("stripe_customer");
     router.push("/profileDeleted");
   };
 
@@ -341,22 +339,28 @@ const Account = ({ session }) => {
         </div>
       )}
       {showDeleteProfileWarning && (
-      <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
-        <div className="p-4 rounded-md shadow-md bg-wearecrewRed text-center w-full border-wearecrewRed border-2 relative flex flex-col items-center">
-          <p className="text-white">
-            Are you sure you want to delete your profile? This can&apos;t be
-            undone...
-          </p>
-          <div className="flex gap-x-4 mt-2">
-            <p onClick={() => deleteProfile()} className="bg-white cursor-pointer px-4 py-2 rounded-md shadow-md text-wearecrewRed min-w-[100px] ">
-              Yes
+        <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
+          <div className="p-4 rounded-md shadow-md bg-wearecrewRed text-center w-full border-wearecrewRed border-2 relative flex flex-col items-center">
+            <p className="text-white">
+              Are you sure you want to delete your profile? This can&apos;t be
+              undone...
             </p>
-            <p onClick={() => setShowDeleteProfileWarning(false)} className="bg-white cursor-pointer px-4 py-2 rounded-md shadow-md min-w-[100px] text-wearecrewBlue">
-              No take me back
-            </p>
+            <div className="flex gap-x-4 mt-2">
+              <p
+                onClick={() => deleteProfile()}
+                className="bg-white cursor-pointer px-4 py-2 rounded-md shadow-md text-wearecrewRed min-w-[100px] "
+              >
+                Yes
+              </p>
+              <p
+                onClick={() => setShowDeleteProfileWarning(false)}
+                className="bg-white cursor-pointer px-4 py-2 rounded-md shadow-md min-w-[100px] text-wearecrewBlue"
+              >
+                No take me back
+              </p>
+            </div>
           </div>
         </div>
-      </div>
       )}
       <div className="w-full">
         <form
