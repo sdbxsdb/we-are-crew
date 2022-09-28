@@ -15,35 +15,41 @@ const PricingOptions = ({ plans, req, res }) => {
 
   setCookie('stripe_customer', user.stripe_customer);
 
+  console.log("USER-", user);
 
-  useEffect(() => {
-    if (user?.data?.user === null) {
-      router.push("/");
-    } else {
-      setCanViewPricing(true);
-    }
-  });
+  // useEffect(() => {
+  //   if (user?.data?.user === null) {
+  //     router.push("/");
+  //   } else {
+  //     setCanViewPricing(true);
+  //   }
+  // });
 
   const processPayment = async (planId) => {
     // const session = await supabase.auth.getSession();
-    const res = await axios.post(`/api/create-stripe-session`, {
-      planId: planId,
-      // token: session.data.session.access_token,
-      // stripeID: user.stripe_customer
-    });
+    if (user.data.user) {
 
-    const data = res?.data;
-    // console.log("RES STATUTS-", res.status);
-    // console.log("RES BODY-", res);
-    if (res.status === 200) {
-      location.replace(data.redirectURL);
+      const res = await axios.post(`/api/create-stripe-session`, {
+        planId: planId,
+        // token: session.data.session.access_token,
+        // stripeID: user.stripe_customer
+      });
+  
+      const data = res?.data;
+      // console.log("RES STATUTS-", res.status);
+      // console.log("RES BODY-", res);
+      if (res.status === 200) {
+        location.replace(data.redirectURL);
+      }
+    } else {
+      router.push("/my-crew")
     }
 
   };
 
   return (
     <>
-      {canViewPricing && (
+
         <div className="flex flex-col items-center w-full justify-center mb-12 relative">
           <div className="w-full banner flex flex-col justify-center items-center p-12 mb-8 text-white relative">
             <h1 className="text-2xl text-center md:text-3xl">
@@ -121,7 +127,8 @@ const PricingOptions = ({ plans, req, res }) => {
                     // role="link"
                     className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition"
                   >
-                    Select
+                    {user?.data?.user !== null ? "Select" : "Sign Up"}
+
                   </button>
                   {plan.price === 39900 && (
                     <strong className="text-wearecrewGreen">Best Value</strong>
@@ -131,7 +138,7 @@ const PricingOptions = ({ plans, req, res }) => {
             </div>
           </div>
         </div>
-      )}
+
     </>
   );
 };

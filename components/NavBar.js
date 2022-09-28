@@ -40,6 +40,9 @@ const NavBar = ({req, res}) => {
             <Link href="/about">
               <a>About</a>
             </Link>
+            <Link href="/pricing">
+              <a>Pricing</a>
+            </Link>
             {!userEmail && (
               <Link href="/my-crew">
                 <a>Sign In / Register</a>
