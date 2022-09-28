@@ -29,6 +29,7 @@ export default async function Handler(req, res) {
             },
           ],
           mode: "payment",
+          // allow_promotion_codes: true,
           success_url: `${req.headers.origin}/paymentSuccess?=true`,
           cancel_url: `${req.headers.origin}/paymentCancelled?=true`,
         })
