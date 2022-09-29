@@ -69,12 +69,12 @@ const CrewList = ({ users }) => {
         />
       </Head>
 
-      <div className="px-4 md:px-12 p-12 w-full h-fit flex justify-center">
+      <div className="px-4 md:px-12 p-8 md:p-12 w-full h-fit flex justify-center">
         <div className="max-w-[1200px] w-full">
           <Link href="/I-need-crew/depts">
             <a className="font-semibold">&#x2190; Back to Departments</a>
           </Link>
-          <div className="w-full flex justify-start mt-4">
+          <div className="w-full flex justify-center md:justify-start mt-4">
             <h1 className="text-4xl">
               <DeptTitle />
             </h1>

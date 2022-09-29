@@ -322,7 +322,7 @@ const CrewDetailBox = (crew) => {
 
               {/* MOBILE EMAIL*/}
               <a
-                href={`mailto:${crew?.email}?subject=I found your profile on Get Crew and want to check your availability!`}
+                href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
                 className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
               >
                 <h1 className="text-3xl">Email</h1>
@@ -376,7 +376,7 @@ const CrewDetailBox = (crew) => {
                   )}
                 </div>
               </div>
-              <div className=" w-[240px] flex flex-col items-end pt-10 mb-4">
+              <div className="w-[240px] flex flex-col items-end pt-10 mb-4">
                 <strong
                   className={`mt-4 text-3xl  min-w-max ${
                     crew?.status === "Available"
@@ -389,51 +389,51 @@ const CrewDetailBox = (crew) => {
                   {crew?.status}
                 </strong>
                 {crew.status !== "Available" && crew.willBeAvailOn !== "" && (
-                  <small>Available from: {crew.willBeAvailOn}</small>
+                  <small className="text-right"><strong>Available from:</strong> {crew.willBeAvailOn}</small>
                 )}
               </div>
             </div>
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-6 py-4 md:py-0">
-                {crew?.canStepUp && (
+                {/* {crew?.canStepUp && (
                   <div className="flex items-center gap-x-4">
                     <span className="material-icons">move_up</span>
                     <p>Able to step up a grade</p>
                   </div>
-                )}
+                )} */}
                 {crew?.phone && (
-                  <div className="flex items-center gap-x-4">
+                  <div className="flex flex-wrap items-center gap-x-4">
                     <span className="material-icons">phone_iphone</span>
                     <a href={`tel:${crew?.phone}`} className="underline">
                       {crew?.phone}
                     </a>
                     <button
                       onClick={() => copyPhone()}
-                      className="text-wearecrewDarkGrey"
+                      className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
                     >
                       <cite>Copy Phone</cite>
                     </button>
                   </div>
                 )}
-                <div className="flex items-center gap-x-4">
+                <div className="flex flex-wrap items-center gap-x-4">
                   <span className="material-icons">mail</span>
                   <a
-                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew and want to check your availability!`}
+                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
                     className="underline"
                   >
                     {crew?.email}
                   </a>
                   <button
                     onClick={() => copyEmail()}
-                    className="text-wearecrewDarkGrey"
+                    className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
                   >
                     <cite>Copy Email</cite>
                   </button>
                 </div>
 
                 {website && (
-                  <div className="flex items-center gap-x-4">
+                  <div className="flex flex-wrap items-center gap-x-4">
                     <span className="material-icons">public</span>
                     <a
                       href={`http://${website}`}
@@ -445,7 +445,7 @@ const CrewDetailBox = (crew) => {
                     </a>
                     <button
                       onClick={() => copyWebsite()}
-                      className="text-wearecrewDarkGrey"
+                      className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
                     >
                       <cite>Copy Website</cite>
                     </button>
@@ -522,7 +522,7 @@ const CrewDetailBox = (crew) => {
                   </a>
                   )}
                   <a
-                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew and want to check your availability!`}
+                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
                     className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
                   >
                     <h1 className="text-3xl">Email</h1>
