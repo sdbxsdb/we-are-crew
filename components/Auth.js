@@ -60,15 +60,15 @@ export default function Auth() {
   
 
   return (
-    <div className="flex item-center justify-center">
-      <div className="flex justify-center items-center md:h-[calc(100vh-107px)]">
-        <div className="flex flex-col items-center">
+    <div className="flex item-center justify-center ">
+      <div className="flex justify-center items-center md:h-[calc(100vh-107px)] ">
+        <div className="flex flex-col items-center mt-12 md:mt-0 px-4">
           <h1 className="mb-4 text-2xl text-center">
             Enter your email to get a sign in / register link.
           </h1>
           
           <div className="bg-white rounded-md shadow-md flex flex-col items-center justify-center pt-4 pb-8">
-            <form className="px-20 mb-12">
+            <form className="w-full px-8 md:px-20 mb-12">
               <div className="mb-2 rounded-md p-2 styledList w-full">
                 <input
                   className="inputField"
@@ -110,8 +110,8 @@ export default function Auth() {
       </div>
 
       {showCheckEmail && (
-        <div className="w-screen h-screen absolute bg-white bg-opacity-80 flex flex-col justify-center items-center top-0 left-0 z-3000 gap-y-6">
-          <h1 className="text-3xl">Check your email for the login link!</h1>
+        <div className="w-screen h-screen absolute bg-white bg-opacity-80 flex flex-col justify-center items-center top-0 left-0 z-3000 gap-y-6 p-4">
+          <h1 className="text-3xl text-center">Check your email for the login link!</h1>
           <svg
             className="checkmark"
             xmlns="http://www.w3.org/2000/svg"

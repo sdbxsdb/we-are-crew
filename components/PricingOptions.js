@@ -51,9 +51,9 @@ const PricingOptions = ({ plans, req, res }) => {
     <>
 
         <div className="flex flex-col items-center w-full justify-center mb-12 relative">
-          <div className="w-full banner flex flex-col justify-center items-center p-12 mb-8 text-white relative">
+          <div className="w-full banner flex flex-col justify-center items-center p-6 md:p-12 mb-8 text-white relative">
             <h1 className="text-2xl text-center md:text-3xl">
-              Simple plans. Better prices. Help the world.
+              Simple plans. Better prices.
             </h1>
             {/* <p>Get yourself out there</p> */}
             <img

@@ -54,7 +54,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
           >
             {shownList?.length > 1 && (
               <button
-                className="absolute top-0 -right-8"
+                className="absolute top-0 -right-4 md:-right-8"
                 onClick={(e) => handleRemoveClick(e, i, x)}
               >
                 &#x2716;

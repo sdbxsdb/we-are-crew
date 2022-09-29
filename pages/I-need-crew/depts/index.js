@@ -14,6 +14,9 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
     return dept.dept;
   });
 
+  const uniquedeptsWithOnePaidAnd = Array.from(new Set(deptsWithOnePaidAnd));
+
+
   const slugify = (str) =>
     str
       ?.toLowerCase()
@@ -22,7 +25,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  const sortedDepts = [...deptsWithOnePaidAnd]
+  const sortedDepts = [...uniquedeptsWithOnePaidAnd]
     .sort((a, b) => (a > b ? 1 : -1))
     .filter((dept) => dept !== null);
     

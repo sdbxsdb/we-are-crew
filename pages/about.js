@@ -13,9 +13,9 @@ const about = () => {
         />
       </Head>
 
-      <div className="aboutPage pb-12 borderRED ">
-        <div className="w-full banner overflow-hidden flex justify-center items-center p-12 mb-12 text-white relative">
-          <h1 className="text-2xl text-center md:text-3xl">
+      <div className="aboutPage pb-12">
+        <div className="w-full banner overflow-hidden flex justify-center items-center p-4 md:p-12 mb-6 md:mb-12 text-white relative">
+          <h1 className="text-1xl text-center md:text-3xl">
             Any experience. Any department. Anyone.
           </h1>
           <img

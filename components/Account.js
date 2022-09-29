@@ -368,7 +368,7 @@ const Account = ({ session }) => {
           className=" w-full flex justify-center py-12 relative"
         >
           <div>
-            <div className="bg-white shadow-md rounded-md w-11/12 md:min-w-[400px] md:w-[600px] px-12 py-12">
+            <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-6 md:px-12 py-12">
               <div className="flex justify-center">
                 <h1 className="text-3xl">My Crew</h1>
               </div>
@@ -725,17 +725,19 @@ const Account = ({ session }) => {
             />
           </svg>
           {!paid && (
-            <div className="w-full flex flex-col bg-wearecrewOrange py-12 shadow-md text-center">
-              <h1 className="text-3xl mb-4">Your profile isnt live yet</h1>
-              <Link href="/pricing" className="text-white underline mt-4">
-                Go live now
-              </Link>
-              <button
-                onClick={() => setShowProfileSaved(false)}
-                className="mt-2"
-              >
-                Ill go live later
-              </button>
+            <div className="w-full flex flex-col items-center bg-wearecrewOrange py-12 shadow-md text-center text-white rounded-md">
+              <p className="text-3xl mb-4">Your profile isn&apos;t live yet</p>
+              <div className="flex gap-x-4 items-center justify-center">
+                <Link href="/pricing" className="text-white underline mt-4">
+                  <p className="p-4 min-h-[40px] bg-white w-fit text-wearecrewBlue rounded-md shadow-md cursor-pointer">Go live now</p>
+                </Link>
+                <button
+                  onClick={() => setShowProfileSaved(false)}
+                  className=""
+                >
+                  <p className="p-4 min-h-[40px] bg-white w-fit  rounded-md shadow-md cursor-pointer text-wearecrewDarkestGrey">I&apos;ll go live later</p>
+                </button>
+              </div>
             </div>
           )}
         </div>
