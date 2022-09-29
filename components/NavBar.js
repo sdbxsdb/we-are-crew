@@ -34,6 +34,7 @@ const NavBar = ({ req, res }) => {
             </a>
           </Link>
           <div className="flex flex-wrap justify-end gap-x-4 gap-y-2 md:gap-x-8 px-4 text-wearecrewDarkestGrey font-bold">
+            <Link href="/">Home</Link>
             <Link href="/about">About</Link>
 
             <Link href="/pricing">
