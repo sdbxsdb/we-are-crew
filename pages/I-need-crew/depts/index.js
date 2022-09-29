@@ -53,10 +53,10 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
       </Head>
       <div className=" flex justify-center w-full px-4 md:px-12 py-12">
         <div className="max-w-[1200px] w-full ">
-          <h1 className="text-3xl">Which department?</h1>
+          <h1 className="text-3xl text md:text-left text-center">Which department?</h1>
           <div className="flex justify-center w-full">
             <div className="w-full">
-              <div className="w-full flex justify-center mt-12 mb-4">
+              <div className="w-full flex justify-center mt-4 md:mt-12 mb-4">
                 <input
                   type="text"
                   onChange={filterDept}
