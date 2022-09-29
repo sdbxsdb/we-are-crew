@@ -3,21 +3,18 @@ import { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { useUser } from "../context/user";
 import { useRouter } from "next/router";
-import { deleteCookie } from 'cookies-next';
+import { deleteCookie } from "cookies-next";
 
-
-const NavBar = ({req, res}) => {
+const NavBar = ({ req, res }) => {
   const { user, logout } = useUser();
   const router = useRouter();
-
-
 
   const userEmail = user?.data?.user?.email;
 
   const signOutHandler = () => {
     supabase.auth.signOut();
     logout();
-    deleteCookie('stripe_customer');
+    deleteCookie("stripe_customer");
 
     router.push("/my-crew");
   };
@@ -37,12 +34,12 @@ const NavBar = ({req, res}) => {
             </a>
           </Link>
           <div className="flex flex-wrap justify-end gap-x-4 gap-y-2 md:gap-x-8 px-4 text-wearecrewDarkestGrey font-bold">
-            <Link href="/about">
-              <a>About</a>
-            </Link>
+            <Link href="/about">About</Link>
+
             <Link href="/pricing">
               <a>Pricing</a>
             </Link>
+
             {!userEmail && (
               <Link href="/my-crew">
                 <a>Sign In / Register</a>

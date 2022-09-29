@@ -47,6 +47,11 @@ body {
       rgba(44, 66, 88, 1) 110%);
 }
 
+.bannerText {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+
 .transition {
   transition: all 0.1s ease-in-out;
 }
