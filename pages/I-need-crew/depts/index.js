@@ -7,6 +7,9 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   // console.log({ depts });
   // console.log({ deptsWithAtLeastOnePaid });
 
+  const [inputValue, setInputValue] = useState("");
+
+
   const deptsWithOnePaidAnd = deptsWithAtLeastOnePaid.map((dept) => {
     return dept.dept;
   });
@@ -28,6 +31,8 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   const [foundDept, setFoundDept] = useState(sortedDepts);
   const filterDept = (e) => {
     const searchTerm = e.target.value;
+    setInputValue(searchTerm);
+
     if (searchTerm !== "") {
       const results = sortedDepts?.filter((dept) => {
         return dept?.toLowerCase().startsWith(searchTerm.toLowerCase());
@@ -40,6 +45,13 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
       // If the text field is empty, show all users
     }
   };
+
+  const clearSearchField = () => {
+    console.log("Clear Field");
+    setInputValue("");
+    setFoundDept(sortedDepts);
+
+  }
 
   return (
     <>
@@ -57,12 +69,16 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
           <div className="flex justify-center w-full">
             <div className="w-full">
               <div className="w-full flex justify-center mt-4 md:mt-12 mb-4">
-                <input
-                  type="text"
-                  onChange={filterDept}
-                  className="bg-white border-b w-[400px] border-wearecrewBlue rounded-md p-4 outline-0"
-                  placeholder="Search Departments..."
-                />
+                <div className="relative w-full sm:w-max">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={filterDept}
+                    className="bg-white border-b w-full sm:w-[400px] border-wearecrewBlue rounded-md p-4 outline-0"
+                    placeholder="Search Departments..."
+                  />
+                <span onClick={() => clearSearchField()} className="absolute right-2 top-1/2 transform -translate-y-1/2 opacity-30 hover:opacity-100 cursor-pointer">&#10006;</span>
+                </div>
               </div>
               {foundDept && foundDept?.length > 0 ? (
                 <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
