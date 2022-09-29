@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="mt-[105px]">
+      <div className="">
         <Banner />
       </div>
       
