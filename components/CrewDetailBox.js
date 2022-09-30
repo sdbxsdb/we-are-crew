@@ -137,14 +137,15 @@ const CrewDetailBox = (crew) => {
         <div className="hidden md:flex p-4 items-center gap-x-4 justify-between">
           {/*IMAGE*/}
           <div
+          onClick={() => setShowModal(true)} 
             style={stylingLarge}
-            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md"
+            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer"
           ></div>
           {/* //END OF IMAGE*/}
 
           <div className="w-[210px] flex flex-col">
             {/*NAME*/}
-            <h2>
+            <h2 onClick={() => setShowModal(true)} className="cursor-pointer">
               <strong>{crew.name}</strong>
             </h2>
             {/* //END OF NAME */}
