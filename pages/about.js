@@ -14,7 +14,7 @@ const about = () => {
       </Head>
 
       <div className="aboutPage pb-12">
-        <div style={{ backgroundImage: `url("images/newBanner.png")`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="w-full banner overflow-hidden flex justify-center items-center p-4 md:p-12 mb-6 md:mb-12 text-white relative">
+        <div style={{ backgroundImage: `url("images/newBannerBlackfaded.png")`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="w-full banner overflow-hidden flex justify-center items-center p-4 md:p-12 mb-6 md:mb-12 text-white relative">
           <h1 className="text-1xl text-center md:text-3xl tracking-wide">
             Any experience. Any department. Anyone.
           </h1>

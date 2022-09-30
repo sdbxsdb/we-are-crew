@@ -51,7 +51,7 @@ const PricingOptions = ({ plans, req, res }) => {
     <>
 
         <div className="flex flex-col items-center w-full justify-center mb-12 relative">
-          <div style={{ backgroundImage: `url("images/newBanner.png")`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="w-full banner flex flex-col justify-center items-center p-6 md:p-12 mb-8 text-white relative">
+          <div style={{ backgroundImage: `url("images/newBannerBlackfaded.png")`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="w-full banner flex flex-col justify-center items-center p-6 md:p-12 mb-8 text-white relative">
             <h1 className=" tracking-wide text-2xl w-full text-center md:text-3xl shadow-black">
               Simple plans. Better prices.
             </h1>
