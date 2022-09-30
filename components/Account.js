@@ -494,10 +494,12 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF DEPARTMENT */}
                   {/* GRADE/TITLE */}
+
                   <li className="flex flex-col styledList w-full md:w-[420px]">
                     <p className="text-sm text-wearecrewBlue">Grade / Title</p>
                     <ListTitle />
                   </li>
+
                   {/* //END OF GRADE/TITLE */}
                   {/* STEP UP */}
                   {/* <li className="flex flex-col w-full md:w-[420px] -mt-6 justify-center">
@@ -729,13 +731,14 @@ const Account = ({ session }) => {
               <p className="text-3xl mb-4">Your profile isn&apos;t live yet</p>
               <div className="flex gap-x-4 items-center justify-center">
                 <Link href="/pricing" className="text-white underline mt-4">
-                  <p className="p-4 min-h-[40px] bg-white w-fit text-wearecrewBlue rounded-md shadow-md cursor-pointer">Go live now</p>
+                  <p className="p-4 min-h-[40px] bg-white w-fit text-wearecrewBlue rounded-md shadow-md cursor-pointer">
+                    Go live now
+                  </p>
                 </Link>
-                <button
-                  onClick={() => setShowProfileSaved(false)}
-                  className=""
-                >
-                  <p className="p-4 min-h-[40px] bg-white w-fit  rounded-md shadow-md cursor-pointer text-wearecrewDarkestGrey">I&apos;ll go live later</p>
+                <button onClick={() => setShowProfileSaved(false)} className="">
+                  <p className="p-4 min-h-[40px] bg-white w-fit  rounded-md shadow-md cursor-pointer text-wearecrewDarkestGrey">
+                    I&apos;ll go live later
+                  </p>
                 </button>
               </div>
             </div>

@@ -1,16 +1,82 @@
 [
   {
+    "dept": "Accounting",
+    "titles": [
+      "Financial Controller",
+      "1st Assistant Accountant",
+      "Assistant Accountant",
+      "Payroll Accountant",
+      "2nd Assistant Accountant",
+      "Accounts Assistant",
+      "Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Action Vehicles",
+    "titles": ["Action Vehicle Supplier"]
+  },
+  {
+    "dept": "Advisors",
+    "titles": ["Medical", "Police", "Military", "Historical", "Political"]
+  },
+  {
+    "dept": "Animals",
+    "titles": ["All Aniamls", "Birds", "Horses (Picture / Stunt)", "Exotics"]
+  },
+  {
+    "dept": "Amoury",
+    "titles": [
+      "Weapons Master (All)",
+      "Weapons Master (Period)",
+      "Weapons Master (Modern)",
+      "Senior Armourer (All)",
+      "Senior Armourer (Period)",
+      "Senior Armourer (Modren)",
+      "Armourer (All)",
+      "Armourer (Period)",
+      "Armourer (Modern)",
+      "Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Art",
+    "titles": [
+      "Production Designer",
+      "Co-ordinator",
+      "Supervising Art Director",
+      "Art Director",
+      "Assistant Art Director",
+      "Stand-by Art Director",
+      "Draughtsperson",
+      "Jr Draughtsperson",
+      "Stylist",
+      "Concept Artist",
+      "Graphic Artist",
+      "Storyboard Artist",
+      "Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
     "dept": "Assistant Directors",
     "titles": [
       "1st Assistant Director",
       "2nd Assistant Director",
       "3rd Assistant Director",
-      "Trainee"
+      "Extras Co-ordinator",
+      "Trainee",
+      "Able to preform any role"
     ]
   },
   {
     "dept": "Camera",
     "titles": [
+      "Director of Photography",
+      "Camera Operator (Steadicam)",
+      "Camera Operator (Gimbal Owner / Operator)",
+      "Camera Operator",
       "1st Assistant Camera",
       "2nd Assistant Camera",
       "Central Loader",
@@ -18,7 +84,324 @@
     ]
   },
   {
+    "dept": "Casting",
+    "titles": ["Casting Director"]
+  },
+  {
+    "dept": "Catering",
+    "titles": [
+      "Catering Company (Large Productions)",
+      "Catering Company (Medium Productions)",
+      "Catering Company (Small Productions)"
+    ]
+  },
+  {
+    "dept": "Construction",
+    "titles": [
+      "Construction Manager",
+      "Construction Co-ordinator",
+      "Assistant Construction Co-ordinator",
+      "HOD Carpenter",
+      "Supervising Carpenter",
+      "Carpenter",
+      "HOD Painter",
+      "Supervising Painter",
+      "Painter",
+      "HOD Rigger",
+      "Rigger",
+      "HOD Plasterer",
+      "Supervising Plasterer",
+      "Plasterer",
+      "HOD Sculptor",
+      "Sculptor",
+      "Stagehand"
+    ]
+  },
+  {
+    "dept": "Continuity",
+    "titles": ["Script Supervisor", "Script Supervisor Assistant", "Trainee"]
+  },
+  {
+    "dept": "Costume",
+    "titles": [
+      "Costume Designer",
+      "Costume Supervisor",
+      "Assistant Costume Designer",
+      "Wardrope Supervisor",
+      "Costume Co-ordinator",
+      "Illustrator",
+      "Costume Assistant",
+      "Costime office Runner",
+      "Wardrobe Mistress",
+      "Principal Standby",
+      "Crowd Assistant Designer",
+      "Crowd Set Supervisor",
+      "Crowd Wardrobe Mistress",
+      "Key Crowd Set",
+      "Workroom Supervisor",
+      "Cutter",
+      "Embroiderer",
+      "Maker",
+      "Jr Maker",
+      "Trainee Maker",
+      "Textile Artist",
+      "Dryer",
+      "Breakdown Assistant",
+      "General Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Covid",
+    "titles": ["Covid Supervisor", "Covid Assistant"]
+  },
+  {
+    "dept": "Dialogue",
+    "titles": ["Dialogue Coach"]
+  },
+  {
+    "dept": "Director",
+    "titles": ["Director", "2nd Unit Director"]
+  },
+  {
+    "dept": "DIT",
+    "titles": [
+      "Digital Imaging Technician",
+      "Digital Imaging Assistant",
+      "Trainee"
+    ]
+  },
+  {
+    "dept": "Drones",
+    "titles": [
+      "Drone Operator (Film & TV)",
+      "Drone Operator (Weddings)",
+      "Drone Operator (Surveyance)",
+      "Drone Operator (Real Estate)",
+      "Drone Licencing Organisation"
+    ]
+  },
+  {
+    "dept": "Editorial",
+    "titles": [
+      "Post Production House",
+      "Producer",
+      "Editor",
+      "Assistant Editor",
+      "Associate Producer",
+      "Post Production Supervisor",
+      "Post Production Co-ordinator",
+      "Dalies Co-ordinator",
+      "Editorial Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Electrical",
+    "titles": [
+      "Gaffer",
+      "Studio Rigging Gaffer",
+      "Electrician",
+      "Genny Op",
+      "Dinner Board Op",
+      "Studio Rigging Electrician",
+      "Location Rigging Electrician",
+      "Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Greens",
+    "titles": [
+      "Head Greensman",
+      "Greensman",
+      "Stand-by Greens",
+      "Able to preform any role"
+    ]
+  },
+  {
     "dept": "Grips",
-    "titles": ["Key Grip", "Dolly Grip", "Best Boy", "Trainee"]
+    "titles": [
+      "Key Grip",
+      "Best Boy",
+      "Camera Grip",
+      "Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Hair",
+    "titles": ["Hair Designer", "Hair Stylist"]
+  },
+  {
+    "dept": "Hair & Make-up",
+    "titles": ["Hair & Make-up Designer", "Hair & Make-up Stylist"]
+  },
+  {
+    "dept": "Health and Safety",
+    "titles": ["Health and Safety Officer"]
+  },
+  {
+    "dept": "HR",
+    "titles": ["Human Resources"]
+  },
+  {
+    "dept": "Locations",
+    "titles": [
+      "Supervision Location Manager",
+      "Location Manager",
+      "Studio Manager",
+      "Unit Manager",
+      "Assistant Location Manager",
+      "Locations Co-ordinator",
+      "Locations Assistant",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Make-up",
+    "titles": ["Make-up Designer", "Make-up Artist"]
+  },
+  {
+    "dept": "Medical",
+    "titles": ["Nurse"]
+  },
+  {
+    "dept": "Producing",
+    "titles": [
+      "Producer Film",
+      "Producer Television",
+      "Producer Documentary",
+      "Producer Commercial",
+      "Producer (Any)"
+    ]
+  },
+  {
+    "dept": "Production",
+    "titles": [
+      "Unit Production Manger",
+      "Production Co-ordinator",
+      "Assistant Production Co-ordinator",
+      "Accommodation Co-ordinator",
+      "Travel Co-ordinator",
+      "Script Co-ordinator",
+      "Production Secretary",
+      "Production Trainee / Runner",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Props",
+    "titles": [
+      "Props Master",
+      "Assistant Props Master",
+      "Props Storeman",
+      "Stand-by Chargehand Prop",
+      "Stand-by Prop Hand",
+      "Prop Hand",
+      "Dressing Prop",
+      "Senior Prop Modeller",
+      "Prop Modeller",
+      "Model Maker",
+      "Assitant Model Maker",
+      "Props Buyer",
+      "Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Set Dec",
+    "titles": [
+      "Set Decorator",
+      "Production Buyer",
+      "Set Dec Art Director",
+      "Grapghics Assistant",
+      "Props Buyer",
+      "Assistant Props Buyer",
+      "Drapes Master",
+      "Drapes Assistant",
+      "Props Painter",
+      "Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Sound",
+    "titles": [
+      "Production Sound Mixer",
+      "Sound Maintenance",
+      "Sount Assistant",
+      "Trainee"
+    ]
+  },
+  {
+    "dept": "SFX",
+    "titles": [
+      "SFX Supervisor",
+      "SFX Prep Supervisor",
+      "SFX Floor Supervisor",
+      "SFX Senior Technician",
+      "SFX Technician",
+      "SFX Assistant Technician",
+      "SFX Workshop Supervisor",
+      "SFX Crew Supervisor",
+      "SFX Buyer",
+      "SFX Metal Worker",
+      "SFX Assistant",
+      "SFX Trainee",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Stand-by",
+    "titles": ["Standy-by Carpenter", "Stand-by Rigger", "Stand-by Painter"]
+  },
+  {
+    "dept": "Stills Photography",
+    "titles": ["Stills Photographer"]
+  },
+  {
+    "dept": "Stunts",
+    "titles": [
+      "Stunt Co-ordinator",
+      "Assistant Stunt Co-ordinator",
+      "Stunt Administrator",
+      "Stunt Preformer",
+      "Stunt Driver",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "Tracking Vehicles",
+    "titles": ["Tracking Vehicles Supplier"]
+  },
+  {
+    "dept": "Transport",
+    "titles": [
+      "Transport Manager",
+      "Transport Captain",
+      "Transport Assistant",
+      "Executive Driver",
+      "Minibus Driver",
+      "HGV Driver",
+      "Able to preform any role"
+    ]
+  },
+  {
+    "dept": "VFX",
+    "titles": [
+      "VFX Producer",
+      "VFX Supervisor",
+      "VFX Co-ordinator",
+      "VFX Associate Producer",
+      "VFX Previs",
+      "VFX Shot Creator",
+      "VFX Concept Artist",
+      "VFX Edtior",
+      "VFX Data Wrangler",
+      "VFX Production Assistant",
+      "VFX Trainee",
+      "Green Screen Rigger"
+    ]
   }
 ]
