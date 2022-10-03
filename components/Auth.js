@@ -31,7 +31,7 @@ export default function Auth() {
         const { data, error } = await supabase.auth.signInWithOtp({
           email: email,
         });
-        console.log("DATA-", data);
+        // console.log("DATA-", data);
 
         if (error) throw error;
         setLoading(false);
@@ -39,7 +39,7 @@ export default function Auth() {
           setShowCheckEmail(false);
         }, 8000);
       } catch (error) {
-        console.log("ERROR-", error);
+        // console.log("ERROR-", error);
         alert(error.error_description || error.message);
       }
     } else {
@@ -51,7 +51,7 @@ export default function Auth() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
     });
-    console.log("DATA-", data);
+    // console.log("DATA-", data);
   }
 
   return (
@@ -147,6 +147,6 @@ export default function Auth() {
 }
 
 export function handler(req, res) {
-  console.log("EMAIL-", email);
+  // console.log("EMAIL-", email);
   res.status(200).json({ email: email });
 }

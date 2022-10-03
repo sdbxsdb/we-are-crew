@@ -42,7 +42,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
-      console.log({foundDept});
+      // console.log({foundDept});
     } else {
       setFoundDept(sortedDepts);
       // If the text field is empty, show all users
@@ -50,7 +50,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   };
 
   const clearSearchField = () => {
-    console.log("Clear Field");
+    // console.log("Clear Field");
     setInputValue("");
     setFoundDept(sortedDepts);
 

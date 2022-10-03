@@ -17,7 +17,7 @@ export default async function Handler(req, res) {
     
     try {
       // Create Checkout Sessions from body params.
-      console.log("PLAN - ", planId);
+      // console.log("PLAN - ", planId);
 
       await stripe.checkout.sessions
         .create({
@@ -34,12 +34,12 @@ export default async function Handler(req, res) {
           cancel_url: `${req.headers.origin}/paymentCancelled?=true`,
         })
         .then((response) => {
-          console.log("REQ HEADER-", req.headers.origin);
+          // console.log("REQ HEADER-", req.headers.origin);
           res.status(200).json({ redirectURL: response.url });
           // res.send("REQ HEADERS ORIGIN-", req.headers.origin);
         });
     } catch (err) {
-      console.log("ERROR-", err);
+      // console.log("ERROR-", err);
       // res.status(err.statusCode || 500).json(err.message);
     }
   } else {

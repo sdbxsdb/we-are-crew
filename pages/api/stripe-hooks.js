@@ -17,7 +17,7 @@ const handler = async (req, res) => {
   try {
     event = stripe.webhooks.constructEvent(reqBuffer, signature, signingSecret);
   } catch (error) {
-    console.log("ERROR-", error);
+    // console.log("ERROR-", error);
     return res.status(400).send(`Webhook Error: ${error.message}`);
   }
 
@@ -39,7 +39,7 @@ const handler = async (req, res) => {
   }
   
 
-  console.log("EVENT RECIVED-", event);
+  // console.log("EVENT RECIVED-", event);
 
   res.send({
     recieved: true,

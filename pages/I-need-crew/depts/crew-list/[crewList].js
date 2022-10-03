@@ -41,7 +41,7 @@ const CrewList = ({ users }) => {
 
   const filterByAvailability = (e) => {
     const searchTerm = e.target.value;
-    console.log(searchTerm);
+    // console.log(searchTerm);
     if (searchTerm !== "") {
       const results = sortedUsersByName.filter((user) => {
         return user.status.toLowerCase().startsWith(searchTerm.toLowerCase());
