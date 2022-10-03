@@ -15,7 +15,7 @@ const PricingOptions = ({ plans, req, res }) => {
 
   setCookie('stripe_customer', user.stripe_customer);
 
-  console.log("USER-", user);
+  // console.log("USER-", user);
 
   // useEffect(() => {
   //   if (user?.data?.user === null) {

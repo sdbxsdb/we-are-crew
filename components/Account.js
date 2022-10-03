@@ -45,7 +45,7 @@ const Account = ({ session }) => {
   const [showFinsihProfileError, setShowFinishProfileError] = useState(false);
   const [showDeleteProfileWarning, setShowDeleteProfileWarning] =
     useState(false);
- 
+
   useEffect(() => {
     getProfile();
   }, [session]);
@@ -243,15 +243,16 @@ const Account = ({ session }) => {
     );
   };
 
-  
-
   const ListDept = (e) => {
     // console.log(dept);
 
     return (
       <select
         name="dept"
-        onChange={(e) => {setDept(e.target.value) ; setTitle('')} }
+        onChange={(e) => {
+          setDept(e.target.value);
+          setTitle("");
+        }}
         value={dept}
       >
         <option value="Choose Department" default>
@@ -311,14 +312,14 @@ const Account = ({ session }) => {
   };
 
   const deleteCV = () => {
-    console.log("DELETE CV");
+    // console.log("DELETE CV");
     setCvURL("");
     setProfileChanged(true);
   };
 
   const deleteProfile = async () => {
-    console.log("DELETE PROFILE");
-    console.log("USER ID-", id);
+    // console.log("DELETE PROFILE");
+    // console.log("USER ID-", id);
     const { data, error } = await supabase
       .from("profiles")
       .delete()
@@ -365,14 +366,24 @@ const Account = ({ session }) => {
           </div>
         </div>
       )}
+
       <div className="w-full">
         <form
           onChange={onUpdateProfileHandler}
           className=" w-full flex justify-center py-12 relative"
         >
           <div>
-            <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-6 md:px-12 py-12">
-              <div className="flex justify-center">
+            <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-6 md:px-12 py-12 relative border-2 border-wearecrewBlue ">
+              
+                <div className="opacity-0 sm:opacity-100 sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
+              {profileChanged && (
+                  <span className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md">
+                    Save
+                  </span>
+              )}
+                </div>
+
+              <div className="flex justify-center mt-[-40px]">
                 <h1 className="text-3xl">My Crew</h1>
               </div>
               {/* STATUS */}
