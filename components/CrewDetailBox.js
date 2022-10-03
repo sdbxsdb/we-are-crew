@@ -173,7 +173,7 @@ const CrewDetailBox = (crew) => {
                   ? "text-wearecrewRed"
                   : "text-wearecrewOrange"
               }`}>{crew.status}</strong>
-              {crew.status !== "Available" && crew.willBeAvailOn !== "" && (
+              {crew.status !== "Available" && crew.willBeAvailOn !== "" && crew.willBeAvailOn !== null && (
                   <small>Available from: {crew.willBeAvailOn}</small>
                 )}
             </div>
@@ -267,7 +267,7 @@ const CrewDetailBox = (crew) => {
                   ? "text-wearecrewRed"
                   : "text-wearecrewOrange"
               }`}>{crew.status}</strong>
-              {crew.status !== "Available" && crew.willBeAvailOn !== "" && (
+              {crew.status !== "Available" && crew.willBeAvailOn !== "" && crew.willBeAvailOn !== null && (
                   <small>Available from: {crew.willBeAvailOn}</small>
                 )}
             </div>
@@ -372,8 +372,8 @@ const CrewDetailBox = (crew) => {
                 ></div>
                 <div className="mb-4">
                   <h1 className="text-3xl">{crew?.name}</h1>
-                  {crew?.role && (
-                    <h1 className="text-lg min-w-max">{crew?.role}</h1>
+                  {crew?.title && (
+                    <h1 className="text-lg min-w-max">{crew?.title}</h1>
                   )}
                 </div>
               </div>
@@ -389,7 +389,7 @@ const CrewDetailBox = (crew) => {
                 >
                   {crew?.status}
                 </strong>
-                {crew.status !== "Available" && crew.willBeAvailOn !== "" && (
+                {crew.status !== "Available" && crew.willBeAvailOn !== "" && crew.willBeAvailOn !== null && (
                   <small className="text-right"><strong>Available from:</strong> {crew.willBeAvailOn}</small>
                 )}
               </div>

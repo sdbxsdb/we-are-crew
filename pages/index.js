@@ -3,9 +3,6 @@ import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
 
-import { supabase } from "../utils/supabaseClient";
-
-
 
 export default function Home() {
 
@@ -23,7 +20,7 @@ export default function Home() {
       
 
       <div className="mt-2 md:mt-0 h-[calc(100vh-305px)] flex justify-center w-full">
-        <div className="flex gap-x-4 gap-y-4 flex-col md:flex-row w-full justify-around items-center px-4 md:py-12 max-w-[1200px]">
+        <div className="flex gap-x-4 gap-y-4 flex-col md:flex-row w-full md:justify-between items-center px-4 md:px-12 md:py-12 max-w-[1200px]">
           <LargeButton text="I need crew" link="/I-need-crew/depts" />
           <LargeButton text="I am crew" link="/my-crew" />
         </div>

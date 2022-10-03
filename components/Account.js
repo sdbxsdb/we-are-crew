@@ -45,7 +45,7 @@ const Account = ({ session }) => {
   const [showFinsihProfileError, setShowFinishProfileError] = useState(false);
   const [showDeleteProfileWarning, setShowDeleteProfileWarning] =
     useState(false);
-
+ 
   useEffect(() => {
     getProfile();
   }, [session]);

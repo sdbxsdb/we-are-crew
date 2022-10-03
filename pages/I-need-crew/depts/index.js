@@ -88,7 +88,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                   {foundDept?.map((dept, i) => (
                     <div
                       key={i}
-                      className="w-full flex items-center justify-start"
+                      className="w-full flex items-center justify-center"
                     >
                       <Link href={`./depts/crew-list/${dept}`}>
                         <a className="bg-white w-full sm:min-w-[180px] sm:w-[180px] h-[180px] flex flex-col items-center justify-center text-center rounded border-b-2 border-wearecrewBlue shadow-md hoverScale gap-y-2 p-2">
