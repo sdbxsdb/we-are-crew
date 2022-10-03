@@ -243,12 +243,15 @@ const Account = ({ session }) => {
     );
   };
 
-  const ListDept = () => {
+  
+
+  const ListDept = (e) => {
     // console.log(dept);
+
     return (
       <select
         name="dept"
-        onChange={(e) => setDept(e.target.value)}
+        onChange={(e) => {setDept(e.target.value) ; setTitle('')} }
         value={dept}
       >
         <option value="Choose Department" default>
@@ -494,7 +497,6 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF DEPARTMENT */}
                   {/* GRADE/TITLE */}
-
                   <li className="flex flex-col styledList w-full md:w-[420px]">
                     <p className="text-sm text-wearecrewBlue">Grade / Title</p>
                     <ListTitle />
