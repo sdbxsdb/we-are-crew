@@ -373,7 +373,7 @@ const Account = ({ session }) => {
           className=" w-full flex justify-center py-12 relative"
         >
           <div>
-            <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-6 md:px-12 py-12 relative border-2 border-wearecrewBlue ">
+            <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-6 md:px-12 py-12 relative">
               
                 <div className="opacity-0 sm:opacity-100 sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
               {profileChanged && (
@@ -384,7 +384,7 @@ const Account = ({ session }) => {
                 </div>
 
               <div className="flex justify-center mt-[-40px]">
-                <h1 className="text-3xl">My Crew</h1>
+                <h1 className="text-3xl">Your Get Crew Profile</h1>
               </div>
               {/* STATUS */}
               <div className="w-full text-center mt-16">
@@ -666,7 +666,7 @@ const Account = ({ session }) => {
                   ""
                 ) : (
                   <button
-                    className="text-3xl w-full rounded-md p-4 text-white  bg-wearecrewGreen"
+                    className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewGreen"
                     onClick={(e) =>
                       dept !== "" &&
                       dept !== "Choose Department" &&

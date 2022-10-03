@@ -73,7 +73,7 @@ const NavBar = () => {
 
                     <div ref={dropDownRef} className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform xl:-translate-x-1/3 border-2 right-0">
                       <Link href="/my-crew" >
-                        <a onClick={() => setShowProfileIconContent(false)} className="hover:bg-wearecrewLightGrey p-4">My Crew</a>
+                        <a onClick={() => setShowProfileIconContent(false)} className="hover:bg-wearecrewLightGrey p-4">Profile</a>
                       </Link>
                       <button onClick={() => signOutHandler()} className="hover:bg-wearecrewLightGrey p-4">Logout</button>
                     </div>
