@@ -374,14 +374,44 @@ const Account = ({ session }) => {
         >
           <div>
             <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-6 md:px-12 py-12 relative">
-              
-                <div className="opacity-0 sm:opacity-100 sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
-              {profileChanged && (
-                  <span className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md">
-                    Save
-                  </span>
-              )}
-                </div>
+              {/* STICKY SAVE BUTTON */}
+              <div className="opacity-0 sm:opacity-100 sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
+                {profileChanged && (
+                  <button
+                    className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md"
+                    onClick={(e) =>
+                      dept !== "" &&
+                      dept !== "Choose Department" &&
+                      username !== "" &&
+                      username !== null &&
+                      title !== "" &&
+                      title !== "Choose Title"
+                        ? updateProfile({
+                            username,
+                            website,
+                            imgURL,
+                            status,
+                            willBeAvailOn,
+                            dept,
+                            title,
+                            canStepUp,
+                            qualis,
+                            phone,
+                            bio,
+                            canWorkIn,
+                            credits,
+                            cvURL,
+                            paid,
+                          })
+                        : profileNotComplete(e)
+                    }
+                    disabled={loading}
+                  >
+                    {loading ? "Saving ..." : "Save"}
+                  </button>
+                )}
+              </div>
+              {/* //END OF STICKY SAVE BUTTON */}
 
               <div className="flex justify-center mt-[-40px]">
                 <h1 className="text-3xl">Your Get Crew Profile</h1>
