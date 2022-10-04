@@ -373,9 +373,9 @@ const Account = ({ session }) => {
           className=" w-full flex justify-center py-12 relative"
         >
           <div>
-            <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-6 md:px-12 py-12 relative">
+            <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[600px] px-4 md:px-12 py-12 relative">
               {/* STICKY SAVE BUTTON */}
-              <div className="opacity-0 sm:opacity-100 sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
+              <div className="hidden sm:block sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
                 {profileChanged && (
                   <button
                     className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md"
@@ -730,7 +730,7 @@ const Account = ({ session }) => {
                 )}
               </div>
             </div>
-            <div className=" w-full md:min-w-[400px] md:w-[600px] mt-8 flex flex-col items-center ">
+            <div className=" w-full  md:w-[600px] mt-8 flex flex-col items-center ">
               <h1 className="text-center text-2xl mb-2">Danger Zone</h1>
               <div className="bg-white/70 w-full border border-wearecrewRed px-12 py-6 flex justify-center flex-col items-center h-full shadow-md rounded-md ">
                 <span
