@@ -207,7 +207,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async (context) => {
-  const dept = context.params.crewList;
+  const dept = context?.params?.crewList;
 
   const data = await supabase.from("profiles").select("*").eq("dept", dept);
 

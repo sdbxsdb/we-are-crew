@@ -30,11 +30,11 @@ export default async function Handler(req, res) {
           ],
           mode: "payment",
           allow_promotion_codes: true,
-          success_url: `${req.headers.origin}/paymentSuccess?=true`,
-          cancel_url: `${req.headers.origin}/paymentCancelled?=true`,
+          success_url: `${process.env.CLIENT_URL}/paymentSuccess?=true`,
+          cancel_url: `${process.env.CLIENT_URL}/paymentCancelled?=true`,
         })
         .then((response) => {
-          // console.log("REQ HEADER-", req.headers.origin);
+          console.log("REQ HEADER-", req.headers.origin);
           res.status(200).json({ redirectURL: response.url });
           // res.send("REQ HEADERS ORIGIN-", req.headers.origin);
         });
