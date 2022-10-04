@@ -216,7 +216,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      users: data.data,
+      users: data?.data,
     },
   };
 };
