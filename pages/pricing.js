@@ -46,7 +46,8 @@ export const getStaticProps = async () => {
   return {
     props: { 
       plans
-    }
+    },
+    revalidate: 10 // 10 seconds 
   }
 }
 
