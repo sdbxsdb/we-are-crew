@@ -147,5 +147,6 @@ export const getStaticProps = async () => {
       depts: uniqueDepts,
       deptsWithAtLeastOnePaid: deptsWithAtLeastOnePaid,
     },
+    revalidate: 10 // 10 seconds 
   };
 };
