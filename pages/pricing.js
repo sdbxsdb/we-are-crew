@@ -32,12 +32,12 @@ export const getStaticProps = async () => {
     const product = await stripe.products.retrieve(price.product)
     // console.log({product});
     return {
-      id: price.id,
-      name: product.name,
-      description: product.description,
-      price: price.unit_amount,
+      id: price?.id,
+      name: product?.name,
+      description: product?.description,
+      price: price?.unit_amount,
       interval: price?.recurring?.interval || null,
-      currency: price.currency,
+      currency: price?.currency,
     }
   }))
 

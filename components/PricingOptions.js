@@ -27,7 +27,7 @@ const PricingOptions = ({ plans, req, res }) => {
 
   const processPayment = async (planId) => {
     // const session = await supabase.auth.getSession();
-    if (user.data.user) {
+    if (user?.data?.user) {
       const res = await axios.post(`/api/create-stripe-session`, {
         planId: planId,
         // token: session.data.session.access_token,
@@ -37,7 +37,7 @@ const PricingOptions = ({ plans, req, res }) => {
       const data = res?.data;
       // console.log("RES STATUTS-", res.status);
       // console.log("RES BODY-", res);
-      if (res.status === 200) {
+      if (res?.status === 200) {
         location.replace(data.redirectURL);
       }
     } else {
@@ -109,18 +109,18 @@ const PricingOptions = ({ plans, req, res }) => {
             <p className="mt-4">Help us to help the world.</p>
           </div>
           <div className="flex justify-around items-center flex-wrap gap-4 w-full px-4 max-w-[1200px]">
-            {plans.map((plan) => (
+            {plans?.map((plan) => (
               <div
-                key={plan.id}
+                key={plan?.id}
                 className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-full md:w-[300px]"
               >
-                <h1 className="text-3xl mb-4">{plan.name}</h1>
+                <h1 className="text-3xl mb-4">{plan?.name}</h1>
                 <strong className="text-2xl">
-                  {plan.description.split(".")[0]}.
+                  {plan?.description.split(".")[0]}.
                 </strong>
                 <small>
-                  £{plan.price / 100}
-                  {plan.price === 26000
+                  £{plan?.price / 100}
+                  {plan?.price === 26000
                     ? " / 2 years"
                     : plan.price === 18000
                     ? " / year"
@@ -130,7 +130,7 @@ const PricingOptions = ({ plans, req, res }) => {
                   <div className="flex flex-col">
                 {!user?.paid && (
                     <button
-                      onClick={() => processPayment(plan.id)}
+                      onClick={() => processPayment(plan?.id)}
                       // type="submit"
                       // role="link"
                       className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition"
@@ -138,7 +138,7 @@ const PricingOptions = ({ plans, req, res }) => {
                       {user?.data?.user !== null ? "Select" : "Sign Up"}
                     </button>
                     )}
-                    {plan.price === 39900 && (
+                    {plan?.price === 39900 && (
                       <strong className="text-wearecrewGreen">
                         Best Value
                       </strong>
@@ -150,7 +150,7 @@ const PricingOptions = ({ plans, req, res }) => {
 
             {user?.paid && (
               <div className="shadow-md rounded-md p-4 bg-wearecrewGreen text-white">
-                <span>Your profile has been live since {user.dateOfPayment}</span>
+                <span>Your profile has been live since {user?.dateOfPayment}</span>
               </div>
             )}
           </div>
