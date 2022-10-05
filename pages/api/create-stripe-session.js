@@ -8,7 +8,7 @@ export default async function Handler(req, res) {
 
    // Get a cookie
   const stripe_customer_from_cookie =  cookies.get('stripe_customer')
-  console.log("TEST-", stripe_customer_from_cookie);
+  // console.log("TEST-", stripe_customer_from_cookie);
 
 
   const { planId, token, stripeID } = await req.body;
@@ -34,7 +34,7 @@ export default async function Handler(req, res) {
           cancel_url: `${process.env.CLIENT_URL}/paymentCancelled?=true`,
         })
         .then((response) => {
-          console.log("REQ HEADER-", req.headers.origin);
+          // console.log("REQ HEADER-", req.headers.origin);
           res.status(200).json({ redirectURL: response.url });
           // res.send("REQ HEADERS ORIGIN-", req.headers.origin);
         });

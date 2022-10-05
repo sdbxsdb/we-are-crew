@@ -6,8 +6,6 @@ import LargeButton from "../components/LargeButton";
 
 export default function Home() {
 
-  console.log("ENV -", process.env.CLIENT_URL);
-
   return (
     <div className={styles.container}>
       <Head>
