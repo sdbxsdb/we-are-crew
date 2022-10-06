@@ -1,15 +1,12 @@
-import PricingOptions from "../components/PricingOptions"
+import PricingOptions from "../components/PricingOptions";
 import Head from "next/head";
-import initStripe from 'stripe';
+import initStripe from "stripe";
+import Link from "next/link";
 
-
-
-
-const pricing = ({plans}) => {
-
+const pricing = ({ plans }) => {
   return (
     <>
-    <Head>
+      <Head>
         <title>Pricing | Get Crew</title>
         <meta name="keywords" content="I Need Crew" />
         <meta
@@ -17,38 +14,47 @@ const pricing = ({plans}) => {
           content="Hello this is a test description for the About page"
         />
       </Head>
-    <PricingOptions plans={plans}/>
+      <PricingOptions plans={plans} />
+      <div className="w-full flex gap-x-4 justify-center mt-4">
+        <Link href="/terms-and-conditions">
+          <small className="cursor-pointer">Terms & Conditions</small>
+        </Link>
+        <Link href="/privacy-policy">
+          <small className="cursor-pointer">Privacy Policy</small>
+        </Link>
+      </div>
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps = async () => {
   const stripe = initStripe(process.env.STRIPE_SECRET_KEY);
 
-  const {data: prices} = await stripe.prices.list()
+  const { data: prices } = await stripe.prices.list();
 
-  
-  const plans = await Promise.all(prices.map(async (price) => {
-    const product = await stripe.products.retrieve(price.product)
-    // console.log({product});
-    return {
-      id: price?.id,
-      name: product?.name,
-      description: product?.description,
-      price: price?.unit_amount,
-      interval: price?.recurring?.interval || null,
-      currency: price?.currency,
-    }
-  }))
+  const plans = await Promise.all(
+    prices.map(async (price) => {
+      const product = await stripe.products.retrieve(price.product);
+      // console.log({product});
+      return {
+        id: price?.id,
+        name: product?.name,
+        description: product?.description,
+        price: price?.unit_amount,
+        interval: price?.recurring?.interval || null,
+        currency: price?.currency,
+      };
+    })
+  );
 
   // console.log("DATA STRIPE- ", prices);
 
   return {
-    props: { 
-      plans
+    props: {
+      plans,
     },
-    revalidate: 10 // 10 seconds 
-  }
-}
+    revalidate: 10, // 10 seconds
+  };
+};
 
-export default pricing
+export default pricing;

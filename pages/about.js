@@ -1,5 +1,6 @@
 import ShowDemoModal from "../components/ShowDemoModal";
 import Head from "next/head";
+import Link from "next/link";
 
 const about = () => {
   return (
@@ -210,6 +211,14 @@ const about = () => {
                   </a>
                 </p>
               </div>
+            </div>
+            <div className="w-full flex gap-x-4 justify-center mt-4">
+              <Link href="/terms-and-conditions">
+                <small className="cursor-pointer">Terms & Conditions</small>
+              </Link>
+              <Link href="/privacy-policy">
+                <small className="cursor-pointer">Privacy Policy</small>
+              </Link>
             </div>
           </div>
         </div>

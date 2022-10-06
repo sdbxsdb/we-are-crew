@@ -746,6 +746,14 @@ const Account = ({ session }) => {
             </div>
           </div>
         </form>
+        <div className="w-full flex gap-x-4 justify-center mt-4">
+          <Link href="/terms-and-conditions">
+            <small className="cursor-pointer">Terms & Conditions</small>
+          </Link>
+          <Link href="/privacy-policy">
+            <small className="cursor-pointer">Privacy Policy</small>
+          </Link>
+        </div>
       </div>
 
       {showProfileSaved && (
