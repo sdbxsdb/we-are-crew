@@ -746,7 +746,7 @@ const Account = ({ session }) => {
             </div>
           </div>
         </form>
-        <div className="w-full flex gap-x-4 justify-center mt-4">
+        <div className="w-full flex gap-x-4 justify-center mb-8">
           <Link href="/terms-and-conditions">
             <small className="cursor-pointer">Terms & Conditions</small>
           </Link>
