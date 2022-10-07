@@ -182,6 +182,23 @@ const CrewList = ({ users }) => {
 
 export default CrewList;
 
+
+export const getStaticProps = async (context) => {
+  const dept = context?.params?.crewList;
+
+  const data = await supabase.from("profiles").select("*").eq("dept", dept);
+
+  // console.log("CREW DATA-", context.params.crewList);
+  // console.log("PROFILES_", data.data.map((item) => item.imgURL));
+
+  return {
+    props: {
+      users: data?.data,
+    },
+    revalidate: 10 // 10 seconds 
+  };
+};
+
 export async function getStaticPaths() {
   const { data: profiles } = await supabase.from("profiles").select("dept");
 
@@ -206,18 +223,4 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = async (context) => {
-  const dept = context?.params?.crewList;
 
-  const data = await supabase.from("profiles").select("*").eq("dept", dept);
-
-  // console.log("CREW DATA-", context.params.crewList);
-  // console.log("PROFILES_", data.data.map((item) => item.imgURL));
-
-  return {
-    props: {
-      users: data?.data,
-    },
-    revalidate: 10 // 10 seconds 
-  };
-};
