@@ -573,7 +573,7 @@ const Account = ({ session }) => {
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <small className="text-wearecrewDarkGrey">
-                      Use hypen bewteen each item.  Leave empty if N/A.
+                      Use hyphen between each item.  Leave empty if N/A.
                     </small>
                     <label htmlFor="safetyQualifications">
                       Safety or other Qualifications

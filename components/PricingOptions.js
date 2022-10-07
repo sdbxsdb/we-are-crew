@@ -102,7 +102,7 @@ const PricingOptions = ({ plans, req, res }) => {
                 <strong className="">33 trees.</strong>
               </p>
               <p>
-                Liftime (30 years) listing will plant <strong>51 trees.</strong>
+                Lifetime (30 years) listing will plant <strong>51 trees.</strong>
               </p>
             </div>
 

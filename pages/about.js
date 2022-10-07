@@ -68,7 +68,7 @@ const about = () => {
                   <strong>To put that into perspective:</strong>
                   <br />- 1 year listing will plant <strong>23 trees.</strong>
                   <br />- 2 year listing will plant <strong>33 trees.</strong>
-                  <br />- Liftime (30 years) listing will plant{" "}
+                  <br />- Lifetime (30 years) listing will plant{" "}
                   <strong>51 trees.</strong>
                   <br />
                   <br />
@@ -117,7 +117,7 @@ const about = () => {
                   </li>
                   <li>
                     <p>
-                      1/10<sup>th</sup> of the cost compared to a tradional
+                      1/10<sup>th</sup> of the cost compared to a traditional
                       diary service’s ££££.
                     </p>
                   </li>
@@ -159,7 +159,7 @@ const about = () => {
                 </ul>
               </div>
               <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
-                <h1 className="text-2xl mb-2">Extreamely Affordable?</h1>
+                <h1 className="text-2xl mb-2">Extremely Affordable?</h1>
 
                 <p>Yes, extremely. We have 3 price options:</p>
                 <ul className="my-4 flex flex-col gap-y-4">
@@ -185,7 +185,7 @@ const about = () => {
 
                 <p>
                   One price for every grade. No hidden charges and your listing
-                  will be visable to productions for the length of your term.
+                  will be visible to productions for the length of your term.
                 </p>
               </div>
             </div>
