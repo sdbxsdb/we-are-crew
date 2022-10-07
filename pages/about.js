@@ -15,14 +15,14 @@ const about = () => {
         />
       </Head>
 
-      <div className="aboutPage pb-12">
+      <div className="aboutPage">
         <div
           style={{
             backgroundImage: `url("images/newBannerBlackfaded.png")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="w-full banner overflow-hidden flex justify-center items-center p-4 md:p-12 mb-6 md:mb-12 text-white relative"
+          className="w-full banner overflow-hidden flex justify-center items-center p-4 md:p-12 text-white relative"
         >
           <h1 className="text-1xl text-center md:text-3xl tracking-wide">
             Any experience. Any department. Anyone.
@@ -36,7 +36,7 @@ const about = () => {
           /> */}
         </div>
 
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mt-6 md:mt-12">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
             <div className="px-4 md:px-12 w-full flex flex-col md:flex-row gap-x-4 gap-y-4">
               <Accordion title="Keeping it Green">
@@ -78,7 +78,6 @@ const about = () => {
                 </p>
               </Accordion>
               <Accordion title="What is Get Crew?">
-                <h1 className="text-2xl">What is Get Crew?</h1>
                 <p>
                   Get Crew has been designed and built with ALL crew in mind.
                   <br />
@@ -100,9 +99,6 @@ const about = () => {
             </div>
             <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
               <Accordion title="Multiple profiles for the price of one.">
-                <h1 className="text-2xl mb-2">
-                  Multiple profiles for the price of one.
-                </h1>
                 <p>
                   {" "}
                   If you want to list yourself as an individual and your company
@@ -127,7 +123,6 @@ const about = () => {
                 </p>
               </Accordion>
               <Accordion title="Not another diary service.">
-                <h1 className="text-2xl mb-2">Not another diary service.</h1>
                 <ul>
                   <li>
                     <p>
@@ -167,7 +162,6 @@ const about = () => {
             </div>
             <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
               <Accordion title="How does it work?">
-                <h1 className="text-2xl mb-2">How does it work?</h1>
                 <ul>
                   <li>
                     <h1>1.</h1>
@@ -196,8 +190,6 @@ const about = () => {
                 </ul>
               </Accordion>
               <Accordion title="Extremely Affordable?">
-                <h1 className="text-2xl mb-2">Extremely Affordable?</h1>
-
                 <p>Yes, extremely. We have 3 options:</p>
                 <ul className="my-4 flex flex-col gap-y-4">
                   <li>
@@ -228,7 +220,6 @@ const about = () => {
             </div>
             <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
               <Accordion title="We Share.">
-                <h1 className="text-2xl mb-2">We Share.</h1>
                 <p>
                   We actively share the platform and encourage the use of Get
                   Crew amongst Producers, Line Producers, Production Managers
@@ -236,7 +227,6 @@ const about = () => {
                 </p>
               </Accordion>
               <Accordion title="Questions?">
-                <h1 className="text-2xl mb-2">Questions?</h1>
                 <p>
                   If you’ve any questions about any aspect of Get Crew just send
                   us an email to{" "}
@@ -249,7 +239,7 @@ const about = () => {
                 </p>
               </Accordion>
             </div>
-            <div className="w-full flex gap-x-4 justify-center mt-4">
+            <div className="w-full flex gap-x-4 justify-center mt-12">
               <Link href="/terms-and-conditions">
                 <small className="cursor-pointer">Terms & Conditions</small>
               </Link>

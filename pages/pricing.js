@@ -18,7 +18,7 @@ const pricing = ({ plans }) => {
       <div className="w-full flex gap-x-4 justify-center mt-4">
         <small>By signing up to Get Crew you agree to our terms and conditions and privacy policy linked below.  If you have any questions, please contact us at crew@getcrew.pro.</small>
       </div>
-      <div className="w-full flex gap-x-4 justify-center my-4">
+      <div className="w-full flex gap-x-4 justify-center my-6">
         <Link href="/terms-and-conditions">
           <small className="cursor-pointer">Terms & Conditions</small>
         </Link>
