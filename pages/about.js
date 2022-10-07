@@ -15,7 +15,14 @@ const about = () => {
       </Head>
 
       <div className="aboutPage pb-12">
-        <div style={{ backgroundImage: `url("images/newBannerBlackfaded.png")`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="w-full banner overflow-hidden flex justify-center items-center p-4 md:p-12 mb-6 md:mb-12 text-white relative">
+        <div
+          style={{
+            backgroundImage: `url("images/newBannerBlackfaded.png")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="w-full banner overflow-hidden flex justify-center items-center p-4 md:p-12 mb-6 md:mb-12 text-white relative"
+        >
           <h1 className="text-1xl text-center md:text-3xl tracking-wide">
             Any experience. Any department. Anyone.
           </h1>
@@ -31,7 +38,7 @@ const about = () => {
         <div className="w-full flex justify-center">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
             <div className="px-4 md:px-12 w-full flex flex-col md:flex-row gap-x-4 gap-y-4">
-              <div className="w-full shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+              <div className="w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">
                   Keeping it green!{" "}
                   <span className="material-icons text-wearecrewGreen">
@@ -75,8 +82,6 @@ const about = () => {
                   Help us to help the world.
                 </p>
               </div>
-            </div>
-            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
               <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">What is Get Crew?</h1>
                 <p>
@@ -97,6 +102,34 @@ const about = () => {
                   Get Crew.
                 </p>
               </div>
+            </div>
+            <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
+              <div className="w-full md:w-1/2 aboutPageListTicks shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+                <h1 className="text-2xl mb-2">
+                  Multiple profiles for the price of one.
+                </h1>
+                <p>
+                  {" "}
+                  If you want to list yourself as an individual and your company
+                  or if you&apos;re an Accountant training to be a Stunt Person
+                  and we&apos;ll add another profile to your account at no extra
+                  cost!
+                  <br />
+                  <br />
+                  Just get in touch at
+                  <a
+                    className=" text-wearecrewBlue"
+                    href="mailto:crew@getcrew.pro"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {" "}
+                    crew@getcrew.pro{" "}
+                  </a>.
+                  <br />
+                  <br />
+                </p>
+              </div>
               <div className="w-full md:w-1/2 aboutPageListTicks shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">Not another diary service.</h1>
                 <ul>
@@ -108,6 +141,12 @@ const about = () => {
                   </li>
                   <li>
                     <p>No limit the number of crew we list.</p>
+                  </li>
+                  <li>
+                    <p>
+                      List yourself as an individual and your company at no
+                      extra charge.
+                    </p>
                   </li>
                   <li>
                     <p>
@@ -137,22 +176,24 @@ const about = () => {
                   <li>
                     <h1>1.</h1>
                     <span>
-                      Sign up with your email addres to create your profile.
+                      Sign up with your email address or Google account to
+                      create your profile.
                     </span>
                   </li>
                   <li>
                     <h1>2.</h1>
                     <span>
-                      Save your profile and pay via secure Stripe Payment
-                      (you’ll need a credit or debit card).
+                      Save your profile and when it&apos; complete, pay via
+                      secure Stripe Payment (you’ll need a credit or debit
+                      card).
                     </span>
                   </li>
                   <li>
                     <h1>3.</h1>
                     <span>
-                      That’s it! Your profile will be live and ready to be
+                      That’s it! Your profile will then be live and ready to be
                       viewed and shared across the biggest productions crewing
-                      up or looking for dailies.
+                      up across the UK and Ireland.
                     </span>
                   </li>
                   <ShowDemoModal />
@@ -161,24 +202,24 @@ const about = () => {
               <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
                 <h1 className="text-2xl mb-2">Extremely Affordable?</h1>
 
-                <p>Yes, extremely. We have 3 price options:</p>
+                <p>Yes, extremely. We have 3 options:</p>
                 <ul className="my-4 flex flex-col gap-y-4">
                   <li>
                     <strong>- 1 Year Listing</strong>{" "}
                     <p className="ml-6">
-                      50p per day <small>- (yearly payment of £180)</small>
+                      50p per day <small>- (£180)</small>
                     </p>
                   </li>
                   <li>
                     <strong>- 2 Year Listing</strong>{" "}
                     <p className="ml-6">
-                      35p per day <small>- (biyearly payment of £260)</small>
+                      35p per day <small>- (£260)</small>
                     </p>
                   </li>
                   <li>
                     <strong>- Lifetime (30 Year) Listing</strong>{" "}
                     <p className="ml-6">
-                      3p per day<small> - (one off payment of £399)</small>
+                      3p per day<small> - (£399)</small>
                     </p>
                   </li>
                 </ul>
