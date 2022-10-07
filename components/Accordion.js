@@ -10,8 +10,8 @@ const Accordion = ({ title, children }) => {
     >
       <h1
         className={`accordion-title ${
-          isOpen ? "open " : "border-b rounded-b-md shadow-md"
-        } bg-white border-t  border-r border-l border-wearecrewBlue rounded-t-md  text-2xl px-4 py-2`}
+          isOpen ? "open " : "border-b-2 rounded-b-md shadow-md"
+        } bg-white border-t-2  border-r-2 border-l-2 border-wearecrewBlue rounded-t-md  text-2xl px-4 py-2`}
         onClick={() => setOpen(!isOpen)}
       >
         {title}
@@ -21,7 +21,7 @@ const Accordion = ({ title, children }) => {
           !isOpen ? "collapsed" : ""
         } h-full bg-white`}
       >
-        <div className="accordion-content p-4 rounded-b-md z-50 shadow-md border-b border-l border-r border-wearecrewBlue h-full">
+        <div className="accordion-content p-4 rounded-b-md z-50 shadow-md border-b-2 border-l-2 border-r-2 border-wearecrewBlue h-full">
           {children}
         </div>
       </div>
