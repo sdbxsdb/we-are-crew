@@ -98,13 +98,16 @@ const about = () => {
               </Accordion>
             </div>
             <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
-              <Accordion title="Multiple profiles for the price of one.">
+              <Accordion title="Two for the price of one.">
                 <p>
                   {" "}
                   If you want to list yourself as an individual and your company
                   or if you&apos;re an Accountant training to be a Stunt Person
-                  and we&apos;ll add another profile to your account at no extra
+                  you can add another profile to your account at no extra
                   cost!
+                  <br />
+                  <br />
+                  Two profiles for the price of one.
                   <br />
                   <br />
                   Just get in touch at
@@ -117,7 +120,7 @@ const about = () => {
                     {" "}
                     crew@getcrew.pro{" "}
                   </a>
-                  .
+                  and we&apos;ll talk you through the process.
                   <br />
                   <br />
                 </p>
