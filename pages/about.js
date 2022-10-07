@@ -1,6 +1,7 @@
 import ShowDemoModal from "../components/ShowDemoModal";
 import Head from "next/head";
 import Link from "next/link";
+import Accordion from "../components/Accordion";
 
 const about = () => {
   return (
@@ -38,13 +39,7 @@ const about = () => {
         <div className="w-full flex justify-center">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
             <div className="px-4 md:px-12 w-full flex flex-col md:flex-row gap-x-4 gap-y-4">
-              <div className="w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
-                <h1 className="text-2xl mb-2">
-                  Keeping it green!{" "}
-                  <span className="material-icons text-wearecrewGreen">
-                    forest
-                  </span>
-                </h1>
+              <Accordion title="Keeping it Green">
                 <p>
                   We all know the Film and Television industry isn’t exactly
                   green.
@@ -81,9 +76,9 @@ const about = () => {
                   <br />
                   Help us to help the world.
                 </p>
-              </div>
-              <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
-                <h1 className="text-2xl mb-2">What is Get Crew?</h1>
+              </Accordion>
+              <Accordion title="What is Get Crew?">
+                <h1 className="text-2xl">What is Get Crew?</h1>
                 <p>
                   Get Crew has been designed and built with ALL crew in mind.
                   <br />
@@ -101,10 +96,10 @@ const about = () => {
                   <br />
                   Get Crew.
                 </p>
-              </div>
+              </Accordion>
             </div>
             <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
-              <div className="w-full md:w-1/2 aboutPageListTicks shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+              <Accordion title="Multiple profiles for the price of one.">
                 <h1 className="text-2xl mb-2">
                   Multiple profiles for the price of one.
                 </h1>
@@ -125,12 +120,13 @@ const about = () => {
                   >
                     {" "}
                     crew@getcrew.pro{" "}
-                  </a>.
+                  </a>
+                  .
                   <br />
                   <br />
                 </p>
-              </div>
-              <div className="w-full md:w-1/2 aboutPageListTicks shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+              </Accordion>
+              <Accordion title="Not another diary service.">
                 <h1 className="text-2xl mb-2">Not another diary service.</h1>
                 <ul>
                   <li>
@@ -167,10 +163,10 @@ const about = () => {
                     </p>
                   </li>
                 </ul>
-              </div>
+              </Accordion>
             </div>
             <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
-              <div className="w-full md:w-1/2 aboutPageListNumbers shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+              <Accordion title="How does it work?">
                 <h1 className="text-2xl mb-2">How does it work?</h1>
                 <ul>
                   <li>
@@ -198,8 +194,8 @@ const about = () => {
                   </li>
                   <ShowDemoModal />
                 </ul>
-              </div>
-              <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+              </Accordion>
+              <Accordion title="Extremely Affordable?">
                 <h1 className="text-2xl mb-2">Extremely Affordable?</h1>
 
                 <p>Yes, extremely. We have 3 options:</p>
@@ -228,18 +224,18 @@ const about = () => {
                   One price for every grade. No hidden charges and your listing
                   will be visible to productions for the length of your term.
                 </p>
-              </div>
+              </Accordion>
             </div>
             <div className="px-4 md:px-12 flex flex-col md:flex-row gap-x-4 gap-y-4">
-              <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+              <Accordion title="We Share.">
                 <h1 className="text-2xl mb-2">We Share.</h1>
                 <p>
                   We actively share the platform and encourage the use of Get
                   Crew amongst Producers, Line Producers, Production Managers
                   and anyone else who needs crew in the UK and Ireland.
                 </p>
-              </div>
-              <div className="w-full md:w-1/2 shadow-md rounded-md p-4 border-b border-wearecrewBlue bg-white">
+              </Accordion>
+              <Accordion title="Questions?">
                 <h1 className="text-2xl mb-2">Questions?</h1>
                 <p>
                   If you’ve any questions about any aspect of Get Crew just send
@@ -251,7 +247,7 @@ const about = () => {
                     crew@getcrew.pro
                   </a>
                 </p>
-              </div>
+              </Accordion>
             </div>
             <div className="w-full flex gap-x-4 justify-center mt-4">
               <Link href="/terms-and-conditions">
