@@ -189,6 +189,7 @@ export async function getStaticPaths() {
 
   profiles?.forEach((profile) => {
     depts.push(profile.dept);
+    console.log("DEPTS- [crewList] -", profile.dept);
   });
   const uniqueDepts = Array.from(new Set(depts));
 
@@ -200,10 +201,10 @@ export async function getStaticPaths() {
     };
   });
 
-  // return {
-  //   paths,
-  //   fallback: false,
-  // };
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export const getStaticProps = async (context) => {
