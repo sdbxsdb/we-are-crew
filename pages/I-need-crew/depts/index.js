@@ -121,7 +121,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
 
 export default INeedCrew;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const { data: profiles } = await supabase
     .from("profiles")
     .select("dept, paid");
@@ -146,7 +146,6 @@ export const getStaticProps = async () => {
     props: {
       depts: uniqueDepts,
       deptsWithAtLeastOnePaid: deptsWithAtLeastOnePaid,
-    },
-    revalidate: 10 // 10 seconds 
+    }
   };
 };
