@@ -25,7 +25,7 @@ const CrewDetailBox = (crew) => {
       // console.log("ROUTER USERNAME-" + router.query.user);
       // console.log("ROUTER-", router);
 
-      if (router.query.user === slugify(crew.name) + "_" + crew.id) {
+      if (router.query.user === slugify(crew.name) + "_" + crew?.id) {
         setShowModal(true);
       }
     }
@@ -34,11 +34,11 @@ const CrewDetailBox = (crew) => {
 
   const {
     data: { publicUrl },
-  } = supabase.storage.from("images").getPublicUrl(crew.imgURL);
+  } = supabase.storage.from("images").getPublicUrl(crew?.imgURL);
 
   const {
     data: { publicUrl: publicCVUrl }
-  } = supabase.storage.from("cvs").getPublicUrl(crew.cvURL);
+  } = supabase.storage.from("cvs").getPublicUrl(crew?.cvURL);
 
   // console.log("Data- ", data);
   // console.log("CREW DETAIL CV- ", crew.cvURL);
@@ -116,9 +116,9 @@ const CrewDetailBox = (crew) => {
 
   const website = crew?.website?.split("://").pop(0);
 
-  const creditsExist = crew?.credits?.some((credit) => credit.jobTitle);
+  const creditsExist = crew?.credits?.some((credit) => credit?.jobTitle);
 
-  const sortedLocations = [...crew.willWorkIn]
+  const sortedLocations = [...crew?.willWorkIn]
   .sort((a, b) => (a > b ? 1 : -1))
 
 
@@ -146,12 +146,12 @@ const CrewDetailBox = (crew) => {
           <div className="w-[210px] flex flex-col">
             {/*NAME*/}
             <h2 onClick={() => setShowModal(true)} className="cursor-pointer">
-              <strong>{crew.name}</strong>
+              <strong>{crew?.name}</strong>
             </h2>
             {/* //END OF NAME */}
 
             {/*TITLE*/}
-            <h2>{crew.title}</h2>
+            <h2>{crew?.title}</h2>
             {/* // END OF TITLE*/}
 
             {/*QUALIS*/}
@@ -167,14 +167,14 @@ const CrewDetailBox = (crew) => {
               className="mt-4 flex flex-col"
             >
               <strong className={`${
-                crew.status === "Available"
+                crew?.status === "Available"
                   ? "text-wearecrewGreen"
                   : crew.status === "Not Available"
                   ? "text-wearecrewRed"
                   : "text-wearecrewOrange"
-              }`}>{crew.status}</strong>
-              {crew.status !== "Available" && crew.willBeAvailOn !== "" && crew.willBeAvailOn !== null && (
-                  <small>Available from: {crew.willBeAvailOn}</small>
+              }`}>{crew?.status}</strong>
+              {crew?.status !== "Available" && crew?.willBeAvailOn !== "" && crew?.willBeAvailOn !== null && (
+                  <small>Available from: {crew?.willBeAvailOn}</small>
                 )}
             </div>
             {/* //END OF STATUS */}
@@ -211,7 +211,7 @@ const CrewDetailBox = (crew) => {
 
             {/*EMAIL*/}
             <a
-              href={`mailto:${crew.email}?subject=I found your profile on Get Crew!`}
+              href={`mailto:${crew?.email}?subject=I found your profile on Get Crew!`}
               className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
             >
               <h1 className="text-3xl">Email</h1>
@@ -261,14 +261,14 @@ const CrewDetailBox = (crew) => {
               className="flex flex-col"
             >
               <strong className={`${
-                crew.status === "Available"
+                crew?.status === "Available"
                   ? "text-wearecrewGreen"
                   : crew.status === "Not Available"
                   ? "text-wearecrewRed"
                   : "text-wearecrewOrange"
-              }`}>{crew.status}</strong>
-              {crew.status !== "Available" && crew.willBeAvailOn !== "" && crew.willBeAvailOn !== null && (
-                  <small>Available from: {crew.willBeAvailOn}</small>
+              }`}>{crew?.status}</strong>
+              {crew?.status !== "Available" && crew?.willBeAvailOn !== "" && crew?.willBeAvailOn !== null && (
+                  <small>Available from: {crew?.willBeAvailOn}</small>
                 )}
             </div>
                   {/* // END OF MOBILE STATUS */}
@@ -389,8 +389,8 @@ const CrewDetailBox = (crew) => {
                 >
                   {crew?.status}
                 </strong>
-                {crew.status !== "Available" && crew.willBeAvailOn !== "" && crew.willBeAvailOn !== null && (
-                  <small className="text-right"><strong>Available from:</strong> {crew.willBeAvailOn}</small>
+                {crew?.status !== "Available" && crew?.willBeAvailOn !== "" && crew?.willBeAvailOn !== null && (
+                  <small className="text-right"><strong>Available from:</strong> {crew?.willBeAvailOn}</small>
                 )}
               </div>
             </div>
