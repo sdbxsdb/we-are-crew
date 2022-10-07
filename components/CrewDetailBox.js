@@ -25,7 +25,7 @@ const CrewDetailBox = (crew) => {
       // console.log("ROUTER USERNAME-" + router.query.user);
       // console.log("ROUTER-", router);
 
-      if (router.query.user === slugify(crew.name) + "_" + crew?.id) {
+      if (router.query.user === slugify(crew?.name) + "_" + crew?.id) {
         setShowModal(true);
       }
     }
