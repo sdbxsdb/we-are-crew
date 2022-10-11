@@ -497,7 +497,7 @@ const Account = ({ session }) => {
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
                     {paid !== true ? (
                       <div className=" items-center">
-                        <h1 className="text-wearecrewOrange text-xl">
+                        <h1 className="text-white w-full bg-wearecrewOrange p-4 rounded-md text-xl text-center">
                           Pending
                         </h1>
                         <small>Your profile isn&apos;t currently live.</small>
@@ -509,7 +509,7 @@ const Account = ({ session }) => {
                       </div>
                     ) : (
                       <div className="">
-                        <h1 className="text-wearecrewGreen text-xl">Live</h1>
+                        <h1 className="text-white w-full bg-wearecrewGreen p-4 rounded-md text-xl text-center">Live</h1>
                         <small>
                           Your profile has been live since {dateOfPayment}
                         </small>
