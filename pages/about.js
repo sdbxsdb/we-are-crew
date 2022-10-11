@@ -34,7 +34,7 @@ const About = () => {
 
         <div className="w-full flex justify-center mt-6 md:mt-12">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
-            <div className="snap-y snap-mandatory h-[calc(100vh-105px)] overflow-scroll">
+            <div className="md:snap-y md:snap-mandatory h-[calc(100vh-105px)] overflow-scroll">
               <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
