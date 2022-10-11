@@ -62,7 +62,7 @@ const PricingOptions = ({ plans, req, res }) => {
         </div>
 
         <div className="h-full flex flex-col px-4 z-20">
-          <div className="flex flex-col justify-start items-center text-center md:mb-12">
+          <div className="flex text-lg flex-col justify-start items-center text-center md:mb-12">
             <img
               src="/images/treeLogoStampGreen.png"
               width="120px"
@@ -87,7 +87,7 @@ const PricingOptions = ({ plans, req, res }) => {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-around items-center gap-4 w-full px-4 max-w-[1200px]">
+          <div className="flex flex-col md:flex-row justify-around items-center gap-4 w-full px-4 max-w-[1200px] text-lg">
             {plans?.map((plan) => (
               <div
                 key={plan?.id}
@@ -119,7 +119,7 @@ const PricingOptions = ({ plans, req, res }) => {
                     ) : plan.price === 18000 ? (
                       <span>
                         {" "}
-                        / years <br /> <strong>
+                        / year <br /> <strong>
                           23 trees planted
                         </strong> <br /> Profile listed for 1 year{" "}
                       </span>

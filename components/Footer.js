@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="w-full flex gap-x-4 justify-center py-8 absolute bottom-0">
+    <div className="w-full flex gap-x-4 justify-center left-1/2 py-8 absolute transfor -translate-x-1/2 bottom-0">
       <Link href="/terms-and-conditions">
         <small className="cursor-pointer">Terms & Conditions</small>
       </Link>

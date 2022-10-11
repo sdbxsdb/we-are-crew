@@ -189,7 +189,7 @@ const CrewDetailBox = (crew) => {
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
               {sortedLocations.map((willWorkIn, id) => (
-                <div key={willWorkIn + id} className="mt-1 min-w-max">
+                <div key={willWorkIn + id} className="mt-1 min-w-min">
                   {willWorkIn}
                 </div>
               ))}

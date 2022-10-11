@@ -34,8 +34,8 @@ const About = () => {
 
         <div className="w-full flex justify-center mt-6 md:mt-12">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
-            <div className="md:snap-y md:snap-mandatory h-[calc(100vh-105px)] overflow-scroll">
-              <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
+            <div className="md:snap-y md:snap-mandatory md:h-[calc(100vh-105px)] overflow-scroll">
+              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
@@ -45,8 +45,8 @@ const About = () => {
                         <br /> and why is it here?
                       </h1>
                     </div>
-                    <div className="w-full md:w-1/2">
-                      <p>
+                    <div className="w-full md:w-1/2 ">
+                      <span className="text-lg">
                         As of 2022 the Film, Television and Broadcast industires
                         are some of the most technologically advanced industires
                         in the world.
@@ -60,11 +60,11 @@ const About = () => {
                         <br />
                         <span className="text-wearecrewBlue">Get Crew</span> has
                         the soloution.
-                      </p>
+                      </span>
                     </div>
                   </div>
                 </div>
-                <div className="scroll-prompt">
+                <div className="hidden md:block scroll-prompt">
                   <div className="scroll-prompt-arrow-container">
                     <div className="scroll-prompt-arrow">
                       <div></div>
@@ -75,13 +75,13 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
+              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl  mb-4 md:mb-0">The solution.</h1>
                     </div>
-                    <div className="w-full md:w-1/2 aboutPageListTicks">
+                    <div className="w-full md:w-1/2 aboutPageListTicks text-lg">
                       <ul>
                         <li>
                           <p>
@@ -113,8 +113,8 @@ const About = () => {
                         </li>
                         <li>
                           <p>
-                            1/10<sup>th</sup> of the cost compared to a
-                            traditional diary service’s ££££.
+                            1/10<small><sup>th</sup></small> of the cost compared to a
+                            traditional <br/> diary service’s ££££.
                           </p>
                         </li>
                         <li>
@@ -127,7 +127,7 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-                <div className="scroll-prompt">
+                <div className="hidden md:block scroll-prompt">
                   <div className="scroll-prompt-arrow-container">
                     <div className="scroll-prompt-arrow">
                       <div></div>
@@ -138,11 +138,11 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-start pt-6 overflow-hidden relative">
+              <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-start pt-6 overflow-hidden relative">
                 <div className="w-full flex justify-center items-center gap-4 mb-12 mt-12">
                   <div className="w-full max-w-[1200px]">
                     <div className="w-full text-left flex flex-col md:flex-row items-center justify-between">
-                      <h1 className="text-4xl min-w-max mb-4 md:mb-0">How does it work?</h1>
+                      <h1 className="text-4xl text-left w-full min-w-max mb-4 md:mb-0">How does it work?</h1>
                       <div className="w-full flex justify-center gap-x-4">
                         <button
                           onClick={(e) => needCrewHandler(e)}
@@ -173,7 +173,7 @@ const About = () => {
                     </div>
                     <div className="w-full">
                       <div className="flex flex-col items-center">
-                        <div className="relative h-full w-full">
+                        <div className="relative h-full min-h-[500px] w-full">
                           <div
                             className={`
                               ${
@@ -260,7 +260,7 @@ const About = () => {
                                 </div>
                               </div>
                               <div className="w-full flex justify-center mt-4">
-                                <Link href="/I-need-crew/depts">
+                                <Link href="/my-crew">
                                   <a className="bg-wearecrewBlue w-full text-center rounded-md shadow-md p-4 text-white">
                                     Sign Up
                                   </a>
@@ -270,7 +270,7 @@ const About = () => {
                             <div className="hidden md:block w-1/2">
                               <div className="h-[calc(100vh-380px)] overflow-y-scroll -mt-4">
                                 <img
-                                  src="/images/iAmCrew3D.png"
+                                  src="/images/myCrewProfileLong.png"
                                   alt=""
                                   width="100%"
                                   height="200"
@@ -283,7 +283,7 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-                <div className="scroll-prompt">
+                <div className="hidden md:block scroll-prompt">
                   <div className="scroll-prompt-arrow-container">
                     <div className="scroll-prompt-arrow">
                       <div></div>
@@ -294,7 +294,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden">
+              <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden pb-8 md:pb-0">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row  gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
@@ -306,7 +306,7 @@ const About = () => {
                       />
                     </div>
                     <div className="w-full md:w-1/2">
-                      <div>
+                      <div className="text-lg">
                         We all know the Film and Television industry isn’t
                         exactly green.
                         <br />
