@@ -37,17 +37,16 @@ const About = () => {
             <div className="snap-y snap-mandatory h-[calc(100vh-105px)] overflow-scroll">
               <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
-                  <div className="flex gap-x-12 max-w-[1200px]">
-                    <div className="w-1/2 flex items-center">
-                      <h1 className="text-4xl">
+                  <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
+                    <div className="w-full md:w-1/2 flex items-center">
+                      <h1 className="text-4xl mb-4 md:mb-0 w-full ">
                         What is{" "}
                         <span className="text-wearecrewBlue">Get Crew</span>{" "}
                         <br /> and why is it here?
                       </h1>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-full md:w-1/2">
                       <p>
-                        <br />
                         As of 2022 the Film, Television and Broadcast industires
                         are some of the most technologically advanced industires
                         in the world.
@@ -78,11 +77,11 @@ const About = () => {
               </div>
               <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
-                  <div className="flex gap-x-12 max-w-[1200px]">
-                    <div className="w-1/2 flex items-center">
-                      <h1 className="text-4xl">The solution.</h1>
+                  <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
+                    <div className="w-full md:w-1/2 flex items-center">
+                      <h1 className="text-4xl  mb-4 md:mb-0">The solution.</h1>
                     </div>
-                    <div className="w-1/2 aboutPageListTicks">
+                    <div className="w-full md:w-1/2 aboutPageListTicks">
                       <ul>
                         <li>
                           <p>
@@ -142,8 +141,8 @@ const About = () => {
               <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-start pt-6 overflow-hidden relative">
                 <div className="w-full flex justify-center items-center gap-4 mb-12 mt-12">
                   <div className="w-full max-w-[1200px]">
-                    <div className="w-full text-left flex items-center justify-between">
-                      <h1 className="text-4xl min-w-max">How does it work?</h1>
+                    <div className="w-full text-left flex flex-col md:flex-row items-center justify-between">
+                      <h1 className="text-4xl min-w-max mb-4 md:mb-0">How does it work?</h1>
                       <div className="w-full flex justify-center gap-x-4">
                         <button
                           onClick={(e) => needCrewHandler(e)}
@@ -181,15 +180,15 @@ const About = () => {
                                 showNeedCrew === true
                                   ? "opacity-100 translate-x-[0%]"
                                   : "opacity-0 translate-x-[100%]"
-                              } transform transition flex gap-x-4 gap-y-4 flex-col md:flex-row w-full md:justify-around items-center py-4 absolute mt-12`}
+                              } transform transition flex gap-x-4 gap-y-4 flex-col md:flex-row w-full md:justify-around items-center py-4 absolute mt-4 md:mt-12`}
                           >
-                            <div className="w-1/2">
+                            <div className="w-full md:w-1/2">
                               <h1 className="text-3xl leading-relaxed">
                                 The last place you&apos;ll need to look for
                                 crew.
                               </h1>
-                              <div className="flex gap-4 items-center">
-                                <div className="my-8 w-1/2 flex flex-col gap-y-4 text-lg">
+                              <div className="flex flex-col md:flex-row gap-4 items-center">
+                                <div className="my-8 w-full md:w-1/2 flex flex-col gap-y-4 text-lg">
                                   <p>
                                     <strong>1.</strong> Pick a department.
                                   </p>
@@ -200,7 +199,7 @@ const About = () => {
                                     <strong>3.</strong> View the profile.
                                   </p>
                                 </div>
-                                <div className="w-1/2">
+                                <div className="w-full md:w-1/2">
                                   <h1 className="text-center text-2xl">
                                     4. Contact!
                                   </h1>
@@ -214,7 +213,7 @@ const About = () => {
                                 </Link>
                               </div>
                             </div>
-                            <div className="w-1/2">
+                            <div className="hidden md:block w-full md:w-1/2 mt-8 md:mt-0">
                               <div className="h-[calc(100vh-400px)] overflow-y-scroll -mt-6">
                                 <img
                                   src="/images/newCrewSearchExample.png"
@@ -232,13 +231,13 @@ const About = () => {
                     showAmCrew === true
                       ? "opacity-100 translate-x-[0%]"
                       : "opacity-0 translate-x-[100%]"
-                  } flex gap-x-4 transform transition gap-y-4 flex-col md:flex-row w-full md:justify-around items-center py-4 absolute top-0 mt-12`}
+                  } flex gap-x-4 transform transition gap-y-4 flex-col md:flex-row w-full md:justify-around items-center py-4 absolute top-0 mt-4 md:mt-12`}
                           >
-                            <div className="w-1/2">
+                            <div className="w-full md:w-1/2">
                               <h1 className="text-3xl leading-relaxed">
                                 One place for your professional profile.{" "}
                               </h1>
-                              <div className="flex gap-4 items-center justify-between">
+                              <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
                                 <div className="my-4 w-full flex flex-col gap-y-4 text-lg">
                                   <p>
                                     <strong>1.</strong> Sign up with your email
@@ -268,7 +267,7 @@ const About = () => {
                                 </Link>
                               </div>
                             </div>
-                            <div className="w-1/2">
+                            <div className="hidden md:block w-1/2">
                               <div className="h-[calc(100vh-380px)] overflow-y-scroll -mt-4">
                                 <img
                                   src="/images/iAmCrew3D.png"
@@ -297,16 +296,16 @@ const About = () => {
               </div>
               <div className="snap-start w-screen px-4 h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden">
                 <div className="w-full flex justify-center gap-4 mb-12">
-                  <div className="flex gap-x-12 max-w-[1200px]">
-                    <div className="w-1/2 flex items-center ">
-                      <h1 className="text-4xl">Lets plant some trees!</h1>
+                  <div className="flex flex-col md:flex-row  gap-x-12 max-w-[1200px]">
+                    <div className="w-full md:w-1/2 flex items-center">
+                      <h1 className="text-4xl mb-4 md:mb-0">Lets plant some trees!</h1>
                       <img
                         src="/images/pngwing.com.png"
                         alt=""
-                        className="absolute bottom-0 w-1/2 -left-1/4 z-01 opacity-30"
+                        className="absolute bottom-0 w-full md:w-1/2 -left-1/4 z-01 opacity-30"
                       />
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-full md:w-1/2">
                       <div>
                         We all know the Film and Television industry isn’t
                         exactly green.
