@@ -36,15 +36,15 @@ const Provider = ({ children }) => {
 
  
 
-  useEffect(() => {
-    const getSession = async () => {
-      const session = await supabase.auth.getSession();
+  // useEffect(() => {
+  //   const getSession = async () => {
+  //     const session = await supabase.auth.getSession();
     
-      console.log("SESSION-", session);
-    }
-    getSession();
-    console.log("USER -", user.data);
-  }, [user])
+  //     console.log("SESSION-", session);
+  //   }
+  //   getSession();
+  //   console.log("USER -", user.data);
+  // }, [user])
 
 
   const logout = async () => {
