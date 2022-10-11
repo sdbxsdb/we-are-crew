@@ -99,12 +99,12 @@ const PricingOptions = ({ plans, req, res }) => {
               >
                 <div
                   className={`bg-white flex flex-col text-center items-center rounded-xl shadow-md p-4 border-wearecrewBlue w-full md:w-[300px] relative overflow-hidden ${
-                    plan?.price === 39900
-                      ? "border-4 py-12 z-1000"
-                      : "border-2"
+                    plan?.price === 39900 ? "border-4 py-12 z-1000" : "border-2"
                   }`}
                 >
-                  <h1 className="text-2xl md:text-3xl mb-4 z-50">{plan?.name}</h1>
+                  <h1 className="text-2xl md:text-3xl mb-4 z-50">
+                    {plan?.name}
+                  </h1>
                   <strong className="mb-2 md:text-2xl">
                     {plan?.description.split(".")[0]}
                   </strong>
@@ -113,12 +113,15 @@ const PricingOptions = ({ plans, req, res }) => {
                     {plan?.price === 26000 ? (
                       <span>
                         {" "}
-                        / 2 years <br /> <strong>33 trees planted </strong> <br/> Profile listed for 2 years
+                        / 2 years <br /> <strong>33 trees planted </strong>{" "}
+                        <br /> Profile listed for 2 years
                       </span>
                     ) : plan.price === 18000 ? (
                       <span>
                         {" "}
-                        / years <br /> <strong>23 trees planted</strong> <br/> Profile listed for 1 year{" "}
+                        / years <br /> <strong>
+                          23 trees planted
+                        </strong> <br /> Profile listed for 1 year{" "}
                       </span>
                     ) : (
                       <span>
@@ -126,7 +129,7 @@ const PricingOptions = ({ plans, req, res }) => {
                         one off payment <br /> <strong>
                           51 trees planted
                         </strong>{" "}
-                        <br/> Profile listed until you retire
+                        <br /> Profile listed until you retire
                       </span>
                     )}
                   </small>
@@ -155,15 +158,16 @@ const PricingOptions = ({ plans, req, res }) => {
                 </div>
               </div>
             ))}
-
-            {user?.paid && (
-              <div className="shadow-md rounded-md p-4 bg-wearecrewGreen text-white">
+          </div>
+          {user?.paid && (
+            <div className="w-full flex justify-center">
+              <div className="shadow-md mt-12 max-w-max rounded-md p-4 bg-wearecrewGreen text-white">
                 <span>
                   Your profile has been live since {user?.dateOfPayment}
                 </span>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </>
