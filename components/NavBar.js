@@ -50,7 +50,6 @@ const NavBar = () => {
                 src="/images/newGCLogo.png"
                 className="z-50"
                 alt="Get Crew logo"
-                layout="responsive"
               />
             </a>
           </Link>
