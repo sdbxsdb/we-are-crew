@@ -194,13 +194,13 @@ const ShowDemoModal = () => {
                     <h1 className="text-3xl">Website</h1>
                   </a>
 
-                  <a
+                  {/* <a
                     download
                     href="../public/images/logoNew2.png"
                     className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md"
                   >
                     <h1 className="text-lg">Download Personal CV</h1>
-                  </a>
+                  </a> */}
 
                   <button className="border-2 flex gap-x-2 justify-center border-wearecrewBlue p-2 rounded shadow-md">
                     <span className="material-icons">ios_share</span>

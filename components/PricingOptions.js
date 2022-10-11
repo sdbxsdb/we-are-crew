@@ -59,24 +59,18 @@ const PricingOptions = ({ plans, req, res }) => {
           <h1 className=" tracking-wide text-2xl w-full text-center md:text-3xl shadow-black">
             Simple plans. Better prices.
           </h1>
-          {/* <p>Get yourself out there</p> */}
-          {/* <img
-              src="/images/bannerBg4.png"
-              alt=""
-              width="100%"
-              className="absolute z-0 opacity-10 -top-[40px] md:-top-[110px]"
-            /> */}
         </div>
 
         <div className="h-full flex flex-col px-4 z-20">
-          <div className="flex flex-col justify-start items-center text-center mb-12">
+          <div className="flex flex-col justify-start items-center text-center md:mb-12">
             <img
               src="/images/treeLogoStampGreen.png"
-              width="150px"
+              width="120px"
               alt="One Tree Logo"
             />
             <p>
-              Get Crew are proudly partnered with{" "}
+              <span className="text-wearecrewBlue">Get Crew</span> are proudly
+              partnered with{" "}
               <a
                 href="https://onetreeplanted.org/
                 "
@@ -86,71 +80,87 @@ const PricingOptions = ({ plans, req, res }) => {
                 One<strong className="text-oneTreeGreen">Tree</strong>Planted.
               </a>
               <br />
-              15% of your payment will go directly to plant trees all over the
-              world.
+              This means 15% of your payment will go directly to plant trees all
+              over the world.
               <br />
               <br />
             </p>
-            <strong>To put that into perspective:</strong>
-            <div className="flex md:flex-row flex-col items-center gap-x-4">
-              <p>
-                1 year listing will plant{" "}
-                <strong className="">23 trees.</strong>
-              </p>
-              <p>
-                2 year listing will plant{" "}
-                <strong className="">33 trees.</strong>
-              </p>
-              <p>
-                Lifetime (30 years) listing will plant <strong>51 trees.</strong>
-              </p>
-            </div>
-
-            <p className="mt-4">Help us to help the world.</p>
           </div>
-          <div className="flex justify-around items-center flex-wrap gap-4 w-full px-4 max-w-[1200px]">
+
+          <div className="flex flex-col md:flex-row justify-around items-center gap-4 w-full px-4 max-w-[1200px]">
             {plans?.map((plan) => (
               <div
                 key={plan?.id}
-                className="bg-white flex flex-col text-center items-center rounded-md shadow-md p-4 border-2 border-wearecrewBlue w-full md:w-[300px]"
+                className={`flex justify-between w-full ${
+                  plan?.price === 39900
+                    ? "md:absolute justify-around  "
+                    : "md:mx-20 md:px-12"
+                }`}
               >
-                <h1 className="text-3xl mb-4">{plan?.name}</h1>
-                <strong className="text-2xl">
-                  {plan?.description.split(".")[0]}.
-                </strong>
-                <small>
-                  £{plan?.price / 100}
-                  {plan?.price === 26000
-                    ? " / 2 years"
-                    : plan.price === 18000
-                    ? " / year"
-                    : " one off payment"}
-                </small>
-
+                <div
+                  className={`bg-white flex flex-col text-center items-center rounded-xl shadow-md p-4 border-wearecrewBlue w-full md:w-[300px] relative overflow-hidden ${
+                    plan?.price === 39900
+                      ? "border-4 py-12 z-1000"
+                      : "border-2"
+                  }`}
+                >
+                  <h1 className="text-2xl md:text-3xl mb-4 z-50">{plan?.name}</h1>
+                  <strong className="mb-2 md:text-2xl">
+                    {plan?.description.split(".")[0]}
+                  </strong>
+                  <small>
+                    £{plan?.price / 100}
+                    {plan?.price === 26000 ? (
+                      <span>
+                        {" "}
+                        / 2 years <br /> <strong>33 trees planted </strong> <br/> Profile listed for 2 years
+                      </span>
+                    ) : plan.price === 18000 ? (
+                      <span>
+                        {" "}
+                        / years <br /> <strong>23 trees planted</strong> <br/> Profile listed for 1 year{" "}
+                      </span>
+                    ) : (
+                      <span>
+                        {" "}
+                        one off payment <br /> <strong>
+                          51 trees planted
+                        </strong>{" "}
+                        <br/> Profile listed until you retire
+                      </span>
+                    )}
+                  </small>
                   <div className="flex flex-col">
-                {!user?.paid && (
-                    <button
-                      onClick={() => processPayment(plan?.id)}
-                      // type="submit"
-                      // role="link"
-                      className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey hover:bg-white transition"
-                    >
-                      {user?.data?.user !== null ? "Select" : "Sign Up"}
-                    </button>
+                    {!user?.paid && (
+                      <button
+                        onClick={() => processPayment(plan?.id)}
+                        // type="submit"
+                        // role="link"
+                        className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey z-2000 hover:bg-white transition"
+                      >
+                        {user?.data?.user !== null ? "Select" : "Sign Up"}
+                      </button>
                     )}
                     {plan?.price === 39900 && (
-                      <strong className="text-wearecrewGreen">
+                      <strong className="text-white bg-wearecrewGreen py-1 px-6 absolute top-[19px] -right-8 transform rotate-45 shadow-md">
                         Best Value
                       </strong>
                     )}
+                    {plan?.price === 26000 && (
+                      <strong className="text-white bg-wearecrewGreen py-1 px-6 absolute top-4 -right-8 transform rotate-45 shadow-md">
+                        28% off  
+                      </strong>
+                    )}
                   </div>
-                
+                </div>
               </div>
             ))}
 
             {user?.paid && (
               <div className="shadow-md rounded-md p-4 bg-wearecrewGreen text-white">
-                <span>Your profile has been live since {user?.dateOfPayment}</span>
+                <span>
+                  Your profile has been live since {user?.dateOfPayment}
+                </span>
               </div>
             )}
           </div>
