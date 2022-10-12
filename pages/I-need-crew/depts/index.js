@@ -4,8 +4,8 @@ import { supabase } from "../../../utils/supabaseClient";
 import Link from "next/link";
 
 const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
-  console.log({ depts });
-  console.log({ deptsWithAtLeastOnePaid });
+  // console.log({ depts });
+  // console.log({ deptsWithAtLeastOnePaid });
 
   const [inputValue, setInputValue] = useState("");
 
@@ -29,7 +29,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
     .sort((a, b) => (a > b ? 1 : -1))
     .filter((dept) => dept !== null);
     
-    console.log({sortedDepts});
+    // console.log({sortedDepts});
 
   const [foundDept, setFoundDept] = useState(sortedDepts);
   const filterDept = (e) => {
@@ -42,7 +42,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
         // Use the toLowerCase() method to make it case-insensitive
       });
       setFoundDept(results);
-      console.log({foundDept});
+      // console.log({foundDept});
     } else {
       setFoundDept(sortedDepts);
       // If the text field is empty, show all users

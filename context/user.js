@@ -31,9 +31,17 @@ const Provider = ({ children }) => {
     supabase.auth.onAuthStateChange(() => {
       getUserProfile();
     })
-  }, []);
+  }, [user]);
 
 
+  // supabase
+  // .channel('*')
+  // .on('postgres_changes', { event: '*', schema: '*' }, payload => {
+  //   console.log('Change received!', payload)
+  //   setUser(payload);
+  //   console.log("USER-", user);
+  // })
+  // .subscribe()
  
 
   // useEffect(() => {
