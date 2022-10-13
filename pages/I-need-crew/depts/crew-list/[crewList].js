@@ -186,8 +186,9 @@ export default CrewList;
 
 export const getStaticProps = async (context) => {
   if (context) {
-    
+
     const dept = context?.params?.crewList;
+    let data
 
     supabase
       .channel("public:profiles")
@@ -196,11 +197,12 @@ export const getStaticProps = async (context) => {
         { event: "*", schema: "public", table: "profiles" },
         (payload) => {
           console.log("Change received!", payload);
+          data = payload.new
         }
       )
       .subscribe();
 
-      const data = await supabase.from("profiles").select("*").eq("dept", dept);
+      data = await supabase.from("profiles").select("*").eq("dept", dept);
 
 
     // console.log("CREW DATA-", context.params.crewList);
