@@ -2,10 +2,11 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
-import {user} from '../context/user';
+import { useUser } from "../context/user";
 
 
 export default function Home() {
+  const { user } = useUser();
 
   return (
     <div className={styles.container}>
