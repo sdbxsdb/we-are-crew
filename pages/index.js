@@ -5,8 +5,13 @@ import LargeButton from "../components/LargeButton";
 import { useUser } from "../context/user";
 
 
+
 export default function Home() {
   const { user } = useUser();
+
+  const userEmail = user?.data?.user?.email;
+
+
 
   return (
     <div className={styles.container}>
@@ -24,7 +29,7 @@ export default function Home() {
       <div className="mt-2 md:mt-0 h-[calc(100vh-305px)] flex justify-center w-full">
         <div className="flex gap-x-4 gap-y-4 flex-col md:flex-row w-full md:justify-between items-center px-4 md:px-12 md:py-12 max-w-[1200px]">
           <LargeButton text="I need crew" link="/I-need-crew/depts" />
-          <LargeButton text={`${user ? "My Profile" : "I am Crew"}`} link="/my-crew" />
+          <LargeButton text={`${userEmail ? "My Profile" : "I am Crew"}`} link="/my-crew" />
         </div>
       </div>
 
