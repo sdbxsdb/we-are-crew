@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import CrewDetailBox from "../../../../components/CrewDetailBox";
 import Link from "next/link";
 import DeptTitle from "../../../../components/DeptTitle";
@@ -6,6 +6,8 @@ import { supabase } from "../../../../utils/supabaseClient";
 import Head from "next/head";
 
 const CrewList = ({ users }) => {
+  console.log({ users });
+
   const sortedUsersByTitle = [...users].sort((a, b) =>
     a.title > b.title ? 1 : -1
   );
@@ -182,20 +184,35 @@ const CrewList = ({ users }) => {
 
 export default CrewList;
 
-
 export const getStaticProps = async (context) => {
-  const dept = context?.params?.crewList;
+  if (context) {
+    
+    const dept = context?.params?.crewList;
 
-  const data = await supabase.from("profiles").select("*").eq("dept", dept);
+    supabase
+      .channel("public:profiles")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "profiles" },
+        (payload) => {
+          console.log("Change received!", payload);
+        }
+      )
+      .subscribe();
 
-  // console.log("CREW DATA-", context.params.crewList);
-  // console.log("PROFILES_", data.data.map((item) => item.imgURL));
+      const data = await supabase.from("profiles").select("*").eq("dept", dept);
 
-  return {
-    props: {
-      users: data?.data,
-    }
-  };
+
+    // console.log("CREW DATA-", context.params.crewList);
+    // console.log("PROFILES_", data.data.map((item) => item.imgURL));
+    // console.log("DATA-", data.data);
+
+    return {
+      props: {
+        users: data?.data,
+      },
+    };
+  }
 };
 
 export async function getStaticPaths() {
@@ -218,8 +235,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }
-
-
