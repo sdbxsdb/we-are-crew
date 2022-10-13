@@ -6,9 +6,7 @@ import { supabase } from "../../../../utils/supabaseClient";
 import Head from "next/head";
 
 const CrewList = ({ users }) => {
-
-  console.log({users});
-
+  console.log({ users });
 
   const sortedUsersByTitle = [...users].sort((a, b) =>
     a.title > b.title ? 1 : -1
@@ -186,27 +184,25 @@ const CrewList = ({ users }) => {
 
 export default CrewList;
 
-
 export const getStaticProps = async (context) => {
-
-  if(context) {
-
+  if (context) {
     const dept = context?.params?.crewList;
-  
+
     const data = await supabase.from("profiles").select("*").eq("dept", dept);
-  
+
+
     // console.log("CREW DATA-", context.params.crewList);
     // console.log("PROFILES_", data.data.map((item) => item.imgURL));
     // console.log("DATA-", data.data);
-  
+
     return {
       props: {
         users: data?.data,
-      }
+      },
+      revalidate: 10, // In seconds
     };
   }
 };
-
 
 export async function getStaticPaths() {
   const { data: profiles } = await supabase.from("profiles").select("dept");
@@ -228,8 +224,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }
-
-
