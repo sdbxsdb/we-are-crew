@@ -45,7 +45,7 @@ const Provider = ({ children }) => {
         )
         .subscribe();
     }
-    console.log("USER-", user);
+    // console.log("USER-", user);
   }, [user]);
 
   // useEffect(() => {
