@@ -22,7 +22,7 @@
   },
   {
     "dept": "Animals",
-    "titles": ["All Aniamls", "Birds", "Horses (Picture / Stunt)", "Exotics"]
+    "titles": ["All Animals", "Birds", "Horses (Picture / Stunt)", "Exotics"]
   },
   {
     "dept": "Armoury",
@@ -32,7 +32,7 @@
       "Weapons Master (Modern)",
       "Senior Armourer (All)",
       "Senior Armourer (Period)",
-      "Senior Armourer (Modren)",
+      "Senior Armourer (Modern)",
       "Armourer (All)",
       "Armourer (Period)",
       "Armourer (Modern)",
@@ -191,7 +191,7 @@
       "Associate Producer",
       "Post Production Supervisor",
       "Post Production Co-ordinator",
-      "Dalies Co-ordinator",
+      "Dailies Co-ordinator",
       "Editorial Trainee",
       "Able to preform any role"
     ]
@@ -303,7 +303,7 @@
       "Senior Prop Modeller",
       "Prop Modeller",
       "Model Maker",
-      "Assitant Model Maker",
+      "Assistant Model Maker",
       "Props Buyer",
       "Trainee",
       "Able to preform any role"
@@ -315,7 +315,7 @@
       "Set Decorator",
       "Production Buyer",
       "Set Dec Art Director",
-      "Grapghics Assistant",
+      "Graphics Assistant",
       "Props Buyer",
       "Assistant Props Buyer",
       "Drapes Master",
@@ -330,7 +330,7 @@
     "titles": [
       "Production Sound Mixer",
       "Sound Maintenance",
-      "Sount Assistant",
+      "Sound Assistant",
       "Trainee"
     ]
   },
@@ -354,7 +354,7 @@
   },
   {
     "dept": "Stand-by",
-    "titles": ["Standy-by Carpenter", "Stand-by Rigger", "Stand-by Painter"]
+    "titles": ["Stand-by Carpenter", "Stand-by Rigger", "Stand-by Painter"]
   },
   {
     "dept": "Stills Photography",
@@ -397,7 +397,7 @@
       "VFX Previs",
       "VFX Shot Creator",
       "VFX Concept Artist",
-      "VFX Edtior",
+      "VFX Editor",
       "VFX Data Wrangler",
       "VFX Production Assistant",
       "VFX Trainee",

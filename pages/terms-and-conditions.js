@@ -71,7 +71,7 @@ const terms = () => {
             these Terms and Conditions, no part of the Site and no Content or
             Marks may be copied, reproduced, aggregated, republished, uploaded,
             posted, publicly displayed, encoded, translated, transmitted,
-            distributid, sold, licensed, or otherwise exploited for any commercial
+            distributed, sold, licensed, or otherwise exploited for any commercial
             purpose whatsoever, without our express prior written permission.
             Provided that you are eligible to use the Site, you are granted a
             limited license to access and use the Site and to download or print a
@@ -188,7 +188,7 @@ const terms = () => {
             impairs, disrupts, alters, or interferes with the use, features,
             functions, operation, or maintenance of the Site. • Engage in any
             automated use of the system, such as using scripts to send comments or
-            messages, or using any data mining, robots, or simllar data gathering
+            messages, or using any data mining, robots, or similar data gathering
             and extraction tools. Delete the copyright or other proprietary rights
             notice from any Content. Attempt to impersonate another user or person
             or use the username of another user. • Upload or transmit (or attempt
@@ -216,12 +216,12 @@ const terms = () => {
             functionality, and may provide you with the opportunity to create,
             submit, post, display, transmit, perform, publish, distribute, or
             broadcast content and materials to us or on the Site, including but
-            not llmited to text, writings, video, audio, photographs, graphics,
+            not limited to text, writings, video, audio, photographs, graphics,
             comments, suggestions, or personal Information or other material
             (collectively, Contributions*). Contributions may be viewable by
             other users of the Site and through third-party websites. As such, any
             Contributions you transmit may be treated as non-confidential and non-
-            proprietary. When you create or make avallable any Contributions, you
+            proprietary. When you create or make available any Contributions, you
             thereby represent and warrant that: - The creation, distribution,
             transmission, public display, or performance, and the accessing,
             downloading, or copying of your Contributions do not and will not
@@ -232,7 +232,7 @@ const terms = () => {
             authorize us, the Site, and other users of the Site to use your
             Contributions in any manner contemplated by the Site and these Terms
             and Conditions. You have the written consent, release, and/or
-            permission of each and every identiflable Individual person in your
+            permission of each and every identifiable Individual person in your
             Contributions to use the name or likeness of each and every such
             identifiable individual person to enable inclusion and use of your
             Contributions in any manner contemplated by the Site and these Terms
@@ -267,7 +267,7 @@ const terms = () => {
             accounts, you automatically grant, and you represent and warrant that
             you have the right to grant, to us an unrestricted, unlimited,
             irrevocable, perpetual, non-exclusive, transferable, royalty-free,
-            fully-pald, worldwide right, and license to host, use, copy,
+            fully-paid, worldwide right, and license to host, use, copy,
             reproduce, disclose, sell, resell, publish, broadcast, retitle,
             archive, store, cache, publicly perform, publicly display, reformat,
             translate, transmit, excerpt (in whole or in part), and distribute
@@ -355,7 +355,7 @@ const terms = () => {
             including all intellectual property rights, and shall be entitled to
             the unrestricted use and dissemination of these Submissions for any
             lawful purpose, commercial or otherwise, without acknowledgment or
-            compensation to you. You hereby walve all moral rights to any such
+            compensation to you. You hereby wave all moral rights to any such
             Submissions, and you hereby warrant that any such Submissions are
             original with you or that you have the right to submit such
             Submissions. You agree there shall be no recourse against us for any
@@ -455,13 +455,13 @@ const terms = () => {
             time or for any reason at our sole discretion without notice. However,
             we have no obligation to update any information on our Site. We also
             reserve the right to modify or discontinue all or part of the Site
-            without notice at any time. We will not be llable to you or any third
+            without notice at any time. We will not be liable to you or any third
             party for any modification, price change, suspension, or
             discontinuance of the Site. We cannot guarantee the Site will be
             available at all times. We may experience hardware, software, or other
             problems or need to perform maintenance related to the Site, resulting
             in interruptions, delays, or errors. We reserve the right to change,
-            revise, update, suspend, discontinue, or othenwise modify the Site at
+            revise, update, suspend, discontinue, or otherwise modify the Site at
             any time or for any reason without notice to you. You agree that we
             have no liability whatsoever for any loss, damage, or inconvenience
             caused by your inability to access or use the Site during any downtime
@@ -626,7 +626,7 @@ const terms = () => {
             24. ELECTRONIC COMMUNICATIONS,
             TRANSACTIONS, AND SIGNATURES Visiting the Site, sending us emails, and
             completing online forms constitute electronic communications. You
-            consent to recelve electronic communications, and you agree that all
+            consent to receive electronic communications, and you agree that all
             agreements, notices, disclosures, and other communications we provide
             to you electronically, via email and on the Site, satisfy any legal
             requirement that such communication be in writing. YOU HEREBY AGREE TO
@@ -642,7 +642,7 @@ const terms = () => {
             
             
             <br/><br/>
-            25. MICSELLANEOUS These Terms
+            25. MISCELLANEOUS These Terms
             and Conditions and any policies or operating rules posted by us on the
             Site or in respect to the Site constitute the entire agreement and
             understanding between you and us. Our failure to exercise or enforce

@@ -189,7 +189,7 @@ const Account = ({ session }) => {
     setWillBeAvailOn("");
   };
   const semiAvailHandler = () => {
-    setStatus("On Dalies");
+    setStatus("On Dailies");
     setProfileChanged(true);
   };
   const notAvailHandler = () => {
@@ -437,7 +437,7 @@ const Account = ({ session }) => {
                       <label
                         onClick={semiAvailHandler}
                         className={`min-w-max ${
-                          status === "On Dalies" ? "bg-wearecrewOrange" : ""
+                          status === "On Dailies" ? "bg-wearecrewOrange" : ""
                         }`}
                         htmlFor="semiAvail"
                         id="semiAvail"

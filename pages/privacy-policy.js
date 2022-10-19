@@ -36,7 +36,7 @@ const privacy = () => {
           <br/><br/>
           SUMMARY OF KEY POINTS This summary
           provides key points from our privacy notice, but you can find out more
-          detalls about any of these topics by clicking the link following each
+          details about any of these topics by clicking the link following each
           key point or by using our table of contents below to find the section
           you are looking for. 
           <br/><br/>
@@ -120,7 +120,7 @@ const privacy = () => {
           provide, improve, and administer our Services, communicate with you,
           for security and fraud prevention, and to comply with law. We may also
           process your information for other purposes with your consent. We
-          process your personal information for a varlety of reasons, depending
+          process your personal information for a variety of reasons, depending
           on how you Interact with our Services, including: To facilitate
           account creation and authentication and otherwise manage user
           accounts. We may process your information so you can create and log in
@@ -138,7 +138,7 @@ const privacy = () => {
           and we have a valid legal reason (1e. legal basis) to do so under
           applicable law, like with your consent, to comply with laws, to
           provide you with services to enter into or fulfil our contractual
-          obligations, to protect your rights, or to futfil our legitimate
+          obligations, to protect your rights, or to fulfil our legitimate
           business interests. The General Data Protection Regulation (GDPR) and
           UK GDPR require us to explain the valid legal bases we rely on in
           order to process your personal information. As such, we may rely on
@@ -190,7 +190,7 @@ const privacy = () => {
           Twitter logins). Where you choose to do this, we will receive certain
           profile Information about you from your social media provider. The
           profile information we receive may vary depending on the social media
-          provider concerned, but will often include your name, emall address,
+          provider concerned, but will often include your name, email address,
           friends list, and profile picture, as well as other information you
           choose to make public on such a social media platform. We will use the
           information we receive only for the purposes that are described in
@@ -231,7 +231,7 @@ const privacy = () => {
           information storage technology can be guaranteed to be 100% secure, so
           we cannot promise or guarantee that hackers, cybercriminals, or other
           unauthorised third parties will not be able to defeat our security and
-          improperty collect, access, steal, or modify your information.
+          improperly collect, access, steal, or modify your information.
           Although we will do our best to protect your personal information,
           transmission of personal information to and from our Services is at
           your own risk. You should only access the Services within a secure
@@ -264,8 +264,8 @@ const privacy = () => {
           If we are relying on your consent to process your personal
           information, you have the right to withdraw your consent at any time.
           You can withdraw your consent at any time by contacting us by using
-          the contact detals provided in the section &apos;HOW CAN YOU
-          CONTACTIUS ABUT THIS NOTICE? below. However, please note that this
+          the contact details provided in the section &apos;HOW CAN YOU
+          CONTACT US ABOUT THIS NOTICE? below. However, please note that this
           will not affect the lawfulness of the processing before its withdrawal
           nor, will it affect the processing of your personal information
           conducted in rellance on lawful processing grounds other than consent.
@@ -277,7 +277,7 @@ const privacy = () => {
           may retain some information in our files to prevent fraud,
           troubleshoot problems, assist with any investigations, enforce our
           legal terms and/or comply with applicable legal requirements. Cookles
-          and simllar technologles; Most Web browsers are set to accept cookies
+          and similar technologles; Most Web browsers are set to accept cookies
           by default. If you prefer, you can usually choose to set your browser
           to remove cookies and to reject cookies. If you choose to remove
           cookies or reject cookies, this could affect certain features or
@@ -303,7 +303,7 @@ const privacy = () => {
           <br/><br/>
           11. DO CALIFORNIA RESIDENTS
           HAVE SPECIFIC PRIVACY RIGHTS? In Short: Yes, if you are a resident of
-          Califomia, you are granted specific rights regarding access to your
+          California, you are granted specific rights regarding access to your
           personal information. California Civil Code Section 1798.83, also
           Known as the &apos;Shine The Light&apos; law, permits our users who
           are California residents to request and obtain from us, once a year
