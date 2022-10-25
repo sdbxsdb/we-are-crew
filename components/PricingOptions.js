@@ -150,7 +150,7 @@ const PricingOptions = ({ plans, req, res }) => {
                       </strong>
                     )}
                     {plan?.price === 26000 && (
-                      <strong className="text-white bg-wearecrewGreen py-1 px-6 absolute top-4 -right-8 transform rotate-45 shadow-md">
+                      <strong className="text-white bg-wearecrewGreen py-1 px-6 absolute top-3.5 -right-8 transform z-2000 rotate-45 shadow-md">
                         28% off  
                       </strong>
                     )}
