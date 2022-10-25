@@ -414,10 +414,7 @@ const Account = ({ session }) => {
               {/* //END OF STICKY SAVE BUTTON */}
 
               <div className="flex justify-center mt-[-40px]">
-                <h1 className="text-3xl">
-                  Your <span className="text-wearecrewBlue">Get Crew</span>{" "}
-                  Profile
-                </h1>
+                <h1 className="text-3xl">Your <span className="text-wearecrewBlue">Get Crew</span> Profile</h1>
               </div>
               {/* STATUS */}
               <div className="w-full text-center mt-16">
@@ -512,9 +509,7 @@ const Account = ({ session }) => {
                       </div>
                     ) : (
                       <div className="">
-                        <h1 className="text-white w-full bg-wearecrewGreen p-0.5 rounded-md text-2xl text-center">
-                          Live
-                        </h1>
+                        <h1 className="text-white w-full bg-wearecrewGreen p-0.5 rounded-md text-2xl text-center">Live</h1>
                         <small>
                           Your profile has been live since {dateOfPayment}
                         </small>
@@ -572,14 +567,7 @@ const Account = ({ session }) => {
                   {/* //END OF QUALIS */}
                   {/* CAN WORK IN */}
                   <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
-                    <div>
-                      <p className="text-sm text-wearecrewBlue">Can work in</p>
-                      <input
-                        type="checkbox"
-                        className="chb chb-3"
-                        id='selectAll'
-                      />
-                    </div>
+                    <p className="text-sm text-wearecrewBlue">Can work in</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
                       {places.map((place, i) => (
                         <ListCheckbox key={i} place={place} />
