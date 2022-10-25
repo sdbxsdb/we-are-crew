@@ -21,8 +21,8 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
 
       const file = event.target.files[0];
       const fileExt = file.name.split(".").pop();
-      // const fileName = `${updatedAt}?${slugify(file.name)}.${fileExt}`;
-      const fileName = `${Math.random()}.${fileExt}`;
+      const fileName = `${updatedAt}?${slugify(file.name)}.${fileExt}`;
+      // const fileName = `${Math.random()}.${fileExt}`;
 
       const filePath = `${fileName}`;
 
