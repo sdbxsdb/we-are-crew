@@ -654,7 +654,7 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF BIO */}
                   {/* UPLOAD CV */}
-                  {/* <li className=" w-full md:w-[420px] flex flex-col items-center styledList">
+                  <li className=" w-full md:w-[420px] flex flex-col items-center styledList">
                     <UploadCV
                       url={cvURL}
                       setCvFileName={setCvFileName}
@@ -672,7 +672,7 @@ const Account = ({ session }) => {
                         Remove CV
                       </small>
                     )}
-                  </li> */}
+                  </li>
                   {/* //END OF UPLOAD CV */}
                 </ul>
               </div>
