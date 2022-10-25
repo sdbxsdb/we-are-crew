@@ -17,6 +17,10 @@
     "titles": ["Action Vehicle Supplier"]
   },
   {
+    "dept": "Acting",
+    "titles": ["Actor / Actress"]
+  },
+  {
     "dept": "Advisors",
     "titles": ["Medical", "Police", "Military", "Historical", "Political"]
   },
