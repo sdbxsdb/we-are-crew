@@ -4,6 +4,14 @@ import { supabase } from "../utils/supabaseClient";
 const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
   const [uploading, setUploading] = useState(false);
 
+  const slugify = (str) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
   const {
     data: { publicUrl },
   } = supabase.storage.from("cvs").getPublicUrl(url);
