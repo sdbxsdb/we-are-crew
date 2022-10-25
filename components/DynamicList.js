@@ -63,7 +63,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
             <input
               className="border shadow-md w-full"
               name="jobTitle"
-              placeholder="Job Title"
+              placeholder="Production Title"
               defaultValue={x.jobTitle}
               onChange={(e) => handleInputChange(e, i)}
             />
