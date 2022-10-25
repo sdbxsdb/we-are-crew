@@ -665,13 +665,17 @@ const Account = ({ session }) => {
                       }}
                     />
                     {cvURL && (
+                      <>
                       <small
                         onClick={() => deleteCV()}
                         className="cursor-pointer mt-2"
                       >
                         Remove CV
                       </small>
+                      <p>{cvURL.split("?")}</p>
+                      </>
                     )}
+
                   </li>
                   {/* //END OF UPLOAD CV */}
                 </ul>
