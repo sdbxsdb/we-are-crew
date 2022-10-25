@@ -414,7 +414,7 @@ const Account = ({ session }) => {
               {/* //END OF STICKY SAVE BUTTON */}
 
               <div className="flex justify-center mt-[-40px]">
-                <h1 className="text-3xl">Your Get Crew Profile</h1>
+                <h1 className="text-3xl">Your <span className="text-wearecrewBlue">Get Crew</span> Profile</h1>
               </div>
               {/* STATUS */}
               <div className="w-full text-center mt-16">

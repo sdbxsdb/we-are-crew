@@ -51,6 +51,8 @@
       "Stand-by Art Director",
       "Draughtsperson",
       "Jr Draughtsperson",
+      "Prop Maker",
+      "Model Maker",
       "Stylist",
       "Concept Artist",
       "Graphic Artist",
@@ -64,10 +66,11 @@
     "titles": [
       "1st Assistant Director",
       "2nd Assistant Director",
+      "2nd 2nd Assistant Director",
       "3rd Assistant Director",
       "Extras Co-ordinator",
       "Trainee",
-      "Able to preform any role"
+      "Cast Assistant"
     ]
   },
   {
@@ -85,7 +88,7 @@
   },
   {
     "dept": "Casting",
-    "titles": ["Casting Director"]
+    "titles": ["Casting Director, Extras Casting"]
   },
   {
     "dept": "Catering",
@@ -187,7 +190,10 @@
       "Post Production House",
       "Producer",
       "Editor",
+      "1st Assistant Editor",
+      "2nd Assistant Editor",
       "Assistant Editor",
+      "Colorist",
       "Associate Producer",
       "Post Production Supervisor",
       "Post Production Co-ordinator",
@@ -248,13 +254,14 @@
   {
     "dept": "Locations",
     "titles": [
-      "Supervision Location Manager",
       "Location Manager",
+      "Supervision Location Manager",
       "Studio Manager",
       "Unit Manager",
       "Assistant Location Manager",
       "Locations Co-ordinator",
       "Locations Assistant",
+      "Locations Scout",
       "Able to preform any role"
     ]
   },
@@ -265,6 +272,10 @@
   {
     "dept": "Medical",
     "titles": ["Nurse"]
+  },
+  {
+    "dept": "Music",
+    "titles": ["Composer"]
   },
   {
     "dept": "Producers",
@@ -280,7 +291,9 @@
     "dept": "Production",
     "titles": [
       "Unit Production Manger",
+      "Production Supervisor",
       "Production Co-ordinator",
+      "Production Assistant",
       "Assistant Production Co-ordinator",
       "Accommodation Co-ordinator",
       "Travel Co-ordinator",
@@ -329,8 +342,12 @@
     "dept": "Sound",
     "titles": [
       "Production Sound Mixer",
+      "1st Sound Assistant",
+      "2nd Sound Assistant",
       "Sound Maintenance",
-      "Sound Assistant",
+      "Foley Artist",
+      "ADR Mixer",
+      "Sound Effects Designer",
       "Trainee"
     ]
   },
@@ -366,7 +383,7 @@
       "Stunt Co-ordinator",
       "Assistant Stunt Co-ordinator",
       "Stunt Administrator",
-      "Stunt Preformer",
+      "Stunt Performer",
       "Stunt Driver",
       "Able to preform any role"
     ]

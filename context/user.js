@@ -39,7 +39,7 @@ const Provider = ({ children }) => {
           "postgres_changes",
           { event: "*", schema: "public", table: "profiles" },
           (payload) => {
-            console.log("Change received in user.js", payload);
+            // console.log("Change received in user.js", payload);
             setUser(payload.new);
           }
         )

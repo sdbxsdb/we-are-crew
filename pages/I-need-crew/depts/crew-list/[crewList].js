@@ -6,7 +6,7 @@ import { supabase } from "../../../../utils/supabaseClient";
 import Head from "next/head";
 
 const CrewList = ({ users }) => {
-  console.log({ users });
+  // console.log({ users });
 
   const sortedUsersByTitle = [...users].sort((a, b) =>
     a.title > b.title ? 1 : -1
