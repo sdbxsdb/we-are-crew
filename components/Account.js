@@ -618,13 +618,14 @@ const Account = ({ session }) => {
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <label htmlFor="phone">Phone</label>
-                  </li>
-                  <span
+                    <span
                     title=""
-                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 md:left-[44px] z-50"
+                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 left-0 z-50"
                   >
                     Area Code?
                   </span>
+                  </li>
+                  
                   {/* //END OF PHONE */}
                   {/* CREDITS */}
                   <DynamicList
