@@ -210,6 +210,7 @@ const Account = ({ session }) => {
   const ListCheckbox = ({ place }) => {
     const [checked, setChecked] = useState(canWorkIn?.includes(place));
 
+
     useEffect(() => {
       if (checked) {
         canWorkIn?.indexOf(place) === -1
@@ -328,6 +329,17 @@ const Account = ({ session }) => {
     logout();
     deleteCookie("stripe_customer");
     router.push("/profileDeleted");
+  };
+
+
+  const [isCheckAll, setIsCheckAll] = useState(false);
+
+  const handleSelectAll = e => {
+    setIsCheckAll(!isCheckAll);
+    setIsCheck(list.map(li => li.id));
+    if (isCheckAll) {
+      setIsCheck([]);
+    }
   };
 
   return (
