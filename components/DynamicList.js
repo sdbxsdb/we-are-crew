@@ -44,7 +44,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
   }
 
   return (
-    <li className="relative styledList w-full md:w-[420px]">
+    <li className="relative styledList w-full md:w-2/3">
       <h3 className="text-sm text-wearecrewBlue">Credits</h3>
       {shownList.map((x, i) => {
         return (
