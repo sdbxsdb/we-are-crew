@@ -673,7 +673,7 @@ const Account = ({ session }) => {
                       >
                         Remove CV
                       </small>
-                      <p>{cvURL.split("?")}</p>
+                      <p>{cvURL.split("?").pop(0)}</p>
                       </>
                     )}
 
