@@ -620,7 +620,7 @@ const Account = ({ session }) => {
                     <label htmlFor="phone">Phone</label>
                     <span
                     title=""
-                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 left-0 z-50"
+                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 z-50"
                   >
                     Area Code?
                   </span>
