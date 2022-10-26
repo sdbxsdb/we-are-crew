@@ -433,7 +433,7 @@ const Account = ({ session }) => {
                       >
                         Not Available
                       </label>
-                      <input type="radio" name="radio" id="semiAvail" />
+                      {/* <input type="radio" name="radio" id="semiAvail" />
                       <label
                         onClick={semiAvailHandler}
                         className={`min-w-max ${
@@ -443,7 +443,7 @@ const Account = ({ session }) => {
                         id="semiAvail"
                       >
                         On Dailies
-                      </label>
+                      </label> */}
                       <input type="radio" name="radio" id="notAvail" />
                       <label
                         onClick={availHandler}
