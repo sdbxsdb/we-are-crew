@@ -458,7 +458,7 @@ const Account = ({ session }) => {
                     </div>
                   </div>
                   {status !== "Available" && (
-                    <li className="relative styledList w-full md:w-[420px] list-none mt-8">
+                    <li className="relative styledList w-full md:w-2/3 list-none mt-8">
                       <input
                         name="willBeAvailOn"
                         type="text"
@@ -479,7 +479,7 @@ const Account = ({ session }) => {
               <div className="">
                 <ul className="flex items-center w-full pt-12 flex-col gap-y-8">
                   {/* IMAGE */}
-                  <li className="relative styledList w-full md:w-[420px] flex flex-col items-center justify-center">
+                  <li className="relative styledList w-full md:w-2/3 flex flex-col items-center justify-center">
                     <div
                       style={imgStyling}
                       className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
@@ -493,7 +493,7 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF IMAGE */}
                   {/* IS PROFILE LIVE */}
-                  <div className="w-full md:w-[420px]">
+                  <div className="w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
                     {paid !== true ? (
                       <div className=" items-center">
@@ -518,7 +518,7 @@ const Account = ({ session }) => {
                   </div>
                   {/* //END OF IS PROFILE LIVE */}
                   {/* NAME */}
-                  <li className="relative styledList w-full md:w-[420px]">
+                  <li className="relative styledList w-full md:w-2/3">
                     <input
                       name="name"
                       type="text"
@@ -532,13 +532,13 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF NAME */}
                   {/* DEPARTMENT */}
-                  <li className="flex flex-col styledList w-full md:w-[420px]">
+                  <li className="flex flex-col styledList w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Department</p>
                     <ListDept />
                   </li>
                   {/* //END OF DEPARTMENT */}
                   {/* GRADE/TITLE */}
-                  <li className="flex flex-col styledList w-full md:w-[420px]">
+                  <li className="flex flex-col styledList w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Grade / Title</p>
                     <ListTitle />
                   </li>
@@ -546,7 +546,7 @@ const Account = ({ session }) => {
                   {/* //END OF GRADE/TITLE */}
 
                   {/* QUALIS */}
-                  <li className="relative styledList w-full md:w-[420px]">
+                  <li className="relative styledList w-full md:w-2/3">
                     <input
                       name="safetyQualifications"
                       type="text"
@@ -566,7 +566,7 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF QUALIS */}
                   {/* CAN WORK IN */}
-                  <div className="flex flex-col relative mb-4 w-full md:w-[420px]">
+                  <div className="flex flex-col relative mb-4 w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Can work in</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
                       {places.map((place, i) => (
@@ -576,7 +576,7 @@ const Account = ({ session }) => {
                   </div>
                   {/* //END OF CAN WORK IN */}
                   {/* EMAIL */}
-                  <li className="relative styledList w-full md:w-[420px]">
+                  <li className="relative styledList w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Email</p>
                     <input
                       name="email"
@@ -591,7 +591,7 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF EMAIL */}
                   {/* WEBSITE */}
-                  <li className="relative styledList w-full md:w-[420px]">
+                  <li className="relative styledList w-full md:w-2/3">
                     <input
                       name="name"
                       type="text"
@@ -606,7 +606,7 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF WEBSITE */}
                   {/* PHONE */}
-                  <li className="relative styledList w-full md:w-[420px]">
+                  <li className="relative styledList w-full md:w-2/3">
                     <input
                       name="phone"
                       type="number"
@@ -634,7 +634,7 @@ const Account = ({ session }) => {
                   />
                   {/* //END OF CREDITS */}
                   {/* BIO */}
-                  <li className="relative styledList w-full md:w-[420px]">
+                  <li className="relative styledList w-full md:w-2/3">
                     <textarea
                       className="border shadow-md w-full"
                       rows="5"
@@ -654,7 +654,7 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF BIO */}
                   {/* UPLOAD CV */}
-                  <li className=" w-full md:w-[420px] flex flex-col items-center styledList">
+                  <li className=" w-full md:w-2/3 flex flex-col items-center styledList">
                     <UploadCV
                       url={cvURL}
                       setCvFileName={setCvFileName}
