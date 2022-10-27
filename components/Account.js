@@ -249,25 +249,6 @@ const Account = ({ session }) => {
   const handleSelectAll = () => {
     setIsCheckAll(!isCheckAll);
     if (isCheckAll) {
-      setChecked([
-        "London",
-        "Liverpool",
-        "Newcastle upon Tyne",
-        "Birmingham",
-        "Exeter",
-        "Norwich",
-        "Glasgow",
-        "Edinburgh",
-        "Aberdeen",
-        "Belfast",
-        "Derry / L'Derry",
-        "Enniskillen",
-        "Dublin",
-        "Galway",
-        "Cork",
-        "Donegal",
-        "Outside the UK & Ireland",
-      ])
       setCanWorkIn([
         "London",
         "Liverpool",
@@ -290,7 +271,6 @@ const Account = ({ session }) => {
     }
     if (!isCheckAll) {
       setCanWorkIn([]);
-      setChecked([...canWorkIn]);
     }
   };
 
