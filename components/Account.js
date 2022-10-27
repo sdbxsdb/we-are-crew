@@ -604,10 +604,12 @@ const Account = ({ session }) => {
                   <div className="flex flex-col relative mb-4 w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Can work in</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
-                      <input type="checkbox" id="selectAll" className="chb chb-3"/>
-                      <label htmlFor="selectAll" onClick={handleSelectAll}>
-                        Select All
-                      </label>
+                      <li className="w-full">
+                        <input type="checkbox" id="selectAll" className="chb chb-3"/>
+                        <label htmlFor="selectAll" className="min-w-max" onClick={handleSelectAll}>
+                          Select All
+                        </label>
+                      </li>
                       {places.map((place, i) => (
                         <ListCheckbox key={i} place={place} />
                       ))}
