@@ -241,7 +241,7 @@ const Account = ({ session }) => {
         ]
         )
       } else {
-        setCanWorkIn([])
+        setCanWorkIn([...canWorkIn])
       }
       if (checked) {
         canWorkIn?.indexOf(place) === -1
