@@ -206,12 +206,7 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
-
-
-
-
   const [isCheckAll, setIsCheckAll] = useState(false);
-
 
   //CAN WORK IN//
   const ListCheckbox = ({ place }) => {
@@ -253,10 +248,30 @@ const Account = ({ session }) => {
 
   const handleSelectAll = () => {
     setIsCheckAll(!isCheckAll);
+    if (isCheckAll) {
+      setChecked([
+        "London",
+        "Liverpool",
+        "Newcastle upon Tyne",
+        "Birmingham",
+        "Exeter",
+        "Norwich",
+        "Glasgow",
+        "Edinburgh",
+        "Aberdeen",
+        "Belfast",
+        "Derry / L'Derry",
+        "Enniskillen",
+        "Dublin",
+        "Galway",
+        "Cork",
+        "Donegal",
+        "Outside the UK & Ireland",
+      ]);
+    } else {
+      setChecked([...canWorkIn]);
+    }
   };
-
-
-
 
   const ListDept = (e) => {
     // console.log(dept);
@@ -345,10 +360,6 @@ const Account = ({ session }) => {
     router.push("/profileDeleted");
   };
 
-
-
-
-
   return (
     <>
       {showFinsihProfileError && (
@@ -433,7 +444,10 @@ const Account = ({ session }) => {
               {/* //END OF STICKY SAVE BUTTON */}
 
               <div className="flex justify-center mt-[-40px]">
-                <h1 className="text-3xl">Your <span className="text-wearecrewBlue">Get Crew</span> Profile</h1>
+                <h1 className="text-3xl">
+                  Your <span className="text-wearecrewBlue">Get Crew</span>{" "}
+                  Profile
+                </h1>
               </div>
               {/* STATUS */}
               <div className="w-full text-center mt-16">
@@ -528,7 +542,9 @@ const Account = ({ session }) => {
                       </div>
                     ) : (
                       <div className="">
-                        <h1 className="text-white w-full bg-wearecrewGreen p-0.5 rounded-md text-2xl text-center">Live</h1>
+                        <h1 className="text-white w-full bg-wearecrewGreen p-0.5 rounded-md text-2xl text-center">
+                          Live
+                        </h1>
                         <small>
                           Your profile has been live since {dateOfPayment}
                         </small>
@@ -587,8 +603,10 @@ const Account = ({ session }) => {
                   <div className="flex flex-col relative mb-4 w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Can work in</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
-                    <input type="checkbox" id="selectAll" />
-                    <label htmlFor="selectAll" onClick={handleSelectAll}>Select All</label>
+                      <input type="checkbox" id="selectAll" />
+                      <label htmlFor="selectAll" onClick={handleSelectAll}>
+                        Select All
+                      </label>
                       {places.map((place, i) => (
                         <ListCheckbox key={i} place={place} />
                       ))}
@@ -639,13 +657,13 @@ const Account = ({ session }) => {
                     <span className="bar"></span>
                     <label htmlFor="phone">Phone</label>
                     <span
-                    title=""
-                    className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 z-50"
-                  >
-                    Area Code?
-                  </span>
+                      title=""
+                      className="tooltip text-wearecrewDarkGrey w-full -mt-8 left-0 z-50"
+                    >
+                      Area Code?
+                    </span>
                   </li>
-                  
+
                   {/* //END OF PHONE */}
                   {/* CREDITS */}
                   <DynamicList
@@ -687,16 +705,15 @@ const Account = ({ session }) => {
                     />
                     {cvURL && (
                       <>
-                      <small
-                        onClick={() => deleteCV()}
-                        className="cursor-pointer mt-2"
-                      >
-                        Remove CV
-                      </small>
-                      <p>{cvURL.split("?").pop(0)}</p>
+                        <small
+                          onClick={() => deleteCV()}
+                          className="cursor-pointer mt-2"
+                        >
+                          Remove CV
+                        </small>
+                        <p>{cvURL.split("?").pop(0)}</p>
                       </>
                     )}
-
                   </li>
                   {/* //END OF UPLOAD CV */}
                 </ul>
