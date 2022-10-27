@@ -531,10 +531,9 @@ const Account = ({ session }) => {
                     {paid !== true ? (
                       <div className=" items-center">
                         <h1 className="text-white w-full bg-wearecrewOrange p-0.5 rounded-md text-2xl text-center">
-                          Pending -{" "}
-                          <small>Your profile isn&apos;t currently live.</small>
+                        Your profile isn&apos;t currently live. - 
                           <Link href="/pricing">
-                            <a className="text-xs underline ml-2 text-wearecrewBlue">
+                            <a className="text-2xl underline ml-2 bg-white text-wearecrewBlue p-2 rounded-md">
                               Go live now
                             </a>
                           </Link>
