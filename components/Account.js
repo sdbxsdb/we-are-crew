@@ -534,8 +534,8 @@ const Account = ({ session }) => {
                           Your profile isn&apos;t currently live.
                         </h1>
                         <Link href="/pricing">
-                          <h1>
-                            <a className="text-2xl underline ml-2 bg-white text-wearecrewBlue p-2 rounded-md border-2 border-wearecrewBlue">
+                          <h1 className="bg-white text-wearecrewBlue p-2 rounded-md border-2 border-wearecrewBlue">
+                            <a className="text-2xl underline">
                               Go live now
                             </a>
                           </h1>
