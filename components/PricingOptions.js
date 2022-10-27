@@ -105,7 +105,7 @@ const PricingOptions = ({ plans, req, res }) => {
                     {plan?.name}
                   </h1>
                   <strong className="mb-2 md:text-2xl">
-                    {plan?.description.split(".")[0]}
+                    {plan?.description?.split(".")[0]}
                   </strong>
                   <small>
                     £{plan?.price / 100}
