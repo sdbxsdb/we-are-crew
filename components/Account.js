@@ -249,7 +249,7 @@ const Account = ({ session }) => {
   const handleSelectAll = () => {
     setIsCheckAll(!isCheckAll);
     if (isCheckAll) {
-      setChecked([
+      setCanWorkIn([
         "London",
         "Liverpool",
         "Newcastle upon Tyne",
@@ -270,7 +270,7 @@ const Account = ({ session }) => {
       ]);
     }
     if (!isCheckAll) {
-      setChecked([]);
+      setCanWorkIn([]);
     }
   };
 
