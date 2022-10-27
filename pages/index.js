@@ -22,6 +22,7 @@ export default function Home({place}) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
           : null;
+          console.log(canWorkIn.length);
       } else {
         canWorkIn?.indexOf(place) > -1
           ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
@@ -41,7 +42,7 @@ export default function Home({place}) {
           id={place}
           onChange={() => handleChange()}
           value={place}
-          checked={checked | isCheckAll}
+          checked={checked || isCheckAll}
         />
         <label className="min-w-max" htmlFor={place}>
           {place}

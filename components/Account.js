@@ -217,8 +217,8 @@ const Account = ({ session }) => {
   const ListCheckbox = ({ place }) => {
     const [checked, setChecked] = useState(canWorkIn?.includes(place));
 
-
     useEffect(() => {
+      console.log("canWorkIn-", canWorkIn);
       if (checked) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
@@ -250,8 +250,6 @@ const Account = ({ session }) => {
       </li>
     );
   };
-
-
 
   const handleSelectAll = () => {
     setIsCheckAll(!isCheckAll);
