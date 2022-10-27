@@ -529,8 +529,8 @@ const Account = ({ session }) => {
                   <div className="w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
                     {paid !== true ? (
-                      <div className=" items-center bg-wearecrewOrange">
-                        <h1 className="text-white w-full  rounded-md text-2xl text-center">
+                      <div className=" items-center bg-wearecrewOrange rounded-md">
+                        <h1 className="text-white w-full text-2xl text-center">
                         Your profile isn&apos;t currently live.
                         </h1>
                         <Link href="/pricing">
