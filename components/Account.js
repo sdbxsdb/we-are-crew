@@ -268,8 +268,9 @@ const Account = ({ session }) => {
         "Donegal",
         "Outside the UK & Ireland",
       ]);
-    } else {
-      setChecked([...canWorkIn]);
+    }
+    if (!isCheckAll) {
+      setChecked([]);
     }
   };
 
