@@ -161,24 +161,21 @@ const Account = ({ session }) => {
 
       let { error } = await supabase.from("profiles").upsert(updates);
       setShowProfileSaved(true);
-
+      window.location.reload(false)
       if (error) {
         throw error;
       }
       setLoading(false);
       setProfileChanged(false);
-      console.log("ONE");
     } catch (error) {
       alert(error.message);
     } finally {
       if (paid === true) {
-        console.log("TWO");
 
         setTimeout(() => {
           setShowProfileSaved(false);
         }, 3000);
       } else {
-        console.log("THREE");
 
         setShowProfileSaved(true);
       }
@@ -218,7 +215,7 @@ const Account = ({ session }) => {
     const [checked, setChecked] = useState(canWorkIn?.includes(place));
 
     useEffect(() => {
-      console.log("canWorkIn-", canWorkIn);
+      // console.log("canWorkIn-", canWorkIn);
       if (checked) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
