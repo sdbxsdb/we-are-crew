@@ -219,6 +219,21 @@ const Account = ({ session }) => {
 
     useEffect(() => {
       console.log("canWorkIn-", canWorkIn);
+     
+      if (checked) {
+        canWorkIn?.indexOf(place) === -1
+          ? setCanWorkIn([...canWorkIn, place])
+          : null;
+      } else {
+        canWorkIn?.indexOf(place) > -1
+          ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
+          : null;
+      }
+    }, [checked]);
+
+    const handleChange = () => {
+      setChecked(!checked);
+      // setCanWorkIn([...canWorkIn])
       if (isCheckAll) {
         setCanWorkIn([
           "London",
@@ -243,20 +258,6 @@ const Account = ({ session }) => {
       } else {
         setCanWorkIn([...canWorkIn])
       }
-      if (checked) {
-        canWorkIn?.indexOf(place) === -1
-          ? setCanWorkIn([...canWorkIn, place])
-          : null;
-      } else {
-        canWorkIn?.indexOf(place) > -1
-          ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
-          : null;
-      }
-    }, [checked]);
-
-    const handleChange = () => {
-      setChecked(!checked);
-      setCanWorkIn([...canWorkIn])
     };
 
     return (
