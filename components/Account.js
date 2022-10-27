@@ -606,7 +606,7 @@ const Account = ({ session }) => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
                       <li className="w-full">
                         <input type="checkbox" id="selectAll" className="chb chb-3"/>
-                        <label htmlFor="selectAll" className="min-w-max" onClick={handleSelectAll}>
+                        <label htmlFor="selectAll" className="min-w-max font-bold" onClick={handleSelectAll}>
                           Select All
                         </label>
                       </li>
