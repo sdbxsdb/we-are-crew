@@ -248,7 +248,7 @@ const Account = ({ session }) => {
 
   const handleSelectAll = () => {
     setIsCheckAll(!isCheckAll);
-    if (isCheckAll) {
+    if (!isCheckAll) {
       setCanWorkIn([
         "London",
         "Liverpool",
@@ -269,7 +269,7 @@ const Account = ({ session }) => {
         "Outside the UK & Ireland",
       ]);
     }
-    if (!isCheckAll) {
+    if (isCheckAll) {
       setCanWorkIn([]);
     }
   };
