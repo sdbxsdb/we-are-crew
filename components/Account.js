@@ -161,7 +161,9 @@ const Account = ({ session }) => {
 
       let { error } = await supabase.from("profiles").upsert(updates);
       setShowProfileSaved(true);
-      window.location.reload(false)
+      setTimeout(() => {
+        window.location.reload(false)
+      }, 3001);
       if (error) {
         throw error;
       }
