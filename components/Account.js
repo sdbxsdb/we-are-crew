@@ -167,14 +167,19 @@ const Account = ({ session }) => {
       }
       setLoading(false);
       setProfileChanged(false);
+      console.log("ONE");
     } catch (error) {
       alert(error.message);
     } finally {
       if (paid === true) {
+        console.log("TWO");
+
         setTimeout(() => {
           setShowProfileSaved(false);
         }, 3000);
       } else {
+        console.log("THREE");
+
         setShowProfileSaved(true);
       }
     }
