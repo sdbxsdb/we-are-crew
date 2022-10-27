@@ -529,15 +529,15 @@ const Account = ({ session }) => {
                   <div className="w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
                     {paid !== true ? (
-                      <div className=" items-center">
-                        <h1 className="text-white w-full bg-wearecrewOrange p-0.5 rounded-md text-2xl text-center">
-                        Your profile isn&apos;t currently live. - 
-                          <Link href="/pricing">
+                      <div className=" items-center bg-wearecrewOrange">
+                        <h1 className="text-white w-full  rounded-md text-2xl text-center">
+                        Your profile isn&apos;t currently live.
+                        </h1>
+                        <Link href="/pricing">
                             <a className="text-2xl underline ml-2 bg-white text-wearecrewBlue p-2 rounded-md">
                               Go live now
                             </a>
                           </Link>
-                        </h1>
                       </div>
                     ) : (
                       <div className="">
