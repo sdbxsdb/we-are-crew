@@ -50,13 +50,12 @@ const CrewList = ({ users }) => {
         return true;
       }
       let includeUser = false;
-      for ( const loc of location ) {
+      for (const loc of location) {
         if (user.canWorkIn.includes(loc)) {
-          includeUser = true
+          includeUser = true;
         }
       }
       return includeUser;
-
     });
 
   const allLocationsInOneArray = [];
@@ -90,7 +89,6 @@ const CrewList = ({ users }) => {
     setAvail(e.target.value);
   };
 
-
   const filterByTitle = (e) => {
     if (e.target.checked) {
       setTitle((title) => [...title, e.target.value]);
@@ -115,9 +113,8 @@ const CrewList = ({ users }) => {
     }
   };
 
-
   const clearLocationFilter = () => {
-    setLocation([])
+    setLocation([]);
   };
 
   return (
@@ -178,14 +175,20 @@ const CrewList = ({ users }) => {
                   <h1>No user found!</h1>
                 </div>
               )}
-              <div className="w-full lg:w-3/12 flex flex-col gap-y-4 radio_container_filter">
+              <div className="w-full lg:w-3/12 flex flex-col gap-y-4 checkbox_and_radio_container_filter">
                 <div className="min-w-[200px] shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0 flex flex-col gap-y-8">
                   <div>
-                    <p className="text-center mb-4 font-semibold text-lg">
+                    <h1 className="text-center mb-1 text-3xl">
                       Filter Profiles
-                    </p>
-                    <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
-                      <div className="" onChange={filterByAvailability}>
+                    </h1>
+
+                    <ul className="flex mt-4 flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md">
+                      <div className="flex flex-col gap-y-4 py-2 " onChange={filterByAvailability}>
+
+                        <p className=" text-center border-b-2 border-wearecrewBlue pb-2 font-bold text-lg">
+                          Filter by Availability
+                        </p>
+
                         <li className="lg:w-full max-w-3/12">
                           <input
                             name="availability"
@@ -194,9 +197,11 @@ const CrewList = ({ users }) => {
                             id="All"
                             defaultChecked
                           />
-                          <label htmlFor="All">All</label>
+                          <label htmlFor="All" className="font-bold">
+                            Show All Availbility
+                          </label>
                         </li>
-                        <li className="lg:w-full max-w-3/12 text-wearecrewGreen">
+                        <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewGreen">
                           <input
                             name="availability"
                             type="radio"
@@ -205,7 +210,7 @@ const CrewList = ({ users }) => {
                           />
                           <label htmlFor="Available">Available</label>
                         </li>
-                        <li className="lg:w-full max-w-3/12 text-wearecrewRed">
+                        <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewRed">
                           <input
                             name="availability"
                             type="radio"
@@ -217,9 +222,14 @@ const CrewList = ({ users }) => {
                       </div>
                     </ul>
                   </div>
-                  <hr />
+
                   <div>
-                    <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
+                    <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2">
+
+                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg">
+                        Filter by Grade
+                      </p>
+
                       <li className="lg:w-full max-w-3/12">
                         <input
                           id="All"
@@ -228,19 +238,25 @@ const CrewList = ({ users }) => {
                           value="All"
                           checked={title.length === 0}
                         />
-                        <label htmlFor="All" onClick={clearTitleFilter}>All</label>
+                        <label
+                          htmlFor="All"
+                          onClick={clearTitleFilter}
+                          className="font-bold"
+                        >
+                          Show All Grades
+                        </label>
                       </li>
                       {removedTitleDups?.map(
                         (user, i) =>
                           sortedUsersByTitle?.length > 0 && (
-                            <li key={i} className="lg:w-full max-w-3/12">
+                            <li key={i} className="lg:w-full max-w-3/12 flex justify-start">
                               <input
                                 id={user}
                                 type="checkbox"
                                 name="role"
                                 value={user}
                                 onChange={filterByTitle}
-                                checked={title.includes( user )}
+                                checked={title.includes(user)}
                               />
                               <label htmlFor={user}>{user}</label>
                             </li>
@@ -248,9 +264,14 @@ const CrewList = ({ users }) => {
                       )}
                     </ul>
                   </div>
-                  <hr />
+
                   <div>
-                    <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList">
+                    <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2">
+
+                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg">
+                        Filter by Location
+                      </p>
+
                       <li className="lg:w-full max-w-3/12">
                         <input
                           id="All"
@@ -259,17 +280,23 @@ const CrewList = ({ users }) => {
                           value="All"
                           checked={location.length === 0}
                         />
-                        <label htmlFor="All" onClick={clearLocationFilter}>All</label>
+                        <label
+                          htmlFor="All"
+                          onClick={clearLocationFilter}
+                          className="font-bold"
+                        >
+                          Show All Locations
+                        </label>
                       </li>
                       {sortedLocationsWithRemovedDups?.map((loc, i) => (
-                        <li key={i} className="lg:w-full max-w-3/12">
+                        <li key={i} className="lg:w-full max-w-3/12 flex justify-start">
                           <input
                             id={loc}
                             type="checkbox"
                             name="location"
                             value={loc}
                             onChange={filterByLocations}
-                            checked={ location.includes(loc)}
+                            checked={location.includes(loc)}
                           />
                           <label htmlFor={loc}>{loc}</label>
                         </li>

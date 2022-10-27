@@ -125,7 +125,7 @@ input:-webkit-autofill:active{
 } 
 
 
-.radio_container_filter {
+.checkbox_and_radio_container_filter {
 
   // height: 50px;
   border-radius: 9999px;
@@ -162,13 +162,24 @@ input:-webkit-autofill:active{
     // @apply border-2 border-wearecrewBlue;
     content: "✓   ";
     @apply text-wearecrewBlue;
-
   }
    input[type="checkbox"]:checked+label::before {
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
     content: "✓   ";
     @apply text-wearecrewBlue;
+  }
+   input[type="radio"]+label::before {
+    transition: 0.3s;
+    // @apply border-2 border-wearecrewBlue;
+    content: "◯   ";
+    @apply text-wearecrewBlue font-bold;
+  }
+   input[type="checkbox"]+label::before {
+    transition: 0.3s;
+    // @apply border-2 border-wearecrewBlue;
+    content: "▢   ";
+    @apply text-wearecrewBlue font-bold;
   }
 
 } 
