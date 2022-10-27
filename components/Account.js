@@ -162,7 +162,7 @@ const Account = ({ session }) => {
       let { error } = await supabase.from("profiles").upsert(updates);
       setShowProfileSaved(true);
       setTimeout(() => {
-        window.location.reload(false)
+        window.location.reload(false);
       }, 3001);
       if (error) {
         throw error;
@@ -173,12 +173,10 @@ const Account = ({ session }) => {
       alert(error.message);
     } finally {
       if (paid === true) {
-
         setTimeout(() => {
           setShowProfileSaved(false);
         }, 3000);
       } else {
-
         setShowProfileSaved(true);
       }
     }
@@ -343,7 +341,7 @@ const Account = ({ session }) => {
     setShowFinishProfileError(true);
     setTimeout(() => {
       setShowFinishProfileError(false);
-    }, 3000);
+    }, 4000);
   };
 
   const deleteCV = () => {
@@ -371,9 +369,6 @@ const Account = ({ session }) => {
         <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
           <div className="p-4 rounded-md shadow-md bg-wearecrewOrange text-center w-full text-wearecrewLightGrey border-wearecrewOrange border-2 relative">
             <p>Fill in your Name, Department and Grade/Title before saving.</p>
-            {/* <div onClick={() => setShowFinishProfileError(false)} className="flex items-center justify-center w-full  ">
-        <h1 className="text-sm text-wearecrewDarkestGrey px-2 py-1 rounded-full cursor-pointer mt-2">Okay</h1>
-      </div> */}
           </div>
         </div>
       )}
@@ -536,14 +531,14 @@ const Account = ({ session }) => {
                     {paid !== true ? (
                       <div className=" items-center">
                         <h1 className="text-white w-full bg-wearecrewOrange p-0.5 rounded-md text-2xl text-center">
-                          Pending
+                          Pending -{" "}
+                          <small>Your profile isn&apos;t currently live.</small>
+                          <Link href="/pricing">
+                            <a className="text-xs underline ml-2 text-wearecrewBlue">
+                              Go live now
+                            </a>
+                          </Link>
                         </h1>
-                        <small>Your profile isn&apos;t currently live.</small>
-                        <Link href="/pricing">
-                          <a className="text-xs underline ml-2 text-wearecrewBlue">
-                            Go live now
-                          </a>
-                        </Link>
                       </div>
                     ) : (
                       <div className="">
@@ -609,8 +604,16 @@ const Account = ({ session }) => {
                     <p className="text-sm text-wearecrewBlue">Can work in</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
                       <li className="w-full">
-                        <input type="checkbox" id="selectAll" className="chb chb-3"/>
-                        <label htmlFor="selectAll" className="min-w-max font-bold" onClick={handleSelectAll}>
+                        <input
+                          type="checkbox"
+                          id="selectAll"
+                          className="chb chb-3"
+                        />
+                        <label
+                          htmlFor="selectAll"
+                          className="min-w-max font-bold"
+                          onClick={handleSelectAll}
+                        >
                           Select All
                         </label>
                       </li>
@@ -811,7 +814,7 @@ const Account = ({ session }) => {
               d="M14.1 27.2l7.1 7.2 16.7-16.8"
             />
           </svg>
-          {!paid && (
+          {/* {!paid && (
             <div className="w-full flex flex-col items-center bg-wearecrewOrange py-12 shadow-md text-center text-white rounded-md">
               <p className="text-3xl mb-4">Your profile isn&apos;t live yet</p>
               <div className="flex gap-x-4 items-center justify-center">
@@ -827,7 +830,7 @@ const Account = ({ session }) => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       )}
     </>
