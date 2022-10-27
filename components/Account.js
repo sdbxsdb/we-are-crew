@@ -219,6 +219,30 @@ const Account = ({ session }) => {
 
     useEffect(() => {
       console.log("canWorkIn-", canWorkIn);
+      if (isCheckAll) {
+        setCanWorkIn([
+          "London",
+          "Liverpool",
+          "Newcastle upon Tyne",
+          "Birmingham",
+          "Exeter",
+          "Norwich",
+          "Glasgow",
+          "Edinburgh",
+          "Aberdeen",
+          "Belfast",
+          "Derry / L'Derry",
+          "Enniskillen",
+          "Dublin",
+          "Galway",
+          "Cork",
+          "Donegal",
+          "Outside the UK & Ireland"
+        ]
+        )
+      } else {
+        setCanWorkIn([])
+      }
       if (checked) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
@@ -232,6 +256,7 @@ const Account = ({ session }) => {
 
     const handleChange = () => {
       setChecked(!checked);
+      setCanWorkIn([...canWorkIn])
     };
 
     return (

@@ -6,7 +6,7 @@ import { useUser } from "../context/user";
 import places from "../places.json";
 import { useState, useEffect } from "react";
 
-export default function Home({place}) {
+export default function Home() {
 
 
   const [isCheckAll, setIsCheckAll] = useState(false);
@@ -22,12 +22,12 @@ export default function Home({place}) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
           : null;
-          console.log(canWorkIn.length);
       } else {
         canWorkIn?.indexOf(place) > -1
           ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
           : null;
       }
+      console.log({canWorkIn})
     }, [checked]);
 
     const handleChange = () => {
