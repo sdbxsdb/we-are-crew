@@ -233,31 +233,8 @@ const Account = ({ session }) => {
 
     const handleChange = () => {
       setChecked(!checked);
-      // setCanWorkIn([...canWorkIn])
-      if (isCheckAll) {
-        setCanWorkIn([
-          "London",
-          "Liverpool",
-          "Newcastle upon Tyne",
-          "Birmingham",
-          "Exeter",
-          "Norwich",
-          "Glasgow",
-          "Edinburgh",
-          "Aberdeen",
-          "Belfast",
-          "Derry / L'Derry",
-          "Enniskillen",
-          "Dublin",
-          "Galway",
-          "Cork",
-          "Donegal",
-          "Outside the UK & Ireland"
-        ]
-        )
-      } else {
-        setCanWorkIn([...canWorkIn])
-      }
+      setCanWorkIn([...canWorkIn])
+      
     };
 
     return (
@@ -279,6 +256,30 @@ const Account = ({ session }) => {
 
   const handleSelectAll = () => {
     setIsCheckAll(!isCheckAll);
+    if (isCheckAll) {
+      setCanWorkIn([
+        "London",
+        "Liverpool",
+        "Newcastle upon Tyne",
+        "Birmingham",
+        "Exeter",
+        "Norwich",
+        "Glasgow",
+        "Edinburgh",
+        "Aberdeen",
+        "Belfast",
+        "Derry / L'Derry",
+        "Enniskillen",
+        "Dublin",
+        "Galway",
+        "Cork",
+        "Donegal",
+        "Outside the UK & Ireland"
+      ]
+      )
+    } else {
+      setCanWorkIn([...canWorkIn])
+    }
   };
 
 
