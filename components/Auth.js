@@ -141,7 +141,7 @@ export default function Auth() {
                 </form>
                 <div className="px-12 w-full relative h-[50px]">
                   <hr className="" />
-                  <small className="p-2 bg-white absolute -top-1/2 left-1/2 transform -translate-x-1/2 mt-2 opacity-70">
+                  <small className="p-2 bg-white absolute -top-1/2 left-1/2 transform -translate-x-1/2 mt-2 opacity-100">
                     Or you can
                   </small>
                 </div>

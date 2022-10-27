@@ -36,8 +36,10 @@ const NavBar = () => {
     supabase.auth.signOut();
     logout();
     deleteCookie("stripe_customer");
-
     router.push("/my-crew");
+    setTimeout(() => {
+      window.location.reload(false)
+    }, 1000);
   };
 
   return (

@@ -11,7 +11,6 @@ const PricingOptions = ({ plans, req, res }) => {
   const [canViewPricing, setCanViewPricing] = useState(false);
   const router = useRouter();
   const { user } = useUser();
-  // console.log("STRIPE CUSTOMER ID-", user.stripe_customer);
 
   setCookie("stripe_customer", user.stripe_customer);
 
