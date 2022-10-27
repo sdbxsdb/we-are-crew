@@ -360,6 +360,9 @@ const Account = ({ session }) => {
     supabase.auth.signOut();
     logout();
     deleteCookie("stripe_customer");
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 300);
     router.push("/profileDeleted");
   };
 
