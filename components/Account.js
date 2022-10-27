@@ -535,7 +535,7 @@ const Account = ({ session }) => {
                         </h1>
                         <Link href="/pricing">
                           <h1>
-                            <a className="text-2xl underline ml-2 bg-white text-wearecrewBlue p-2 rounded-md">
+                            <a className="text-2xl underline ml-2 bg-white text-wearecrewBlue p-2 rounded-md border-2 border-wearecrewBlue">
                               Go live now
                             </a>
                           </h1>
