@@ -219,7 +219,6 @@ const Account = ({ session }) => {
 
     useEffect(() => {
       console.log("canWorkIn-", canWorkIn);
-     
       if (checked) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
@@ -233,8 +232,6 @@ const Account = ({ session }) => {
 
     const handleChange = () => {
       setChecked(!checked);
-      setCanWorkIn([...canWorkIn])
-      
     };
 
     return (
