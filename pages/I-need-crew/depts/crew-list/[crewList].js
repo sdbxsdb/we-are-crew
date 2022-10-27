@@ -86,8 +86,6 @@ const CrewList = ({ users }) => {
     a > b ? 1 : -1
   );
 
-  const [role, setRole] = useState([]);
-
   const filterByAvailability = (e) => {
     setAvail(e.target.value);
   };
@@ -117,7 +115,6 @@ const CrewList = ({ users }) => {
     }
   };
 
-  console.log({location});
 
   const clearLocationFilter = () => {
     setLocation([])

@@ -3,15 +3,60 @@ import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
 import { useUser } from "../context/user";
+import places from "../places.json";
+import { useState, useEffect } from "react";
+
+export default function Home({place}) {
 
 
+  const [isCheckAll, setIsCheckAll] = useState(false);
+  
+  
+  const ListCheckbox = ({ place }) => {
 
-export default function Home() {
+    const [canWorkIn, setCanWorkIn] = useState([]);
+    const [checked, setChecked] = useState(canWorkIn?.includes(place));
+
+    useEffect(() => {
+      if (checked) {
+        canWorkIn?.indexOf(place) === -1
+          ? setCanWorkIn([...canWorkIn, place])
+          : null;
+      } else {
+        canWorkIn?.indexOf(place) > -1
+          ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
+          : null;
+      }
+    }, [checked]);
+
+    const handleChange = () => {
+      setChecked(!checked);
+    };
+
+    return (
+      <li className="w-auto">
+        <input
+          type="checkbox"
+          className="chb chb-3"
+          id={place}
+          onChange={() => handleChange()}
+          value={place}
+          checked={checked | isCheckAll}
+        />
+        <label className="min-w-max" htmlFor={place}>
+          {place}
+        </label>
+      </li>
+    );
+  };
+
+  const handleSelectAll = () => {
+    setIsCheckAll(!isCheckAll);
+  };
+
   const { user } = useUser();
 
   const userEmail = user?.data?.user?.email;
-
-
 
   return (
     <div className={styles.container}>
@@ -24,18 +69,26 @@ export default function Home() {
       <div className="">
         <Banner />
       </div>
-      
 
       <div className="mt-2 md:mt-0 h-[calc(100vh-305px)] flex justify-center w-full">
+        
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
+          <input type="checkbox" id="selectAll" />
+          <label htmlFor="selectAll" onClick={handleSelectAll}>Select All</label>
+          {places.map((place, i) => (
+            <ListCheckbox key={i} place={place} checked={!isCheckAll} />
+          ))}
+        </div>
+
         <div className="flex gap-x-4 gap-y-4 flex-col md:flex-row w-full md:justify-between items-center px-4 md:px-12 md:py-12 max-w-[1200px]">
           <LargeButton text="I need crew" link="/I-need-crew/depts" />
-          <LargeButton text={`${userEmail ? "My Profile" : "I am Crew"}`} link="/my-crew" />
+          <LargeButton
+            text={`${userEmail ? "My Profile" : "I am Crew"}`}
+            link="/my-crew"
+          />
         </div>
       </div>
-
     </div>
   );
 }
-
-
-

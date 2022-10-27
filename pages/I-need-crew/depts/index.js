@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { supabase } from "../../../utils/supabaseClient";
 import Link from "next/link";
 
+
 const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   // console.log({ depts });
   // console.log({ deptsWithAtLeastOnePaid });
+
 
   const [inputValue, setInputValue] = useState("");
 

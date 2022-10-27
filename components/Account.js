@@ -206,6 +206,13 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
+
+
+
+
+  const [isCheckAll, setIsCheckAll] = useState(false);
+
+
   //CAN WORK IN//
   const ListCheckbox = ({ place }) => {
     const [checked, setChecked] = useState(canWorkIn?.includes(place));
@@ -235,7 +242,7 @@ const Account = ({ session }) => {
           id={place}
           onChange={() => handleChange()}
           value={place}
-          checked={checked}
+          checked={checked | isCheckAll}
         />
         <label className="min-w-max" htmlFor={place}>
           {place}
@@ -243,6 +250,15 @@ const Account = ({ session }) => {
       </li>
     );
   };
+
+
+
+  const handleSelectAll = () => {
+    setIsCheckAll(!isCheckAll);
+  };
+
+
+
 
   const ListDept = (e) => {
     // console.log(dept);
@@ -332,15 +348,8 @@ const Account = ({ session }) => {
   };
 
 
-  const [isCheckAll, setIsCheckAll] = useState(false);
 
-  const handleSelectAll = e => {
-    setIsCheckAll(!isCheckAll);
-    setIsCheck(list.map(li => li.id));
-    if (isCheckAll) {
-      setIsCheck([]);
-    }
-  };
+
 
   return (
     <>
@@ -554,7 +563,6 @@ const Account = ({ session }) => {
                     <p className="text-sm text-wearecrewBlue">Grade / Title</p>
                     <ListTitle />
                   </li>
-
                   {/* //END OF GRADE/TITLE */}
 
                   {/* QUALIS */}
@@ -581,6 +589,8 @@ const Account = ({ session }) => {
                   <div className="flex flex-col relative mb-4 w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Can work in</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
+                    <input type="checkbox" id="selectAll" />
+                    <label htmlFor="selectAll" onClick={handleSelectAll}>Select All</label>
                       {places.map((place, i) => (
                         <ListCheckbox key={i} place={place} />
                       ))}
