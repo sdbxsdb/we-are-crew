@@ -611,16 +611,16 @@ const Account = ({ session }) => {
                   {/* IMDB */}
                   <li className="relative styledList w-full md:w-2/3">
                     <input
-                      name="safetyQualifications"
+                      name="imdb"
                       type="text"
-                      defaultValue={qualis}
+                      defaultValue={imdb}
                       className="border shadow-md w-full"
                       required
-                      onChange={(e) => setQualis(e.target.value)}
+                      onChange={(e) => setImdb(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="safetyQualifications">
+                    <label htmlFor="imdb">
                       IMDB
                     </label>
                   </li>
