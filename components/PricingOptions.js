@@ -90,16 +90,10 @@ const PricingOptions = ({ plans, req, res }) => {
             {plans?.map((plan) => (
               <div
                 key={plan?.id}
-                className={`flex justify-between w-full ${
-                  plan?.price === 39900
-                    ? "md:absolute justify-around  "
-                    : "md:mx-20 md:px-12"
-                }`}
+                className="flex justify-between w-full"
               >
                 <div
-                  className={`bg-white flex flex-col text-center items-center rounded-xl shadow-md p-4 border-wearecrewBlue w-full md:w-[300px] relative overflow-hidden ${
-                    plan?.price === 39900 ? "border-4 py-12 z-1000" : "border-2"
-                  }`}
+                  className="bg-white flex flex-col text-center items-center rounded-xl shadow-md p-4 border-wearecrewBlue w-full md:w-[300px] relative overflow-hidden border-2"
                 >
                   <h1 className="text-2xl md:text-3xl mb-4 z-50">
                     {plan?.name}
@@ -109,28 +103,6 @@ const PricingOptions = ({ plans, req, res }) => {
                   </strong>
                   <small>
                     £{plan?.price / 100}
-                    {plan?.price === 26000 ? (
-                      <span>
-                        {" "}
-                        / 2 years <br /> <strong>33 trees planted </strong>{" "}
-                        <br /> Profile listed for 2 years
-                      </span>
-                    ) : plan.price === 18000 ? (
-                      <span>
-                        {" "}
-                        / year <br /> <strong>
-                          23 trees planted
-                        </strong> <br /> Profile listed for 1 year{" "}
-                      </span>
-                    ) : (
-                      <span>
-                        {" "}
-                        one off payment <br /> <strong>
-                          51 trees planted
-                        </strong>{" "}
-                        <br /> Profile listed until you retire
-                      </span>
-                    )}
                   </small>
                   <div className="flex flex-col">
                     {!user?.paid && (
@@ -143,16 +115,10 @@ const PricingOptions = ({ plans, req, res }) => {
                         {user?.data?.user !== null ? "Select" : "Sign Up"}
                       </button>
                     )}
-                    {plan?.price === 39900 && (
-                      <strong className="text-white bg-wearecrewGreen py-1 px-6 absolute top-[19px] -right-8 transform rotate-45 shadow-md">
-                        Best Value
-                      </strong>
-                    )}
-                    {plan?.price === 26000 && (
                       <strong className="text-white bg-wearecrewGreen py-1 px-6 absolute top-3.5 -right-8 transform z-2000 rotate-45 shadow-md">
                         28% off  
                       </strong>
-                    )}
+
                   </div>
                 </div>
               </div>
