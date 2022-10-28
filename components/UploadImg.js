@@ -46,7 +46,7 @@ export default function UploadImg({ url, onUpload }) {
   return (
 
       <div className="file-uploader  group relative w-full mb-12">
-        <label className={`text-sm text-wearecrewBlue absolute opacity-50 group-hover:opacity-100 ${uploading ? "left-[39%]" : "left-[42%]"}`} htmlFor="image">
+        <label className={`text-sm text-wearecrewBlue absolute left-[42%] opacity-100 group-hover:opacity-100`} htmlFor="image">
           {uploading ? "Uploading ..." : "Change  Image"}
         </label>
         <input
