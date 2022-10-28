@@ -183,9 +183,9 @@ const CrewList = ({ users }) => {
                     </h1>
 
                     <ul className="flex mt-4 flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md">
-                      <div className="flex flex-col gap-y-4 py-2 " onChange={filterByAvailability}>
+                      <div className="flex flex-col gap-y-4 py-2 w-full justify-center items-center" onChange={filterByAvailability}>
 
-                        <p className=" text-center border-b-2 border-wearecrewBlue pb-2 font-bold text-lg">
+                        <p className=" text-center border-b-2 border-wearecrewBlue pb-2 font-bold text-lg w-full">
                           Filter by Availability
                         </p>
 
@@ -228,7 +228,7 @@ const CrewList = ({ users }) => {
                   <div>
                     <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2">
 
-                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg">
+                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg w-full">
                         Filter by Role
                       </p>
 
@@ -270,7 +270,7 @@ const CrewList = ({ users }) => {
                   <div>
                     <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2">
 
-                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg">
+                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg w-full">
                         Filter by Location
                       </p>
 

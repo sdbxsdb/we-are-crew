@@ -26,6 +26,7 @@ const Account = ({ session }) => {
   const [title, setTitle] = useState("");
   const [canStepUp, setCanStepUp] = useState(false);
   const [qualis, setQualis] = useState("");
+  const [imdb, setImdb] = useState("");
   const [phone, setPhone] = useState("");
   const [bio, setBio] = useState("");
   const [canWorkIn, setCanWorkIn] = useState([]);
@@ -77,7 +78,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, title, canStepUp, qualis, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, title, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
         )
         .eq("id", user.id)
         .single();
@@ -100,6 +101,7 @@ const Account = ({ session }) => {
         setTitle(data.title);
         setCanStepUp(data.canStepUp);
         setQualis(data.qualis);
+        setImdb(data.imdb);
         setPhone(data.phone);
         setBio(data.bio);
         setCanWorkIn(data.canWorkIn === null ? [] : data.canWorkIn);
@@ -127,6 +129,7 @@ const Account = ({ session }) => {
     title,
     canStepUp,
     qualis,
+    imdb,
     phone,
     bio,
     canWorkIn,
@@ -150,6 +153,7 @@ const Account = ({ session }) => {
         title,
         canStepUp,
         qualis,
+        imdb,
         phone,
         bio,
         canWorkIn,
@@ -429,6 +433,7 @@ const Account = ({ session }) => {
                             title,
                             canStepUp,
                             qualis,
+                            imdb,
                             phone,
                             bio,
                             canWorkIn,
@@ -603,6 +608,23 @@ const Account = ({ session }) => {
                     </label>
                   </li>
                   {/* //END OF QUALIS */}
+                  {/* IMDB */}
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="safetyQualifications"
+                      type="text"
+                      defaultValue={qualis}
+                      className="border shadow-md w-full"
+                      required
+                      onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <label htmlFor="safetyQualifications">
+                      IMDB
+                    </label>
+                  </li>
+                  {/* //END OF IMDB */}
                   {/* CAN WORK IN */}
                   <div className="flex flex-col relative mb-4 w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Can work in</p>
@@ -755,6 +777,7 @@ const Account = ({ session }) => {
                             title,
                             canStepUp,
                             qualis,
+                            imdb,
                             phone,
                             bio,
                             canWorkIn,
