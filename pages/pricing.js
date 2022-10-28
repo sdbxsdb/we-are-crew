@@ -26,6 +26,7 @@ const pricing = ({ plans }) => {
   );
 };
 
+
 export const getStaticProps = async () => {
   const stripe = initStripe(process.env.STRIPE_SECRET_KEY);
 
@@ -34,7 +35,9 @@ export const getStaticProps = async () => {
   const plans = await Promise.all(
     prices.map(async (price) => {
       const product = await stripe.products.retrieve(price.product);
-      console.log({product});
+      // console.log({product});
+      console.log(product.name + " " + product.active)
+
       return {
         id: price?.id,
         name: product?.name,
@@ -42,9 +45,11 @@ export const getStaticProps = async () => {
         price: price?.unit_amount,
         interval: price?.recurring?.interval || null,
         currency: price?.currency,
+        active: product?.active,
       };
     })
   );
+
 
   // console.log("DATA STRIPE- ", prices);
 

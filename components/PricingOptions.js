@@ -87,42 +87,35 @@ const PricingOptions = ({ plans, req, res }) => {
           </div>
 
           <div className="flex flex-col md:flex-row justify-around items-center gap-4 w-full px-4 max-w-[1200px] text-lg">
-            {plans?.map((plan) => (
-              <div
-                key={plan?.id}
-                className="flex justify-between w-full"
-              >
-                <div
-                  className="bg-white flex flex-col text-center items-center rounded-xl shadow-md p-4 border-wearecrewBlue w-full md:w-[300px] relative overflow-hidden border-2"
-                >
-                  <h1 className="text-2xl md:text-3xl mb-4 z-50">
-                    {plan?.name}
-                  </h1>
-                  <strong className="mb-2 md:text-2xl">
-                    {plan?.description?.split(".")[0]}
-                  </strong>
-                  <small>
-                    £{plan?.price / 100}
-                  </small>
-                  <div className="flex flex-col">
-                    {!user?.paid && (
-                      <button
-                        onClick={() => processPayment(plan?.id)}
-                        // type="submit"
-                        // role="link"
-                        className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey z-2000 hover:bg-white transition"
-                      >
-                        {user?.data?.user !== null ? "Select" : "Sign Up"}
-                      </button>
-                    )}
-                      <strong className="text-white bg-wearecrewGreen py-1 px-6 absolute top-3.5 -right-8 transform z-2000 rotate-45 shadow-md">
-                        28% off  
+            {plans?.map(
+              (plan) =>
+                plan.active && (
+                  <div key={plan?.id} className="flex justify-center w-full">
+                    <div className="bg-white flex flex-col text-center items-center rounded-xl shadow-md p-4 border-wearecrewBlue w-full md:w-[300px] relative overflow-hidden border-4">
+                      <h1 className="text-2xl md:text-3xl mb-4 z-50">
+                        {plan?.name}
+                      </h1>
+                      <strong className="mb-2 md:text-2xl">
+                        {plan?.description?.split(".")[0]}
                       </strong>
-
+                      <small>£{plan?.price / 100}</small>
+                      <div className="flex flex-col">
+                        {!user?.paid && (
+                          <button
+                            onClick={() => processPayment(plan?.id)}
+                            className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey z-2000 hover:bg-white transition"
+                          >
+                            {user?.data?.user !== null ? "Select" : "Sign Up"}
+                          </button>
+                        )}
+                        <strong className="text-white bg-wearecrewGreen py-1 px-12 absolute top-2 -right-12 transform z-40 rotate-45 shadow-md text-center">
+                          15 Trees <br/>  Planted!
+                        </strong>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                )
+            )}
           </div>
           {user?.paid && (
             <div className="w-full flex justify-center">
