@@ -189,28 +189,30 @@ const CrewList = ({ users }) => {
                           Filter by Availability
                         </p>
 
-                        <li className="lg:w-full max-w-3/12">
-                          <input
-                            name="availability"
-                            type="radio"
-                            value="All"
-                            id="All"
-                            defaultChecked
-                          />
-                          <label htmlFor="All" className="font-bold">
-                            Show All Availbility
-                          </label>
-                        </li>
-                        <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewGreen">
-                          <input
-                            name="availability"
-                            type="radio"
-                            value="Available"
-                            id="Available"
-                          />
-                          <label htmlFor="Available">Available</label>
-                        </li>
-                        <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewRed">
+                        <div className="flex">
+                          <li className="lg:w-full max-w-3/12">
+                            <input
+                              name="availability"
+                              type="radio"
+                              value="All"
+                              id="All"
+                              defaultChecked
+                            />
+                            <label htmlFor="All" className="font-bold">
+                              Show All Availability
+                            </label>
+                          </li>
+                          <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewGreen">
+                            <input
+                              name="availability"
+                              type="radio"
+                              value="Available"
+                              id="Available"
+                            />
+                            <label htmlFor="Available" className="font-bold">Availability Now</label>
+                          </li>
+                        </div>
+                        {/* <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewRed">
                           <input
                             name="availability"
                             type="radio"
@@ -218,7 +220,7 @@ const CrewList = ({ users }) => {
                             id="Not Available"
                           />
                           <label htmlFor="Not Available">Not Available</label>
-                        </li>
+                        </li> */}
                       </div>
                     </ul>
                   </div>
@@ -227,7 +229,7 @@ const CrewList = ({ users }) => {
                     <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2">
 
                       <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg">
-                        Filter by Grade
+                        Filter by Role
                       </p>
 
                       <li className="lg:w-full max-w-3/12">
@@ -243,7 +245,7 @@ const CrewList = ({ users }) => {
                           onClick={clearTitleFilter}
                           className="font-bold"
                         >
-                          Show All Grades
+                          Show All Roles
                         </label>
                       </li>
                       {removedTitleDups?.map(

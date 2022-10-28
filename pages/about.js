@@ -47,12 +47,12 @@ const About = () => {
                     </div>
                     <div className="w-full md:w-1/2 ">
                       <span className="text-lg">
-                        As of 2022 the Film, Television and Broadcast industires
-                        are some of the most technologically advanced industires
+                        The Film, Television and Broadcast industries
+                        are some of the most technologically advanced
                         in the world.
                         <br />
                         <br />
-                        Yet it&apos;s crew members still have to put up with
+                        Yet its crew members still have to put up with
                         either expensive diary services or dated, regional crew
                         listing pages hidden in the depths of a website that no
                         one will ever see.
@@ -83,44 +83,43 @@ const About = () => {
                     </div>
                     <div className="w-full md:w-1/2 aboutPageListTicks text-lg">
                       <ul>
+                        
                         <li>
                           <p>
-                            Your profile will be readily accessible to any
-                            Production, Producer or PM needing crew in the UK or
-                            Ireland.
+                            Find crew and get gigs in one place.
                           </p>
                         </li>
                         <li>
                           <p>
-                            Search for crew by department and then filter by
-                            role or availability.
+                            A modern and easy-to-use platform for all.
                           </p>
                         </li>
                         <li>
-                          <p>No limit the number of crew we list.</p>
+                          <p>
+                          Quickly and easily update your availability, credits, IMDB page, website and more.
+                          </p>
                         </li>
                         <li>
                           <p>
-                            List yourself as an individual and your company at
-                            no extra charge.
+                            Refine searches by department, then filter by grade and availability.
                           </p>
                         </li>
                         <li>
                           <p>
                             No relying on someone else answering a phone or
-                            replying to email to check your availability.
+                            replying to an email to check your availability.
                           </p>
                         </li>
                         <li>
                           <p>
-                            1/10<small><sup>th</sup></small> of the cost compared to a
-                            traditional <br/> diary service’s ££££.
+                            1/10<small><sup>th</sup></small> of the cost of a
+                            traditional diary service.
                           </p>
                         </li>
                         <li>
                           <p>
-                            No restrictions when it comes to your location, your
-                            experience or your department.
+                            No restrictions when it comes to your location, 
+                            experience, department or role.
                           </p>
                         </li>
                       </ul>
@@ -318,7 +317,7 @@ const About = () => {
                         <span className="text-wearecrewBlue">
                           Get Crew
                         </span>{" "}
-                        will donate 15% of your payment to{" "}
+                        will donate 5% of your payment to{" "}
                         <a
                           href="https://onetreeplanted.org/"
                           target="_blank"
@@ -335,18 +334,7 @@ const About = () => {
                         America, Asia, Africa, Europe and the Pacific.
                         <br />
                         <br />
-                        <strong>$1 = 1 tree.</strong>
-                        <br />
-                        <br />
-                        <strong>To put that into perspective:</strong>
-                        <div className="ml-4">
-                          <br />- 1 year listing will plant{" "}
-                          <strong>23 trees.</strong>
-                          <br />- 2 year listing will plant{" "}
-                          <strong>33 trees.</strong>
-                          <br />- Lifetime (30 years) listing will plant{" "}
-                          <strong>51 trees.</strong>
-                        </div>
+                        <strong>One <span className="text-wearecrewBlue">Get Crew</span> sign up = 4 trees planted.</strong>
                         <br />
                         <br />
                         Help us to help the world.

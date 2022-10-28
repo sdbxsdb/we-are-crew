@@ -56,12 +56,14 @@ const PricingOptions = ({ plans, req, res }) => {
           className="w-full banner flex flex-col justify-center items-center p-6 md:p-12 mb-8 text-white relative"
         >
           <h1 className=" tracking-wide text-2xl w-full text-center md:text-3xl shadow-black">
-            Simple plans. Better prices.
+            One simple plan. 
+            <br />
+            One better price.
           </h1>
         </div>
 
         <div className="h-full flex flex-col px-4 z-20">
-          <div className="flex text-lg flex-col justify-start items-center text-center md:mb-12">
+          <div className="flex text-lg flex-col justify-start items-center text-center">
             <img
               src="/images/treeLogoStampGreen.png"
               width="120px"
@@ -79,7 +81,7 @@ const PricingOptions = ({ plans, req, res }) => {
                 One<strong className="text-oneTreeGreen">Tree</strong>Planted.
               </a>
               <br />
-              This means 15% of your payment will go directly to plant trees all
+              This means 5% of your payment will go directly to plant trees all
               over the world.
               <br />
               <br />
@@ -98,7 +100,7 @@ const PricingOptions = ({ plans, req, res }) => {
                       <strong className="mb-2 md:text-2xl">
                         {plan?.description?.split(".")[0]}
                       </strong>
-                      <small>£{plan?.price / 100}</small>
+                      <small>£{plan?.price / 100} p/a</small>
                       <div className="flex flex-col">
                         {!user?.paid && (
                           <button
@@ -109,7 +111,7 @@ const PricingOptions = ({ plans, req, res }) => {
                           </button>
                         )}
                         <strong className="text-white bg-wearecrewGreen py-1 px-12 absolute top-2 -right-12 transform z-40 rotate-45 shadow-md text-center">
-                          15 Trees <br/>  Planted!
+                          4 Trees <br/>  Planted!
                         </strong>
                       </div>
                     </div>
