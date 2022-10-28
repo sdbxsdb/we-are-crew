@@ -327,7 +327,7 @@ const Account = ({ session }) => {
 
   const imgStyling = {
     backgroundImage: `${
-      imgURL ? `url(${publicUrl} )` : `url(/images/logoNew2.png)`
+      imgURL ? `url(${publicUrl} )` : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",

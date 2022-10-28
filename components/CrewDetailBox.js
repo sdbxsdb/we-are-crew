@@ -50,7 +50,7 @@ const CrewDetailBox = (crew) => {
     backgroundImage: `${
       publicUrl.includes("public/images/0.")
         ? `url(${publicUrl} )`
-        : `url(/images/logoNew2.png)`
+        : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
