@@ -70,15 +70,17 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
           className="opacity-0 w-[120px] h-[45px] borderRed top-0 left-[36%] absolute"
           type="file"
           id="cv"
-          accept="application/pdf"
+          // accept="application/pdf"
           onChange={uploadCV}
           disabled={uploading}
         />
         {/* <a id="downloadCV" rel="noreferrer" target="_blank" href={publicUrl} download>Download CV</a> */}
       </div>
-      <small className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>
-        Please upload .pdf files only.
-      </small>
+      <div className="w-full text-center">
+        <small className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>
+          Please upload .pdf files only.
+        </small>
+      </div>
 
       {cvFileName && (
         <div className="mt-4 w-full text-center">
