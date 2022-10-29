@@ -30,6 +30,10 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
         return;
       }
 
+      if (event.target.files[0].type === "application/pdf") {
+        setShowPdfOnly(false);
+      }
+
       const file = event.target.files[0];
       const fileExt = file.name.split(".").pop();
       const fileName = `${Math.random()}${updatedAt}?${file.name}`;
@@ -52,7 +56,6 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
       alert(error.message);
     } finally {
       setUploading(false);
-      setShowPdfOnly(false);
       console.log("showPDF END", showPdfOnly);
 
       // console.log("EVENT-", event.target.files);
