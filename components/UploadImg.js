@@ -23,6 +23,7 @@ export default function UploadImg({ url, onUpload }) {
 
       if (!event.target.files[0].type.includes("image/")) {
         setShowWrongImgFormat(true);
+        setShowImgTooBig(false);
         return;
       }
 
@@ -48,10 +49,13 @@ export default function UploadImg({ url, onUpload }) {
       }
 
       onUpload(filePath);
+      setShowWrongImgFormat(false);
+      setShowImgTooBig(false);
     } catch (error) {
       alert(error.message);
     } finally {
       setUploading(false);
+      
       // console.log("EVENT-", event.target.files);
     }
   }
