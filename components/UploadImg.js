@@ -77,6 +77,15 @@ export default function UploadImg({ url, onUpload }) {
           </small>
         </div>
       )}
+      {showImgTooBig && (
+        <div className="w-full mt-[40px] text-center">
+          <small className="text-wearecrewRed">
+            Your profile image file size is too large.  
+            <br />
+            Please upload a file less than 2Mb.
+          </small>
+        </div>
+      )}
     </div>
   );
 }
