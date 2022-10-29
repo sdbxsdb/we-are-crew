@@ -728,7 +728,6 @@ const Account = ({ session }) => {
                         setCvURL(url);
                       }}
                     />
-                    <small>.pdf files only.</small>
                     {cvURL && (
                       <>
                         <small

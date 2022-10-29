@@ -4,6 +4,8 @@ import { supabase } from "../utils/supabaseClient";
 const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
   const [uploading, setUploading] = useState(false);
 
+  const [showPdfOnly, setShowPdfOnly] = useState(false);
+
   const slugify = (str) =>
   str
     .toLowerCase()
@@ -23,7 +25,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
       console.log(event.target.files[0].type)
       
       if (event.target.files[0].type !== "application/pdf") {
-        alert("Please upload pdf files only");
+        setShowPdfOnly(true)
         return;
       }
 
@@ -51,6 +53,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
       alert(error.message);
     } finally {
       setUploading(false);
+      setShowPdfOnly(false);
       // console.log("EVENT-", event.target.files);
     }
   }
@@ -58,6 +61,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
 
 
   return (
+
     <div className="w-full">
       <div className="file-uploader group relative h-12">
         <label
@@ -71,11 +75,12 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
           className="opacity-0 w-[120px] h-[45px] borderRed top-0 left-[36%] absolute"
           type="file"
           id="cv"
-          // accept="application/pdf"
+          accept="application/pdf"
           onChange={uploadCV}
           disabled={uploading}
         />
         {/* <a id="downloadCV" rel="noreferrer" target="_blank" href={publicUrl} download>Download CV</a> */}
+        <p className={showPdfOnly ? "text-wearecrewRed" : "" ``}>Please upload .pdf files only.</p>
       </div>
 
       {cvFileName && (
@@ -84,6 +89,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
         </div>
       )}
     </div>
+
   );
 };
 
