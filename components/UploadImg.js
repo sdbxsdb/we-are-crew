@@ -72,7 +72,7 @@ export default function UploadImg({ url, onUpload }) {
         className="opacity-0 w-[120px] h-[30px] border-0 left-[35%] absolute"
         type="file"
         id="image"
-        // accept="image/*"
+        accept="image/*"
         onChange={uploadImg}
         disabled={uploading}
       />
