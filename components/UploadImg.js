@@ -29,7 +29,7 @@ export default function UploadImg({ url, onUpload }) {
 
       if (event.target.files[0].type.includes("image/")) {
         setShowWrongImgFormat(false);
-        if (event.target.files[0].size >= 1000000) {
+        if (event.target.files[0].size >= 2000000) {
           setShowImgTooBig(true);
           return;
         }
