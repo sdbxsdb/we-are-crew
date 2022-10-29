@@ -7,12 +7,12 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
   const [showPdfOnly, setShowPdfOnly] = useState(false);
 
   const slugify = (str) =>
-  str
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
   const {
     data: { publicUrl },
@@ -22,14 +22,12 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     try {
       setUploading(true);
 
-      console.log(event.target.files[0].type)
-      
+      console.log(event.target.files[0].type);
+
       if (event.target.files[0].type !== "application/pdf") {
-        setShowPdfOnly(true)
+        setShowPdfOnly(true);
         return;
       }
-
-
 
       const file = event.target.files[0];
       const fileExt = file.name.split(".").pop();
@@ -58,10 +56,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     }
   }
 
-
-
   return (
-
     <div className="w-full">
       <div className="file-uploader group relative h-12">
         <label
@@ -80,8 +75,10 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
           disabled={uploading}
         />
         {/* <a id="downloadCV" rel="noreferrer" target="_blank" href={publicUrl} download>Download CV</a> */}
-        <p className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>Please upload .pdf files only.</p>
       </div>
+      <small className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>
+        Please upload .pdf files only.
+      </small>
 
       {cvFileName && (
         <div className="mt-4 w-full text-center">
@@ -89,7 +86,6 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
         </div>
       )}
     </div>
-
   );
 };
 
