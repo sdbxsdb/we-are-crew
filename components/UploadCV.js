@@ -76,7 +76,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
           className="opacity-0 w-[120px] h-[45px] borderRed top-0 left-[36%] absolute"
           type="file"
           id="cv"
-          // accept="application/pdf"
+          accept="application/pdf"
           onChange={uploadCV}
           disabled={uploading}
         />

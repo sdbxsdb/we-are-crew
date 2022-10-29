@@ -732,7 +732,7 @@ const Account = ({ session }) => {
                       <>
                         <small
                           onClick={() => deleteCV()}
-                          className="cursor-pointer mt-2"
+                          className="cursor-pointer mt-2 text-wearecrewRed"
                         >
                           Remove CV
                         </small>
