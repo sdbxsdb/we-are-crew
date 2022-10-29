@@ -5,6 +5,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
   const [uploading, setUploading] = useState(false);
 
   const [showPdfOnly, setShowPdfOnly] = useState(false);
+  const [showFileTooBig, setFileTooBig] = useState(false);
 
   const slugify = (str) =>
     str
@@ -31,6 +32,10 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
 
       if (event.target.files[0].type === "application/pdf") {
         setShowPdfOnly(false);
+        if (event.target.files[0].size >= 80000) {
+          setFileTooBig(true);
+          return;
+        }
       }
 
       const file = event.target.files[0];
@@ -79,10 +84,15 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
         />
         {/* <a id="downloadCV" rel="noreferrer" target="_blank" href={publicUrl} download>Download CV</a> */}
       </div>
-      <div className="w-full text-center">
+      <div className="w-full text-center flex flex-col gap-y-4">
         <small className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>
           Please upload .pdf files only.
         </small>
+        {showFileTooBig && (
+          <small className="text-wearecrewRed">
+            Your CV file size is too big.  Please upload a file less than 1Mb.
+          </small>
+        )}
       </div>
 
       {cvFileName && (
