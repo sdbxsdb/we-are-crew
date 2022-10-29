@@ -20,9 +20,9 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     try {
       setUploading(true);
 
-      console.log(event.target.files)
+      console.log(event.target.files[0].type)
       
-      if (event.target.files.type !== "application/pdf") {
+      if (event.target.files[0].type !== "application/pdf") {
         alert("Please upload pdf files only");
         return;
       }
