@@ -20,6 +20,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     try {
       setUploading(true);
 
+      console.log(event.target.files)
       // if (!event.target.files || event.target.files.length === 0) {
       //   throw new Error("You must select a CV to upload.");
       // }
