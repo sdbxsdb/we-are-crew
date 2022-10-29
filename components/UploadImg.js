@@ -21,12 +21,12 @@ export default function UploadImg({ url, onUpload }) {
         throw new Error("You must select an image to upload.");
       }
 
-      if (event.target.files[0].type !== "image/jpeg, image/jpg, image/png") {
+      if (event.target.files[0].type !== "image/jpeg" ||  "image/jpg"  || "image/png") {
         setShowWrongImgFormat(true);
         return;
       }
 
-      if (event.target.files[0].type === "image/jpeg, image/jpg, image/png") {
+      if (event.target.files[0].type === "image/jpeg" ||  "image/jpg"  || "image/png") {
         setShowWrongImgFormat(false);
         if (event.target.files[0].size >= 1000000) {
           setShowImgTooBig(true);
