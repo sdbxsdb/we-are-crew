@@ -474,17 +474,6 @@ const Account = ({ session }) => {
                       >
                         Not Available
                       </label>
-                      {/* <input type="radio" name="radio" id="semiAvail" />
-                      <label
-                        onClick={semiAvailHandler}
-                        className={`min-w-max ${
-                          status === "On Dailies" ? "bg-wearecrewOrange" : ""
-                        }`}
-                        htmlFor="semiAvail"
-                        id="semiAvail"
-                      >
-                        On Dailies
-                      </label> */}
                       <input type="radio" name="radio" id="notAvail" />
                       <label
                         onClick={availHandler}
@@ -739,6 +728,7 @@ const Account = ({ session }) => {
                         setCvURL(url);
                       }}
                     />
+                    <small>.pdf files only.</small>
                     {cvURL && (
                       <>
                         <small
