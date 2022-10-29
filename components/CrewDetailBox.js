@@ -8,7 +8,7 @@ const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
-  // console.log("CREW DETAIL PG- ", crew);
+  console.log("CREW DETAIL PG- ", crew);
 
   const slugify = (str) =>
     str
@@ -105,6 +105,15 @@ const CrewDetailBox = (crew) => {
     setCopiedText("Website Copied!");
   };
 
+  const copyIMDB = () => {
+    copy(crew.imdb);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+    setCopiedText("IMDB Copied!");
+  };
+
   const shareProfileHandler = () => {
     copy(`${window.location.origin}` + router.asPath);
     setIsCopied(true);
@@ -158,6 +167,7 @@ const CrewDetailBox = (crew) => {
             {crew?.qualis && (
               <div className="flex items-center">
                 <small>{crew?.qualis}</small>
+                <small>{crew?.imdb}</small>
               </div>
             )}
             {/* // END OF QUALIS*/}
@@ -229,7 +239,6 @@ const CrewDetailBox = (crew) => {
                 <h1 className="text-3xl">Website</h1>
               </a>
             )}
-
             {/* //END OF WEBSITE*/}
 
             {/*PROFILE*/}
@@ -449,6 +458,25 @@ const CrewDetailBox = (crew) => {
                       className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
                     >
                       <cite>Copy Website</cite>
+                    </button>
+                  </div>
+                )}
+                {crew?.imdb && (
+                  <div className="flex flex-wrap items-center gap-x-4">
+                    <span className="material-icons">public</span>
+                    <a
+                      href={`http://${crew?.imdb}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline"
+                    >
+                      {crew?.imdb}
+                    </a>
+                    <button
+                      onClick={() => copyIMDB()}
+                      className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
+                    >
+                      <cite>Copy IMDB</cite>
                     </button>
                   </div>
                 )}

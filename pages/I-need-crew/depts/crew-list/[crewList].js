@@ -159,6 +159,7 @@ const CrewList = ({ users }) => {
                           status={user.status}
                           willWorkIn={user.canWorkIn}
                           qualis={user.qualis}
+                          imdb={user.imdb}
                           credits={user.credits}
                           bio={user.bio}
                           cvURL={user.cvURL}
