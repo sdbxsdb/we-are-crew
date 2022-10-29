@@ -15,6 +15,8 @@ export default function UploadImg({ url, onUpload }) {
     try {
       setUploading(true);
 
+      console.log(event.target.files);
+
       if (!event.target.files || event.target.files.length === 0) {
         throw new Error("You must select an image to upload.");
       }
@@ -73,7 +75,7 @@ export default function UploadImg({ url, onUpload }) {
       {showWrongImgFormat && (
         <div className="w-full mt-[40px] text-center">
           <small className="text-wearecrewRed">
-            Please upload jpg, jpeg or gif files only.
+            Please upload jpg, jpeg or png files only.
           </small>
         </div>
       )}
