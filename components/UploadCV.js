@@ -21,6 +21,10 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
       setUploading(true);
 
       console.log(event.target.files)
+      if (event.target.files !== "application/pdf") {
+        alert("Please upload pdf files only");
+        return;
+      }
       // if (!event.target.files || event.target.files.length === 0) {
       //   throw new Error("You must select a CV to upload.");
       // }
@@ -70,7 +74,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
           className="opacity-0 w-[120px] h-[45px] borderRed top-0 left-[36%] absolute"
           type="file"
           id="cv"
-          accept="application/pdf"
+          // accept="application/pdf"
           onChange={uploadCV}
           disabled={uploading}
         />
