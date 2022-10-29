@@ -22,11 +22,10 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     try {
       setUploading(true);
 
-      console.log(event.target.files[0].type);
+      console.log(event.target.files[0]);
 
       if (event.target.files[0].type !== "application/pdf") {
         setShowPdfOnly(true);
-        console.log("showPDF ERROR", showPdfOnly);
         return;
       }
 
@@ -56,8 +55,6 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
       alert(error.message);
     } finally {
       setUploading(false);
-      console.log("showPDF END", showPdfOnly);
-
       // console.log("EVENT-", event.target.files);
     }
   }
