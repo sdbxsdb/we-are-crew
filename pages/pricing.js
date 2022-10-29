@@ -36,7 +36,7 @@ export const getStaticProps = async () => {
     prices.map(async (price) => {
       const product = await stripe.products.retrieve(price.product);
       // console.log({product});
-      console.log(product.name + " " + product.active)
+      // console.log(product.name + " " + product.active)
 
       return {
         id: price?.id,

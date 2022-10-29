@@ -13,7 +13,7 @@ const handler = async (req, res) => {
   const stripe = initStripe(process.env.STRIPE_SECRET_KEY);
 
   const test = await req.body 
-  console.log("REQ BODY-", test);
+  // console.log("REQ BODY-", test);
 
   const customer = await stripe.customers.create({
     email: req.body.record.email,
