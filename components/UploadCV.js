@@ -80,7 +80,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
           disabled={uploading}
         />
         {/* <a id="downloadCV" rel="noreferrer" target="_blank" href={publicUrl} download>Download CV</a> */}
-        <p className={showPdfOnly ? "text-wearecrewRed" : "" ``}>Please upload .pdf files only.</p>
+        <p className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>Please upload .pdf files only.</p>
       </div>
 
       {cvFileName && (
