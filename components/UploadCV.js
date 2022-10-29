@@ -21,15 +21,12 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
       setUploading(true);
 
       console.log(event.target.files)
+      
       if (event.target.files !== "application/pdf") {
         alert("Please upload pdf files only");
-        return;
+        // return;
       }
-      // if (!event.target.files || event.target.files.length === 0) {
-      //   throw new Error("You must select a CV to upload.");
-      // }
 
-      // setFileName(event.target.files.name);
 
 
       const file = event.target.files[0];
