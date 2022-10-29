@@ -21,12 +21,12 @@ export default function UploadImg({ url, onUpload }) {
         throw new Error("You must select an image to upload.");
       }
 
-      if (event.target.files[0].type !== ".png, .jpg, .jpeg") {
+      if (event.target.files[0].type !== "image/jpeg, image/jpg, image/png") {
         setShowWrongImgFormat(true);
         return;
       }
 
-      if (event.target.files[0].type === ".png, .jpg, .jpeg") {
+      if (event.target.files[0].type === "image/jpeg, image/jpg, image/png") {
         setShowWrongImgFormat(false);
         if (event.target.files[0].size >= 1000000) {
           setShowImgTooBig(true);
@@ -68,7 +68,7 @@ export default function UploadImg({ url, onUpload }) {
         className="opacity-0 w-[120px] h-[30px] border-0 left-[35%] absolute"
         type="file"
         id="image"
-        // accept="image/*"
+        // accept="image/jpeg, image/jpg, image/png"
         onChange={uploadImg}
         disabled={uploading}
       />
