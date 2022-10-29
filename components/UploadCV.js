@@ -32,7 +32,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
 
       if (event.target.files[0].type === "application/pdf") {
         setShowPdfOnly(false);
-        if (event.target.files[0].size >= 80000) {
+        if (event.target.files[0].size >= 1000000) {
           setFileTooBig(true);
           return;
         }
