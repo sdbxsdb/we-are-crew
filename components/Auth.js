@@ -70,37 +70,37 @@ export default function Auth() {
               <div className="aboutPageListTicks">
                 <ul>
                   <li>
+                    <p>One place for all your professional credentials.</p>
+                  </li>
+                  <li>
+                    <p>A modern and easy-to-use platform for all.</p>
+                  </li>
+                  <li>
                     <p>
-                      Your profile will be readily accessible to any Production,
-                      Producer or PM needing crew in the UK or Ireland.
+                      Quickly and easily update your availability, credits, IMDB
+                      page, website and more.
+                    </p>
+                  </li>
+                  
+                  <li>
+                    <p>
+                      No relying on someone else answering a phone or replying
+                      to an email to check your availability.
                     </p>
                   </li>
                   <li>
                     <p>
-                      One place for all your professional credentials.
+                      1/10
+                      <small>
+                        <sup>th</sup>
+                      </small>{" "}
+                      of the cost of a traditional diary service.
                     </p>
                   </li>
                   <li>
                     <p>
-                      List yourself as an individual and your company at no extra
-                      charge.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Change your own availability as and when you need to.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      1/10<sup>th</sup> of the cost compared to a traditional
-                      diary service’s ££££.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      No restrictions when it comes to your location, your
-                      experience or your department.
+                      No restrictions when it comes to your location,
+                      experience, department or role.
                     </p>
                   </li>
                 </ul>
@@ -108,7 +108,7 @@ export default function Auth() {
             </div>
             <div className="flex  flex-col justify-center items-center mt-8 md:mt-0 px-4">
               <h1 className="mb-4 text-lg text-center">
-                Enter your email <br/> to get a sign in / register link.
+                Enter your email <br /> to get a sign in / register link.
               </h1>
               <div className="bg-white w-full md:w-auto rounded-md shadow-md flex flex-col items-center justify-center pt-4 pb-8">
                 <form className="w-full px-8 md:px-20 mb-12 flex flex-col justify-center items-center">

@@ -210,7 +210,7 @@ const CrewList = ({ users }) => {
                               value="Available"
                               id="Available"
                             />
-                            <label htmlFor="Available" className="font-bold">Availability Now</label>
+                            <label htmlFor="Available" className="font-bold">Available Now</label>
                           </li>
                         </div>
                         {/* <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewRed">

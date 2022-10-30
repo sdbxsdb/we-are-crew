@@ -23,9 +23,7 @@ const terms = () => {
             concerning your access to and use of the http://www.getcrew.pro
             website as well as any other media form, media channel, mobile website
             or mobile application related, linked, or otherwise connected thereto
-            (collectively, the Site). We are registered in Northern Ireland and
-            have our registered office at 30 school rd, crossnacreevy, Belfast,
-            down bt5 7sx. You agree that by accessing the Site, you have read,
+            (collectively, the Site). You agree that by accessing the Site, you have read,
             understood, and agree to be bound by all of these Terms and
             Conditions. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS AND
             CONDITIONS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND

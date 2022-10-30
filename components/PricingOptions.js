@@ -58,7 +58,7 @@ const PricingOptions = ({ plans, req, res }) => {
           <h1 className=" tracking-wide text-2xl w-full text-center md:text-3xl shadow-black">
             One simple plan. 
             <br />
-            One better price.
+            One great price.
           </h1>
         </div>
 

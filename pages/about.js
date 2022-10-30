@@ -192,17 +192,16 @@ const About = () => {
                                     <strong>1.</strong> Pick a department.
                                   </p>
                                   <p>
-                                    <strong>2.</strong> Filter by role.
+                                    <strong>2.</strong> Filter by role, region or availability.
                                   </p>
                                   <p>
                                     <strong>3.</strong> View the profile.
                                   </p>
+                                  <p>
+                                    <strong>4.</strong> Contact!
+                                  </p>
                                 </div>
-                                <div className="w-full md:w-1/2">
-                                  <h1 className="text-center text-2xl">
-                                    4. Contact!
-                                  </h1>
-                                </div>
+                                
                               </div>
                               <div className="w-full flex justify-center mt-4">
                                 <Link href="/I-need-crew/depts">
@@ -239,19 +238,18 @@ const About = () => {
                               <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
                                 <div className="my-4 w-full flex flex-col gap-y-4 text-lg">
                                   <p>
-                                    <strong>1.</strong> Sign up with your email
+                                    <strong>1.</strong> Register with your email
                                     or Google account.
                                   </p>
                                   <p>
                                     <strong>2.</strong> Complete your profile.
                                   </p>
                                   <p>
-                                    <strong>3.</strong> Select your package.
+                                    <strong>3.</strong> Sign up and go live.
                                   </p>
                                   <p>
                                     <strong>4.</strong> That&apos;s it! Your
-                                    profile will be live for the length of your
-                                    term.
+                                    profile will be live.
                                   </p>
                                 </div>
                                 <div className="min-w-max">
@@ -326,12 +324,12 @@ const About = () => {
                         >
                           One Tree Plated
                         </a>{" "}
-                        to help combat the Film and Television industries carbon
+                        to help combat the Film and Television industry&apos;s carbon
                         footprint.
                         <br />
                         <br />
-                        One Tree Planted plant their trees in North and South
-                        America, Asia, Africa, Europe and the Pacific.
+                        One Tree Planted plant their trees in Europe, North and South
+                        America, Asia, Africa and the Pacific.
                         <br />
                         <br />
                         <strong>One <span className="text-wearecrewBlue">Get Crew</span> sign up = 4 trees planted.</strong>
