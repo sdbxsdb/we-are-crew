@@ -531,7 +531,7 @@ const Account = ({ session }) => {
                           Your profile isn&apos;t currently live.
                         </h1>
                         <Link href="/pricing">
-                          <p className="bg-white text-wearecrewBlue p-2 rounded-md shadow-md border-2 border-wearecrewBlue cursor-pointer">
+                          <p className=" text-wearecrewBlue p-2 rounded-mdcursor-pointer neumorphBoxSmNotLiveBtn">
                             <a className="text-lg">
                               Go live now
                             </a>
