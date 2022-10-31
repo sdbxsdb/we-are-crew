@@ -745,20 +745,20 @@ box-shadow: 12px 12px 24px #ced0d1, -12px -12px 24px #ffffff;
 
 .neumorphBoxMd {
 background: #F2F5F6;
--webkit-box-shadow: 12px 12px 24px #ced0d1, -12px -12px 24px #ffffff;
+-webkit-box-shadow: 8px 8px 16px #ced0d1, -8px -8px 16px #ffffff;
 box-shadow: 8px 8px 16px #ced0d1, -8px -8px 16px #ffffff;
 }
 
 .neumorphBoxSm {
 background: #F2F5F6;
--webkit-box-shadow: 12px 12px 24px #ced0d1, -12px -12px 24px #ffffff;
+-webkit-box-shadow: 3px 4px 6px #ced0d1, -3px -4px 12px #ffffff;
 box-shadow: 3px 4px 6px #ced0d1, -3px -4px 12px #ffffff;
 }
 
 .neumorphBoxSmNotLiveBtn {
-background: #ffa700;
--webkit-box-shadow: 12px 12px 24px #d97b00, -12px -12px 24px #ffa700;
-box-shadow: 3px 4px 6px #d97b00, -3px -4px 12px #ffa700;
+  background: #ff9100;
+  -webkit-box-shadow: 3px 4px 6px #d97b00, -3px -4px 12px #ffa700;
+  box-shadow: 3px 4px 6px #d97b00, -3px -4px 12px #ffa700;
 }
 
 
