@@ -546,8 +546,13 @@ const Account = ({ session }) => {
                       <div className="flex flex-col gap-2 justify-center items-center">
                         <div className="border border-wearecrewGreen p-4 flex gap-x-4 justify-between items-center rounded-md shadow-md w-full mb-2">
                           <h1 className="text-wearecrewGreen w-full text-2xl">
-                            Your profile is live since {dateOfPayment}
+                            Your profile is live. 
+                            {/* since {dateOfPayment} */}
                           </h1>
+                          <div className="flex flex-col items-center justify-center gap-y-2">
+                            <span>Live since:</span>
+                            <span>{dateOfPayment}</span>
+                          </div>
                         </div>
                       </div>
                     )}
