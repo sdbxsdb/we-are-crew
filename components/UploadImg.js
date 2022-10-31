@@ -63,13 +63,13 @@ export default function UploadImg({ url, onUpload }) {
   return (
     <div className="file-uploader group flex flex-col gap-y-4 relative w-full mb-12">
       <label
-        className={`text-sm text-wearecrewBlue absolute left-[42%] group-hover:opacity-90 transition`}
+        className={`text-sm text-wearecrewBlue absolute left-[50%] transform translate-x-1/2 group-hover:opacity-90 transition`}
         htmlFor="image"
       >
         {uploading ? "Uploading ..." : "Change  Image"}
       </label>
       <input
-        className="opacity-0 w-[120px] h-[30px] border-0 left-[39%] absolute"
+        className="opacity-100 w-[120px] h-[30px] border-0 left-[50%] transform translate-x-1/2 absolute"
         type="file"
         id="image"
         accept="image/*"
