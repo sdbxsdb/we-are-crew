@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NavLink from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { useUser } from "../context/user";
@@ -38,7 +39,7 @@ const NavBar = () => {
     deleteCookie("stripe_customer");
     router.push("/my-crew");
     setTimeout(() => {
-      window.location.reload(false)
+      window.location.reload(false);
     }, 1000);
   };
 
@@ -47,7 +48,7 @@ const NavBar = () => {
       <div className="max-w-[1200px] flex flex-col gap-y-2 md:gap-y-0 w-full">
         <nav className=" flex justify-between  items-center text-sm sm:text-base ">
           <Link href="/">
-            <a className="h-full w-[120px] relative flex justify-center items-center">
+            <a className="h-full w-[120px] relative flex justify-center items-center hover:brightness-110 transition">
               <img
                 src="/images/newGCLogo.png"
                 className="z-50"
@@ -56,17 +57,29 @@ const NavBar = () => {
             </a>
           </Link>
           <div className="flex flex-wrap justify-end gap-x-4 gap-y-2 md:gap-x-8 px-4 text-wearecrewDarkestGrey font-bold items-center">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
+            <NavLink href="/">
+              <span className={router.pathname == "/" ? "text-wearecrewBlue" : "hover:text-wearecrewBlue transition cursor-pointer"}>
+                Home
+              </span>
+            </NavLink>
+            <NavLink href="/about">
+              <span className={router.pathname == "/about" ? "text-wearecrewBlue" : "hover:text-wearecrewBlue transition cursor-pointer"}>
+                About
+              </span>
+            </NavLink>
 
-            <Link href="/pricing">
-              <a>Pricing</a>
-            </Link>
+            <NavLink href="/pricing">
+              <span className={router.pathname == "/pricing" ? "text-wearecrewBlue" : "hover:text-wearecrewBlue transition cursor-pointer"}>
+                Pricing
+              </span>
+            </NavLink>
 
             {!userEmail && (
-              <Link href="/my-crew">
-                <a>Sign In / Register</a>
-              </Link>
+              <NavLink href="/my-crew">
+                <span className={router.pathname == "/my-crew" ? "text-wearecrewBlue" : "hover:text-wearecrewBlue transition cursor-pointer"}>
+                  Sign In / Register
+                </span>
+              </NavLink>
             )}
             {userEmail && (
               <div className="relative">

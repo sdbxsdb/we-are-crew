@@ -131,7 +131,7 @@ const CrewList = ({ users }) => {
       <div className="px-4 md:px-12 p-8 md:p-12 w-full h-fit flex justify-center">
         <div className="max-w-[1200px] w-full">
           <Link href="/I-need-crew/depts">
-            <a className="font-semibold">&#x2190; Back to Departments</a>
+            <a className="font-semibold hover:text-wearecrewBlue transition"><span className="text-wearecrewBlue">&#x2190;</span> Back to Departments</a>
           </Link>
           <div className="w-full flex justify-center md:justify-start mt-4">
             <h1 className="text-4xl">
@@ -177,18 +177,21 @@ const CrewList = ({ users }) => {
                 </div>
               )}
               <div className="w-full lg:w-3/12 flex flex-col gap-y-4 checkbox_and_radio_container_filter">
-                <div className="min-w-[200px] shadow-md bg-white rounded-md p-4 lg:h-fit mb-4 md:mb-0 flex flex-col gap-y-8">
+                <div className="min-w-[200px] rounded-md px-2 lg:h-fit mb-4 md:mb-0 flex flex-col gap-y-4 md:gap-y-8">
                   <div>
                     <h1 className="text-center mb-1 text-3xl">
                       Filter Profiles
                     </h1>
 
-                    <ul className="flex mt-4 flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md">
-                      <div className="flex flex-col gap-y-4 py-2 w-full justify-center items-center" onChange={filterByAvailability}>
+                    <ul className="flex mt-4 flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md overflow-hidden">
+                      <div className="flex flex-col gap-y-4 py-2 w-full justify-center items-center bg-white" onChange={filterByAvailability}>
 
-                        <p className=" text-center border-b-2 border-wearecrewBlue pb-2 font-bold text-lg w-full">
-                          Filter by Availability
-                        </p>
+                        <div className="w-full flex flex-col items-center">
+                          <p className=" text-center pb-2 font-bold text-lg w-full">
+                            Filter by Availability
+                          </p>
+                          <hr className="w-2/3"/>
+                        </div>
 
                         <div className="flex">
                           <li className="lg:w-full max-w-3/12">
@@ -227,13 +230,16 @@ const CrewList = ({ users }) => {
                   </div>
 
                   <div>
-                    <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2">
+                    <ul className="flex flex-wrap md:justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2 bg-white">
 
-                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg w-full">
-                        Filter by Role
-                      </p>
+                      <div className="w-full flex flex-col items-center">
+                        <p className="text-center pb-2 font-bold text-lg w-1/2">
+                          Filter by Role
+                        </p>
+                        <hr className="w-2/3"/>
+                      </div>
 
-                      <li className="lg:w-full max-w-3/12">
+                      <li className="lg:w-full w-full md:max-w-3/12">
                         <input
                           id="All"
                           type="checkbox"
@@ -269,13 +275,16 @@ const CrewList = ({ users }) => {
                   </div>
 
                   <div>
-                    <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2">
+                    <ul className="flex flex-wrap md:justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2 bg-white">
 
-                      <p className="text-center pb-2 border-b-2 border-wearecrewBlue font-bold text-lg w-full">
-                        Filter by Location
-                      </p>
+                      <div className="w-full flex flex-col items-center">
+                        <p className="text-center pb-2 font-bold text-lg w-full">
+                          Filter by Location
+                        </p>
+                        <hr className="w-2/3"/>
+                      </div>
 
-                      <li className="lg:w-full max-w-3/12">
+                      <li className="lg:w-full w-full md:max-w-3/12">
                         <input
                           id="All"
                           type="checkbox"

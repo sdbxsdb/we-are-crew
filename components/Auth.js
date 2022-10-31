@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import Banner from "../components/Banner";
+import Link from "next/link";
 
 export default function Auth() {
   const [loading, setLoading] = useState(false);
@@ -81,11 +82,11 @@ export default function Auth() {
                       page, website and more.
                     </p>
                   </li>
-                  
+
                   <li>
                     <p>
-                      No relying on someone else answering a phone or replying
-                      to an email to check your availability.
+                      No relying on someone answering a phone or replying to an
+                      email to check availability.
                     </p>
                   </li>
                   <li>
@@ -103,18 +104,23 @@ export default function Auth() {
                       experience, department or role.
                     </p>
                   </li>
+                  <Link href="/your-data">
+                          <span className="text-wearecrewBlue ml-6 underline cursor-pointer">
+                            What we do with your data.
+                          </span>
+                        </Link>
                 </ul>
               </div>
             </div>
             <div className="flex  flex-col justify-center items-center mt-8 md:mt-0 px-4">
-              <h1 className="mb-4 text-lg text-center">
-                Enter your email <br /> to get a sign in / register link.
-              </h1>
-              <div className="bg-white w-full md:w-auto rounded-md shadow-md flex flex-col items-center justify-center pt-4 pb-8">
+              <p className="mb-6 text-lg text-center">
+                Enter your email to get a sign in / register link.
+              </p>
+              <div className="neumorphBoxLg w-full md:w-auto rounded-md flex flex-col items-center justify-center pt-4 pb-8">
                 <form className="w-full px-8 md:px-20 mb-12 flex flex-col justify-center items-center">
                   <div className="mb-2 rounded-md p-2 styledList">
                     <input
-                      className="inputField"
+                      className="inputField bg-transparent"
                       type="email"
                       placeholder="Email"
                       value={email}
@@ -132,7 +138,7 @@ export default function Auth() {
                         e.preventDefault();
                         handleLogin(email);
                       }}
-                      className="p-2 w-full rounded-md border-2 border-wearecrewBlue mt-2"
+                      className="p-2 w-full rounded-md neumorphBoxSm hoverScale transition hover:text-wearecrewBlue mt-2"
                       disabled={loading}
                     >
                       <span>{loading ? "Loading..." : "Send login link"}</span>
@@ -141,13 +147,13 @@ export default function Auth() {
                 </form>
                 <div className="px-12 w-full relative h-[50px]">
                   <hr className="" />
-                  <small className="p-2 bg-white absolute -top-1/2 left-1/2 transform -translate-x-1/2 mt-2 opacity-100">
+                  <small className="p-2 bg-wearecrewLightGrey absolute -top-1/2 left-1/2 transform -translate-x-1/2 mt-2 opacity-100">
                     Or you can
                   </small>
                 </div>
                 <div
                   onClick={() => signInWithGoogle()}
-                  className="flex bg-white p-2 items-center gap-x-2 rounded-md shadow-md cursor-pointer border-2 border-wearecrewBlue w-fit"
+                  className="flex p-2 items-center gap-x-2 rounded-md cursor-pointer neumorphBoxSm hoverScale w-fit"
                 >
                   <img
                     src="/images/7123025_logo_google_g_icon.png"

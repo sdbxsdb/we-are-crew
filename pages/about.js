@@ -31,7 +31,6 @@ const About = () => {
       </Head>
 
       <div className="aboutPage relative">
-
         <div className="w-full flex justify-center mt-6 md:mt-12">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
             <div className="md:snap-y md:snap-mandatory md:h-[calc(100vh-105px)] overflow-scroll">
@@ -47,15 +46,14 @@ const About = () => {
                     </div>
                     <div className="w-full md:w-1/2 ">
                       <span className="text-lg">
-                        The Film, Television and Broadcast industries
-                        are some of the most technologically advanced
-                        in the world.
+                        The Film, Television and Broadcast industries are some
+                        of the most technologically advanced in the world.
                         <br />
                         <br />
-                        Yet its crew members still have to put up with
-                        either expensive diary services or dated, regional crew
-                        listing pages hidden in the depths of a website that no
-                        one will ever see.
+                        Yet its crew members still have to put up with either
+                        expensive diary services or dated, regional crew listing
+                        pages hidden in the depths of a website that no one will
+                        ever see.
                         <br />
                         <br />
                         <span className="text-wearecrewBlue">Get Crew</span> has
@@ -83,42 +81,45 @@ const About = () => {
                     </div>
                     <div className="w-full md:w-1/2 aboutPageListTicks text-lg">
                       <ul>
-                        
                         <li>
                           <p>
-                            Find crew and get gigs in one place.
+                            Find crew and list your professional profile in one
+                            place.
+                          </p>
+                        </li>
+                        <li>
+                          <p>A modern and easy-to-use platform for all.</p>
+                        </li>
+                        <li>
+                          <p>
+                            Quickly and easily update your availability,
+                            credits, IMDB page, website and more.
                           </p>
                         </li>
                         <li>
                           <p>
-                            A modern and easy-to-use platform for all.
+                            Refine searches by department, then filter by role,
+                            availability and location.
                           </p>
                         </li>
                         <li>
                           <p>
-                          Quickly and easily update your availability, credits, IMDB page, website and more.
+                            No relying on someone answering a phone or replying
+                            to an email to check availability.
                           </p>
                         </li>
                         <li>
                           <p>
-                            Refine searches by department, then filter by grade and availability.
+                            1/10
+                            <small>
+                              <sup>th</sup>
+                            </small>{" "}
+                            of the cost of a traditional diary service.
                           </p>
                         </li>
                         <li>
                           <p>
-                            No relying on someone else answering a phone or
-                            replying to an email to check your availability.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            1/10<small><sup>th</sup></small> of the cost of a
-                            traditional diary service.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            No restrictions when it comes to your location, 
+                            No restrictions when it comes to your location,
                             experience, department or role.
                           </p>
                         </li>
@@ -141,7 +142,9 @@ const About = () => {
                 <div className="w-full flex justify-center items-center gap-4 mb-12 mt-12">
                   <div className="w-full max-w-[1200px]">
                     <div className="w-full text-left flex flex-col md:flex-row items-center justify-between">
-                      <h1 className="text-4xl text-left w-full min-w-max mb-4 md:mb-0">How does it work?</h1>
+                      <h1 className="text-4xl text-left w-full min-w-max mb-4 md:mb-0">
+                        How does it work?
+                      </h1>
                       <div className="w-full flex justify-center gap-x-4">
                         <button
                           onClick={(e) => needCrewHandler(e)}
@@ -151,7 +154,7 @@ const About = () => {
                                   ? "border-wearecrewBlue"
                                   : "border-transparent"
                               }
-                                break-normal largeBtn text-wearecrewDarkestGrey font-anton text-3xl lg:text-4xl text-center uppercase leading-relaxed border-b-[10px]  shadow-md hoverScale w-full min-w-max md:w-[40%] p-4`}
+                                break-normal largeBtn text-wearecrewDarkestGrey font-anton text-3xl lg:text-4xl text-center uppercase leading-relaxed border-b-[10px] neumorphBoxMd hoverScale w-full min-w-max md:w-[40%] p-4`}
                         >
                           <span className="min-w-max">I need crew</span>
                         </button>
@@ -164,7 +167,7 @@ const About = () => {
                                   ? "border-wearecrewBlue"
                                   : "border-transparent"
                               }
-                              break-normal largeBtn text-wearecrewDarkestGrey font-anton text-3xl lg:text-4xl text-center uppercase leading-relaxed border-b-[10px] shadow-md hoverScale w-full  min-w-max md:w-[40%] p-4`}
+                              break-normal largeBtn text-wearecrewDarkestGrey font-anton text-3xl lg:text-4xl text-center uppercase leading-relaxed border-b-[10px] neumorphBoxMd hoverScale w-full  min-w-max md:w-[40%] p-4`}
                         >
                           <span className="min-w-max">I am crew</span>
                         </button>
@@ -192,7 +195,8 @@ const About = () => {
                                     <strong>1.</strong> Pick a department.
                                   </p>
                                   <p>
-                                    <strong>2.</strong> Filter by role, region or availability.
+                                    <strong>2.</strong> Filter by role, region
+                                    or availability.
                                   </p>
                                   <p>
                                     <strong>3.</strong> View the profile.
@@ -201,7 +205,6 @@ const About = () => {
                                     <strong>4.</strong> Contact!
                                   </p>
                                 </div>
-                                
                               </div>
                               <div className="w-full flex justify-center mt-4">
                                 <Link href="/I-need-crew/depts">
@@ -295,7 +298,9 @@ const About = () => {
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row  gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
-                      <h1 className="text-4xl mb-4 md:mb-0">Lets plant some trees!</h1>
+                      <h1 className="text-4xl mb-4 md:mb-0">
+                        Lets plant some trees!
+                      </h1>
                       <img
                         src="/images/pngwing.com.png"
                         alt=""
@@ -324,15 +329,19 @@ const About = () => {
                         >
                           One Tree Plated
                         </a>{" "}
-                        to help combat the Film and Television industry&apos;s carbon
-                        footprint.
+                        to help combat the Film and Television industry&apos;s
+                        carbon footprint.
                         <br />
                         <br />
-                        One Tree Planted plant their trees in Europe, North and South
-                        America, Asia, Africa and the Pacific.
+                        One Tree Planted plant their trees in Europe, North and
+                        South America, Asia, Africa and the Pacific.
                         <br />
                         <br />
-                        <strong>One <span className="text-wearecrewBlue">Get Crew</span> sign up = 4 trees planted.</strong>
+                        <strong>
+                          One{" "}
+                          <span className="text-wearecrewBlue">Get Crew</span>{" "}
+                          sign up = 4 trees planted.
+                        </strong>
                         <br />
                         <br />
                         Help us to help the world.

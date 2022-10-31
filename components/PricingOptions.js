@@ -53,7 +53,7 @@ const PricingOptions = ({ plans, req, res }) => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="w-full banner flex flex-col justify-center items-center p-6 md:p-12 mb-8 text-white relative"
+          className="w-full banner flex flex-col justify-center items-center h-auto py-4 md:py-8 mb-8 text-white relative"
         >
           <h1 className=" tracking-wide text-2xl w-full text-center md:text-3xl shadow-black">
             One simple plan. 
@@ -93,7 +93,9 @@ const PricingOptions = ({ plans, req, res }) => {
               (plan) =>
                 plan.active && (
                   <div key={plan?.id} className="flex justify-center w-full">
-                    <div className="bg-white flex flex-col text-center items-center rounded-xl shadow-md p-4 border-wearecrewBlue w-full md:w-[300px] relative overflow-hidden border-4">
+                    <div className=" flex flex-col text-center items-center rounded-xl  p-4  w-full md:w-[300px] relative overflow-hidden neumorphBoxLg transform hover:scale-102 transition cursor-pointer border-b-2 border-wearecrewBlue"
+                    onClick={() => processPayment(plan?.id)}
+                    >
                       <h1 className="text-2xl md:text-3xl mb-4 z-50">
                         {plan?.name}
                       </h1>
@@ -105,12 +107,12 @@ const PricingOptions = ({ plans, req, res }) => {
                         {!user?.paid && (
                           <button
                             onClick={() => processPayment(plan?.id)}
-                            className="border-2 rounded-md shadow-md px-4 py-2 border-wearecrewBlue mt-4 bg-wearecrewBlue text-white hover:text-wearecrewDarkestGrey z-2000 hover:bg-white transition"
+                            className="rounded-md neumorphBoxSm px-4 py-2 mt-4  neumorphBoxSm z-2000 hover:text-wearecrewBlue transition"
                           >
                             {user?.data?.user !== null ? "Select" : "Sign Up"}
                           </button>
                         )}
-                        <strong className="text-white bg-wearecrewGreen py-1 px-12 absolute top-2 -right-12 transform z-40 rotate-45 shadow-md text-center">
+                        <strong className="text-white  bg-wearecrewGreen py-1 px-12 absolute top-2 -right-12 transform z-40 rotate-45 shadow-md text-center">
                           4 Trees <br/>  Planted!
                         </strong>
                       </div>

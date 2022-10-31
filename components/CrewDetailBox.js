@@ -18,7 +18,6 @@ const CrewDetailBox = (crew) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-
   useEffect(() => {
     if (router.asPath.includes("user=" && "&showModal=true")) {
       // console.log("CREW SLUG -" + slugify(crew.name) + "_" + crew.id)
@@ -31,20 +30,17 @@ const CrewDetailBox = (crew) => {
     }
   }, [router]);
 
-
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(crew?.imgURL);
 
   const {
-    data: { publicUrl: publicCVUrl }
+    data: { publicUrl: publicCVUrl },
   } = supabase.storage.from("cvs").getPublicUrl(crew?.cvURL);
 
   // console.log("Data- ", data);
   // console.log("CREW DETAIL CV- ", crew.cvURL);
   // console.log("CV-", publicCVUrl);
-
-  
 
   const stylingLarge = {
     backgroundImage: `${
@@ -127,34 +123,35 @@ const CrewDetailBox = (crew) => {
 
   const creditsExist = crew?.credits?.some((credit) => credit?.jobTitle);
 
-  const sortedLocations = [...crew?.willWorkIn]
-  .sort((a, b) => (a > b ? 1 : -1))
-
+  const sortedLocations = [...crew?.willWorkIn].sort((a, b) =>
+    a > b ? 1 : -1
+  );
 
   return (
-
     <div>
-
       <div
         className={`fixed top-0 z-4000 left-1/2 transform -translate-x-1/2 bg-wearecrewGreen p-4 rounded-md shadow-md transition flex justify-center min-w-[100px]
         ${isCopied ? "translate-y-0" : "-translate-y-24"}`}
       >
         <strong className="text-lg text-white min-w-max">{copiedText}</strong>
       </div>
-      <div className="border-b border-wearecrewBlue rounded shadow-md bg-white h-full">
+      <div className="border-b-2 border-wearecrewBlue rounded bg-white shadow-md h-full">
         {/*Larger screen layout*/}
         <div className="hidden md:flex p-4 items-center gap-x-4 justify-between">
           {/*IMAGE*/}
           <div
-          onClick={() => setShowModal(true)} 
+            onClick={() => setShowModal(true)}
             style={stylingLarge}
-            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer"
+            className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer hoverScale"
           ></div>
           {/* //END OF IMAGE*/}
 
           <div className="w-[210px] flex flex-col">
             {/*NAME*/}
-            <h2 onClick={() => setShowModal(true)} className="cursor-pointer">
+            <h2
+              onClick={() => setShowModal(true)}
+              className="cursor-pointer hover:text-wearecrewBlue transition"
+            >
               <strong>{crew?.name}</strong>
             </h2>
             {/* //END OF NAME */}
@@ -173,18 +170,24 @@ const CrewDetailBox = (crew) => {
             {/* // END OF QUALIS*/}
 
             {/*STATUS*/}
-            <div
-              className="mt-4 flex flex-col"
-            >
-              <strong className={`${
-                crew?.status === "Available"
-                  ? "text-wearecrewGreen"
-                  : crew.status === "Not Available"
-                  ? "text-wearecrewRed"
-                  : "text-wearecrewOrange"
-              }`}>{crew?.status}</strong>
-              {crew?.status !== "Available" && crew?.willBeAvailOn !== "" && crew?.willBeAvailOn !== null && (
-                  <small className="text-wearecrewRed">Available from: {crew?.willBeAvailOn}</small>
+            <div className="mt-4 flex flex-col">
+              <strong
+                className={`${
+                  crew?.status === "Available"
+                    ? "text-wearecrewGreen"
+                    : crew.status === "Not Available"
+                    ? "text-wearecrewRed"
+                    : "text-wearecrewOrange"
+                }`}
+              >
+                {crew?.status}
+              </strong>
+              {crew?.status !== "Available" &&
+                crew?.willBeAvailOn !== "" &&
+                crew?.willBeAvailOn !== null && (
+                  <small className="text-wearecrewRed">
+                    Available from: {crew?.willBeAvailOn}
+                  </small>
                 )}
             </div>
             {/* //END OF STATUS */}
@@ -212,7 +215,7 @@ const CrewDetailBox = (crew) => {
             {crew?.phone && (
               <a
                 href={`tel:${crew?.phone}`}
-                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition"
               >
                 <h1 className="text-3xl">Call</h1>
               </a>
@@ -222,7 +225,7 @@ const CrewDetailBox = (crew) => {
             {/*EMAIL*/}
             <a
               href={`mailto:${crew?.email}?subject=I found your profile on Get Crew!`}
-              className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+              className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition"
             >
               <h1 className="text-3xl">Email</h1>
             </a>
@@ -234,7 +237,7 @@ const CrewDetailBox = (crew) => {
                 href={`http://${website}`}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+                className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition"
               >
                 <h1 className="text-3xl">Website</h1>
               </a>
@@ -244,7 +247,7 @@ const CrewDetailBox = (crew) => {
             {/*PROFILE*/}
             <div
               onClick={() => setShowModal(true)}
-              className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white"
+              className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition "
             >
               <h1 className="text-3xl text-center">Profile</h1>
             </div>
@@ -266,20 +269,26 @@ const CrewDetailBox = (crew) => {
               <div className="w-[210px] text-right">
                 <div className="flex flex-col">
                   {/* MOBILE STATUS*/}
-                  <div
-              className="flex flex-col"
-            >
-              <strong className={`${
-                crew?.status === "Available"
-                  ? "text-wearecrewGreen"
-                  : crew.status === "Not Available"
-                  ? "text-wearecrewRed"
-                  : "text-wearecrewOrange"
-              }`}>{crew?.status}</strong>
-              {crew?.status !== "Available" && crew?.willBeAvailOn !== "" && crew?.willBeAvailOn !== null && (
-                  <small className="text-wearecrewRed">Available from: {crew?.willBeAvailOn}</small>
-                )}
-            </div>
+                  <div className="flex flex-col">
+                    <strong
+                      className={`${
+                        crew?.status === "Available"
+                          ? "text-wearecrewGreen"
+                          : crew.status === "Not Available"
+                          ? "text-wearecrewRed"
+                          : "text-wearecrewOrange"
+                      }`}
+                    >
+                      {crew?.status}
+                    </strong>
+                    {crew?.status !== "Available" &&
+                      crew?.willBeAvailOn !== "" &&
+                      crew?.willBeAvailOn !== null && (
+                        <small className="text-wearecrewRed">
+                          Available from: {crew?.willBeAvailOn}
+                        </small>
+                      )}
+                  </div>
                   {/* // END OF MOBILE STATUS */}
 
                   {/* MOBILE NAME*/}
@@ -323,7 +332,7 @@ const CrewDetailBox = (crew) => {
               {crew?.phone && (
                 <a
                   href={`tel:${crew.phone}`}
-                  className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
+                  className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1 hover:brightness-110 transition"
                 >
                   <h1 className="text-3xl">Call</h1>
                 </a>
@@ -333,7 +342,7 @@ const CrewDetailBox = (crew) => {
               {/* MOBILE EMAIL*/}
               <a
                 href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
+                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1 hover:brightness-110 transition"
               >
                 <h1 className="text-3xl">Email</h1>
               </a>
@@ -345,7 +354,7 @@ const CrewDetailBox = (crew) => {
                   href={`http://${website}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1"
+                  className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1 hover:brightness-110 transition"
                 >
                   <h1 className="text-3xl">Website</h1>
                 </a>
@@ -356,7 +365,7 @@ const CrewDetailBox = (crew) => {
             {/* MOBILE PROFILE*/}
             <div
               onClick={() => setShowModal(true)}
-              className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white"
+              className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white hover:brightness-110 transition"
             >
               <h1 className="text-3xl text-center">Profile</h1>
             </div>
@@ -398,9 +407,13 @@ const CrewDetailBox = (crew) => {
                 >
                   {crew?.status}
                 </strong>
-                {crew?.status !== "Available" && crew?.willBeAvailOn !== "" && crew?.willBeAvailOn !== null && (
-                  <small className="text-right text-wearecrewRed"><strong>Available from:</strong> {crew?.willBeAvailOn}</small>
-                )}
+                {crew?.status !== "Available" &&
+                  crew?.willBeAvailOn !== "" &&
+                  crew?.willBeAvailOn !== null && (
+                    <small className="text-right text-wearecrewRed">
+                      <strong>Available from:</strong> {crew?.willBeAvailOn}
+                    </small>
+                  )}
               </div>
             </div>
 
@@ -420,7 +433,7 @@ const CrewDetailBox = (crew) => {
                     </a>
                     <button
                       onClick={() => copyPhone()}
-                      className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
+                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
                     >
                       <cite>Copy Phone</cite>
                     </button>
@@ -436,7 +449,7 @@ const CrewDetailBox = (crew) => {
                   </a>
                   <button
                     onClick={() => copyEmail()}
-                    className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
+                    className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
                   >
                     <cite>Copy Email</cite>
                   </button>
@@ -455,7 +468,7 @@ const CrewDetailBox = (crew) => {
                     </a>
                     <button
                       onClick={() => copyWebsite()}
-                      className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
+                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
                     >
                       <cite>Copy Website</cite>
                     </button>
@@ -474,7 +487,7 @@ const CrewDetailBox = (crew) => {
                     </a>
                     <button
                       onClick={() => copyIMDB()}
-                      className="text-wearecrewDarkGrey md:w-max text-left ml-10 md:ml-0"
+                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
                     >
                       <cite>Copy IMDB</cite>
                     </button>
@@ -542,26 +555,26 @@ const CrewDetailBox = (crew) => {
               </div>
               <div className="w-full flex justify-center md:w-3/12 ">
                 <div className="w-full md:w-full flex flex-col gap-y-4">
-                  { crew?.phone && (
-                  <a
-                    href={`tel:${crew?.phone}`}
-                    className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white"
-                  >
-                    <h1 className="text-3xl">Call</h1>
-                  </a>
+                  {crew?.phone && (
+                    <a
+                      href={`tel:${crew?.phone}`}
+                      className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                    >
+                      <h1 className="text-3xl">Call</h1>
+                    </a>
                   )}
                   <a
                     href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                    className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
+                    className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
                   >
                     <h1 className="text-3xl">Email</h1>
                   </a>
-                  
+
                   {crew?.cvURL && (
                     <a
                       download
                       href={publicCVUrl}
-                      className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md cursor-pointer"
+                      className="border-2 bg-white text-center border-wearecrewBlue p-2 rounded shadow-md cursor-pointer hover:brightness-90 transition"
                     >
                       <h1 className="text-lg">Download Personal CV</h1>
                     </a>
@@ -569,7 +582,7 @@ const CrewDetailBox = (crew) => {
 
                   <button
                     onClick={() => shareProfileHandler()}
-                    className="border-2 flex gap-x-2 justify-center border-wearecrewBlue p-2 rounded shadow-md"
+                    className="border-2 bg-white flex gap-x-2 justify-center border-wearecrewBlue p-2 rounded shadow-md hover:brightness-90 transition"
                   >
                     <span className="material-icons">ios_share</span>
                     <h1 className="text-lg">Share Profile</h1>
@@ -581,9 +594,7 @@ const CrewDetailBox = (crew) => {
         </div>
       </CrewDetailModal>
     </div>
-    )
-
-
+  );
 };
 
 export default CrewDetailBox;

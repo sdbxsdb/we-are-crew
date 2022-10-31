@@ -15,9 +15,9 @@ const pricing = ({ plans }) => {
           content="Hello this is a test description for the About page"
         />
       </Head>
-      <div className="relative">
+      <div className="relative ">
         <PricingOptions plans={plans} />
-        <div className="w-full flex px-8 pb-20 gap-x-4 justify-center mt-0 md:mt-4">
+        <div className="w-full flex px-8 pb-20 gap-x-4 text-center justify-center mt-0 md:mt-4">
           <small>By signing up to Get Crew you agree to our terms and conditions and privacy policy linked below.  If you have any questions, please contact us at crew@getcrew.pro.</small>
         </div>
         <Footer/>
