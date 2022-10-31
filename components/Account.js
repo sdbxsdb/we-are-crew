@@ -786,12 +786,14 @@ const Account = ({ session }) => {
             <div className=" w-full mt-8 flex flex-col items-center ">
               <h1 className="text-center text-2xl mb-2">Danger Zone</h1>
               <div className="bg-white/70 w-full border border-wearecrewRed px-12 py-6 flex justify-center flex-col items-center h-full shadow-md rounded-md ">
-                <span
-                  onClick={() => setShowDeleteProfileWarning(true)}
-                  className="cursor-pointer p-4 text-white"
-                >
-                  Delete Profile
-                </span>
+                <div className="bg-wearecrewRed cursor-pointer rounded-md shadow-md p-4">
+                  <span
+                    onClick={() => setShowDeleteProfileWarning(true)}
+                    className=" text-white"
+                  >
+                    Delete Profile
+                  </span>
+                </div>
                 <small className="text-wearecrewRed mt-1">
                   *This will delete your profile permanently.
                 </small>
