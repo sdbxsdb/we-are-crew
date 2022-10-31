@@ -61,8 +61,8 @@ export default function UploadImg({ url, onUpload }) {
   }
 
   return (
-    <div className="file-uploader group flex flex-col justify-center items-center gap-y-4 relative w-full mb-12 border border-blue-500">
-      <div className="borderRed w-[120px] relative">
+    <div className="file-uploader group flex flex-col justify-center items-center gap-y-4 relative w-full mb-12 ">
+      <div className="w-[120px] relative">
         <label
           className={`text-sm text-wearecrewBlue absolute group-hover:opacity-70 transition`}
           htmlFor="image"
