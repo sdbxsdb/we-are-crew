@@ -8,7 +8,7 @@ const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
-  console.log("CREW DETAIL PG- ", crew);
+  // console.log("CREW DETAIL PG- ", crew);
 
   const slugify = (str) =>
     str
