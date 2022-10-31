@@ -61,21 +61,23 @@ export default function UploadImg({ url, onUpload }) {
   }
 
   return (
-    <div className="file-uploader group flex flex-col gap-y-4 relative w-full mb-12">
-      <label
-        className={`text-sm text-wearecrewBlue absolute left-[50%] transform translate-x-1/2 group-hover:opacity-90 transition`}
-        htmlFor="image"
-      >
-        {uploading ? "Uploading ..." : "Change  Image"}
-      </label>
-      <input
-        className="opacity-100 w-[120px] h-[30px] border-0 left-[50%] transform translate-x-1/2 absolute"
-        type="file"
-        id="image"
-        accept="image/*"
-        onChange={uploadImg}
-        disabled={uploading}
-      />
+    <div className="file-uploader group flex flex-col justify-center items-center gap-y-4 relative w-full mb-12 border border-blue-500">
+      <div className="borderRed w-[120px] relative">
+        <label
+          className={`text-sm text-wearecrewBlue absolute left-[50%] transform translate-x-1/2 group-hover:opacity-90 transition`}
+          htmlFor="image"
+        >
+          {uploading ? "Uploading ..." : "Change  Image"}
+        </label>
+        <input
+          className="opacity-100 w-[120px] h-[30px] border-0 left-[50%] transform translate-x-1/2 absolute"
+          type="file"
+          id="image"
+          accept="image/*"
+          onChange={uploadImg}
+          disabled={uploading}
+        />
+      </div>
       {showWrongImgFormat && (
         <div className="w-full mt-[40px] text-center">
           <small className="text-wearecrewRed">
