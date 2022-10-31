@@ -26,7 +26,8 @@ const About = () => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the About page"
+          content="Productions looking for crew. Crew looking for
+          productions."
         />
       </Head>
 
@@ -56,7 +57,7 @@ const About = () => {
                         ever see.
                         <br />
                         <br />
-                        Productions looking for crew and crew looking for
+                        Productions looking for crew. Crew looking for
                         productions.
                         <br />
                         <br />
