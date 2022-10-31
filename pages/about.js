@@ -61,7 +61,7 @@ const About = () => {
                         <br />
                         <br />
                         <span className="text-wearecrewBlue">Get Crew</span> has
-                        the soloution.
+                        the solution.
                       </span>
                     </div>
                   </div>
