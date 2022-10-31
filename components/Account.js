@@ -461,7 +461,7 @@ const Account = ({ session }) => {
               <div className="w-full text-center mt-16">
                 <p className="text-wearecrewBlue text-sm">Status</p>
                 <div className="flex flex-col items-center justify-center mt-2">
-                  <div className="radio_container h-full gap-x-8 md:rounded-full px-4 py-2 text-sm sm:text-lg">
+                  <div className="radio_container h-full gap-x-8 md:rounded-full px-4 py-2 text-sm shadow-md sm:text-lg">
                     <div className="flex justify-center w-[300px] md:w-auto gap-x-2 md:gap-x-8">
                       <input type="radio" name="radio" id="avail" />
                       <label
