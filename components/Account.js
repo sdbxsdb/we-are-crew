@@ -527,9 +527,11 @@ const Account = ({ session }) => {
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
                     {paid !== true ? (
                       <div className="flex flex-col p-2 gap-2 justify-center items-center">
-                        <h1 className="text-wearecrewOrange w-full text-2xl text-center">
-                          Your profile isn&apos;t currently live.
-                        </h1>
+                        <div className="bg-wearecrewOragne p-4 rounded-md shadow-md w-full">
+                          <h1 className="text-white w-full text-2xl text-center">
+                            Your profile isn&apos;t currently live.
+                          </h1>
+                        </div>
                         <Link href="/pricing">
                           <button className="text-wearecrewBlue hoverScale transition p-2 rounded-md cursor-pointer border-2 border-wearecrewBlue shadow-md">
                             <a className="text-lg">

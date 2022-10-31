@@ -66,7 +66,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
 
   return (
     <div className="w-full">
-      <div className="file-uploader group relative h-12">
+      <div className="file-uploader flex w-full justify-center items-center group relative h-12">
         <div className=" w-[120px] relative">
           <label
             className="text-lg text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md top-2 absolute group-hover:scale-102 transition"
@@ -76,7 +76,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
             {cvFileName && (uploading ? "Uploading ..." : "Upload New CV")}
           </label>
           <input
-            className="opacity-100 w-[120px] h-[45px] borderRed top-[10%] absolute"
+            className="opacity-0 w-[120px] h-[45px] borderRed top-[10%] absolute"
             type="file"
             id="cv"
             accept="application/pdf"
