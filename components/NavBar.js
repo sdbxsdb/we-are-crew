@@ -96,7 +96,7 @@ const NavBar = () => {
                 {showProfileIconContent && (
                   <div
                     ref={dropDownRef}
-                    className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform xl:-translate-x-1/3 border-2 right-0"
+                    className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform xl:-translate-x-1/3 border-2 right-0 overflow-hidden"
                   >
                     <Link href="/my-crew">
                       <a
