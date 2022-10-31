@@ -39,7 +39,7 @@ const handler = async (req, res) => {
   }
   
 
-  // console.log("EVENT RECIVED-", event);
+  console.log("EVENT RECIVED-", event);
 
   res.send({
     recieved: true,
