@@ -415,7 +415,7 @@ const Account = ({ session }) => {
               <div className="hidden sm:block sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
                 {profileChanged && (
                   <button
-                    className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md"
+                    className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md hover:brightness-110 transition"
                     onClick={(e) =>
                       dept !== "" &&
                       dept !== "Choose Department" &&
@@ -748,7 +748,7 @@ const Account = ({ session }) => {
                   ""
                 ) : (
                   <button
-                    className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewGreen"
+                    className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewGreen hover:brightness-110 transition"
                     onClick={(e) =>
                       dept !== "" &&
                       dept !== "Choose Department" &&
@@ -785,7 +785,7 @@ const Account = ({ session }) => {
             </div>
             <div className=" w-full mt-8 flex flex-col items-center ">
               <h1 className="text-center text-2xl mb-2">Danger Zone</h1>
-              <div className="bg-white/70 w-full border border-wearecrewRed px-12 py-6 flex justify-center flex-col items-center h-full shadow-md rounded-md ">
+              <div className="bg-white/70 w-full border border-wearecrewRed px-12 py-6 flex justify-center flex-col items-center h-full shadow-md rounded-md hover:brightness-110 transition">
                 <div className="bg-wearecrewRed cursor-pointer rounded-md shadow-md p-4">
                   <span
                     onClick={() => setShowDeleteProfileWarning(true)}

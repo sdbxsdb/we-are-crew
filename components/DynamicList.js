@@ -54,7 +54,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
           >
             {shownList?.length > 1 && (
               <button
-                className="absolute top-0 -right-4 md:-right-8"
+                className="absolute top-0 -right-4 md:-right-8 hover:brightness-110 transition"
                 onClick={(e) => handleRemoveClick(e, i, x)}
               >
                 &#x2716;
@@ -80,7 +80,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
             </div>
             <div className="text-lg text-right font-bold mt-2">
               {shownList.length - 1 === i && (
-                <button onClick={handleAddClick}>Add New Credit</button>
+                <button onClick={handleAddClick} className="hover:brightness-110 transition">Add New Credit</button>
               )}
             </div>
           </div>
