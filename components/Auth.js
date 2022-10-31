@@ -74,6 +74,12 @@ export default function Auth() {
                     <p>One place for all your professional credentials.</p>
                   </li>
                   <li>
+                    <p>
+                      The only platform of it&apos;s kind spanning the whole of
+                      the UK & Ireland.
+                    </p>
+                  </li>
+                  <li>
                     <p>A modern and easy-to-use platform for all.</p>
                   </li>
                   <li>
@@ -105,10 +111,10 @@ export default function Auth() {
                     </p>
                   </li>
                   <Link href="/your-data">
-                          <span className="text-wearecrewBlue ml-6 underline cursor-pointer">
-                            What we do with your data.
-                          </span>
-                        </Link>
+                    <span className="text-wearecrewBlue ml-6 underline cursor-pointer">
+                      What we do with your data.
+                    </span>
+                  </Link>
                 </ul>
               </div>
             </div>

@@ -56,6 +56,10 @@ const About = () => {
                         ever see.
                         <br />
                         <br />
+                        Productions looking for crew and crew looking for
+                        productions.
+                        <br />
+                        <br />
                         <span className="text-wearecrewBlue">Get Crew</span> has
                         the soloution.
                       </span>
@@ -76,17 +80,29 @@ const About = () => {
               <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
-                    <div className="w-full md:w-1/2 flex items-center">
-                      <h1 className="text-4xl  mb-4 md:mb-0">The solution.</h1>
+                    <div className="w-full md:w-1/2 flex flex-col justify-center items-center ">
+                      <h1 className="text-4xl mb-4 md:mb-0">The Solution.</h1>
+                      <cite className="text-center mt-4">
+                        -  The only platform of it&apos;s kind <br /> spanning the
+                        whole of the UK & Ireland.
+                      </cite>
+                      
                     </div>
                     <div className="w-full md:w-1/2 aboutPageListTicks text-lg">
                       <ul>
+                        <li>
+                          <p>
+                          The only platform of it&apos;s kind spanning the
+                        whole of the UK & Ireland.
+                          </p>
+                        </li>
                         <li>
                           <p>
                             Find crew and list your professional profile in one
                             place.
                           </p>
                         </li>
+
                         <li>
                           <p>A modern and easy-to-use platform for all.</p>
                         </li>
