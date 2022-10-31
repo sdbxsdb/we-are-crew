@@ -15,7 +15,7 @@ export default function UploadImg({ url, onUpload }) {
     try {
       setUploading(true);
 
-      console.log(event.target.files);
+      // console.log(event.target.files);
 
       if (!event.target.files || event.target.files.length === 0) {
         throw new Error("You must select an image to upload.");
