@@ -527,12 +527,12 @@ const Account = ({ session }) => {
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
                     {paid !== true ? (
                       <div className="flex flex-col p-2 gap-2 justify-center items-center">
-                        <div className="border border-wearecrewOrange p-4 flex gap-x-4 justify-between rounded-md shadow-md w-full mb-2">
+                        <div className="border border-wearecrewOrange p-4 flex gap-x-4 justify-between items-center rounded-md shadow-md w-full mb-2">
                           <h1 className="text-wearecrewOrange w-full text-2xl">
                             Your profile isn&apos;t currently live.
                           </h1>
                           <Link href="/pricing">
-                          <button className="text-white hoverScale transition p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md">
+                          <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md">
                             <a className="text-lg min-w-max">
                               Go live now
                             </a>
