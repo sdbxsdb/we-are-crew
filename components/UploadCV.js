@@ -86,7 +86,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
         </div>
         {/* <a id="downloadCV" rel="noreferrer" target="_blank" href={publicUrl} download>Download CV</a> */}
       </div>
-      <div className="w-full text-center flex flex-col gap-y-4 mt-4">
+      <div className="w-full text-center flex flex-col gap-y-4 mt-[40px]">
         <small className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>
           Please upload .pdf files only.
         </small>
