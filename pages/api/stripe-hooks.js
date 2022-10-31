@@ -28,7 +28,7 @@ const handler = async (req, res) => {
 
 
   switch (event.type) {
-    case "payment_intent.succeeded":
+    case "checkout.session.completed":
       await supabase
         .from("profiles")
         .update({
