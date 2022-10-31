@@ -68,7 +68,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
     <div className="w-full">
       <div className="file-uploader group relative h-12">
         <label
-          className="text-sm text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md left-1/2 transform -translate-x-1/2 top-2 absolute"
+          className="text-lg text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md left-1/2 transform -translate-x-1/2 top-2 absolute "
           htmlFor="cv"
         >
           {!cvFileName && (uploading ? "Uploading ..." : "Upload CV")}
@@ -84,7 +84,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
         />
         {/* <a id="downloadCV" rel="noreferrer" target="_blank" href={publicUrl} download>Download CV</a> */}
       </div>
-      <div className="w-full text-center flex flex-col gap-y-4">
+      <div className="w-full text-center flex flex-col gap-y-4 mt-2">
         <small className={`${showPdfOnly ? "text-wearecrewRed" : ""}`}>
           Please upload .pdf files only.
         </small>

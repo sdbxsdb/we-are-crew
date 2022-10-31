@@ -788,7 +788,7 @@ const Account = ({ session }) => {
               <div className="bg-white/70 w-full border border-wearecrewRed px-12 py-6 flex justify-center flex-col items-center h-full shadow-md rounded-md ">
                 <span
                   onClick={() => setShowDeleteProfileWarning(true)}
-                  className="cursor-pointer p-4 rounded-md shadow-md bg-wearecrewRed text-white"
+                  className="cursor-pointer p-4 text-white"
                 >
                   Delete Profile
                 </span>
