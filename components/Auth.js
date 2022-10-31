@@ -71,13 +71,13 @@ export default function Auth() {
               <div className="aboutPageListTicks">
                 <ul>
                   <li>
-                    <p>One place for all your professional credentials.</p>
-                  </li>
-                  <li>
                     <p>
                       The only platform of it&apos;s kind spanning the whole of
                       the UK & Ireland.
                     </p>
+                  </li>
+                  <li>
+                    <p>One place for all your professional credentials.</p>
                   </li>
                   <li>
                     <p>A modern and easy-to-use platform for all.</p>
