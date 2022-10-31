@@ -28,7 +28,7 @@ export default async function Handler(req, res) {
               quantity: 1,
             },
           ],
-          mode: "payment",
+          mode: "subscription",
           allow_promotion_codes: true,
           success_url: `${process.env.CLIENT_URL}/paymentSuccess?=true`,
           cancel_url: `${process.env.CLIENT_URL}/paymentCancelled?=true`,
