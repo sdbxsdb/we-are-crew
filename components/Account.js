@@ -542,13 +542,13 @@ const Account = ({ session }) => {
                         
                       </div>
                     ) : (
-                      <div className="">
-                        <h1 className="text-white w-full bg-wearecrewGreen p-0.5 rounded-md text-2xl text-center">
-                          Live
-                        </h1>
-                        <small>
-                          Your profile has been live since {dateOfPayment}
-                        </small>
+
+                      <div className="flex flex-col gap-2 justify-center items-center">
+                        <div className="border border-wearecrewGreen p-4 flex gap-x-4 justify-between items-center rounded-md shadow-md w-full mb-2">
+                          <h1 className="text-wearecrewGreen w-full text-2xl">
+                            Your profile is live since {dateOfPayment}
+                          </h1>
+                        </div>
                       </div>
                     )}
                   </div>
