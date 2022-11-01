@@ -23,6 +23,8 @@ const CrewList = ({ users }) => {
   const [avail, setAvail] = useState();
   const [title, setTitle] = useState([]);
   const [location, setLocation] = useState([]);
+  const [singlePersonResults, setSinglePersonResults] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
   const filteredUsers = foundTitle
     .filter((user) => {
@@ -56,7 +58,17 @@ const CrewList = ({ users }) => {
         }
       }
       return includeUser;
+    }).filter((user) => {
+      if (user?.username.toLowerCase().startsWith(singlePersonResults)) {
+        return true;
+      }
     });
+
+
+
+
+
+
 
   const allLocationsInOneArray = [];
 
@@ -98,7 +110,6 @@ const CrewList = ({ users }) => {
       });
     }
   };
-
   const clearTitleFilter = () => {
     setTitle([]);
   };
@@ -112,10 +123,34 @@ const CrewList = ({ users }) => {
       });
     }
   };
-
   const clearLocationFilter = () => {
     setLocation([]);
   };
+
+
+
+  const filterSinglePerson = (e) => {
+    const searchTerm = e.target.value;
+    setInputValue(searchTerm);
+
+    if (searchTerm !== "") {
+      setSinglePersonResults(searchTerm.toLowerCase());
+    } else {
+      setSinglePersonResults([]);
+      // If the text field is empty, show all users
+    }
+  };
+
+
+  const clearSearchField = () => {
+    setInputValue("");
+    setSinglePersonResults([]);
+  }
+
+
+
+
+
 
   return (
     <>
@@ -131,12 +166,32 @@ const CrewList = ({ users }) => {
       <div className="px-4 md:px-12 p-8 md:p-12 w-full h-fit flex justify-center">
         <div className="max-w-[1200px] w-full">
           <Link href="/I-need-crew/depts">
-            <a className="font-semibold hover:text-wearecrewBlue transition"><span className="text-wearecrewBlue">&#x2190;</span> Back to Departments</a>
+            <a className="font-semibold hover:text-wearecrewBlue transition">
+              <span className="text-wearecrewBlue">&#x2190;</span> Back to
+              Departments
+            </a>
           </Link>
-          <div className="w-full flex justify-center md:justify-start mt-4">
-            <h1 className="text-4xl">
-              <DeptTitle />
-            </h1>
+          <div className="w-full flex justify-center md:justify-between mt-4">
+            <div className="flex items-center justify-between w-full">
+              <h1 className="text-4xl">
+                <DeptTitle />
+              </h1>
+              <div className="relative w-full sm:w-max px-2">
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={filterSinglePerson}
+                  className="bg-white border-b w-full sm:w-[284px] border-wearecrewBlue rounded-md p-4 outline-0"
+                  placeholder="Search individual names..."
+                />
+                <span
+                  onClick={() => clearSearchField()}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-30 hover:opacity-100 cursor-pointer"
+                >
+                  &#10006;
+                </span>
+              </div>
+            </div>
           </div>
           <div className="w-full flex justify-center">
             <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
@@ -184,13 +239,15 @@ const CrewList = ({ users }) => {
                     </h1>
 
                     <ul className="flex mt-4 flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md overflow-hidden">
-                      <div className="flex flex-col gap-y-4 py-2 w-full justify-center items-center bg-white" onChange={filterByAvailability}>
-
+                      <div
+                        className="flex flex-col gap-y-4 py-2 w-full justify-center items-center bg-white"
+                        onChange={filterByAvailability}
+                      >
                         <div className="w-full flex flex-col items-center">
                           <p className=" text-center pb-2 font-bold text-lg w-full">
                             Filter by Availability
                           </p>
-                          <hr className="w-2/3"/>
+                          <hr className="w-2/3" />
                         </div>
 
                         <div className="flex">
@@ -213,7 +270,9 @@ const CrewList = ({ users }) => {
                               value="Available"
                               id="Available"
                             />
-                            <label htmlFor="Available" className="font-bold">Available Now</label>
+                            <label htmlFor="Available" className="font-bold">
+                              Available Now
+                            </label>
                           </li>
                         </div>
                         {/* <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewRed">
@@ -231,12 +290,11 @@ const CrewList = ({ users }) => {
 
                   <div>
                     <ul className="flex flex-wrap md:justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2 bg-white">
-
                       <div className="w-full flex flex-col items-center">
                         <p className="text-center pb-2 font-bold text-lg w-1/2">
                           Filter by Role
                         </p>
-                        <hr className="w-2/3"/>
+                        <hr className="w-2/3" />
                       </div>
 
                       <li className="lg:w-full w-full md:max-w-3/12">
@@ -258,7 +316,10 @@ const CrewList = ({ users }) => {
                       {removedTitleDups?.map(
                         (user, i) =>
                           sortedUsersByTitle?.length > 0 && (
-                            <li key={i} className="lg:w-full max-w-3/12 flex justify-start">
+                            <li
+                              key={i}
+                              className="lg:w-full max-w-3/12 flex justify-start"
+                            >
                               <input
                                 id={user}
                                 type="checkbox"
@@ -276,12 +337,11 @@ const CrewList = ({ users }) => {
 
                   <div>
                     <ul className="flex flex-wrap md:justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md py-2 bg-white">
-
                       <div className="w-full flex flex-col items-center">
                         <p className="text-center pb-2 font-bold text-lg w-full">
                           Filter by Location
                         </p>
-                        <hr className="w-2/3"/>
+                        <hr className="w-2/3" />
                       </div>
 
                       <li className="lg:w-full w-full md:max-w-3/12">
@@ -301,7 +361,10 @@ const CrewList = ({ users }) => {
                         </label>
                       </li>
                       {sortedLocationsWithRemovedDups?.map((loc, i) => (
-                        <li key={i} className="lg:w-full max-w-3/12 flex justify-start">
+                        <li
+                          key={i}
+                          className="lg:w-full max-w-3/12 flex justify-start"
+                        >
                           <input
                             id={loc}
                             type="checkbox"

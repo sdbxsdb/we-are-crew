@@ -55,7 +55,6 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
     // console.log("Clear Field");
     setInputValue("");
     setFoundDept(sortedDepts);
-
   }
 
   return (
