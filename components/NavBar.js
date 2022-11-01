@@ -48,7 +48,7 @@ const NavBar = () => {
       <div className="max-w-[1200px] flex flex-col gap-y-2 md:gap-y-0 w-full">
         <nav className=" flex justify-between  items-center text-sm sm:text-base ">
           <Link href="/">
-            <a className="h-full w-[120px] relative flex justify-center items-center hover:brightness-110 transition">
+            <a className="h-full w-[140px] relative flex justify-center items-center hover:brightness-110 transition">
               <img
                 src="/images/newGCLogoWLogo.png"
                 className="z-50"
