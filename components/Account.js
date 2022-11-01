@@ -726,7 +726,7 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF BIO */}
                   {/* UPLOAD CV */}
-                  <li className=" w-full md:w-2/3 flex flex-col items-center styledList">
+                  <li className=" w-full md:w-2/3 flex flex-col items-center">
                     <UploadCV
                       url={cvURL}
                       setCvFileName={setCvFileName}

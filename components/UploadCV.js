@@ -69,7 +69,7 @@ const UploadCV = ({ url, onUpload, setCvFileName, cvFileName, updatedAt }) => {
       <div className="file-uploader flex w-full justify-center items-center relative h-12">
         <div className="w-[120px] group relative">
           <label
-            className="text-lg text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md top-2 absolute group-hover:scale-102 transition"
+            className={`text-lg text-wearecrewBlue shadow-md border-wearecrewBlue border-2 p-2 rounded-md top-2 absolute group-hover:scale-102 transition min-w-max ${cvFileName ? "left-[12px]" : ""}`}
             htmlFor="cv"
           >
             {!cvFileName && (uploading ? "Uploading ..." : "Upload CV")}
