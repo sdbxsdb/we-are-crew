@@ -2,14 +2,14 @@
   {
     "dept": "Accounting",
     "titles": [
+      "Able to preform any role",
       "Financial Controller",
       "1st Assistant Accountant",
       "Assistant Accountant",
       "Payroll Accountant",
       "2nd Assistant Accountant",
       "Accounts Assistant",
-      "Trainee",
-      "Able to preform any role"
+      "Trainee"
     ]
   },
   {
@@ -26,11 +26,18 @@
   },
   {
     "dept": "Animals",
-    "titles": ["All Animals", "Birds", "Horses (Picture / Stunt)", "Farm", "Exotics"]
+    "titles": [
+      "All Animals",
+      "Birds",
+      "Horses (Picture / Stunt)",
+      "Farm",
+      "Exotics"
+    ]
   },
   {
     "dept": "Armoury",
     "titles": [
+      "Able to preform any role",
       "Weapons Master (All)",
       "Weapons Master (Period)",
       "Weapons Master (Modern)",
@@ -40,13 +47,13 @@
       "Armourer (All)",
       "Armourer (Period)",
       "Armourer (Modern)",
-      "Trainee",
-      "Able to preform any role"
+      "Trainee"
     ]
   },
   {
     "dept": "Art",
     "titles": [
+      "Able to preform any role",
       "Production Designer",
       "Co-ordinator",
       "Supervising Art Director",
@@ -61,8 +68,7 @@
       "Concept Artist",
       "Graphic Artist",
       "Storyboard Artist",
-      "Trainee",
-      "Able to preform any role"
+      "Trainee"
     ]
   },
   {
@@ -131,6 +137,7 @@
   {
     "dept": "Costume",
     "titles": [
+      "Able to preform any role",
       "Costume Designer",
       "Costume Supervisor",
       "Assistant Costume Designer",
@@ -154,8 +161,7 @@
       "Textile Artist",
       "Dryer",
       "Breakdown Assistant",
-      "General Trainee",
-      "Able to preform any role"
+      "General Trainee"
     ]
   },
   {
@@ -168,7 +174,15 @@
   },
   {
     "dept": "Directors",
-    "titles": ["Director", "2nd Unit Director", "Multi-camera Director", "Single-camera Director", "Self-shooting Director", "Director / Producer"]
+    "titles": [
+      "Any Director Role",
+      "2nd Unit Director",
+      "Stunt Unit Director",
+      "Multi-camera Director (Broadcast)",
+      "Single-camera Director (Broadcast)",
+      "Self-shooting Director (Broadcast)",
+      "Director / Producer"
+    ]
   },
   {
     "dept": "DIT",
@@ -182,6 +196,7 @@
     "dept": "Drones",
     "titles": [
       "Drone Operator (Film & TV)",
+      "Drone Operator (Film, TV, Live OB)",
       "Drone Operator (Weddings)",
       "Drone Operator (Surveyance)",
       "Drone Operator (Real Estate)",
@@ -191,6 +206,7 @@
   {
     "dept": "Editorial",
     "titles": [
+      "Able to preform any role",
       "Post Production House",
       "Producer",
       "Editor",
@@ -202,13 +218,13 @@
       "Post Production Supervisor",
       "Post Production Co-ordinator",
       "Dailies Co-ordinator",
-      "Editorial Trainee",
-      "Able to preform any role"
+      "Editorial Trainee"
     ]
   },
   {
     "dept": "Electrical",
     "titles": [
+      "Able to preform any role",
       "Gaffer",
       "Studio Rigging Gaffer",
       "Electrician",
@@ -216,27 +232,26 @@
       "Dinner Board Op",
       "Studio Rigging Electrician",
       "Location Rigging Electrician",
-      "Trainee",
-      "Able to preform any role"
+      "Trainee"
     ]
   },
   {
     "dept": "Greens",
     "titles": [
+      "Able to preform any role",
       "Head Greensman",
       "Greensman",
-      "Stand-by Greens",
-      "Able to preform any role"
+      "Stand-by Greens"
     ]
   },
   {
     "dept": "Grips",
     "titles": [
+      "Able to preform any role",
       "Key Grip",
       "Best Boy",
       "Camera Grip",
-      "Trainee",
-      "Able to preform any role"
+      "Trainee"
     ]
   },
   {
@@ -258,6 +273,7 @@
   {
     "dept": "Locations",
     "titles": [
+      "Able to preform any role",
       "Location Manager",
       "Supervision Location Manager",
       "Studio Manager",
@@ -265,8 +281,7 @@
       "Assistant Location Manager",
       "Locations Co-ordinator",
       "Locations Assistant",
-      "Locations Scout",
-      "Able to preform any role"
+      "Locations Scout"
     ]
   },
   {
@@ -294,6 +309,7 @@
   {
     "dept": "Production",
     "titles": [
+      "Able to preform any role",
       "Unit Production Manger",
       "Production Supervisor",
       "Production Co-ordinator",
@@ -303,13 +319,13 @@
       "Travel Co-ordinator",
       "Script Co-ordinator",
       "Production Secretary",
-      "Production Trainee / Runner",
-      "Able to preform any role"
+      "Production Trainee / Runner"
     ]
   },
   {
     "dept": "Props",
     "titles": [
+      "Able to preform any role",
       "Props Master",
       "Assistant Props Master",
       "Props Storeman",
@@ -322,13 +338,13 @@
       "Model Maker",
       "Assistant Model Maker",
       "Props Buyer",
-      "Trainee",
-      "Able to preform any role"
+      "Trainee"
     ]
   },
   {
     "dept": "Set Dec",
     "titles": [
+      "Able to preform any role",
       "Set Decorator",
       "Production Buyer",
       "Set Dec Art Director",
@@ -338,8 +354,7 @@
       "Drapes Master",
       "Drapes Assistant",
       "Props Painter",
-      "Trainee",
-      "Able to preform any role"
+      "Trainee"
     ]
   },
   {
@@ -358,6 +373,7 @@
   {
     "dept": "SFX",
     "titles": [
+      "Able to preform any role",
       "SFX Supervisor",
       "SFX Prep Supervisor",
       "SFX Floor Supervisor",
@@ -369,8 +385,7 @@
       "SFX Buyer",
       "SFX Metal Worker",
       "SFX Assistant",
-      "SFX Trainee",
-      "Able to preform any role"
+      "SFX Trainee"
     ]
   },
   {
@@ -384,12 +399,12 @@
   {
     "dept": "Stunts",
     "titles": [
+      "Able to preform any role",
       "Stunt Co-ordinator",
       "Assistant Stunt Co-ordinator",
       "Stunt Administrator",
       "Stunt Performer",
-      "Stunt Driver",
-      "Able to preform any role"
+      "Stunt Driver"
     ]
   },
   {
@@ -399,13 +414,13 @@
   {
     "dept": "Transport",
     "titles": [
+      "Able to preform any role",
       "Transport Manager",
       "Transport Captain",
       "Transport Assistant",
       "Executive Driver",
       "Minibus Driver",
-      "HGV Driver",
-      "Able to preform any role"
+      "HGV Driver"
     ]
   },
   {
@@ -424,5 +439,54 @@
       "VFX Trainee",
       "Green Screen Rigger"
     ]
+  },
+  {
+    "dept": "Business Management (Broadcast)",
+    "titles": [
+      "Business Co-ordinator",
+      "Project Manager",
+      "Resourcing Administrator",
+      "Telephone Answerer"
+    ]
+  },
+  {
+    "dept": "Content Production (Broadcast)",
+    "titles": [
+      "Assistant Producer",
+      "BSL Interpreter",
+      "Consultant",
+      "Content Assistant",
+      "Reseacher",
+      "Runner"
+    ]
+  },
+  {
+    "dept": "Journalism (Broadcast)",
+    "titles": [
+      "Broadcast Assistant",
+      "Broadcast Journalist",
+      "Journalist",
+      "Reporter",
+      "Senior Broadcast Journalist"
+    ]
+  },
+  {
+    "dept": "Marketing / Audiences (Broadcast)",
+    "titles": ["Audience Champion", "Meeter & Greeter"]
+  },
+  {
+    "dept": "Presenter (Broadcast)",
+    "titles": ["Announcer", "Presenter"]
+  },
+  {
+    "dept": "Production Management (Broadcast)",
+    "titles": [
+      "Production Assistant",
+      "Production Co-ordinator",
+      "Production Manager"
+    ]
+  },
+  {
+    "dept": "Technical Production (Broadcast)"
   }
 ]
