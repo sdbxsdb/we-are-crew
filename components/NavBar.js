@@ -118,7 +118,7 @@ const NavBar = () => {
             )}
           </div>
         </nav>
-        <div className="w-full text-center">
+        <div className="w-full text-left ml-[2px]">
           <Link href="/about">
             <a>
               <small className="text-wearecrewDarkestGrey mt-2 bg-wearecrewLightGrey w-full">
