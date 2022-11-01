@@ -50,7 +50,7 @@ const NavBar = () => {
           <Link href="/">
             <a className="h-full w-[120px] relative flex justify-center items-center hover:brightness-110 transition">
               <img
-                src="/images/newNewGCLogo.png"
+                src="/images/newGCLogoWLogo.png"
                 className="z-50"
                 alt="Get Crew logo"
               />
