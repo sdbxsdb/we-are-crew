@@ -122,7 +122,7 @@ const NavBar = () => {
           <Link href="/about">
             <a>
               <small className="text-wearecrewDarkestGrey mt-2 bg-wearecrewLightGrey w-full">
-                Proudly partnered with One
+                <span className="hidden md:inline-block">Proudly partnered with</span> One
                 <strong className="text-oneTreeGreen">Tree</strong>Planted
               </small>
             </a>
