@@ -238,14 +238,18 @@ const NavBar = () => {
                 <NavLink href="/my-crew">
                   <h1
                     onClick={hideSlideoverNav}
-                    className="bg-wearecrewBlue cursor-pointer"
+                    className={
+                      router.pathname == "/my-crew"
+                        ? "text-wearecrewBlue"
+                        : "hover:text-wearecrewBlue transition cursor-pointer"
+                    }
                   >
                     Profile
                   </h1>
                 </NavLink>
                 <button
                   onClick={() => signOutHandler()}
-                  className="bg-wearecrewBlue cursor-pointer"
+                  className="text-wearecrewLightGrey cursor-pointer"
                 >
                   <h1>Logout</h1>
                 </button>
