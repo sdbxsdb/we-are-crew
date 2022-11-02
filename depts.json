@@ -84,6 +84,10 @@
     ]
   },
   {
+    "dept": "Autocue",
+    "titles": ["Autocue Operator"]
+  },
+  {
     "dept": "Camera",
     "titles": [
       "Director of Photography",
@@ -208,6 +212,18 @@
     ]
   },
   {
+    "dept": "Equipment Rental",
+    "titles": ["Equipment Rental House"]
+  },
+  {
+    "dept": "Floor Managers",
+    "titles": ["Floor Managers", "Stage Manager", "Trainee"]
+  },
+  {
+    "dept": "Graphics",
+    "titles": ["Graphic Designer", "Graphics Operator"]
+  },
+  {
     "dept": "Greens",
     "titles": [
       "Able to preform any role",
@@ -292,6 +308,10 @@
     "titles": ["Composer"]
   },
   {
+    "dept": "Outside Broadcast",
+    "titles": ["Outside Broadcast Provider"]
+  },
+  {
     "dept": "Post-Production",
     "titles": [
       "Able to preform any role",
@@ -345,6 +365,22 @@
     ]
   },
   {
+    "dept": "Production Company",
+    "titles": [
+      "Production Company (Feature Film)",
+      "Production Company (Short Film)",
+      "Production Company (TV Drama)",
+      "Production Company (TV Broadcast)",
+      "Production Company (Commercial)",
+      "Production Company (Documentary)",
+      "Production Company (Corporate)",
+      "Production Company (Streaming)",
+      "Production Company (Any small scale)",
+      "Production Company (Any medium scale)",
+      "Production Company (Any large scale)"
+    ]
+  },
+  {
     "dept": "Props",
     "titles": [
       "Able to preform any role",
@@ -363,6 +399,14 @@
       "Props Buyer",
       "Trainee"
     ]
+  },
+  {
+    "dept": "Researchers",
+    "titles": ["Researcher"]
+  },
+  {
+    "dept": "Satellite Truck",
+    "titles": ["Satellite Truck Provider"]
   },
   {
     "dept": "Set Dec / Design",
@@ -468,5 +512,9 @@
       "Able to preform any role",
       "Green Screen Rigger"
     ]
+  },
+  {
+    "dept": "Vision Mixing",
+    "titles": ["Vision Mixer"]
   }
 ]
