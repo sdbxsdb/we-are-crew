@@ -63,7 +63,7 @@ export default function Auth() {
       <div className="flex item-center justify-center">
         <div className="flex justify-between w-full max-w-[1200px] items-center md:h-[calc(100vh-256px)] px-4">
           <div className="flex gap-4 flex-col-reverse md:flex-row w-full">
-            <div className="w-full mt-12 md:mt-4 md:w-4/12 flex flex-col items-start justify-center aboutPage flex-1">
+            <div className="w-full my-12 lg:my-0 md:mt-4 md:w-4/12 flex flex-col items-start justify-center aboutPage flex-1">
               <h1 className="text-3xl md:text-left text-center w-full mb-6">
                 Why sign up to{" "}
                 <span className="text-wearecrewBlue">Get Crew</span>?
