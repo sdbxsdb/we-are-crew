@@ -35,6 +35,7 @@ const NavBar = () => {
   };
 
   const signOutHandler = () => {
+    setShowMobileNav(false);
     supabase.auth.signOut();
     logout();
     deleteCookie("stripe_customer");
@@ -51,7 +52,7 @@ const NavBar = () => {
   const hideSlideoverNav = () => {
     console.log("CLOSE NAV");
     setShowMobileNav(false);
-  }
+  };
 
   return (
     <div className="w-full top-0 fixed flex justify-center z-1000 px-4 py-2 shadow-md bg-wearecrewLightGrey ">
@@ -117,39 +118,21 @@ const NavBar = () => {
               </NavLink>
             )}
             {userEmail && (
-              <div className="relative">
-                <span
-                  onClick={() =>
-                    setShowProfileIconContent(!showProfileIconContent)
-                  }
-                  className={`material-icons cursor-pointer text-3xl pt-1 hover:text-wearecrewBlue transition ${
-                    showProfileIconContent ? "text-wearecrewBlue" : ""
-                  }`}
-                >
-                  account_circle
-                </span>
-                {showProfileIconContent && (
-                  <div
-                    ref={dropDownRef}
-                    className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform xl:-translate-x-1/3 border-2 right-0 overflow-hidden"
+              <>
+                <NavLink href="/my-crew">
+                  <h1
+                    onClick={() => setShowProfileIconContent(false)}
+                    className="text-wearecrewBlue p-4"
                   >
-                    <Link href="/my-crew">
-                      <a
-                        onClick={() => setShowProfileIconContent(false)}
-                        className="hover:bg-wearecrewLightGrey p-4"
-                      >
-                        Profile
-                      </a>
-                    </Link>
-                    <button
-                      onClick={() => signOutHandler()}
-                      className="hover:bg-wearecrewLightGrey p-4"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                )}
-              </div>
+                    Profile
+                  </h1>
+                </NavLink>
+                <button
+                  onClick={() => signOutHandler()}
+                >
+                  <h1 className="text-wearecrewBlue">Logout</h1>
+                </button>
+              </>
             )}
           </div>
           {/* END OF // DESKTOP NAV */}
@@ -160,7 +143,9 @@ const NavBar = () => {
             onClick={() => showSlideoverNav()}
             className="cursor-pointer px-5 py-2 rounded "
           >
-            <span className="material-icons text-4xl text-wearecrewDarkestGrey">menu</span>
+            <span className="material-icons text-4xl text-wearecrewDarkestGrey">
+              menu
+            </span>
           </div>
           <div
             className={`w-screen h-screen flex items-center text-6xl justify-center flex-col gap-y-8 pb-24 px-4 left-0 top-0 bg-wearecrewDarkestGrey/95 fixed text-wearecrewLightGrey transition transform ${
@@ -196,8 +181,9 @@ const NavBar = () => {
                 </g>
               </svg>
             </button>
-            <NavLink  href="/">
-              <h1 onClick={hideSlideoverNav}
+            <NavLink href="/">
+              <h1
+                onClick={hideSlideoverNav}
                 className={
                   router.pathname == "/"
                     ? "text-wearecrewBlue"
@@ -208,7 +194,8 @@ const NavBar = () => {
               </h1>
             </NavLink>
             <NavLink href="/about">
-              <h1 onClick={hideSlideoverNav} 
+              <h1
+                onClick={hideSlideoverNav}
                 className={
                   router.pathname == "/about"
                     ? "text-wearecrewBlue"
@@ -220,7 +207,8 @@ const NavBar = () => {
             </NavLink>
 
             <NavLink href="/pricing">
-              <h1 onClick={hideSlideoverNav}
+              <h1
+                onClick={hideSlideoverNav}
                 className={
                   router.pathname == "/pricing"
                     ? "text-wearecrewBlue"
@@ -233,7 +221,8 @@ const NavBar = () => {
 
             {!userEmail && (
               <NavLink href="/my-crew">
-                <h1 onClick={hideSlideoverNav}
+                <h1
+                  onClick={hideSlideoverNav}
                   className={`text-center
                       ${
                         router.pathname == "/my-crew"
@@ -264,8 +253,8 @@ const NavBar = () => {
                     className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform xl:-translate-x-1/3 border-2 right-0 overflow-hidden"
                   >
                     <Link href="/my-crew">
-                      <a 
-                        onClick={() => setShowProfileIconContent(false)}
+                      <a
+                        onClick={hideSlideoverNav}
                         className="hover:bg-wearecrewLightGrey p-4"
                       >
                         Profile
