@@ -33,15 +33,12 @@ const CrewList = ({ users }) => {
   const filteredUsers = foundTitle
     .filter((user) => {
       if (avail === undefined || avail === "All") {
-        console.log("No Available filter")
         return true;
       }
       if (avail === "Available") {
-        console.log("FILTERED AVAILABILITY")
         return user.status === "Available";
       }
       if (avail === "Not Available") {
-        console.log("FILTERED AVAILABILITY")
         return user.status === "Not Available";
       }
     })
@@ -56,14 +53,11 @@ const CrewList = ({ users }) => {
     })
     .filter((user) => {
       if (location.length === 0) {
-        console.log("NO LOCATUON FILTER")
         return true;
       }
       let includeUser = false;
       for (const loc of location) {
         if (user.canWorkIn.includes(loc)) {
-          console.log("FILTERED location")
-
           includeUser = true;
         }
       }

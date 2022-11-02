@@ -50,7 +50,7 @@ const NavBar = () => {
   };
 
   const hideSlideoverNav = () => {
-    console.log("CLOSE NAV");
+    // console.log("CLOSE NAV");
     setShowMobileNav(false);
   };
 
