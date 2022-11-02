@@ -55,7 +55,7 @@ const PricingOptions = ({ plans, req, res }) => {
           }}
           className="w-full banner flex flex-col justify-center items-center h-auto py-4 md:py-8 mb-8 text-white relative"
         >
-          <h1 className="tracking-wide mt-4 md:mt-0 text-2xl w-full text-center md:text-3xl shadow-black">
+          <h1 className="tracking-wide text-2xl w-full text-center md:text-3xl shadow-black">
             One simple plan. 
             <br />
             One great price.

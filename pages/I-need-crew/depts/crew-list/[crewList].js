@@ -196,7 +196,7 @@ const CrewList = ({ users }) => {
               Departments
             </a>
           </Link>
-          <div className="w-full flex justify-center md:justify-between mt-4">
+          <div className="w-full flex justify-center md:justify-between mt-8">
             <div className="flex flex-col md:flex-row gap-y-4 items-center justify-between w-full">
               <h1 className="text-4xl">
                 <DeptTitle />
