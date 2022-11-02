@@ -292,7 +292,7 @@ const CrewDetailBox = (crew) => {
                   {/* // END OF MOBILE STATUS */}
 
                   {/* MOBILE NAME*/}
-                  <strong>{crew?.name}</strong>
+                  <strong className="mt-4">{crew?.name}</strong>
                   {/* //END OF MOBILE NAME*/}
                 </div>
 
