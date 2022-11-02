@@ -154,14 +154,14 @@ input:-webkit-autofill:active{
    input[type="radio"]:checked+label::before {
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
-    content: "✓   ";
-    @apply text-wearecrewBlue;
+    content: "☑   ";
+    @apply text-wearecrewBlue text-2xl font-thin;
   }
    input[type="checkbox"]:checked+label::before {
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
-    content: "✓   ";
-    @apply text-wearecrewBlue;
+    content: "☑   ";
+    @apply text-wearecrewBlue text-2xl font-thin;
   }
    input[type="radio"]+label::before {
     transition: 0.3s;
