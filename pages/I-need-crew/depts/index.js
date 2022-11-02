@@ -10,8 +10,12 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   // console.log({ deptsWithAtLeastOnePaid });
 
   const [inputValue, setInputValue] = useState("");
+
+  //REMOVE THIS WHEN GOING LIVE
   const [showSiteNotLiveModal, setShowSiteNotLiveModal] = useState(false);
   const [showDemoProfile, setShowDemoProfile] = useState(false);
+  //^^^ REMOVE THIS WHEN GOING LIVE
+
 
   const deptsWithOnePaidAnd = deptsWithAtLeastOnePaid.map((dept) => {
     return dept.dept;
@@ -34,7 +38,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   // console.log({sortedDepts});
 
   const [foundDept, setFoundDept] = useState(sortedDepts);
-  // ******* PUT THIS BACK IN GOING LIVE
+  // THIS WILL BE USED AGAIN WHEN GOING LIVE
   // const filterDept = (e) => {
   //   const searchTerm = e.target.value;
   //   setInputValue(searchTerm);
@@ -51,20 +55,23 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
   //     // If the text field is empty, show all users
   //   }
   // };
+  // ^^^ THIS WILL BE USED AGAIN WHEN GOING LIVE
 
 
 
+  //REMOVE THIS WHEN GOING LIVE
   const placeHolderDeptsOnly = []
   const [foundPlaceholderDept, setFoundPlaceholderDept] = useState(placeHolderDeptsOnly);
 
-
   deptsPlaceHolders.map((placeholderDept) => {
     const placeHolderDeptArray = placeholderDept.dept
-    // console.log(placeHolderDeptArray)
     placeHolderDeptsOnly.push(placeHolderDeptArray)
   })
+  //^^^REMOVE THIS WHEN GOING LIVE
 
 
+
+  //REMOVE THIS WHEN GOING LIVE
   const filterPlaceholderDepts = (e) => {
     const searchTerm = e.target.value;
     setInputValue(searchTerm);
@@ -83,11 +90,16 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
     }
     
   };
+  //^^^REMOVE THIS WHEN GOING LIVE
 
+
+  // THIS WILL BE USED AGAIN WHEN GOING LIVE
   const clearSearchField = () => {
     setInputValue("");
     setFoundDept(sortedDepts);
   };
+  // ^^^ THIS WILL BE USED AGAIN WHEN GOING LIVE
+
 
 
   const clearPlaceHolderSearchField = () => {
@@ -130,7 +142,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
         />
       </Head>
       <div className="relative">
-        {/* Demo before going live modal */}
+        {/* REMOVE THIS WHEN GOING LIVE */}
         {showSiteNotLiveModal && (
           <>
             <div
@@ -444,7 +456,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
             </div>
           </>
         )}
-        {/* End of // Demo before going live modal */}
+        {/* ^^^ // REMOVE THIS WHEN GOING LIVE */}
         <div className=" flex justify-center w-full px-4 md:px-12 py-12">
           <div className="max-w-[1200px] w-full ">
             <h1 className="text-3xl text md:text-left text-center">
@@ -453,7 +465,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
             <div className="flex justify-center w-full">
               <div className="w-full">
                 <div className="w-full flex justify-center mt-4 md:mt-12 mb-4">
-                  {/* This is the search box for when site is live */}
+                  {/* REINSTATE THIS WHEN GOING LIVE */}
                   {/* <div className="relative w-full sm:w-max">
                     <input
                       type="text"
@@ -470,7 +482,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                       &#10006;
                     </span>
                   </div> */}
-                  {/* This is the search box for when site is live */}
+                  {/* ^^^// REINSTATE THIS WHEN GOING LIVE */}
                   <div className="relative w-full sm:w-max">
                     <input
                       type="text"
@@ -488,7 +500,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                     </span>
                   </div>
                 </div>
-                {/* *******This is only for show until live  */}
+                {/* REMOVE THIS WHEN GOING LIVE  */}
                 <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
                   {foundPlaceholderDept.map((deptPlaceHolder, i) => (
                     <div
@@ -516,8 +528,10 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                     </div>
                   ))}
                 </div>
-                {/* *******This is only for show until live  */}
-                {/* THIS WILL BE UNHIDDEN WHEN LIVE {foundDept && foundDept?.length > 0 ? (
+                {/* ^^^ // REMOVE THIS WHEN GOING LIVE  */}
+
+                {/* REINSTATE THIS WHEN GOING LIVE 
+                {foundDept && foundDept?.length > 0 ? (
                   <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                     {foundDept?.map((dept, i) => (
                       <div
