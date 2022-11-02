@@ -127,9 +127,7 @@ const NavBar = () => {
                     Profile
                   </h1>
                 </NavLink>
-                <button
-                  onClick={() => signOutHandler()}
-                >
+                <button onClick={() => signOutHandler()}>
                   <h1 className="text-wearecrewBlue">Logout</h1>
                 </button>
               </>
@@ -236,39 +234,22 @@ const NavBar = () => {
               </NavLink>
             )}
             {userEmail && (
-              <div className="relative">
-                <span
-                  onClick={() =>
-                    setShowProfileIconContent(!showProfileIconContent)
-                  }
-                  className={`material-icons cursor-pointer text-3xl pt-1 hover:text-wearecrewBlue transition ${
-                    showProfileIconContent ? "text-wearecrewBlue" : ""
-                  }`}
-                >
-                  account_circle
-                </span>
-                {showProfileIconContent && (
-                  <div
-                    ref={dropDownRef}
-                    className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform xl:-translate-x-1/3 border-2 right-0 overflow-hidden"
+              <>
+                <NavLink href="/my-crew">
+                  <h1
+                    onClick={hideSlideoverNav}
+                    className="bg-wearecrewBlue cursor-pointer"
                   >
-                    <Link href="/my-crew">
-                      <a
-                        onClick={hideSlideoverNav}
-                        className="hover:bg-wearecrewLightGrey p-4"
-                      >
-                        Profile
-                      </a>
-                    </Link>
-                    <button
-                      onClick={() => signOutHandler()}
-                      className="hover:bg-wearecrewLightGrey p-4"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                )}
-              </div>
+                    Profile
+                  </h1>
+                </NavLink>
+                <button
+                  onClick={() => signOutHandler()}
+                  className="bg-wearecrewBlue cursor-pointer"
+                >
+                  <h1>Logout</h1>
+                </button>
+              </>
             )}
           </div>
 
