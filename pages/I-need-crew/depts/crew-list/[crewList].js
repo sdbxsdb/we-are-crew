@@ -65,7 +65,7 @@ const CrewList = ({ users }) => {
       return includeUser;
     })
     .filter((user) => {
-      if (user?.username.toLowerCase().startsWith(singlePersonResults)) {
+      if (user?.username.toLowerCase().includes(singlePersonResults)) {
         return true;
       }
     });
