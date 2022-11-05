@@ -142,7 +142,7 @@ input:-webkit-autofill:active{
     align-items: center;
     background-color: inherit;
     height: auto;
-    text-align: center;
+    text-align: left;
     padding: 0 10px;
     overflow: hidden;
     transition: linear 0.3s;
@@ -161,20 +161,62 @@ input:-webkit-autofill:active{
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
     content: "☑   ";
-    @apply text-wearecrewBlue text-2xl font-thin;
+    @apply text-wearecrewBlue text-[28px] -ml-[1px] h-[28px] flex items-center font-thin;
   }
    input[type="radio"]+label::before {
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
     content: "◯   ";
-    @apply text-wearecrewBlue font-bold;
+    @apply text-wearecrewBlue font-bold ;
   }
    input[type="checkbox"]+label::before {
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
     content: "▢   ";
-    @apply text-wearecrewBlue font-bold;
+    @apply text-wearecrewBlue font-bold text-[21px] h-[28px] flex items-center;
   }
+
+} 
+
+.checkbox_and_radio_container_filter_pills {
+
+  input[type="radio"] {
+    appearance: none;
+    display: none;
+  }
+  input[type="checkbox"] {
+    appearance: none;
+    display: none;
+  }
+
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+    height: auto;
+    text-align: left;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: linear 0.3s;
+    cursor: pointer;
+
+  }
+
+
+   input[type="radio"]:checked+label::before {
+    transition: 0.3s;
+    // @apply border-2 border-wearecrewBlue;
+    content: "";
+    @apply text-wearecrewBlue text-2xl font-thin;
+  }
+   input[type="checkbox"]:checked+label::before {
+    transition: 0.3s;
+    // @apply border-2 border-wearecrewBlue;
+    content: "";
+    @apply text-wearecrewBlue text-[28px] -ml-[1px] h-[28px] flex items-center font-thin;
+  }
+ 
 
 } 
 

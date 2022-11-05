@@ -90,7 +90,7 @@ const About = () => {
                       <ul className="w-full">
                         <li>
                           <p>
-                            The only platform of it&apos;s kind spanning the
+                            The only platform of its kind spanning the
                             whole of the UK & Ireland.
                           </p>
                         </li>

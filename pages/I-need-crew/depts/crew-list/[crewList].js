@@ -20,7 +20,7 @@ const CrewList = ({ users }) => {
   const [foundTitle, setFoundTitle] = useState(sortedUsersByName);
   const allTitlesOnly = sortedUsersByTitle.map((user) => user.title);
   const allLocationsOnly = users.map((user) => user.canWorkIn);
-  const [avail, setAvail] = useState();
+  const [avail, setAvail] = useState("All Availability");
   const [title, setTitle] = useState([]);
   const [location, setLocation] = useState([]);
   const [singlePersonResults, setSinglePersonResults] = useState([]);
@@ -30,16 +30,17 @@ const CrewList = ({ users }) => {
     typeof window === "undefined" ? 0 : window.innerWidth
   );
 
+  const [availFilterApplied, setAvailFilterApplied] = useState(false);
+  const [roleFilterApplied, setRoleFilterApplied] = useState(false);
+  const [locationFilterApplied, setLocationFilterApplied] = useState(false);
+
   const filteredUsers = foundTitle
     .filter((user) => {
-      if (avail === undefined || avail === "All") {
+      if (avail === undefined || avail === "All Availability") {
         return true;
       }
       if (avail === "Available") {
         return user.status === "Available";
-      }
-      if (avail === "Not Available") {
-        return user.status === "Not Available";
       }
     })
     .filter((user) => {
@@ -68,6 +69,28 @@ const CrewList = ({ users }) => {
         return true;
       }
     });
+
+  useEffect(() => {
+    if (avail === "Available") {
+      setAvailFilterApplied(true);
+    } else {
+      setAvailFilterApplied(false);
+    }
+    if (title.length !== 0) {
+      setRoleFilterApplied(true);
+    } else {
+      setRoleFilterApplied(false);
+    }
+    if (location.length !== 0) {
+      setLocationFilterApplied(true);
+    } else {
+      setLocationFilterApplied(false);
+    }
+  }, [avail, title, location]);
+
+  console.log("AVAIL FILTER -", availFilterApplied);
+  console.log("ROLE FILTER - ", roleFilterApplied);
+  console.log("LOCATION FILTER - ", locationFilterApplied, location.length);
 
   const allLocationsInOneArray = [];
 
@@ -165,7 +188,7 @@ const CrewList = ({ users }) => {
 
   const showFiltersOnMobileHandler = () => {
     if (width >= 1024) {
-      setSlideFilters(false);
+      setMakeFiltersToggleable(false);
       return;
     }
     setMakeFiltersToggleable(!makeFiltersToggleable);
@@ -191,10 +214,129 @@ const CrewList = ({ users }) => {
             </a>
           </Link>
           <div className="w-full flex justify-center md:justify-between mt-8">
-            <div className="flex flex-col md:flex-row gap-y-4 items-center justify-between w-full">
+            <div className="flex flex-col  gap-y-4 items-start justify-between w-full">
               <h1 className="text-4xl">
                 <DeptTitle />
               </h1>
+              {/* DESKTOP FILTERING RESULTS*/}
+              <div className="text-left hidden lg:flex w-full  items-start justify-start gap-8 checkbox_and_radio_container_filter_pills">
+                {singlePersonResults.length > 0 && (
+                  <div className="flex flex-col justify-start w-1/4">
+                    <span className="text-wearecrewOrange mb-1 min-w-max">
+                      Individual name filter applied.
+                    </span>
+                    <div
+                      onClick={() => clearSearchField()}
+                      className=" bg-wearecrewBlue pl-8 pr-4 rounded-full relative"
+                    >
+                      <span className=" text-wearecrewLightGrey min-w-max">
+                        {singlePersonResults}
+                      </span>
+                      <span className="absolute text-wearecrewLightGrey font-bold ml-[10px] text-1xl left-0 top-1/2 transform -translate-y-1/2 cursor-pointer">
+                        &#x2715;
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {availFilterApplied && (
+                  <div className="w-1/4 flex flex-col">
+                    <span className="text-wearecrewOrange min-w-max">
+                      Availability filter applied.
+                    </span>
+                    <div className="flex w-full justify-start sm:justify-center mt-1">
+                      <li className="flex min-w-max items-center justify-start w-full relative rounded-full mr-2 h-auto">
+                        <input
+                          name="availability"
+                          type="checkbox"
+                          value="Available"
+                          id="AvailableFilter"
+                          checked={avail === "Available"}
+                          onClick={() => setAvail("All Availability")}
+                        />
+                        <label
+                          htmlFor="AvailableFilter"
+                          className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                        >
+                          <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                            &#x2715;
+                          </span>
+                          Available Now
+                        </label>
+                      </li>
+                    </div>
+                  </div>
+                )}
+
+                {roleFilterApplied && (
+                  <div className="w-1/4 basis-full flex flex-col items-start">
+                    <span className="text-wearecrewOrange min-w-max mb-1">
+                      Role filter(s) applied:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {title.map((role, i) => (
+                        <li
+                          key={i}
+                          className="flex min-w-max items-center justify-start relative rounded-full h-auto"
+                        >
+                          <input
+                            id={role}
+                            type="checkbox"
+                            name="role"
+                            value={role}
+                            onChange={filterByTitle}
+                            checked={title.includes(role)}
+                          />
+                          <label
+                            htmlFor={role}
+                            className="min-w-max!important bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                          >
+                            <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                              &#x2715;
+                            </span>
+                            {role}
+                          </label>
+                        </li>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {locationFilterApplied && (
+                  <div className="w-1/4 basis-full flex flex-col items-start ">
+                    <span className="text-wearecrewOrange min-w-max mb-1">
+                      Location filter(s) applied:
+                    </span>
+                    <div className="w-full">
+                      <div className="flex flex-wrap gap-2">
+                        {location.map((loc, i) => (
+                          <li
+                            key={i}
+                            className="flex min-w-max items-center justify-start relative rounded-full h-auto"
+                          >
+                            <input
+                              id={loc}
+                              type="checkbox"
+                              name="role"
+                              value={loc}
+                              onChange={filterByLocations}
+                              checked={location.includes(loc)}
+                            />
+                            <label
+                              htmlFor={loc}
+                              className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                            >
+                              <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                                &#x2715;
+                              </span>
+                              {loc}
+                            </label>
+                          </li>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* END OF // DESKTOP FILTERING RESULTS */}
             </div>
           </div>
           <div className="w-full flex justify-center">
@@ -235,24 +377,149 @@ const CrewList = ({ users }) => {
                   <h1>No user found!</h1>
                 </div>
               )}
-              <div className="w-full lg:w-3/12 flex flex-col gap-y-4 checkbox_and_radio_container_filter">
+              <div className="w-full lg:w-3/12 flex flex-col gap-y-4 ">
                 <div className="min-w-[200px] rounded-md px-2 lg:h-fit mb-4 md:mb-0 flex flex-col gap-y-4 md:gap-y-8">
                   <div>
                     <div
                       onClick={showFiltersOnMobileHandler}
-                      className="flex items-center justify-center w-full mt-4 lg:mt-0"
+                      className="flex items-center justify-center w-full mt-4 lg:mt-0 checkbox_and_radio_container_filter_pills"
                     >
-                      <div className="w-auto flex items-center justify-center cursor-pointer lg:cursor-default ml-4 lg:ml-0">
-                        <h1 className="text-center mb-1 text-3xl">
-                          Filter Profiles
-                        </h1>
-                        <span className="material-icons -mt-1 text-wearecrewBlue block lg:hidden">
-                          unfold_more
-                        </span>
+                      <div className=" flex items-center justify-center cursor-pointer lg:cursor-default w-full">
+                        <div className="w-full">
+                          <div className="flex ml-2 lg:ml-0 mb-2 w-full items-center justify-center">
+                            <h1 className="text-center mb-1 text-3xl hover:opacity-90 transition">
+                              Filter Profiles
+                            </h1>
+                            <span className="material-icons -mt-1 text-wearecrewBlue block lg:hidden">
+                              unfold_more
+                            </span>
+                          </div>
+                          {/* MOBILE FILTERING RESULTS */}
+                          <div className="text-left lg:hidden flex flex-col w-full  items-start justify-start gap-4 checkbox_and_radio_container_filter_pills">
+                            {singlePersonResults.length > 0 && (
+                              <div className="flex flex-col justify-start sm:justify-center w-full">
+                                <span className="text-wearecrewOrange mb-1 min-w-max">
+                                  Individual name filter applied.
+                                </span>
+                                <div
+                                  onClick={() => clearSearchField()}
+                                  className="max-w-min bg-wearecrewBlue pl-8 pr-4 rounded-full relative"
+                                >
+                                  <span className=" text-wearecrewLightGrey ">
+                                    {singlePersonResults}
+                                  </span>
+                                  <span className="absolute text-wearecrewLightGrey font-bold ml-[10px] text-1xl left-0 cursor-pointer">
+                                    &#x2715;
+                                  </span>
+                                </div>
+                              </div>
+                            )}
+                            {availFilterApplied && (
+                              <div className="w-full">
+                                <span className="text-wearecrewOrange min-w-max">
+                                  Availability filter applied.
+                                </span>
+                                <div className="flex w-full justify-start sm:justify-center mt-1">
+                                  <li className="flex min-w-max items-center justify-start w-full relative rounded-full mr-2 h-auto">
+                                    <input
+                                      name="availability"
+                                      type="checkbox"
+                                      value="Available"
+                                      id="AvailableFilter"
+                                      checked={avail === "Available"}
+                                      onClick={() =>
+                                        setAvail("All Availability")
+                                      }
+                                    />
+                                    <label
+                                      htmlFor="AvailableFilter"
+                                      className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                                    >
+                                      <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                                        &#x2715;
+                                      </span>
+                                      Available Now
+                                    </label>
+                                  </li>
+                                </div>
+                              </div>
+                            )}
+
+                            {roleFilterApplied && (
+                              <div className="w-full basis-full flex flex-col items-start">
+                                <span className="text-wearecrewOrange min-w-max mb-1">
+                                  Role filter(s) applied:
+                                </span>
+                                <div className="flex flex-wrap gap-2">
+                                  {title.map((role, i) => (
+                                    <li
+                                      key={i}
+                                      className="flex min-w-max items-center justify-start relative rounded-full h-auto"
+                                    >
+                                      <input
+                                        id={role}
+                                        type="checkbox"
+                                        name="role"
+                                        value={role}
+                                        onChange={filterByTitle}
+                                        checked={title.includes(role)}
+                                      />
+                                      <label
+                                        htmlFor={role}
+                                        className="min-w-max!important bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                                      >
+                                        <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                                          &#x2715;
+                                        </span>
+                                        {role}
+                                      </label>
+                                    </li>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            {locationFilterApplied && (
+                              <div className="w-full basis-full flex flex-col items-start ">
+                                <span className="text-wearecrewOrange min-w-max mb-1">
+                                  Location filter(s) applied:
+                                </span>
+                                <div className="w-full">
+                                  <div className="flex flex-wrap gap-2">
+                                    {location.map((loc, i) => (
+                                      <li
+                                        key={i}
+                                        className="flex min-w-max items-center justify-start relative rounded-full h-auto"
+                                      >
+                                        <input
+                                          id={loc}
+                                          type="checkbox"
+                                          name="role"
+                                          value={loc}
+                                          onChange={filterByLocations}
+                                          checked={location.includes(loc)}
+                                        />
+                                        <label
+                                          htmlFor={loc}
+                                          className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                                        >
+                                          <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                                            &#x2715;
+                                          </span>
+                                          {loc}
+                                        </label>
+                                      </li>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                          {/* END OF // MOBILE FILTERING RESULTS */}
+                        </div>
                       </div>
                     </div>
 
-                    <div className="flex flex-col mt-4 w-full">
+                    <div className="flex flex-col mt-4 w-full checkbox_and_radio_container_filter">
                       {makeFiltersToggleable && (
                         <div className="flex flex-col gap-y-6 lg:gap-y-4">
                           <div className="relative w-full">
@@ -271,53 +538,47 @@ const CrewList = ({ users }) => {
                             </span>
                           </div>
                           <ul className="flex flex-wrap justify-center lg:justify-between lg:flex-col gap-y-4 gap-x-4 filterByList border-2 border-wearecrewBlue rounded-md shadow-md overflow-hidden">
-                            <div
-                              className="flex flex-col gap-y-4 py-2 w-full justify-center items-center bg-white"
-                              onChange={filterByAvailability}
-                            >
+                            <div className="flex flex-col gap-y-4 py-2 w-full justify-center items-center bg-white">
                               <div className="w-full flex flex-col items-center">
                                 <p className=" text-center pb-2 font-bold text-lg w-full">
                                   Filter by Availability
                                 </p>
                                 <hr className="w-2/3" />
                               </div>
-                              <div className="flex">
-                                <li className="lg:w-full max-w-3/12">
+                              <div className="flex w-full justify-start sm:justify-center px-2">
+                                <li className="lg:w-full max-w-1/2">
                                   <input
                                     name="availability"
                                     type="radio"
-                                    value="All"
-                                    id="All"
-                                    defaultChecked
+                                    value="All Availability"
+                                    id="AllAvail"
+                                    checked={avail === "All Availability"}
+                                    onChange={(e) => filterByAvailability(e)}
                                   />
-                                  <label htmlFor="All" className="font-bold">
+                                  <label
+                                    htmlFor="AllAvail"
+                                    className="font-bold text-left"
+                                  >
                                     Show All Availability
                                   </label>
                                 </li>
-                                <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewGreen">
+                                <li className="lg:w-full max-w-1/2 flex justify-start text-wearecrewGreen">
                                   <input
                                     name="availability"
                                     type="radio"
                                     value="Available"
                                     id="Available"
+                                    checked={avail === "Available"}
+                                    onChange={(e) => filterByAvailability(e)}
                                   />
                                   <label
                                     htmlFor="Available"
-                                    className="font-bold"
+                                    className="font-bold text-left"
                                   >
                                     Available Now
                                   </label>
                                 </li>
                               </div>
-                              {/* <li className="lg:w-full max-w-3/12 flex justify-start text-wearecrewRed">
-                              <input
-                                name="availability"
-                                type="radio"
-                                value="Not Available"
-                                id="Not Available"
-                              />
-                              <label htmlFor="Not Available">Not Available</label>
-                            </li> */}
                             </div>
                           </ul>
                           <div>
@@ -328,41 +589,43 @@ const CrewList = ({ users }) => {
                                 </p>
                                 <hr className="w-2/3" />
                               </div>
-                              <li className="lg:w-full w-full md:max-w-3/12">
-                                <input
-                                  id="All"
-                                  type="checkbox"
-                                  name="role"
-                                  value="All"
-                                  checked={title.length === 0}
-                                />
-                                <label
-                                  htmlFor="All"
-                                  onClick={clearTitleFilter}
-                                  className="font-bold"
-                                >
-                                  Show All Roles
-                                </label>
-                              </li>
-                              {removedTitleDups?.map(
-                                (user, i) =>
-                                  sortedUsersByTitle?.length > 0 && (
-                                    <li
-                                      key={i}
-                                      className="lg:w-full max-w-3/12 flex justify-start"
-                                    >
-                                      <input
-                                        id={user}
-                                        type="checkbox"
-                                        name="role"
-                                        value={user}
-                                        onChange={filterByTitle}
-                                        checked={title.includes(user)}
-                                      />
-                                      <label htmlFor={user}>{user}</label>
-                                    </li>
-                                  )
-                              )}
+                              <div className="flex flex-wrap px-2 gap-y-4">
+                                <li className="flex  items-start justify-start basis-full md:basis-full">
+                                  <input
+                                    id="AllRoles"
+                                    type="checkbox"
+                                    name="role"
+                                    value="All"
+                                    checked={title.length === 0}
+                                  />
+                                  <label
+                                    htmlFor="AllRoles"
+                                    onClick={clearTitleFilter}
+                                    className="font-bold"
+                                  >
+                                    Show All Roles
+                                  </label>
+                                </li>
+                                {removedTitleDups?.map(
+                                  (user, i) =>
+                                    sortedUsersByTitle?.length > 0 && (
+                                      <li
+                                        key={i}
+                                        className="flex items-start justify-start basis-full md:basis-1/4 lg:basis-full"
+                                      >
+                                        <input
+                                          id={user}
+                                          type="checkbox"
+                                          name="role"
+                                          value={user}
+                                          onChange={filterByTitle}
+                                          checked={title.includes(user)}
+                                        />
+                                        <label htmlFor={user}>{user}</label>
+                                      </li>
+                                    )
+                                )}
+                              </div>
                             </ul>
                           </div>
                           <div>
@@ -373,38 +636,42 @@ const CrewList = ({ users }) => {
                                 </p>
                                 <hr className="w-2/3" />
                               </div>
-                              <li className="lg:w-full w-full md:max-w-3/12">
-                                <input
-                                  id="All"
-                                  type="checkbox"
-                                  name="location"
-                                  value="All"
-                                  checked={location.length === 0}
-                                />
-                                <label
-                                  htmlFor="All"
-                                  onClick={clearLocationFilter}
-                                  className="font-bold"
-                                >
-                                  Show All Locations
-                                </label>
-                              </li>
-                              {sortedLocationsWithRemovedDups?.map((loc, i) => (
-                                <li
-                                  key={i}
-                                  className="lg:w-full max-w-3/12 flex justify-start"
-                                >
+                              <div className="flex flex-wrap px-2 gap-y-4">
+                                <li className="flex items-start justify-start basis-full md:basis-full">
                                   <input
-                                    id={loc}
+                                    id="AllLocations"
                                     type="checkbox"
                                     name="location"
-                                    value={loc}
-                                    onChange={filterByLocations}
-                                    checked={location.includes(loc)}
+                                    value="All"
+                                    checked={location.length === 0}
                                   />
-                                  <label htmlFor={loc}>{loc}</label>
+                                  <label
+                                    htmlFor="AllLocations"
+                                    onClick={clearLocationFilter}
+                                    className="font-bold"
+                                  >
+                                    Show All Locations
+                                  </label>
                                 </li>
-                              ))}
+                                {sortedLocationsWithRemovedDups?.map(
+                                  (loc, i) => (
+                                    <li
+                                      key={i}
+                                      className="flex items-start justify-start basis-1/2 md:basis-1/4 lg:basis-full"
+                                    >
+                                      <input
+                                        id={loc}
+                                        type="checkbox"
+                                        name="location"
+                                        value={loc}
+                                        onChange={filterByLocations}
+                                        checked={location.includes(loc)}
+                                      />
+                                      <label htmlFor={loc}>{loc}</label>
+                                    </li>
+                                  )
+                                )}
+                              </div>
                             </ul>
                           </div>
                         </div>
