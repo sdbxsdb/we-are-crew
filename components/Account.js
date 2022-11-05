@@ -419,10 +419,12 @@ const Account = ({ session }) => {
                     className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md hover:brightness-110 transition"
                     onClick={(e) =>
                       dept !== "" &&
+                      dept !== null &&
                       dept !== "Choose Department" &&
                       username !== "" &&
                       username !== null &&
                       title !== "" &&
+                      title !== null &&
                       title !== "Choose Title"
                         ? updateProfile({
                             username,
@@ -760,10 +762,12 @@ const Account = ({ session }) => {
                     className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewGreen hover:brightness-110 transition"
                     onClick={(e) =>
                       dept !== "" &&
+                      dept !== null &&
                       dept !== "Choose Department" &&
                       username !== "" &&
                       username !== null &&
                       title !== "" &&
+                      title !== null &&
                       title !== "Choose Title"
                         ? updateProfile({
                             username,
