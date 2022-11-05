@@ -5,7 +5,7 @@ const privacy = () => {
   return (
     <>
       <Head>
-        <title>Terms & Conditions | Get Crew</title>
+        <title>Privacy Policy | Get Crew</title>
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
