@@ -209,9 +209,6 @@ const Account = ({ session }) => {
   // };
 
   const onUpdateProfileHandler = () => {
-    setUsername(username);
-    setDept(dept);
-    setTitle(title);
     console.log("USERNAME-", username, "DEPT-", dept, "TITLE-", title);
     setProfileChanged(true);
   };
