@@ -88,9 +88,9 @@ const CrewList = ({ users }) => {
     }
   }, [avail, title, location]);
 
-  console.log("AVAIL FILTER -", availFilterApplied);
-  console.log("ROLE FILTER - ", roleFilterApplied);
-  console.log("LOCATION FILTER - ", locationFilterApplied, location.length);
+  // console.log("AVAIL FILTER -", availFilterApplied);
+  // console.log("ROLE FILTER - ", roleFilterApplied);
+  // console.log("LOCATION FILTER - ", locationFilterApplied, location.length);
 
   const allLocationsInOneArray = [];
 

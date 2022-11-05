@@ -209,7 +209,7 @@ const Account = ({ session }) => {
   // };
 
   const onUpdateProfileHandler = () => {
-    console.log("USERNAME-", username, "DEPT-", dept, "TITLE-", title);
+    // console.log("USERNAME-", username, "DEPT-", dept, "TITLE-", title);
     setProfileChanged(true);
   };
 
