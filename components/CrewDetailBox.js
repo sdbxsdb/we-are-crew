@@ -1,9 +1,9 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import CrewDetailModal from "./CrewDetailModal";
 import { useRouter } from "next/router";
 import copy from "copy-to-clipboard";
 import { supabase } from "../utils/supabaseClient";
-
+import Image from "next/image";
 const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
@@ -127,6 +127,21 @@ const CrewDetailBox = (crew) => {
     a > b ? 1 : -1
   );
 
+  const imgRef = useRef(null);
+
+  const [loading, setLoading] = useState(true);
+
+  const onLoad = () => {
+    console.log("Loaded...");
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      onLoad();
+    }
+  }, []);
+
   return (
     <div>
       <div
@@ -141,9 +156,30 @@ const CrewDetailBox = (crew) => {
           {/*IMAGE*/}
           <div
             onClick={() => setShowModal(true)}
-            style={stylingLarge}
             className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer hoverScale"
-          ></div>
+          >
+            <div style={{ display: loading ? "block" : "none" }}>
+              <img
+                className="w-full"
+                src="/images/noProfileImg.png"
+                width="100px"
+                height="100px"
+              />
+            </div>
+
+              <img
+                ref={imgRef}
+                className={`${loading ? "hidden" : "flex"} object-cover w-full h-full`}
+                src={`${
+                  publicUrl.includes("public/images/0.")
+                    ? `${publicUrl}`
+                    : `url(/images/noProfileImg.png)`
+                }`}
+                onLoad={onLoad}
+              />
+
+          </div>
+
           {/* //END OF IMAGE*/}
 
           <div className="w-[210px] flex flex-col">
