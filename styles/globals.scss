@@ -155,7 +155,7 @@ input:-webkit-autofill:active{
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
     content: "☑   ";
-    @apply text-wearecrewBlue text-2xl font-thin;
+    @apply text-wearecrewBlue text-[28px] -ml-[1px] h-[28px] flex items-center font-thin;
   }
    input[type="checkbox"]:checked+label::before {
     transition: 0.3s;
@@ -167,7 +167,7 @@ input:-webkit-autofill:active{
     transition: 0.3s;
     // @apply border-2 border-wearecrewBlue;
     content: "◯   ";
-    @apply text-wearecrewBlue font-bold ;
+    @apply text-wearecrewBlue text-[20px] font-bold;
   }
    input[type="checkbox"]+label::before {
     transition: 0.3s;

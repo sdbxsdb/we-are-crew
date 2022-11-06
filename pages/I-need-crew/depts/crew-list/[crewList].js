@@ -70,6 +70,12 @@ const CrewList = ({ users }) => {
       }
     });
 
+
+
+
+
+  
+
   useEffect(() => {
     if (avail === "Available") {
       setAvailFilterApplied(true);
@@ -545,8 +551,8 @@ const CrewList = ({ users }) => {
                                 </p>
                                 <hr className="w-2/3" />
                               </div>
-                              <div className="flex w-full justify-start sm:justify-center px-2">
-                                <li className="lg:w-full max-w-1/2">
+                              <div className="flex flex-col w-full justify-center sm:justify-center px-2">
+                                <li className="lg:w-full w-full flex justify-start">
                                   <input
                                     name="availability"
                                     type="radio"
@@ -562,7 +568,7 @@ const CrewList = ({ users }) => {
                                     Show All Availability
                                   </label>
                                 </li>
-                                <li className="lg:w-full max-w-1/2 flex justify-start text-wearecrewGreen">
+                                <li className="lg:w-full w-full flex justify-start text-wearecrewGreen ">
                                   <input
                                     name="availability"
                                     type="radio"
@@ -573,7 +579,7 @@ const CrewList = ({ users }) => {
                                   />
                                   <label
                                     htmlFor="Available"
-                                    className="font-bold text-left"
+                                    className="font-bold text-left "
                                   >
                                     Available Now
                                   </label>
