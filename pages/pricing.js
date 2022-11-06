@@ -12,7 +12,8 @@ const pricing = ({ plans }) => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the About page"
+          content="Get Crew are proudly partnered with OneTreePlanted.
+          This means 5% of your payment will go directly to plant trees all over the world."
         />
       </Head>
       <div className="relative ">

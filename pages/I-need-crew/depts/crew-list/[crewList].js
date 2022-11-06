@@ -207,7 +207,7 @@ const CrewList = ({ users }) => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the About page"
+          content="Here you will find each crew member listed under this department.  You can filter and search and view profiles for all relevant crew."
         />
       </Head>
 

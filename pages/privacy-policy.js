@@ -9,7 +9,7 @@ const privacy = () => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the About page"
+          content="Privacy Policy"
         />
       </Head>
 

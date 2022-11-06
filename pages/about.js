@@ -26,8 +26,9 @@ const About = () => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Productions looking for crew. Crew looking for
-          productions."
+          content="Crew still have to put up with expensive diary services or dated, regional crew listing pages hidden in the depths of a website that no one will ever see.
+
+          Get Crew has the solution."
         />
       </Head>
 

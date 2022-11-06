@@ -10,7 +10,7 @@ const YourData = () => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the About page"
+          content="What do Get Crew do with your data?"
         />
       </Head>
     <div className="flex item-center justify-center">

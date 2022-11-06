@@ -52,7 +52,7 @@ const Login = () => {
         <meta name="keywords" content="My Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the My Crew page"
+          content="Your Get Crew profile page.  You can easily list your availability, credits, website, IMDB, upload your CV and more"
         />
       </Head>
 

@@ -138,7 +138,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the About page"
+          content="Search for crew via department."
         />
       </Head>
       <div className="relative">

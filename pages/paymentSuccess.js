@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const PaymentSuccess = () => {
   const router = useRouter();
@@ -11,6 +12,12 @@ const PaymentSuccess = () => {
   // }, 5000)
 
   return (
+    <>
+    <Head>
+        <title>Payment Successful | Get Crew</title>
+        <meta name="keywords" content="I Need Crew" />
+        <meta name="description" content="Payment Successful." />
+      </Head>
     <div className="h-[calc(100vh-105px)] w-screen flex items-center justify-center px-4">
       <div className="flex flex-col items-center">
         <h1 className="text-3xl text-center mb-4">From <br/> Get Crew and OneTreePlanted 
@@ -27,6 +34,7 @@ const PaymentSuccess = () => {
 
       </div>
     </div>
+    </>
   )
 }
 

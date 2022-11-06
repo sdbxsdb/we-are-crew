@@ -9,7 +9,7 @@ const terms = () => {
         <meta name="keywords" content="I Need Crew" />
         <meta
           name="description"
-          content="Hello this is a test description for the About page"
+          content="Terms and Conditions"
         />
       </Head>
 
