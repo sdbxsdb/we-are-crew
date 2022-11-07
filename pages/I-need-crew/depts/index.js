@@ -466,7 +466,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
               <div className="w-full">
                 <div className="w-full flex justify-center mt-4 md:mt-12 mb-4">
                   {/* REINSTATE THIS WHEN GOING LIVE */}
-                  {/* <div className="relative w-full sm:w-max">
+                  <div className="relative w-full sm:w-max">
                     <input
                       type="text"
                       value={inputValue}
@@ -481,10 +481,10 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                     >
                       &#10006;
                     </span>
-                  </div> */}
+                  </div>
                   {/* ^^^// REINSTATE THIS WHEN GOING LIVE */}
                   {/* REMOVE THIS WHEN GOING LIVE */}
-                  <div className="relative w-full sm:w-max">
+                  {/* <div className="relative w-full sm:w-max">
                     <input
                       type="text"
                       value={inputValue}
@@ -499,18 +499,18 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                     >
                       &#10006;
                     </span>
-                  </div>
-                </div>
+                  </div> */}
                 {/* ^^^ REMOVE THIS WHEN GOING LIVE */}
+                </div>
                 {/* REMOVE THIS WHEN GOING LIVE  */}
-                <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
+                {/* <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
                   {foundPlaceholderDept.map((deptPlaceHolder, i) => (
                     <div
                       onClick={siteNotLiveHandler}
                       key={i}
                       className="w-full flex items-center justify-center"
                     >
-                      <div className="cursor-pointer">
+                      <div className="cursor-pointer w-full flex justify-center items-center">
                         <a className="neumorphBoxMd w-full sm:min-w-[180px] sm:w-[180px] h-[180px] flex flex-col items-center justify-center text-center rounded  border-b-2 border-wearecrewBlue hoverScale gap-y-2 p-2">
                           <h1 className="text-5xl sm:text-3xl">
                             {deptPlaceHolder}
@@ -529,11 +529,11 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                       </div>
                     </div>
                   ))}
-                </div>
+                </div> */}
                 {/* ^^^ // REMOVE THIS WHEN GOING LIVE  */}
 
                 {/* REINSTATE THIS WHEN GOING LIVE  */}
-                {/* {foundDept && foundDept?.length > 0 ? (
+                {foundDept && foundDept?.length > 0 ? (
                   <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
                     {foundDept?.map((dept, i) => (
                       <div
@@ -560,7 +560,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                   <div className="mt-4 w-full text-center">
                     <h1>No department found!</h1>
                   </div>
-                )} */}
+                )}
                 {/* ^^^ REINSTATE THIS WHEN GOING LIVE  */}
 
               </div>
