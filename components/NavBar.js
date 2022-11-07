@@ -157,7 +157,6 @@ const NavBar = () => {
           {/* END OF // DESKTOP NAV */}
 
           {/* MOBILE NAV */}
-
           <div className="block md:hidden">
             <div
               onClick={() => showSlideoverNav()}

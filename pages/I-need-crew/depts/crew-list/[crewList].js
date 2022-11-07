@@ -380,7 +380,7 @@ const CrewList = ({ users }) => {
                 </div>
               ) : (
                 <div className="mt-4 w-full text-center">
-                  <h1>No user found!</h1>
+                  <h1>No crew found!</h1>
                 </div>
               )}
               <div className="w-full lg:w-3/12 flex flex-col gap-y-4 ">
