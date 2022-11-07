@@ -233,12 +233,12 @@ const CrewList = ({ users }) => {
                     </span>
                     <div
                       onClick={() => clearSearchField()}
-                      className=" bg-wearecrewBlue pl-8 pr-4 rounded-full relative"
+                      className=" neumorphBoxSm pl-8 pr-4 rounded-full relative"
                     >
-                      <span className=" text-wearecrewLightGrey min-w-max">
+                      <span className=" text-wearecrewBlue min-w-max">
                         {singlePersonResults}
                       </span>
-                      <span className="absolute text-wearecrewLightGrey font-bold ml-[10px] text-1xl left-0 top-1/2 transform -translate-y-1/2 cursor-pointer">
+                      <span className="absolute text-wearecrewBlue font-bold ml-[10px] text-1xl left-0 top-1/2 transform -translate-y-1/2 cursor-pointer">
                         &#x2715;
                       </span>
                     </div>
@@ -261,9 +261,9 @@ const CrewList = ({ users }) => {
                         />
                         <label
                           htmlFor="AvailableFilter"
-                          className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                          className="min-w-max neumorphBoxSm rounded-full text-wearecrewBlue"
                         >
-                          <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                          <span className=" text-wearecrewBlue font-bold  text-1xl cursor-pointer mr-2">
                             &#x2715;
                           </span>
                           Available Now
@@ -294,9 +294,9 @@ const CrewList = ({ users }) => {
                           />
                           <label
                             htmlFor={role}
-                            className="min-w-max!important bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                            className="min-w-max!important neumorphBoxSm rounded-full text-wearecrewBlue"
                           >
-                            <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                            <span className=" text-wearecrewBlue font-bold  text-1xl cursor-pointer mr-2">
                               &#x2715;
                             </span>
                             {role}
@@ -328,9 +328,9 @@ const CrewList = ({ users }) => {
                             />
                             <label
                               htmlFor={loc}
-                              className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                              className="min-w-max neumorphBoxSm rounded-full text-wearecrewBlue"
                             >
-                              <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                              <span className=" text-wearecrewBlue font-bold  text-1xl cursor-pointer mr-2">
                                 &#x2715;
                               </span>
                               {loc}
@@ -409,12 +409,12 @@ const CrewList = ({ users }) => {
                                 </span>
                                 <div
                                   onClick={() => clearSearchField()}
-                                  className="max-w-min bg-wearecrewBlue pl-8 pr-4 rounded-full relative"
+                                  className="max-w-min neumorphBoxSm pl-8 pr-4 rounded-full relative"
                                 >
-                                  <span className=" text-wearecrewLightGrey ">
+                                  <span className=" text-wearecrewBlue ">
                                     {singlePersonResults}
                                   </span>
-                                  <span className="absolute text-wearecrewLightGrey font-bold ml-[10px] text-1xl left-0 cursor-pointer">
+                                  <span className="absolute text-wearecrewBlue font-bold ml-[10px] text-1xl left-0 cursor-pointer">
                                     &#x2715;
                                   </span>
                                 </div>
@@ -439,9 +439,9 @@ const CrewList = ({ users }) => {
                                     />
                                     <label
                                       htmlFor="AvailableFilter"
-                                      className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                                      className="min-w-max neumorphBoxSm rounded-full text-wearecrewBlue"
                                     >
-                                      <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                                      <span className=" text-wearecrewBlue font-bold  text-1xl cursor-pointer mr-2">
                                         &#x2715;
                                       </span>
                                       Available Now
@@ -472,9 +472,9 @@ const CrewList = ({ users }) => {
                                       />
                                       <label
                                         htmlFor={role}
-                                        className="min-w-max!important bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                                        className="min-w-max!important neumorphBoxSm rounded-full text-wearecrewBlue"
                                       >
-                                        <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                                        <span className=" text-wearecrewBlue font-bold  text-1xl cursor-pointer mr-2">
                                           &#x2715;
                                         </span>
                                         {role}
@@ -506,9 +506,9 @@ const CrewList = ({ users }) => {
                                         />
                                         <label
                                           htmlFor={loc}
-                                          className="min-w-max bg-wearecrewBlue rounded-full text-wearecrewLightGrey"
+                                          className="min-w-max neumorphBoxSm rounded-full text-wearecrewBlue"
                                         >
-                                          <span className=" text-wearecrewLightGrey font-bold  text-1xl cursor-pointer mr-2">
+                                          <span className=" text-wearecrewBlue font-bold  text-1xl cursor-pointer mr-2">
                                             &#x2715;
                                           </span>
                                           {loc}
