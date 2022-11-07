@@ -296,8 +296,27 @@ const CrewDetailBox = (crew) => {
               {/*MOBILE IMAGE*/}
               <div
                 style={stylingSmall}
-                className="rounded-full overflow-hidden w-[80px] h-[80px] shadow-md"
-              ></div>
+                className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer hoverScale"
+              >
+                <div style={{ display: loading ? "block" : "none" }} className="bg-white">
+                  <img
+                    className="object-cover w-full h-full bg-white  animate-pulse w-[102px] h-[102px] flex items-center justify-center -mt-1"
+                    src="/images/noProfileImg.png"
+                  />
+                </div>
+    
+                {/* When image loads it allows the bg img above to be shown but it itself is hidden */}
+                <img
+                  ref={imgRef}
+                  className="hidden"
+                  src={`${
+                    publicUrl.includes("public/images/0.")
+                      ? `${publicUrl}`
+                      : `url(/images/noProfileImg.png)`
+                  }`}
+                  onLoad={onLoad}
+                />
+              </div>
               {/* //END OF MOBILE IMAGE*/}
 
               <div className="w-[210px] text-right">
