@@ -156,30 +156,28 @@ const CrewDetailBox = (crew) => {
           {/*IMAGE*/}
           <div
             onClick={() => setShowModal(true)}
+            style={stylingLarge}
             className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer hoverScale"
           >
-            <div style={{ display: loading ? "block" : "none" }}>
+            <div style={{ display: loading ? "block" : "none" }} className="bg-white">
               <img
-                className="w-full"
+                className="object-cover w-full h-full bg-white  animate-pulse w-[102px] h-[102px] flex items-center justify-center -mt-1"
                 src="/images/noProfileImg.png"
-                width="100px"
-                height="100px"
               />
             </div>
 
-              <img
-                ref={imgRef}
-                className={`${loading ? "hidden" : "flex"} object-cover w-full h-full`}
-                src={`${
-                  publicUrl.includes("public/images/0.")
-                    ? `${publicUrl}`
-                    : `url(/images/noProfileImg.png)`
-                }`}
-                onLoad={onLoad}
-              />
-
+            {/* When image loads it allows the bg img above to be shown but it itself is hidden */}
+            <img
+              ref={imgRef}
+              className="hidden"
+              src={`${
+                publicUrl.includes("public/images/0.")
+                  ? `${publicUrl}`
+                  : `url(/images/noProfileImg.png)`
+              }`}
+              onLoad={onLoad}
+            />
           </div>
-
           {/* //END OF IMAGE*/}
 
           <div className="w-[210px] flex flex-col">
