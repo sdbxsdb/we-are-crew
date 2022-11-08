@@ -23,13 +23,6 @@ const About = () => {
     <>
       <Head>
         <title>About | Get Crew</title>
-        <meta name="keywords" content="I Need Crew" />
-        <meta
-          name="description"
-          content="Crew still have to put up with expensive diary services or dated, regional crew listing pages hidden in the depths of a website that no one will ever see.
-
-          Get Crew has the solution."
-        />
       </Head>
 
       <div className="aboutPage relative">
@@ -91,8 +84,8 @@ const About = () => {
                       <ul className="w-full">
                         <li>
                           <p>
-                            The only platform of its kind spanning the
-                            whole of the UK & Ireland.
+                            The only platform of its kind spanning the whole of
+                            the UK & Ireland.
                           </p>
                         </li>
                         <li>

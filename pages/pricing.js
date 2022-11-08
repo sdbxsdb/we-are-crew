@@ -9,12 +9,6 @@ const pricing = ({ plans }) => {
     <>
       <Head>
         <title>Pricing | Get Crew</title>
-        <meta name="keywords" content="I Need Crew" />
-        <meta
-          name="description"
-          content="Get Crew are proudly partnered with OneTreePlanted.
-          This means 5% of your payment will go directly to plant trees all over the world."
-        />
       </Head>
       <div className="relative ">
         <PricingOptions plans={plans} />

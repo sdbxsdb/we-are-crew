@@ -14,8 +14,6 @@ const PaymentCancelled = () => {
     <>
       <Head>
         <title>Payment Cancelled | Get Crew</title>
-        <meta name="keywords" content="I Need Crew" />
-        <meta name="description" content="Payment cancelled." />
       </Head>
       <div className="h-[calc(100vh-105px)] w-screen flex items-center justify-center px-4">
         <div className="flex flex-col items-center">

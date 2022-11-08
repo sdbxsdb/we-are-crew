@@ -16,8 +16,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Get Crew</title>
-        <meta name="description" content="Productions looking for crew.  Crew looking for productions." />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="">

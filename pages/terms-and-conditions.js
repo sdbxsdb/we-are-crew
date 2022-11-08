@@ -7,10 +7,6 @@ const terms = () => {
       <Head>
         <title>Terms and Conditions | Get Crew</title>
         <meta name="keywords" content="I Need Crew" />
-        <meta
-          name="description"
-          content="Terms and Conditions"
-        />
       </Head>
 
       <div className="w-full flex justify-center">

@@ -204,11 +204,6 @@ const CrewList = ({ users }) => {
     <>
       <Head>
         <title>I Need Crew | Get Crew</title>
-        <meta name="keywords" content="I Need Crew" />
-        <meta
-          name="description"
-          content="Here you will find each crew member listed under this department.  You can filter and search and view profiles for all relevant crew."
-        />
       </Head>
 
       <div className="px-4 md:px-12 p-8 md:p-12 w-full h-fit flex justify-center">

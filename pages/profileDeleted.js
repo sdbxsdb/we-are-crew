@@ -6,8 +6,6 @@ const profileDeleted = () => {
     <>
       <Head>
         <title>Profile Deleted | Get Crew</title>
-        <meta name="keywords" content="I Need Crew" />
-        <meta name="description" content="Profile deleted." />
       </Head>
       <div className="h-[calc(100vh-105px)] w-screen flex items-center justify-center px-4">
         <div className="flex flex-col items-center justify-center text-center">

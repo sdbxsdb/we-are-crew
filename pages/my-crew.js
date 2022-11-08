@@ -49,11 +49,40 @@ const Login = () => {
           {!session ? "Sign In " : "My Crew "}
           | Get Crew
         </title>
-        <meta name="keywords" content="My Crew" />
+        <meta
+          name="title"
+          content="Get Crew | UK & Ireland - The Only Place for Crew"
+        />
         <meta
           name="description"
-          content="Your Get Crew profile page.  You can easily list your availability, credits, website, IMDB, upload your CV and more"
+          content="A dedicated website for crew to showcase their professional credentials and for productions to find crew."
         />
+        {/* 
+<!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.getcrew.pro/" />
+        <meta
+          property="og:title"
+          content="Get Crew | UK & Ireland - The Only Place for Crew"
+        />
+        <meta
+          property="og:description"
+          content="A dedicated website for crew to showcase their professional credentials and for productions to find crew."
+        />
+        <meta property="og:image" content="/images/gcFbLogoNew.jpg" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.getcrew.pro/" />
+        <meta
+          property="twitter:title"
+          content="Get Crew | UK & Ireland - The Only Place for Crew"
+        />
+        <meta
+          property="twitter:description"
+          content="A dedicated website for crew to showcase their professional credentials and for productions to find crew."
+        />
+        <meta property="twitter:image" content="/images/gcFbLogoNew.jpg" />
       </Head>
 
     <div>

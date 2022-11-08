@@ -6,11 +6,6 @@ const privacy = () => {
     <>
       <Head>
         <title>Privacy Policy | Get Crew</title>
-        <meta name="keywords" content="I Need Crew" />
-        <meta
-          name="description"
-          content="Privacy Policy"
-        />
       </Head>
 
 
