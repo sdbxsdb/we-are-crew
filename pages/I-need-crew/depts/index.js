@@ -138,7 +138,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
       </Head>
       <div className="relative">
         {/* REMOVE THIS WHEN GOING LIVE */}
-        {/* {showSiteNotLiveModal && (
+        {showSiteNotLiveModal && (
           <>
             <div
               onClick={closeSiteNotLiveHandler}
@@ -450,7 +450,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
               </div>
             </div>
           </>
-        )} */}
+        )}
         {/* ^^^ // REMOVE THIS WHEN GOING LIVE */}
         <div className=" flex justify-center w-full px-4 md:px-12 py-12">
           <div className="max-w-[1200px] w-full ">
