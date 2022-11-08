@@ -186,15 +186,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                           when
                           <span className="text-wearecrewBlue"> Get Crew </span>
                           goes live on Januray 1st 2023.
-                          <br />
-                          <br />
-                          Everyone who signs up before Januray 1st 2023 and uses
-                          the promo code <br /> <strong>
-                            EarlyBird50
-                          </strong>{" "}
-                          <br />
-                          at checkout will get 50% off their first year.
-                          <br />
+                         <br/>
                           <Link href="/my-crew">
                             <button className="neumorphBoxSm rounded-md p-2 my-8 border-b border-wearecrewBlue hover:text-wearecrewBlue transition">
                               Sign Up Here
