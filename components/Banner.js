@@ -11,7 +11,7 @@ const Banner = () => {
       className="w-full flex justify-center overflow-hidden items-center h-auto relative px-4"
     >
       <div className="flex relative flex-col items-center px-4 py-4 md:py-6 rounded-full">
-        <div className="text-center text-white z-40 font-anton tracking-wide mb-0 md:mb-2 shadow-md">
+        <div className="text-center text-white z-40 font-anton tracking-wide mb-0 md:mb-2">
           <span className="text-2xl md:text-2xl">The only place for crew <br /></span>
           <span className="text-2xl md:text-4xl">UK & Ireland</span>
           
