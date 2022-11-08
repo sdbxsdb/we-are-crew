@@ -213,10 +213,10 @@ const About = () => {
                                   </p>
                                 </div>
                               </div>
-                              <div className="w-full flex justify-center mt-4">
+                              <div className="neumorphBoxMd cursor-pointer transform transition hover:scale-102 w-full text-center rounded-md  px-4 py-2 text-2xl">
                                 <Link href="/I-need-crew/depts">
-                                  <a className="bg-wearecrewBlue w-full text-center rounded-md shadow-md p-4 text-white">
-                                    View Crew Listings
+                                  <a className=" w-full text-center text-wearecrewBlue">
+                                    <h1>View Crew Listings</h1>
                                   </a>
                                 </Link>
                               </div>
@@ -252,25 +252,27 @@ const About = () => {
                                     or Google account.
                                   </p>
                                   <p>
-                                    <strong>2.</strong> Complete your profile.
+                                    <strong>2.</strong> Complete your profile and upload your CV.
                                   </p>
                                   <p>
                                     <strong>3.</strong> Sign up and go live.
                                   </p>
                                   <p>
-                                    <strong>4.</strong> That&apos;s it! Your
-                                    profile will be live.
+                                    <strong>4.</strong> That&apos;s it! You&apos;re good to go!
                                   </p>
                                 </div>
-                                <div className="min-w-max">
+                                
+                              </div>
+                              <div className="w-full flex flex-col items-center gap-4 justify-center mt-4">
+                              <div className="neumorphBoxMd cursor-pointer transform transition hover:scale-102 w-full text-center rounded-md  px-4 py-2 text-2xl">
                                   <ShowDemoModal />
                                 </div>
-                              </div>
-                              <div className="w-full flex justify-center mt-4">
                                 <Link href="/my-crew">
-                                  <a className="bg-wearecrewBlue w-full text-center rounded-md shadow-md p-4 text-white">
-                                    Sign Up
-                                  </a>
+                                  <div className="neumorphBoxMd cursor-pointer transform transition hover:scale-102 w-full text-center rounded-md  px-4 py-2 text-2xl">
+                                    <h1 className=" text-wearecrewBlue">
+                                      Sign Up
+                                    </h1>
+                                  </div>
                                 </Link>
                               </div>
                             </div>

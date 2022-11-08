@@ -20,7 +20,7 @@ const ShowDemoModal = () => {
         <button>
           <h1
             onClick={() => setShowDemoModal(true)}
-            className="text-wearecrewBlue text-center text-lg"
+            className="text-wearecrewBlue  text-center text-lg"
           >
             View an example profile
           </h1>
