@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Get Crew</title>
+        <title>Get Crew | UK & Ireland - The Only Place for Crew.</title>
       </Head>
 
       <div className="">
