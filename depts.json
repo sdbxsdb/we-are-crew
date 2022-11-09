@@ -100,6 +100,7 @@
       "Jib Operator (Broadcast)",
       "1st Assistant Camera",
       "2nd Assistant Camera",
+      "Assistant Camera",
       "Central Loader",
       "Trainee"
     ]
@@ -183,10 +184,13 @@
   {
     "dept": "Directors",
     "titles": [
-      "Any Director Role",
-      "Director (Film, TV, Commercial)",
-      "2nd Unit Director (Film, TV, Commercial)",
-      "Stunt Unit Director (Film, TV, Commercial)",
+      "Director (Film)",
+      "Director (TV)",
+      "Director (Commercial)",
+      "2nd Unit Director (Film)",
+      "2nd Unit Director (TV)",
+      "2nd Unit Director (Commercial)",
+      "Stunt Unit Director",
       "Multi-camera Director (Broadcast)",
       "Single-camera Director (Broadcast)",
       "Self-shooting Director (Broadcast)",
@@ -205,8 +209,9 @@
   {
     "dept": "Drones",
     "titles": [
-      "Drone Operator (Film & TV)",
-      "Drone Operator (Film, TV & Live OB)",
+      "Drone Operator (Film)",
+      "Drone Operator (TV)",
+      "Drone Operator (Live OB)",
       "Drone Operator (Weddings)",
       "Drone Operator (Surveyance)",
       "Drone Operator (Real Estate)"
@@ -343,7 +348,8 @@
       "Associate Producer",
       "Series Producer",
       "Line Producer",
-      "Producer (Film, TV Drama, Commercial)",
+      "Producer (Film, & TV Drama)",
+      "Producer (Commercial)",
       "Producer (Documentary)",
       "Producer (Broadcast)",
       "Producer (Any)"
