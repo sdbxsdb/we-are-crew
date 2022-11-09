@@ -11,7 +11,8 @@
       "Accounts Assistant",
       "Trainee"
     ]
-  },
+  }
+  ,
   {
     "dept": "Action Vehicles",
     "titles": ["Action Vehicle Supplier"]

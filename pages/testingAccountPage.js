@@ -313,19 +313,10 @@ const Account = ({ session }) => {
   const ListTitle = () => {
     const selectedDept = depts.find((item) => item.dept === dept);
 
-    const setHandle = (e) => {
-      setSelectedOptions(Array.isArray(e) ? e.map((hotel) => hotel.label) : []);
-    };
-
-    console.log("NEW ROLES-", roles)
 
     return (
       <>
-        <Select
-          options={roles}
-          onChange={setHandle}
-          isMulti
-        />
+
 
         <select
           name="title"
@@ -602,7 +593,6 @@ const Account = ({ session }) => {
                     <ListTitle />
                   </li>
                   {/* //END OF GRADE/TITLE */}
-
                   {/* QUALIS */}
                   <li className="relative styledList w-full md:w-2/3">
                     <input

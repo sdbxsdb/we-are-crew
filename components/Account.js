@@ -10,7 +10,6 @@ import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
 import { deleteCookie } from "cookies-next";
-import Select from "react-select";
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -258,6 +257,44 @@ const Account = ({ session }) => {
     );
   };
 
+
+  const ListRolesCheckbox = ({ role }) => {
+    const [checked, setChecked] = useState(canWorkIn?.includes(role));
+
+    useEffect(() => {
+      // console.log("canWorkIn-", canWorkIn);
+      if (checked) {
+        canWorkIn?.indexOf(role) === -1
+          ? setCanWorkIn([...canWorkIn, role])
+          : null;
+      } else {
+        canWorkIn?.indexOf(role) > -1
+          ? setCanWorkIn(canWorkIn.filter((item) => item !== role))
+          : null;
+      }
+    }, [checked]);
+
+    const handleChange = () => {
+      setChecked(!checked);
+    };
+
+    return (
+      <li className="w-auto">
+        <input
+          type="checkbox"
+          className="chb chb-3"
+          id={role}
+          onChange={() => handleChange()}
+          value={role}
+          checked={checked | isCheckAll}
+        />
+        <label className="min-w-max" htmlFor={role}>
+          {role}
+        </label>
+      </li>
+    );
+  };
+
   const handleSelectAll = () => {
     setIsCheckAll(!isCheckAll);
     if (!isCheckAll) {
@@ -288,7 +325,6 @@ const Account = ({ session }) => {
 
   const ListDept = (e) => {
     // console.log(dept);
-
     return (
       <select
         name="dept"
@@ -313,25 +349,17 @@ const Account = ({ session }) => {
   const ListTitle = () => {
     const selectedDept = depts.find((item) => item.dept === dept);
 
-    // const setHandle = (e) => {
-    //   setSelectedOptions(Array.isArray(e) ? e.map((hotel) => hotel.label) : []);
-    // };
-
-    console.log("NEW ROLES-", roles);
-
-    console.log("SELECTEDDEPT.TITLES-", selectedDept?.titles);
-
     return (
       <>
-        <Select
-          options={selectedDept?.titles}
-          // onChange={setHandle}
-          isMulti
-        />
-        <select
+        {selectedDept?.titles?.((title, i) => (
+          <ListRolesCheckbox key={i} role={title} />
+        ))}
+
+        {/* <select
           name="title"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
+          multiple
         >
           <option value="Choose Title" default>
             Choose Title
@@ -341,7 +369,7 @@ const Account = ({ session }) => {
               {title}
             </option>
           ))}
-        </select>
+        </select> */}
       </>
     );
   };
