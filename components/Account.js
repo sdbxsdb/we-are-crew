@@ -351,7 +351,7 @@ const Account = ({ session }) => {
 
     return (
       <>
-        {selectedDept?.titles?.((title, i) => (
+        {selectedDept?.titles?.map((title, i) => (
           <ListRolesCheckbox key={i} role={title} />
         ))}
 
