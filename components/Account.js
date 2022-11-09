@@ -313,6 +313,7 @@ const Account = ({ session }) => {
         name="title"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
+        multiple
       >
         <option value="Choose Title" default>
           Choose Title
