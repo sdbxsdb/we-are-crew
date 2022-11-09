@@ -312,6 +312,10 @@
     "titles": ["Outside Broadcast Provider"]
   },
   {
+    "dept": "Photography",
+    "titles": ["Photographer"]
+  },
+  {
     "dept": "Post-Production",
     "titles": [
       "Able to preform any role",
@@ -463,10 +467,6 @@
   {
     "dept": "Stand-by",
     "titles": ["Stand-by Carpenter", "Stand-by Rigger", "Stand-by Painter"]
-  },
-  {
-    "dept": "Photography",
-    "titles": ["Photographer"]
   },
   {
     "dept": "Stunts",
