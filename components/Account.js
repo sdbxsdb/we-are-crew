@@ -314,13 +314,20 @@ const Account = ({ session }) => {
   const ListTitle = () => {
     const selectedDept = depts.find((item) => item.dept === dept);
 
+    // const setHandle = (e) => {
+    //   setSelectedOptions(Array.isArray(e) ? e.map((hotel) => hotel.label) : []);
+    // };
+
+    console.log("NEW ROLES-", roles)
+
+
     return (
    <>
    <Select
           options={roles?.map((role) => {
             role;
           })}
-          onChange={setHandle}
+          // onChange={setHandle}
           isMulti
         />
       <select
