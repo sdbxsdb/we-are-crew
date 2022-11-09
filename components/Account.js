@@ -257,16 +257,13 @@ const Account = ({ session }) => {
     );
   };
 
-
   const ListRolesCheckbox = ({ role }) => {
     const [checked, setChecked] = useState(roles?.includes(role));
 
     useEffect(() => {
       // console.log("roles-", roles);
       if (checked) {
-        roles?.indexOf(role) === -1
-          ? setRoles([...roles, role])
-          : null;
+        roles?.indexOf(role) === -1 ? setRoles([...roles, role]) : null;
       } else {
         roles?.indexOf(role) > -1
           ? setRoles(roles.filter((item) => item !== role))
@@ -626,12 +623,13 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF DEPARTMENT */}
                   {/* GRADE/TITLE */}
-                  <li className="flex flex-col styledList w-full md:w-2/3">
+                  <div className="flex flex-col relative mb-4 w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Grade / Title</p>
-                    <ListTitle />
-                  </li>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
+                      <ListTitle />
+                    </div>
+                  </div>
                   {/* //END OF GRADE/TITLE */}
-
                   {/* QUALIS */}
                   <li className="relative styledList w-full md:w-2/3">
                     <input
