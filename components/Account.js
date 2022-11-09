@@ -261,7 +261,7 @@ const Account = ({ session }) => {
     const [checked, setChecked] = useState(roles?.includes(role));
 
     useEffect(() => {
-      // console.log("roles-", roles);
+      console.log("roles-", roles);
       if (checked) {
         roles?.indexOf(role) === -1 ? setRoles([...roles, role]) : null;
       } else {
@@ -351,22 +351,6 @@ const Account = ({ session }) => {
         {selectedDept?.titles?.map((title, i) => (
           <ListRolesCheckbox key={i} role={title} />
         ))}
-
-        {/* <select
-          name="title"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          multiple
-        >
-          <option value="Choose Title" default>
-            Choose Title
-          </option>
-          {selectedDept?.titles?.map((title) => (
-            <option key={title} value={title}>
-              {title}
-            </option>
-          ))}
-        </select> */}
       </>
     );
   };
@@ -626,6 +610,20 @@ const Account = ({ session }) => {
                   <div className="flex flex-col relative mb-4 w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Grade / Title</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
+                    <li className="w-full">
+                        <input
+                          type="checkbox"
+                          id="selectAll"
+                          className="chb chb-3"
+                        />
+                        <label
+                          htmlFor="selectAll"
+                          className="min-w-max font-bold"
+                          onClick={handleSelectAll}
+                        >
+                          Select All
+                        </label>
+                      </li>
                       <ListTitle />
                     </div>
                   </div>
