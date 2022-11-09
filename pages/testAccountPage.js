@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { supabase } from "../utils/supabaseClient";
-import DynamicList from "./DynamicList";
-import UploadCV from "./UploadCV";
-import UploadImg from "./UploadImg";
+import DynamicList from "../components/DynamicList";
+import UploadCV from "../components/UploadCV";
+import UploadImg from "../components/UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
@@ -114,7 +114,7 @@ const Account = ({ session }) => {
         setdateOfPayment(data.dateOfPayment);
       }
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
     } finally {
       setLoading(false);
     }
@@ -178,7 +178,7 @@ const Account = ({ session }) => {
       setLoading(false);
       setProfileChanged(false);
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
     } finally {
       if (paid === true) {
         setTimeout(() => {
@@ -442,48 +442,7 @@ const Account = ({ session }) => {
         >
           <div>
             <div className="bg-white shadow-md rounded-md w-full md:min-w-[400px] md:w-[800px] lg:w-[1000px] px-4 md:px-12 py-12 relative">
-              {/* STICKY SAVE BUTTON */}
-              <div className="hidden sm:block sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
-                {profileChanged && (
-                  <button
-                    className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md hover:brightness-110 transition"
-                    onClick={(e) =>
-                      dept !== "" &&
-                      dept !== null &&
-                      dept !== "Choose Department" &&
-                      username !== "" &&
-                      username !== null &&
-                      title !== "" &&
-                      title !== null &&
-                      title !== "Choose Title"
-                        ? updateProfile({
-                            username,
-                            website,
-                            imgURL,
-                            status,
-                            willBeAvailOn,
-                            dept,
-                            roles,
-                            title,
-                            canStepUp,
-                            qualis,
-                            imdb,
-                            phone,
-                            bio,
-                            canWorkIn,
-                            credits,
-                            cvURL,
-                            paid,
-                          })
-                        : profileNotComplete(e)
-                    }
-                    disabled={loading}
-                  >
-                    {loading ? "Saving ..." : "Save"}
-                  </button>
-                )}
-              </div>
-              {/* //END OF STICKY SAVE BUTTON */}
+       
 
               <div className="flex justify-center mt-[-40px]">
                 <h1 className="text-3xl">
@@ -607,6 +566,7 @@ const Account = ({ session }) => {
                     <p className="text-sm text-wearecrewBlue">Department</p>
                     <ListDept />
                   </li>
+                  {/* //END OF DEPARTMENT */}
                   <li className="relative styledList w-full md:w-2/3">
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -617,7 +577,6 @@ const Account = ({ session }) => {
                       Can&apos;t find your department or title?
                     </span>
                   </li>
-                  {/* //END OF DEPARTMENT */}
                   {/* GRADE/TITLE */}
                   {dept !== "Choose Department" && (
                     <div className="flex flex-col relative w-full md:w-2/3">

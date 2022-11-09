@@ -418,21 +418,43 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.tooltip {
+.tooltipPhone {
   display: inline;
   position: relative;
   cursor: pointer;
   top: 5px;
 }
-.tooltip:hover:after{
+.tooltipPhone:hover:after{
   position: absolute;
-  bottom: -80px;
+  bottom: -150px;
   -webkit-justify-content: center;
   justify-content: center;
   background: #484848;
   border-radius: 8px;
   color: #fff;
   content: "UK | 0044 - Remove first 0 and add 0044 \A eg. 077123 45678   becomes   0044 77 123 45678  \A\A IE | 00353  - Remove first 0 and add 00353 \A eg. 087123 45678  becomes   00353 87 123 45678";
+  white-space: pre;
+  margin: -82px auto 0;
+  font-size: 16px;
+  padding: 13px;
+  width: 420px;
+}
+
+.tooltipDept {
+  display: inline;
+  position: relative;
+  cursor: pointer;
+  top: 5px;
+}
+.tooltipDept:hover:after{
+  position: absolute;
+  bottom: -100px;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background: #484848;
+  border-radius: 8px;
+  color: #fff;
+  content: "In the unlikely event you can't find your department \A or title please send us an email to crew@getcrew.pro \A and we'll get this sorted for you straight away.";
   white-space: pre;
   margin: -82px auto 0;
   font-size: 16px;
