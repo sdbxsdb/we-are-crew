@@ -5,11 +5,28 @@ import LargeButton from "../components/LargeButton";
 import { useUser } from "../context/user";
 import places from "../places.json";
 import { useState, useEffect } from "react";
+import Select from "react-select";
+
+const Hotels = [
+  { value: 1, label: "Camera Operator" },
+  { value: 2, label: "1st Assistant Camera" },
+  { value: 3, label: "2nd Assistant Camera" },
+  { value: 4, label: "Central Loader" },
+  { value: 5, label: "Steadicam" },
+];
+
 
 export default function Home() {
   const { user } = useUser();
 
   const userEmail = user?.data?.user?.email;
+
+  const [selectedOptions, setSelectedOptions] = useState(null);
+
+
+  const setHandle = (e) => {
+    setSelectedOptions(Array.isArray(e) ? e.map((hotel) => hotel.label) : []);
+  };
 
   return (
     <div className={styles.container}>
@@ -35,6 +52,9 @@ export default function Home() {
           </cite>
           <hr className="w-7/12 m-auto" />
         </div>
+
+        <Select options={Hotels} onChange={setHandle} isMulti />
+
         
         <div className="flex gap-x-4 gap-y-4 flex-col md:flex-row w-full md:justify-between items-center px-4 md:px-12 md:py-12 max-w-[1200px] ">
           <LargeButton text="I need crew" link="/I-need-crew/depts" />

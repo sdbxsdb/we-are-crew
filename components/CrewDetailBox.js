@@ -191,7 +191,9 @@ const CrewDetailBox = (crew) => {
             {/* //END OF NAME */}
 
             {/*TITLE*/}
-            <h2>{crew?.title}</h2>
+            {crew?.title.map((role => {
+              <h2>{role}</h2>
+            }))}
             {/* // END OF TITLE*/}
 
             {/*QUALIS*/}

@@ -24,6 +24,7 @@ const Account = ({ session }) => {
   const [willBeAvailOn, setWillBeAvailOn] = useState("");
   const [dept, setDept] = useState("");
   const [title, setTitle] = useState("");
+  const [roles, setRoles] = useState([]);
   const [canStepUp, setCanStepUp] = useState(false);
   const [qualis, setQualis] = useState("");
   const [imdb, setImdb] = useState("");
@@ -78,7 +79,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, title, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, title, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
         )
         .eq("id", user.id)
         .single();
@@ -88,7 +89,7 @@ const Account = ({ session }) => {
       }
 
       if (data) {
-        // console.log("DATA-", data);
+        console.log("DATA-", data);
 
         setID(data.id);
         setUsername(data.username);
@@ -106,6 +107,7 @@ const Account = ({ session }) => {
         setBio(data.bio);
         setCanWorkIn(data.canWorkIn === null ? [] : data.canWorkIn);
         setCredits(data.credits === null ? [{}] : data.credits);
+        setRoles(data.roles === null ? [{}] : data.roles);
         setCvURL(data.cvURL);
         setUpdatedAt(data.updated_at);
         setPaid(data.paid);
@@ -126,6 +128,7 @@ const Account = ({ session }) => {
     status,
     willBeAvailOn,
     dept,
+    roles,
     title,
     canStepUp,
     qualis,
@@ -150,6 +153,7 @@ const Account = ({ session }) => {
         status,
         willBeAvailOn,
         dept,
+        roles,
         title,
         canStepUp,
         qualis,
@@ -313,7 +317,6 @@ const Account = ({ session }) => {
         name="title"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
-        multiple
       >
         <option value="Choose Title" default>
           Choose Title
