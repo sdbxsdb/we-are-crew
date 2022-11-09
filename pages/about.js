@@ -145,7 +145,7 @@ const About = () => {
                   <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
-                        Crew listings already exist.. <br /> Why should I pay for this one?
+                        Crew listings already exist... <br /> Why should I pay for this one?
                       </h1>
                     </div>
                     <div className="w-full md:w-1/2  aboutPageListTicks text-lg">
@@ -156,9 +156,9 @@ const About = () => {
                         The team behind designing and building the platform have more than 70 years in the Film, TV and Broadcast industries collectively.
                         <br />
                         <br />
-                        They&apos;ve been a part of every crew listing website there is both paid for and not and with the information gathered we&apos;ve created a platform that actually <strong>WORKS</strong>.
+                        We&apos;ve been a part of every crew listing website there is both paid for and not and with the information gathered we&apos;ve created a platform that spans the whole of the UK and Ireland and actually <strong>WORKS</strong>.
                         <br /><br />
-                        <span className="text-wearecrewBlue">Get Crew</span> is a modern and easy to use platform to both search for crew and list your professional portfolio all in one place.
+                        <span className="text-wearecrewBlue">Get Crew</span> is a modern and easy to use platform to both search for crew and list your professional profile all in one place.
                       </p>
                     </div>
                   </div>
