@@ -462,6 +462,7 @@ const Account = ({ session }) => {
                             status,
                             willBeAvailOn,
                             dept,
+                            roles,
                             title,
                             canStepUp,
                             qualis,
@@ -814,6 +815,7 @@ const Account = ({ session }) => {
                             status,
                             willBeAvailOn,
                             dept,
+                            roles,
                             title,
                             canStepUp,
                             qualis,
@@ -883,23 +885,6 @@ const Account = ({ session }) => {
               d="M14.1 27.2l7.1 7.2 16.7-16.8"
             />
           </svg>
-          {/* {!paid && (
-            <div className="w-full flex flex-col items-center bg-wearecrewOrange py-12 shadow-md text-center text-white rounded-md">
-              <p className="text-3xl mb-4">Your profile isn&apos;t live yet</p>
-              <div className="flex gap-x-4 items-center justify-center">
-                <Link href="/pricing" className="text-white underline mt-4">
-                  <p className="p-4 min-h-[40px] bg-white w-fit text-wearecrewBlue rounded-md shadow-md cursor-pointer">
-                    Go live now
-                  </p>
-                </Link>
-                <button onClick={() => setShowProfileSaved(false)} className="">
-                  <p className="p-4 min-h-[40px] bg-white w-fit  rounded-md shadow-md cursor-pointer text-wearecrewDarkestGrey">
-                    I&apos;ll go live later
-                  </p>
-                </button>
-              </div>
-            </div>
-          )} */}
         </div>
       )}
     </>
