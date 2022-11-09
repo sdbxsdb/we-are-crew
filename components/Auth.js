@@ -80,7 +80,7 @@ export default function Auth() {
                     <p>One place for all your professional credentials.</p>
                   </li>
                   <li>
-                    <p>A modern and easy-to-use platform for all.</p>
+                    <p>A modern and easy-to-use platform that WORKS.</p>
                   </li>
                   <li>
                     <p>
@@ -97,11 +97,7 @@ export default function Auth() {
                   </li>
                   <li>
                     <p>
-                      1/10
-                      <small>
-                        <sup>th</sup>
-                      </small>{" "}
-                      of the cost of a traditional diary service.
+                      A fraction of the cost of a traditional diary service.
                     </p>
                   </li>
                   <li>

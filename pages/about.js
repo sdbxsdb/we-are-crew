@@ -47,8 +47,7 @@ const About = () => {
                         <br />
                         Yet its crew members still have to put up with either
                         expensive diary services or dated, regional crew listing
-                        pages hidden in the depths of a website that no one will
-                        ever see.
+                        pages hidden in the depths of a website that barely function.
                         <br />
                         <br />
                         Productions looking for crew. Crew looking for
@@ -95,7 +94,7 @@ const About = () => {
                           </p>
                         </li>
                         <li>
-                          <p>A modern and easy-to-use platform for all.</p>
+                          <p>A modern and easy-to-use platform that WORKS.</p>
                         </li>
                         <li>
                           <p>
@@ -117,11 +116,7 @@ const About = () => {
                         </li>
                         <li>
                           <p>
-                            1/10
-                            <small>
-                              <sup>th</sup>
-                            </small>{" "}
-                            of the cost of a traditional diary service.
+                            A fraction of the cost of a traditional diary service.
                           </p>
                         </li>
                         <li>
@@ -131,6 +126,40 @@ const About = () => {
                           </p>
                         </li>
                       </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden md:block scroll-prompt">
+                  <div className="scroll-prompt-arrow-container">
+                    <div className="scroll-prompt-arrow">
+                      <div></div>
+                    </div>
+                    <div className="scroll-prompt-arrow">
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
+                <div className="w-full flex justify-center gap-4 mb-12">
+                  <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
+                    <div className="w-full md:w-1/2 flex items-center">
+                      <h1 className="text-4xl mb-4 md:mb-0 w-full">
+                        Crew listings already exist.. <br /> Why should I pay for this one?
+                      </h1>
+                    </div>
+                    <div className="w-full md:w-1/2  aboutPageListTicks text-lg">
+                      <p>
+                        <span className="text-wearecrewBlue">Get Crew</span> has been built by crew for crew. 
+                        <br />
+                        <br />
+                        The team behind designing and building the platform have more than 70 years in the Film, TV and Broadcast industries collectively.
+                        <br />
+                        <br />
+                        They&apos;ve been a part of every crew listing website there is both paid for and not and with the information gathered we&apos;ve created a platform that actually <strong>WORKS</strong>.
+                        <br /><br />
+                        <span className="text-wearecrewBlue">Get Crew</span> is a modern and easy to use platform to both search for crew and list your professional portfolio all in one place.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -303,6 +332,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
+              
               <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden pb-8 md:pb-0">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row  gap-x-12 max-w-[1200px]">
