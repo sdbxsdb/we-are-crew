@@ -224,7 +224,7 @@ const Account = ({ session }) => {
     const [checked, setChecked] = useState(canWorkIn?.includes(place));
 
     useEffect(() => {
-      // console.log("canWorkIn-", canWorkIn);
+      console.log("roles-", roles);
       if (checked) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
@@ -259,17 +259,17 @@ const Account = ({ session }) => {
 
 
   const ListRolesCheckbox = ({ role }) => {
-    const [checked, setChecked] = useState(canWorkIn?.includes(role));
+    const [checked, setChecked] = useState(roles?.includes(role));
 
     useEffect(() => {
-      // console.log("canWorkIn-", canWorkIn);
+      // console.log("roles-", roles);
       if (checked) {
-        canWorkIn?.indexOf(role) === -1
-          ? setCanWorkIn([...canWorkIn, role])
+        roles?.indexOf(role) === -1
+          ? setRoles([...roles, role])
           : null;
       } else {
-        canWorkIn?.indexOf(role) > -1
-          ? setCanWorkIn(canWorkIn.filter((item) => item !== role))
+        roles?.indexOf(role) > -1
+          ? setRoles(roles.filter((item) => item !== role))
           : null;
       }
     }, [checked]);
