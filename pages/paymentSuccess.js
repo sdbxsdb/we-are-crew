@@ -26,7 +26,7 @@ const PaymentSuccess = () => {
             few minutes!
           </p>
           <br />
-          <p>A receipt for your purchase will be send to your email.</p>
+          <p>A receipt for your purchase will be sent to your email.</p>
           <br />
           <br />
 
