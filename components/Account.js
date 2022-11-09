@@ -610,11 +610,11 @@ const Account = ({ session }) => {
                   {/* //END OF DEPARTMENT */}
                   {/* GRADE/TITLE */}
                   {dept !== "Choose Department" && (
-                    <div className="flex flex-col relative mb-4 w-full md:w-2/3">
+                    <div className="flex flex-col relative w-full md:w-2/3">
                       <p className="text-sm text-wearecrewBlue">
                         Grade / Title
                       </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4 mt-2">
                         <ListTitle />
                       </div>
                     </div>
