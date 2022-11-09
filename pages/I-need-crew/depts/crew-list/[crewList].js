@@ -6,19 +6,25 @@ import { supabase } from "../../../../utils/supabaseClient";
 import Head from "next/head";
 
 const CrewList = ({ users }) => {
-  // console.log({ users });
+  console.log({ users });
+
+  // const allRoles = users.roles.map(role => {
+  //     return role;}
+  // )
+
+  // console.log({allRoles});
 
   const sortedUsersByTitle = [...users].sort((a, b) =>
-    a.title > b.title ? 1 : -1
+    a.roles > b.roles ? 1 : -1
   );
   const sortedUsersByName = [...users].sort((a, b) =>
     a.username > b.username ? 1 : -1
   );
 
-  // console.log({sortedUsersByLocation})
+  console.log({sortedUsersByTitle})
 
   const [foundTitle, setFoundTitle] = useState(sortedUsersByName);
-  const allTitlesOnly = sortedUsersByTitle.map((user) => user.title);
+  const allTitlesOnly = sortedUsersByTitle.map((user) => user.roles);
   const allLocationsOnly = users.map((user) => user.canWorkIn);
   const [avail, setAvail] = useState("All Availability");
   const [title, setTitle] = useState([]);

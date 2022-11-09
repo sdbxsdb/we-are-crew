@@ -89,7 +89,7 @@ const Account = ({ session }) => {
       }
 
       if (data) {
-        console.log("DATA-", data);
+        // console.log("DATA-", data);
 
         setID(data.id);
         setUsername(data.username);
@@ -225,7 +225,7 @@ const Account = ({ session }) => {
     const [checked, setChecked] = useState(canWorkIn?.includes(place));
 
     useEffect(() => {
-      console.log("roles-", roles);
+      // console.log("roles-", roles);
       if (checked) {
         canWorkIn?.indexOf(place) === -1
           ? setCanWorkIn([...canWorkIn, place])
@@ -262,7 +262,7 @@ const Account = ({ session }) => {
     const [checked, setChecked] = useState(roles?.includes(role));
 
     useEffect(() => {
-      console.log("roles-", roles);
+      // console.log("roles-", roles);
       if (checked) {
         roles?.indexOf(role) === -1 ? setRoles([...roles, role]) : null;
       } else {
