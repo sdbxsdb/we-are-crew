@@ -322,9 +322,7 @@ const Account = ({ session }) => {
     return (
       <>
         <Select
-          options={roles?.map((role) => {
-            role;
-          })}
+          options={roles}
           onChange={setHandle}
           isMulti
         />

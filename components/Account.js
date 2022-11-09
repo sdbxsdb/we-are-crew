@@ -12,7 +12,6 @@ import { useUser } from "../context/user";
 import { deleteCookie } from "cookies-next";
 import Select from "react-select";
 
-
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
   const [id, setID] = useState("");
@@ -318,33 +317,31 @@ const Account = ({ session }) => {
     //   setSelectedOptions(Array.isArray(e) ? e.map((hotel) => hotel.label) : []);
     // };
 
-    console.log("NEW ROLES-", roles)
-
+    console.log("NEW ROLES-", roles);
+    console.log("OLD TITLES-", roles);
 
     return (
-   <>
-   <Select
-          options={roles?.map((role) => {
-            role;
-          })}
+      <>
+        <Select
+          options={selectedDept?.titles}
           // onChange={setHandle}
           isMulti
         />
-      <select
-        name="title"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-      >
-        <option value="Choose Title" default>
-          Choose Title
-        </option>
-        {selectedDept?.titles?.map((title) => (
-          <option key={title} value={title}>
-            {title}
+        <select
+          name="title"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+        >
+          <option value="Choose Title" default>
+            Choose Title
           </option>
-        ))}
-      </select>
-</>
+          {selectedDept?.titles?.map((title) => (
+            <option key={title} value={title}>
+              {title}
+            </option>
+          ))}
+        </select>
+      </>
     );
   };
 
@@ -557,21 +554,17 @@ const Account = ({ session }) => {
                             Your profile isn&apos;t currently live.
                           </h1>
                           <Link href="/pricing">
-                          <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
-                            <a className="text-lg min-w-max">
-                              Go live now
-                            </a>
-                          </button>
-                        </Link>
+                            <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
+                              <a className="text-lg min-w-max">Go live now</a>
+                            </button>
+                          </Link>
                         </div>
-                        
                       </div>
                     ) : (
-
                       <div className="flex flex-col gap-2 justify-center items-center">
                         <div className="border border-wearecrewGreen p-4 flex flex-col md:flex-row gap-x-4 justify-center md:justify-between items-center rounded-md shadow-md w-full mb-2">
                           <h1 className="text-wearecrewGreen text-center md:text-left w-full text-2xl">
-                            Your profile is live. 
+                            Your profile is live.
                             {/* since {dateOfPayment} */}
                           </h1>
                           <div className="flex flex-col items-center justify-center min-w-max">
@@ -642,9 +635,7 @@ const Account = ({ session }) => {
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="imdb">
-                      IMDB
-                    </label>
+                    <label htmlFor="imdb">IMDB</label>
                   </li>
                   {/* //END OF IMDB */}
                   {/* CAN WORK IN */}
