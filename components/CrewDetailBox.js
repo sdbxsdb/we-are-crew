@@ -198,7 +198,6 @@ const CrewDetailBox = (crew) => {
             {crew?.qualis && (
               <div className="flex items-center">
                 <small>{crew?.qualis}</small>
-                <small>{crew?.imdb}</small>
               </div>
             )}
             {/* // END OF QUALIS*/}
