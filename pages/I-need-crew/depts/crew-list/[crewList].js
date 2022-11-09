@@ -6,28 +6,24 @@ import { supabase } from "../../../../utils/supabaseClient";
 import Head from "next/head";
 
 const CrewList = ({ users }) => {
-  console.log({ users });
-
-  // const allRoles = users.roles.map(role => {
-  //     return role;}
-  // )
-
-  // console.log({allRoles});
+  // console.log({ users });
 
   const sortedUsersByTitle = [...users].sort((a, b) =>
-    a.roles > b.roles ? 1 : -1
+    a.title > b.title ? 1 : -1
   );
   const sortedUsersByName = [...users].sort((a, b) =>
     a.username > b.username ? 1 : -1
   );
 
-  console.log({sortedUsersByTitle})
+  // console.log({sortedUsersByLocation})
 
   const [foundTitle, setFoundTitle] = useState(sortedUsersByName);
-  const allTitlesOnly = sortedUsersByTitle.map((user) => user.roles);
+  // const allTitlesOnly = sortedUsersByTitle.map((user) => user.title);
+  const allRolesOnly = users.map((user) => user.roles);
   const allLocationsOnly = users.map((user) => user.canWorkIn);
   const [avail, setAvail] = useState("All Availability");
   const [title, setTitle] = useState([]);
+  const [role, setRole] = useState([]);
   const [location, setLocation] = useState([]);
   const [singlePersonResults, setSinglePersonResults] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -49,14 +45,26 @@ const CrewList = ({ users }) => {
         return user.status === "Available";
       }
     })
+    // .filter((user) => {
+    //   if (title.length === 0) {
+    //     return true;
+    //   }
+    //   if (title.includes(user.title)) {
+    //     return true;
+    //   }
+    //   return false;
+    // })
     .filter((user) => {
-      if (title.length === 0) {
+      if (role.length === 0) {
         return true;
       }
-      if (title.includes(user.title)) {
-        return true;
+      let includeUserRole = false;
+      for (const theRole of role) {
+        if (user.roles.includes(theRole)) {
+          includeUserRole = true;
+        }
       }
-      return false;
+      return includeUserRole;
     })
     .filter((user) => {
       if (location.length === 0) {
@@ -88,7 +96,7 @@ const CrewList = ({ users }) => {
     } else {
       setAvailFilterApplied(false);
     }
-    if (title.length !== 0) {
+    if (role.length !== 0) {
       setRoleFilterApplied(true);
     } else {
       setRoleFilterApplied(false);
@@ -98,13 +106,15 @@ const CrewList = ({ users }) => {
     } else {
       setLocationFilterApplied(false);
     }
-  }, [avail, title, location]);
+  }, [avail, role, location]);
 
-  // console.log("AVAIL FILTER -", availFilterApplied);
-  // console.log("ROLE FILTER - ", roleFilterApplied);
-  // console.log("LOCATION FILTER - ", locationFilterApplied, location.length);
+  console.log({role});
+  console.log({location});
+
+
 
   const allLocationsInOneArray = [];
+  const allRolesInOneArray = [];
 
   allLocationsOnly.map((locations) => {
     // console.log(locations)
@@ -114,11 +124,20 @@ const CrewList = ({ users }) => {
     });
   });
 
-  const removedTitleDups = allTitlesOnly.filter(function (elem, pos) {
-    return allTitlesOnly.indexOf(elem) == pos;
+  allRolesOnly.map((roles) => {
+    // console.log(roles)
+    roles.map((role) => {
+      // console.log(role)
+      allRolesInOneArray.push(role);
+    });
   });
 
-  // console.log({ removedTitleDups });
+
+  // const removedTitleDups = allTitlesOnly.filter(function (elem, pos) {
+  //   return allTitlesOnly.indexOf(elem) == pos;
+  // });
+
+
 
   const removedLocationDups = allLocationsInOneArray.filter(function (
     elem,
@@ -127,25 +146,37 @@ const CrewList = ({ users }) => {
     return allLocationsInOneArray.indexOf(elem) == pos;
   });
 
+  const removedRoleDups = allRolesInOneArray.filter(function (
+    elem,
+    pos
+  ) {
+    return allRolesInOneArray.indexOf(elem) == pos;
+  });
+
   const sortedLocationsWithRemovedDups = [...removedLocationDups].sort((a, b) =>
     a > b ? 1 : -1
   );
+
+  const sortedRolesWithRemovedDups = [...removedRoleDups].sort((a, b) =>
+    a > b ? 1 : -1
+  );
+
 
   const filterByAvailability = (e) => {
     setAvail(e.target.value);
   };
 
-  const filterByTitle = (e) => {
+  const filterByRole = (e) => {
     if (e.target.checked) {
-      setTitle((title) => [...title, e.target.value]);
+      setRole((role) => [...role, e.target.value]);
     } else {
-      setTitle((titles) => {
-        return [...titles.filter((title) => e.target.value !== title)];
+      setRole((roles) => {
+        return [...roles.filter((role) => e.target.value !== role)];
       });
     }
   };
   const clearTitleFilter = () => {
-    setTitle([]);
+    setRole([]);
   };
 
   const filterByLocations = (e) => {
@@ -280,7 +311,7 @@ const CrewList = ({ users }) => {
                       Role filter(s) applied:
                     </span>
                     <div className="flex flex-wrap gap-2">
-                      {title.map((role, i) => (
+                      {role.map((role, i) => (
                         <li
                           key={i}
                           className="flex min-w-max items-center justify-start relative rounded-full h-auto"
@@ -290,8 +321,8 @@ const CrewList = ({ users }) => {
                             type="checkbox"
                             name="role"
                             value={role}
-                            onChange={filterByTitle}
-                            checked={title.includes(role)}
+                            onChange={filterByRole}
+                            checked={role.includes(role)}
                           />
                           <label
                             htmlFor={role}
@@ -381,8 +412,8 @@ const CrewList = ({ users }) => {
                   ))}
                 </div>
               ) : (
-                <div className="mt-4 w-full text-center">
-                  <h1>No crew found!</h1>
+                <div className="flex flex-1 justify-center my-12 text-center">
+                  <h1 className="text-4xl">No crew found!</h1>
                 </div>
               )}
               <div className="w-full lg:w-3/12 flex flex-col gap-y-4 ">
@@ -459,7 +490,7 @@ const CrewList = ({ users }) => {
                                   Role filter(s) applied:
                                 </span>
                                 <div className="flex flex-wrap gap-2">
-                                  {title.map((role, i) => (
+                                  {role.map((role, i) => (
                                     <li
                                       key={i}
                                       className="flex min-w-max items-center justify-start relative rounded-full h-auto"
@@ -469,8 +500,8 @@ const CrewList = ({ users }) => {
                                         type="checkbox"
                                         name="role"
                                         value={role}
-                                        onChange={filterByTitle}
-                                        checked={title.includes(role)}
+                                        onChange={filterByRole}
+                                        checked={role.includes(role)}
                                       />
                                       <label
                                         htmlFor={role}
@@ -604,7 +635,7 @@ const CrewList = ({ users }) => {
                                     type="checkbox"
                                     name="role"
                                     value="All"
-                                    checked={title.length === 0}
+                                    checked={role.length === 0}
                                   />
                                   <label
                                     htmlFor="AllRoles"
@@ -614,7 +645,7 @@ const CrewList = ({ users }) => {
                                     Show All Roles
                                   </label>
                                 </li>
-                                {removedTitleDups?.map(
+                                {sortedRolesWithRemovedDups?.map(
                                   (user, i) =>
                                     sortedUsersByTitle?.length > 0 && (
                                       <li
@@ -626,8 +657,8 @@ const CrewList = ({ users }) => {
                                           type="checkbox"
                                           name="role"
                                           value={user}
-                                          onChange={filterByTitle}
-                                          checked={title.includes(user)}
+                                          onChange={filterByRole}
+                                          checked={role.includes(user)}
                                         />
                                         <label htmlFor={user}>{user}</label>
                                       </li>

@@ -564,9 +564,9 @@ export default INeedCrew;
 export const getStaticProps = async () => {
   const { data: profiles } = await supabase
     .from("profiles")
-    .select("dept, paid");
+    .select("dept, roles, paid");
 
-  // console.log("PROFILES)-", profiles);
+  console.log("PROFILES)-", profiles);
 
   const depts = [];
   const deptsWithAtLeastOnePaid = [];

@@ -131,7 +131,7 @@ const CrewDetailBox = (crew) => {
     a > b ? 1 : -1
   );
 
-  console.log("ROLES", sortedRoles);
+  // console.log("ROLES", sortedRoles);
 
 
 
@@ -140,7 +140,7 @@ const CrewDetailBox = (crew) => {
   const [loading, setLoading] = useState(true);
 
   const onLoad = () => {
-    console.log("Loaded...");
+    // console.log("Loaded...");
     setLoading(false);
   };
 
