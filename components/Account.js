@@ -217,7 +217,8 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
-  const [isCheckAll, setIsCheckAll] = useState(false);
+  const [isCheckAllLocations, setIsCheckAllLocations] = useState(false);
+  const [isCheckAllRoles, setIsCheckAllRoles] = useState(false);
 
   //CAN WORK IN//
   const ListCheckbox = ({ place }) => {
@@ -248,7 +249,7 @@ const Account = ({ session }) => {
           id={place}
           onChange={() => handleChange()}
           value={place}
-          checked={checked | isCheckAll}
+          checked={checked | isCheckAllLocations}
         />
         <label className="min-w-max" htmlFor={place}>
           {place}
@@ -283,7 +284,7 @@ const Account = ({ session }) => {
           id={role}
           onChange={() => handleChange()}
           value={role}
-          checked={checked | isCheckAll}
+          checked={checked | isCheckAllRoles}
         />
         <label className="min-w-max" htmlFor={role}>
           {role}
@@ -292,9 +293,9 @@ const Account = ({ session }) => {
     );
   };
 
-  const handleSelectAll = () => {
-    setIsCheckAll(!isCheckAll);
-    if (!isCheckAll) {
+  const handleSelectAllLocations = () => {
+    setIsCheckAllLocations(!isCheckAllLocations);
+    if (!isCheckAllLocations) {
       setCanWorkIn([
         "London",
         "Liverpool",
@@ -315,7 +316,7 @@ const Account = ({ session }) => {
         "Outside the UK & Ireland",
       ]);
     }
-    if (isCheckAll) {
+    if (isCheckAllLocations) {
       setCanWorkIn([]);
     }
   };
@@ -608,26 +609,16 @@ const Account = ({ session }) => {
                   </li>
                   {/* //END OF DEPARTMENT */}
                   {/* GRADE/TITLE */}
-                  <div className="flex flex-col relative mb-4 w-full md:w-2/3">
-                    <p className="text-sm text-wearecrewBlue">Grade / Title</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
-                    <li className="w-full">
-                        <input
-                          type="checkbox"
-                          id="selectAll"
-                          className="chb chb-3"
-                        />
-                        <label
-                          htmlFor="selectAll"
-                          className="min-w-max font-bold"
-                          onClick={handleSelectAll}
-                        >
-                          Select All
-                        </label>
-                      </li>
-                      <ListTitle />
+                  {dept !== "Choose Department" && (
+                    <div className="flex flex-col relative mb-4 w-full md:w-2/3">
+                      <p className="text-sm text-wearecrewBlue">
+                        Grade / Title
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4">
+                        <ListTitle />
+                      </div>
                     </div>
-                  </div>
+                  )}
                   {/* //END OF GRADE/TITLE */}
                   {/* QUALIS */}
                   <li className="relative styledList w-full md:w-2/3">
@@ -677,7 +668,7 @@ const Account = ({ session }) => {
                         <label
                           htmlFor="selectAll"
                           className="min-w-max font-bold"
-                          onClick={handleSelectAll}
+                          onClick={handleSelectAllLocations}
                         >
                           Select All
                         </label>
