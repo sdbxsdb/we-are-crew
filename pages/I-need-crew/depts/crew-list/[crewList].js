@@ -352,6 +352,7 @@ const CrewList = ({ users }) => {
                           id={user.id}
                           name={user.username}
                           dept={user.dept}
+                          roles={user.roles}
                           title={user.title}
                           canStepUp={user.canStepUp}
                           imgURL={user.imgURL}

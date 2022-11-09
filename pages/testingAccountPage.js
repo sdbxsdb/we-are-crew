@@ -3,15 +3,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { supabase } from "../utils/supabaseClient";
-import DynamicList from "./DynamicList";
-import UploadCV from "./UploadCV";
-import UploadImg from "./UploadImg";
+import DynamicList from "../components/DynamicList";
+import UploadCV from "../components/UploadCV";
+import UploadImg from "../components/UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
 import { deleteCookie } from "cookies-next";
 import Select from "react-select";
-
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -116,7 +115,7 @@ const Account = ({ session }) => {
         setdateOfPayment(data.dateOfPayment);
       }
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
     } finally {
       setLoading(false);
     }
@@ -180,7 +179,7 @@ const Account = ({ session }) => {
       setLoading(false);
       setProfileChanged(false);
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
     } finally {
       if (paid === true) {
         setTimeout(() => {
@@ -314,30 +313,37 @@ const Account = ({ session }) => {
   const ListTitle = () => {
     const selectedDept = depts.find((item) => item.dept === dept);
 
+    const setHandle = (e) => {
+      setSelectedOptions(Array.isArray(e) ? e.map((hotel) => hotel.label) : []);
+    };
+
+    console.log("NEW ROLES-", roles)
+
     return (
-   <>
-   <Select
+      <>
+        <Select
           options={roles?.map((role) => {
             role;
           })}
           onChange={setHandle}
           isMulti
         />
-      <select
-        name="title"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-      >
-        <option value="Choose Title" default>
-          Choose Title
-        </option>
-        {selectedDept?.titles?.map((title) => (
-          <option key={title} value={title}>
-            {title}
+
+        <select
+          name="title"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+        >
+          <option value="Choose Title" default>
+            Choose Title
           </option>
-        ))}
-      </select>
-</>
+          {selectedDept?.titles?.map((title) => (
+            <option key={title} value={title}>
+              {title}
+            </option>
+          ))}
+        </select>
+      </>
     );
   };
 
@@ -550,21 +556,17 @@ const Account = ({ session }) => {
                             Your profile isn&apos;t currently live.
                           </h1>
                           <Link href="/pricing">
-                          <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
-                            <a className="text-lg min-w-max">
-                              Go live now
-                            </a>
-                          </button>
-                        </Link>
+                            <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
+                              <a className="text-lg min-w-max">Go live now</a>
+                            </button>
+                          </Link>
                         </div>
-                        
                       </div>
                     ) : (
-
                       <div className="flex flex-col gap-2 justify-center items-center">
                         <div className="border border-wearecrewGreen p-4 flex flex-col md:flex-row gap-x-4 justify-center md:justify-between items-center rounded-md shadow-md w-full mb-2">
                           <h1 className="text-wearecrewGreen text-center md:text-left w-full text-2xl">
-                            Your profile is live. 
+                            Your profile is live.
                             {/* since {dateOfPayment} */}
                           </h1>
                           <div className="flex flex-col items-center justify-center min-w-max">
@@ -635,9 +637,7 @@ const Account = ({ session }) => {
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="imdb">
-                      IMDB
-                    </label>
+                    <label htmlFor="imdb">IMDB</label>
                   </li>
                   {/* //END OF IMDB */}
                   {/* CAN WORK IN */}

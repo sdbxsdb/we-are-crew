@@ -8,7 +8,7 @@ const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
-  // console.log("CREW DETAIL PG- ", crew);
+  console.log("CREW DETAIL PG- ", crew);
 
   const slugify = (str) =>
     str
@@ -127,6 +127,14 @@ const CrewDetailBox = (crew) => {
     a > b ? 1 : -1
   );
 
+  const sortedRoles = [...crew?.roles].sort((a, b) =>
+    a > b ? 1 : -1
+  );
+
+  console.log("ROLES", sortedRoles);
+
+
+
   const imgRef = useRef(null);
 
   const [loading, setLoading] = useState(true);
@@ -191,8 +199,14 @@ const CrewDetailBox = (crew) => {
             {/* //END OF NAME */}
 
             {/*TITLE*/}
-            <h2>{crew?.title}</h2>
+            {/* <h2>{crew?.title}</h2> */}
             {/* // END OF TITLE*/}
+
+            {/*ROLES*/}
+            {sortedRoles.map((role, id) => (
+              <h2 key={role + id}>{role}</h2>
+            ))}
+            {/* // END OF ROLES*/}
 
             {/*QUALIS*/}
             {crew?.qualis && (
