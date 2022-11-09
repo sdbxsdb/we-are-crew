@@ -318,7 +318,8 @@ const Account = ({ session }) => {
     // };
 
     console.log("NEW ROLES-", roles);
-    console.log("OLD TITLES-", roles);
+
+    console.log("SELECTEDDEPT.TITLES-", selectedDept?.titles);
 
     return (
       <>
