@@ -23,7 +23,6 @@ const Account = ({ session }) => {
   const [status, setStatus] = useState("Available");
   const [willBeAvailOn, setWillBeAvailOn] = useState("");
   const [dept, setDept] = useState("");
-  const [title, setTitle] = useState("");
   const [roles, setRoles] = useState([]);
   const [canStepUp, setCanStepUp] = useState(false);
   const [qualis, setQualis] = useState("");
@@ -79,7 +78,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, title, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
         )
         .eq("id", user.id)
         .single();
@@ -99,7 +98,6 @@ const Account = ({ session }) => {
         setStatus(data.status);
         setWillBeAvailOn(data.willBeAvailOn);
         setDept(data.dept);
-        setTitle(data.title);
         setCanStepUp(data.canStepUp);
         setQualis(data.qualis);
         setImdb(data.imdb);
@@ -129,7 +127,6 @@ const Account = ({ session }) => {
     willBeAvailOn,
     dept,
     roles,
-    title,
     canStepUp,
     qualis,
     imdb,
@@ -154,7 +151,6 @@ const Account = ({ session }) => {
         willBeAvailOn,
         dept,
         roles,
-        title,
         canStepUp,
         qualis,
         imdb,
@@ -207,10 +203,6 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
-  // const canStepUpHandler = () => {
-  //   setCanStepUp(!canStepUp);
-  //   setProfileChanged(true);
-  // };
 
   const onUpdateProfileHandler = () => {
     // console.log("USERNAME-", username, "DEPT-", dept, "TITLE-", title);
@@ -406,7 +398,7 @@ const Account = ({ session }) => {
       {showFinsihProfileError && (
         <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
           <div className="p-4 rounded-md shadow-md bg-wearecrewOrange text-center w-full text-wearecrewLightGrey border-wearecrewOrange border-2 relative">
-            <p>Fill in your Name, Department and Grade/Title before saving.</p>
+            <p>Make sure to fill in your Name, Department and Grade/Title before saving.</p>
           </div>
         </div>
       )}
@@ -453,9 +445,9 @@ const Account = ({ session }) => {
                       dept !== "Choose Department" &&
                       username !== "" &&
                       username !== null &&
-                      title !== "" &&
-                      title !== null &&
-                      title !== "Choose Title"
+                      roles !== "" &&
+                      roles !== null &&
+                      roles.length < 1
                         ? updateProfile({
                             username,
                             website,
@@ -464,7 +456,6 @@ const Account = ({ session }) => {
                             willBeAvailOn,
                             dept,
                             roles,
-                            title,
                             canStepUp,
                             qualis,
                             imdb,
@@ -806,9 +797,9 @@ const Account = ({ session }) => {
                       dept !== "Choose Department" &&
                       username !== "" &&
                       username !== null &&
-                      title !== "" &&
-                      title !== null &&
-                      title !== "Choose Title"
+                      roles !== "" &&
+                      roles !== null &&
+                      roles.length < 1
                         ? updateProfile({
                             username,
                             website,
@@ -817,7 +808,6 @@ const Account = ({ session }) => {
                             willBeAvailOn,
                             dept,
                             roles,
-                            title,
                             canStepUp,
                             qualis,
                             imdb,
