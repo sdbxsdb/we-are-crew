@@ -179,7 +179,7 @@ const About = () => {
                         </li>
                         <li>
                           <p>
-                            We plant 4 trees with OneTreePlanted for every
+                            We plant 2 trees with OneTreePlanted for every
                             person that signs up!
                           </p>
                         </li>
@@ -405,7 +405,7 @@ const About = () => {
                         <strong>
                           One{" "}
                           <span className="text-wearecrewBlue">Get Crew</span>{" "}
-                          sign up = 4 trees planted.
+                          sign up = 2 trees planted.
                         </strong>
                         <br />
                         <br />

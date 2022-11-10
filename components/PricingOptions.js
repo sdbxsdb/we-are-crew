@@ -113,7 +113,7 @@ const PricingOptions = ({ plans, req, res }) => {
                           </button>
                         )}
                         <strong className="text-white  bg-wearecrewGreen py-1 px-12 absolute top-2 -right-12 transform z-40 rotate-45 shadow-md text-center">
-                          4 Trees <br/>  Planted!
+                          2 Trees <br/>  Planted!
                         </strong>
                       </div>
                     </div>
