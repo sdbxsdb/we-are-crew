@@ -450,7 +450,7 @@ const Account = ({ session }) => {
                       username !== null &&
                       roles !== "" &&
                       roles !== null &&
-                      roles.length < 1
+                      roles.length > 0
                         ? updateProfile({
                             username,
                             website,
@@ -802,7 +802,7 @@ const Account = ({ session }) => {
                       username !== null &&
                       roles !== "" &&
                       roles !== null &&
-                      roles.length < 1
+                      roles.length > 0
                         ? updateProfile({
                             username,
                             website,
