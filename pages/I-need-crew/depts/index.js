@@ -566,8 +566,6 @@ export const getStaticProps = async () => {
     .from("profiles")
     .select("dept, roles, paid");
 
-  console.log("PROFILES)-", profiles);
-
   const depts = [];
   const deptsWithAtLeastOnePaid = [];
 

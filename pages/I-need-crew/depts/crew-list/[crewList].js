@@ -108,10 +108,6 @@ const CrewList = ({ users }) => {
     }
   }, [avail, role, location]);
 
-  console.log({role});
-  console.log({location});
-
-
 
   const allLocationsInOneArray = [];
   const allRolesInOneArray = [];
@@ -752,6 +748,8 @@ export async function getStaticPaths() {
   const { data: profiles } = await supabase.from("profiles").select("dept");
 
   const depts = [];
+
+
 
   profiles?.forEach((profile) => {
     depts.push(profile.dept);
