@@ -454,7 +454,7 @@ const CrewDetailBox = (crew) => {
       >
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
-            <div className="w-full flex justify-between">
+            <div className="w-full flex flex-col md:flex-row justify-between">
               <div className="flex gap-x-4 items-center mb-4">
                 <div
                   style={stylingLarge}
@@ -479,9 +479,9 @@ const CrewDetailBox = (crew) => {
                   </div>
                 </div>
               </div>
-              <div className="w-[240px] flex flex-col items-end pt-10 mb-4">
+              <div className="md:w-[240px] flex flex-col items-center md:items-end md:pt-10 md:mb-4">
                 <strong
-                  className={`mt-4 text-3xl  min-w-max ${
+                  className={`md:mt-4 text-3xl  min-w-max ${
                     crew?.status === "Available"
                       ? "text-wearecrewGreen"
                       : crew.status === "Not Available"
