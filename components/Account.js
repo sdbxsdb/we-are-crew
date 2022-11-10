@@ -88,7 +88,7 @@ const Account = ({ session }) => {
       }
 
       if (data) {
-        console.log("DATA-", data);
+        // console.log("DATA-", data);
 
         setID(data.id);
         setUsername(data.username);
