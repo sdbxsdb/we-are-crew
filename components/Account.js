@@ -203,7 +203,6 @@ const Account = ({ session }) => {
     setProfileChanged(true);
   };
 
-
   const onUpdateProfileHandler = () => {
     // console.log("USERNAME-", username, "DEPT-", dept, "TITLE-", title);
     setProfileChanged(true);
@@ -305,6 +304,10 @@ const Account = ({ session }) => {
         "Galway",
         "Cork",
         "Donegal",
+        "Cardiff",
+        "LiverPool",
+        "Bristol",
+        "Isle of Man",
         "Outside the UK & Ireland",
       ]);
     }
@@ -398,7 +401,10 @@ const Account = ({ session }) => {
       {showFinsihProfileError && (
         <div className="bg-white/70 w-screen h-screen fixed z-2000 flex items-center justify-center top-0 left-0">
           <div className="p-4 rounded-md shadow-md bg-wearecrewOrange text-center w-full text-wearecrewLightGrey border-wearecrewOrange border-2 relative">
-            <p>Make sure to fill in your Name, Department and Grade/Title before saving.</p>
+            <p>
+              Make sure to fill in your Name, Department and Grade/Title before
+              saving.
+            </p>
           </div>
         </div>
       )}

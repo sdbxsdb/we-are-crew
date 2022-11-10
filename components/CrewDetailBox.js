@@ -250,7 +250,7 @@ const CrewDetailBox = (crew) => {
               </p>
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
-              {sortedLocations.length === 17 ? (
+              {sortedLocations.length === 21 ? (
                 <div className="mt-1 min-w-max">Anywhere</div>
               ) : (
                 sortedLocations.map((willWorkIn, id) => (
