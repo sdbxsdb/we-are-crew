@@ -819,6 +819,11 @@ background: #F2F5F6;
 box-shadow: 3px 4px 6px #ced0d1, -3px -4px 12px #ffffff;
 }
 
+.listDividerLines:not(:last-child):after {
+  content: "   -";
+  @apply text-wearecrewBlue;
+}
+
 
 
 

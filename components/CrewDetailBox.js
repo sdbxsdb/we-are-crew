@@ -127,13 +127,9 @@ const CrewDetailBox = (crew) => {
     a > b ? 1 : -1
   );
 
-  const sortedRoles = [...crew?.roles].sort((a, b) =>
-    a > b ? 1 : -1
-  );
+  const sortedRoles = [...crew?.roles].sort((a, b) => (a > b ? 1 : -1));
 
   // console.log("ROLES", sortedRoles);
-
-
 
   const imgRef = useRef(null);
 
@@ -167,7 +163,10 @@ const CrewDetailBox = (crew) => {
             style={stylingLarge}
             className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer hoverScale"
           >
-            <div style={{ display: loading ? "block" : "none" }} className="bg-white">
+            <div
+              style={{ display: loading ? "block" : "none" }}
+              className="bg-white"
+            >
               <img
                 className="object-cover w-full h-full bg-white  animate-pulse w-[102px] h-[102px] flex items-center justify-center -mt-1"
                 src="/images/noProfileImg.png"
@@ -192,9 +191,10 @@ const CrewDetailBox = (crew) => {
             {/*NAME*/}
             <h2
               onClick={() => setShowModal(true)}
-              className="cursor-pointer hover:text-wearecrewBlue transition"
+              className="cursor-pointer hover:text-wearecrewBlue transition text-[20px]"
             >
-              <strong>{crew?.name}</strong>
+              <strong className="break-words">{crew?.name}</strong>
+              <hr className="w-11/12" />
             </h2>
             {/* //END OF NAME */}
 
@@ -204,16 +204,18 @@ const CrewDetailBox = (crew) => {
 
             {/*ROLES*/}
             {sortedRoles.map((role, id) => (
-              <h2 key={role + id}>{role}</h2>
+              <p className="mt-1" key={role + id}>
+                {role}
+              </p>
             ))}
             {/* // END OF ROLES*/}
 
             {/*QUALIS*/}
-            {crew?.qualis && (
+            {/* {crew?.qualis && (
               <div className="flex items-center">
                 <small>{crew?.qualis}</small>
               </div>
-            )}
+            )} */}
             {/* // END OF QUALIS*/}
 
             {/*STATUS*/}
@@ -243,9 +245,9 @@ const CrewDetailBox = (crew) => {
           {/*CAN WORK IN*/}
           <div className="flex flex-col mr-4 justify-start items-start flex-1 min-h-[161px]">
             {crew?.willWorkIn?.length > 0 && (
-              <small>
+              <p>
                 <strong>Can work in</strong>
-              </small>
+              </p>
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
               {sortedLocations.map((willWorkIn, id) => (
@@ -311,13 +313,16 @@ const CrewDetailBox = (crew) => {
                 style={stylingSmall}
                 className="rounded-full overflow-hidden w-[100px] h-[100px] flex items-center justify-center shadow-md cursor-pointer hoverScale"
               >
-                <div style={{ display: loading ? "block" : "none" }} className="bg-white">
+                <div
+                  style={{ display: loading ? "block" : "none" }}
+                  className="bg-white"
+                >
                   <img
                     className="object-cover w-full h-full bg-white  animate-pulse w-[102px] h-[102px] flex items-center justify-center -mt-1"
                     src="/images/noProfileImg.png"
                   />
                 </div>
-    
+
                 {/* When image loads it allows the bg img above to be shown but it itself is hidden */}
                 <img
                   ref={imgRef}
@@ -334,8 +339,23 @@ const CrewDetailBox = (crew) => {
 
               <div className="w-[210px] text-right">
                 <div className="flex flex-col">
+                  {/* MOBILE NAME*/}
+                  <strong className=" text-[20px] break-words">
+                    {crew?.name}
+                  </strong>
+                  <hr />
+                  {/* //END OF MOBILE NAME*/}
+
+                  {/* MOBILE TITLE*/}
+                  {sortedRoles.map((role, id) => (
+                    <p className="mt-1" key={role + id}>
+                      {role}
+                    </p>
+                  ))}
+                  {/* //END OF MOBILE TITLE*/}
+
                   {/* MOBILE STATUS*/}
-                  <div className="flex flex-col">
+                  <div className="flex flex-col mt-4">
                     <strong
                       className={`${
                         crew?.status === "Available"
@@ -356,21 +376,7 @@ const CrewDetailBox = (crew) => {
                       )}
                   </div>
                   {/* // END OF MOBILE STATUS */}
-
-                  {/* MOBILE NAME*/}
-                  <strong className="mt-4">{crew?.name}</strong>
-                  {/* //END OF MOBILE NAME*/}
                 </div>
-
-                {/* MOBILE TITLE*/}
-                <h2>{crew?.title}</h2>
-                {/* //END OF MOBILE TITLE*/}
-
-                {/* MOBILE QUALIS*/}
-                <div className="mt-2">
-                  <small>{crew?.qualis}</small>
-                </div>
-                {/* //END OF MOBILE QUALIS*/}
               </div>
             </div>
 
@@ -449,16 +455,28 @@ const CrewDetailBox = (crew) => {
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
             <div className="w-full flex justify-between">
-              <div>
+              <div className="flex gap-x-4 items-center mb-4">
                 <div
                   style={stylingLarge}
                   className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
                 ></div>
-                <div className="mb-4">
-                  <h1 className="text-3xl">{crew?.name}</h1>
-                  {crew?.title && (
-                    <h1 className="text-lg min-w-max">{crew?.title}</h1>
-                  )}
+                <div className="">
+                  <div className="">
+                    <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max border-wearecrewBlue">
+                      {crew?.name}
+                    </h1>
+                  </div>
+
+                  <div className="flex gap-x-4 flex-wrap">
+                    {sortedRoles.map((role, id) => (
+                      <p
+                        className="text-lg min-w-max listDividerLines"
+                        key={role + id}
+                      >
+                        {role}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="w-[240px] flex flex-col items-end pt-10 mb-4">
@@ -484,7 +502,7 @@ const CrewDetailBox = (crew) => {
             </div>
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
-              <div className="flex flex-1 flex-col gap-y-6 py-4 md:py-0">
+              <div className="flex flex-1 flex-col gap-y-8 py-4 md:py-0">
                 {/* {crew?.canStepUp && (
                   <div className="flex items-center gap-x-4">
                     <span className="material-icons">move_up</span>
@@ -493,7 +511,7 @@ const CrewDetailBox = (crew) => {
                 )} */}
                 {crew?.phone && (
                   <div className="flex flex-wrap items-center gap-x-4">
-                    <span className="material-icons">phone_iphone</span>
+                    <span className="material-icons text-wearecrewBlue">phone_iphone</span>
                     <a href={`tel:${crew?.phone}`} className="underline">
                       {crew?.phone}
                     </a>
@@ -506,7 +524,7 @@ const CrewDetailBox = (crew) => {
                   </div>
                 )}
                 <div className="flex flex-wrap items-center gap-x-4">
-                  <span className="material-icons">mail</span>
+                  <span className="material-icons text-wearecrewBlue">mail</span>
                   <a
                     href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
                     className="underline"
@@ -523,7 +541,7 @@ const CrewDetailBox = (crew) => {
 
                 {website && (
                   <div className="flex flex-wrap items-center gap-x-4">
-                    <span className="material-icons">public</span>
+                    <span className="material-icons text-wearecrewBlue">public</span>
                     <a
                       href={`http://${website}`}
                       target="_blank"
@@ -542,7 +560,7 @@ const CrewDetailBox = (crew) => {
                 )}
                 {crew?.imdb && (
                   <div className="flex flex-wrap items-center gap-x-4">
-                    <span className="material-icons">public</span>
+                    <span className="material-icons text-wearecrewBlue">public</span>
                     <a
                       href={`http://${crew?.imdb}`}
                       target="_blank"
@@ -562,12 +580,15 @@ const CrewDetailBox = (crew) => {
 
                 {crew?.willWorkIn?.length > 0 && (
                   <div className="flex items-start gap-x-4">
-                    <span className="material-icons">where_to_vote</span>
+                    <span className="material-icons text-wearecrewBlue">where_to_vote</span>
                     <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
                       {sortedLocations.map((willWorkIn, id) => (
-                        <div key={willWorkIn + id}>
-                          <p className="min-w-max">{willWorkIn}</p>
-                        </div>
+                        <p
+                          key={willWorkIn + id}
+                          className="min-w-max listDividerLines"
+                        >
+                          {willWorkIn}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -575,7 +596,7 @@ const CrewDetailBox = (crew) => {
 
                 {creditsExist && (
                   <div className="flex items-start gap-x-4">
-                    <span className="material-icons">military_tech</span>
+                    <span className="material-icons text-wearecrewBlue">military_tech</span>
                     <div>
                       {crew?.credits?.map((credits, id) => (
                         <div
@@ -597,7 +618,7 @@ const CrewDetailBox = (crew) => {
 
                 {crew?.qualis ? (
                   <div className="flex items-center gap-x-4 -mt-4">
-                    <span className="material-icons">school</span>
+                    <span className="material-icons text-wearecrewBlue">school</span>
 
                     <div>
                       <p className="">{crew?.qualis}</p>
@@ -613,7 +634,7 @@ const CrewDetailBox = (crew) => {
                 >
                   {crew?.bio && (
                     <>
-                      <span className="material-icons">emoji_people</span>
+                      <span className="material-icons text-wearecrewBlue">emoji_people</span>
                       <p>{crew?.bio}</p>
                     </>
                   )}
