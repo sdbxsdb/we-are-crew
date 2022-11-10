@@ -6,7 +6,7 @@ const DeptTitle = () => {
     const router = useRouter();
     const deptTitle = router?.query?.crewList;
 
-    console.log({deptTitle})
+    // console.log({deptTitle})
   return (
     <>{deptTitle}</>
   )
