@@ -396,7 +396,7 @@ const Account = ({ session }) => {
   return (
     <>
       {showFinsihProfileError && (
-        <div className="bg-white/70 w-screen h-screen fixed z-50 flex items-center justify-center top-0 left-0">
+        <div className="bg-white/70 w-screen h-screen fixed z-2000 flex items-center justify-center top-0 left-0">
           <div className="p-4 rounded-md shadow-md bg-wearecrewOrange text-center w-full text-wearecrewLightGrey border-wearecrewOrange border-2 relative">
             <p>Make sure to fill in your Name, Department and Grade/Title before saving.</p>
           </div>
