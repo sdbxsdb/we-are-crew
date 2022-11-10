@@ -35,34 +35,47 @@ const ShowDemoModal = () => {
       >
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
-            <div className="w-full flex justify-between">
-              <div>
+            
+            
+            
+            
+            
+          <div className="w-full flex flex-col md:flex-row justify-between">
+              <div className="flex gap-x-4 items-center mb-4">
                 <div
                   style={stylingLarge}
                   className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
                 ></div>
-                <div className="mb-4">
-                  <h1 className="text-3xl">Marty McFly</h1>
-                  <h1 className="text-lg">Focus Puller</h1>
+                <div className="">
+                  <div className="">
+                    <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max border-wearecrewBlue">
+                      Marty McFly
+                    </h1>
+                  </div>
+
+                  <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
+                    Hover Boarder <span className="text-wearecrewBlue">-</span> Time Traveller
+                  </div>
                 </div>
               </div>
-              <div className=" w-[240px] flex flex-col items-end pt-10">
-                <strong className="mt-4 text-3xl mb-4 min-w-max text-wearecrewGreen">
+              <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
+                <strong
+                  className={`md:mt-4 text-3xl  min-w-max`}
+                >
                   Available
                 </strong>
               </div>
             </div>
+            
+            
+            
+            
+
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-6 py-4">
-                {/* <div className="flex items-center gap-x-4">
-                  <div className="flex items-center gap-x-4">
-                    <span className="material-icons">move_up</span>
-                    <p>Able to step up a grade</p>
-                  </div>
-                </div> */}
                 <div className="flex items-center gap-x-4">
-                  <span className="material-icons">phone_iphone</span>
+                  <span className="material-icons text-wearecrewBlue">phone_iphone</span>
                   <a href={`tel:0044 123 456 78`} className="underline">
                     0044 123 456 78
                   </a>
@@ -71,7 +84,7 @@ const ShowDemoModal = () => {
                   </button>
                 </div>
                 <div className="flex items-center gap-x-4">
-                  <span className="material-icons">mail</span>
+                  <span className="material-icons text-wearecrewBlue">mail</span>
                   <a
                     href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
                     className="underline"
@@ -83,7 +96,7 @@ const ShowDemoModal = () => {
                   </button>
                 </div>
                 <div className="flex items-center gap-x-4">
-                    <span className="material-icons">public</span>
+                    <span className="material-icons text-wearecrewBlue">public</span>
                     <a
                       href='https://backtothefuture.com'
                       target="_blank"
@@ -98,8 +111,24 @@ const ShowDemoModal = () => {
                       <cite>Copy Website</cite>
                     </button>
                   </div>
+                <div className="flex items-center gap-x-4">
+                    <span className="material-icons text-wearecrewBlue">public</span>
+                    <a
+                      href='https://www.imdb.com/name/nm0000150/'
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline"
+                    >
+                      https://www.imdb.com/name/nm0000150/
+                    </a>
+                    <button
+                      className="text-wearecrewDarkGrey"
+                    >
+                      <cite>Copy IMDB</cite>
+                    </button>
+                  </div>
                 <div className="flex items-start gap-x-4">
-                  <span className="material-icons">where_to_vote</span>
+                  <span className="material-icons text-wearecrewBlue">where_to_vote</span>
                   <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
                     <div>
                       <p className="min-w-max">Belfast</p>
@@ -119,7 +148,7 @@ const ShowDemoModal = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-x-4">
-                  <span className="material-icons">military_tech</span>
+                  <span className="material-icons text-wearecrewBlue">military_tech</span>
                   <div>
                     <div className="flex items-center mb-4">
                       <div className="flex justify-center items-center">
@@ -152,7 +181,7 @@ const ShowDemoModal = () => {
                 </div>
 
                 <div className="flex items-center gap-x-4 -mt-4">
-                  <span className="material-icons">school</span>
+                  <span className="material-icons text-wearecrewBlue">school</span>
 
                   <div>
                     <p className="">Safety Training, First Aid, IMAX</p>
@@ -160,7 +189,7 @@ const ShowDemoModal = () => {
                 </div>
 
                 <div className="flex items-start gap-x-4 -mt-2">
-                  <span className="material-icons">emoji_people</span>
+                  <span className="material-icons text-wearecrewBlue">emoji_people</span>
                   <p>
                     Martin Seamus ’Marty’ McFly, Sr. is the main protagonist of
                     the Back to the Future franchise. He is the world’s second
@@ -194,13 +223,13 @@ const ShowDemoModal = () => {
                     <h1 className="text-3xl">Website</h1>
                   </a>
 
-                  {/* <a
+                  <a
                     download
-                    href="../public/images/logoNew2.png"
+                    href=""
                     className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md"
                   >
                     <h1 className="text-lg">Download Personal CV</h1>
-                  </a> */}
+                  </a>
 
                   <button className="border-2 flex gap-x-2 justify-center border-wearecrewBlue p-2 rounded shadow-md">
                     <span className="material-icons">ios_share</span>
