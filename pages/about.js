@@ -47,7 +47,8 @@ const About = () => {
                         <br />
                         Yet its crew members still have to put up with either
                         expensive diary services or dated, regional crew listing
-                        pages hidden in the depths of a website that barely function.
+                        pages hidden in the depths of a website that barely
+                        function.
                         <br />
                         <br />
                         Productions looking for crew. Crew looking for
@@ -76,56 +77,40 @@ const About = () => {
                   <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
-                        The Solution
+                        Crew listings already exist... <br /> Why should I pay
+                        for this one?
                       </h1>
                     </div>
                     <div className="w-full md:w-1/2  aboutPageListTicks text-lg">
-                      <ul className="w-full">
-                        <li>
-                          <p>
-                            The only platform of its kind spanning the whole of
-                            the UK & Ireland.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            Find crew and list your professional profile in one
-                            place.
-                          </p>
-                        </li>
-                        <li>
-                          <p>A modern and easy-to-use platform that WORKS.</p>
-                        </li>
-                        <li>
-                          <p>
-                            Quickly and easily update your availability,
-                            credits, IMDB page, website and more.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            Refine searches by department, then filter by role,
-                            availability and location.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            No relying on someone answering a phone or replying
-                            to an email to check availability.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            A fraction of the cost of a traditional diary service.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            No restrictions when it comes to your location,
-                            experience, department or role.
-                          </p>
-                        </li>
-                      </ul>
+                      <p>
+                        <span className="text-wearecrewBlue">Get Crew</span> has
+                        been built by crew, for crew.
+                        <br />
+                        <br />
+                        The team behind designing and building the platform have
+                        more than 70 years in the Film, TV and Broadcast
+                        industries collectively.
+                        <br />
+                        We&apos;ve been a part of every crew listing website and
+                        diary service there is, both paid for and not.
+                        <br />
+                        <br />
+                        With the information gathered over long careers we
+                        decided that crew deserved better so we created a
+                        platform that spans the whole of the UK and Ireland that
+                        actually <strong>WORKS</strong> and{" "}
+                        <span className="text-oneTreeGreen">plants trees</span>{" "}
+                        in the process.
+                        <br />
+                        <br />
+                        <span className="text-wearecrewBlue">Get Crew</span> is
+                        a modern and easy to use platform to both search for
+                        crew and list your professional profile all in one
+                        place.
+                        <br />
+                        <br />
+                        <strong>All for less than 10p a day.</strong>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -145,21 +130,60 @@ const About = () => {
                   <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
-                        Crew listings already exist... <br /> Why should I pay for this one?
+                        The Solution
                       </h1>
                     </div>
-                    <div className="w-full md:w-1/2  aboutPageListTicks text-lg">
-                      <p>
-                        <span className="text-wearecrewBlue">Get Crew</span> has been built by crew for crew. 
-                        <br />
-                        <br />
-                        The team behind designing and building the platform have more than 70 years in the Film, TV and Broadcast industries collectively.
-                        <br />
-                        <br />
-                        We&apos;ve been a part of every crew listing website there is both paid for and not and with the information gathered we&apos;ve created a platform that spans the whole of the UK and Ireland and actually <strong>WORKS</strong>.
-                        <br /><br />
-                        <span className="text-wearecrewBlue">Get Crew</span> is a modern and easy to use platform to both search for crew and list your professional profile all in one place.
-                      </p>
+                    <div className="w-full md:w-1/2 aboutPageListTicks text-lg">
+                      <ul className="w-full">
+                        <li>
+                          <p>
+                            The only platform of its kind spanning the whole of
+                            the UK & Ireland.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Find crew and list your professional profile in one
+                            place.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            A modern and easy-to-use platform that{" "}
+                            <strong>WORKS</strong>.
+                          </p>
+                        </li>
+                        <li>
+                          <p>Quickly and easily update your entire profile.</p>
+                        </li>
+                        <li>
+                          <p>
+                            Refine searches by department, then filter by role,
+                            availability and location.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            No relying on someone answering a phone or replying
+                            to an email to check availability.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            A fraction of the cost of a traditional diary
+                            service.
+                          </p>
+                        </li>
+                        <li>
+                          <p>Anyone can join.</p>
+                        </li>
+                        <li>
+                          <p>
+                            We plant 4 trees with OneTreePlanted for every
+                            person that signs up!
+                          </p>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -174,6 +198,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
+
               <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-start pt-6 overflow-hidden relative">
                 <div className="w-full flex justify-center items-center gap-4 mb-12 mt-12">
                   <div className="w-full max-w-[1200px]">
@@ -281,19 +306,20 @@ const About = () => {
                                     or Google account.
                                   </p>
                                   <p>
-                                    <strong>2.</strong> Complete your profile and upload your CV.
+                                    <strong>2.</strong> Complete your profile
+                                    and upload your CV.
                                   </p>
                                   <p>
                                     <strong>3.</strong> Sign up and go live.
                                   </p>
                                   <p>
-                                    <strong>4.</strong> That&apos;s it! You&apos;re good to go!
+                                    <strong>4.</strong> That&apos;s it!
+                                    You&apos;re good to go!
                                   </p>
                                 </div>
-                                
                               </div>
                               <div className="w-full flex flex-col items-center gap-4 justify-center mt-4">
-                              <div className="neumorphBoxMd cursor-pointer transform transition hover:scale-102 w-full text-center rounded-md  px-4 py-2 text-2xl">
+                                <div className="neumorphBoxMd cursor-pointer transform transition hover:scale-102 w-full text-center rounded-md  px-4 py-2 text-2xl">
                                   <ShowDemoModal />
                                 </div>
                                 <Link href="/my-crew">
@@ -332,7 +358,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden pb-8 md:pb-0">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row  gap-x-12 max-w-[1200px]">
@@ -385,6 +411,46 @@ const About = () => {
                         <br />
                         Help us to help the world.
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden md:block scroll-prompt">
+                  <div className="scroll-prompt-arrow-container">
+                    <div className="scroll-prompt-arrow">
+                      <div></div>
+                    </div>
+                    <div className="scroll-prompt-arrow">
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
+                <div className="w-full flex justify-center gap-4 mb-12">
+                  <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
+                    <div className="w-full md:w-1/2 flex items-center">
+                      <h1 className="text-4xl mb-4 md:mb-0 w-full">
+                        Suggestions?
+                      </h1>
+                    </div>
+                    <div className="w-full md:w-1/2  aboutPageListTicks text-lg">
+                      <p>
+                        At <span className="text-wearecrewBlue">Get Crew</span>{" "}
+                        we&apos;re confident we&apos;ve made a platform that
+                        works for everyone and does what you need it to do.{" "}
+                        <br /> <br /> However, if you have any suggestions on
+                        how we can make the platform a better experience
+                        we&apos;d be delighted to here from you.
+                        <br /> <br />
+                        <a
+                          href="mailto:crew@getcrew.pro"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="-mt-1 p-0 hover:text-wearecrewBlue transition"
+                        >
+                          <span>crew@getcrew.pro</span>
+                        </a>
+                      </p>
                     </div>
                   </div>
                 </div>

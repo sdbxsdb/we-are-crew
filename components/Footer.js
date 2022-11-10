@@ -10,7 +10,7 @@ const Footer = () => {
       <Link href="/privacy-policy">
         <small className="cursor-pointer hover:text-wearecrewBlue transition">Privacy Policy</small>
       </Link>
-      <a href="mailto:crew@getcrew.pro" className="-mt-1 p-0 hover:text-wearecrewBlue transition">
+      <a href="mailto:crew@getcrew.pro" target="_blank" rel="noopener noreferrer" className="-mt-1 p-0 hover:text-wearecrewBlue transition">
         <small>Contact</small>
       </a>
     </div>

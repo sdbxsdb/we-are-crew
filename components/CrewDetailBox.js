@@ -129,7 +129,7 @@ const CrewDetailBox = (crew) => {
 
   const sortedRoles = [...crew?.roles].sort((a, b) => (a > b ? 1 : -1));
 
-  console.log("CREDITS", crew.credits);
+  // console.log("CREDITS", crew.credits);
 
   const imgRef = useRef(null);
 
