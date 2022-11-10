@@ -376,7 +376,7 @@ const CrewList = ({ users }) => {
           <div className="w-full flex justify-center">
             <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
               {filteredUsers && filteredUsers?.length > 0 ? (
-                <div className="flex flex-1 rounded-md flex-col gap-y-4 mb-12">
+                <div className="flex flex-1 rounded-md flex-col gap-y-6 mb-12">
                   {filteredUsers?.map((user, i) => (
                     <div key={i}>
                       {user.paid === true ? (

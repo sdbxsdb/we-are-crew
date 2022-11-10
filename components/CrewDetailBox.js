@@ -146,7 +146,6 @@ const CrewDetailBox = (crew) => {
     }
   }, []);
 
-
   return (
     <div>
       <div
@@ -205,7 +204,7 @@ const CrewDetailBox = (crew) => {
 
             {/*ROLES*/}
             {sortedRoles.map((role, id) => (
-              <p className="mt-1" key={role + id}>
+              <p className="mt-1 " key={role + id}>
                 {role}
               </p>
             ))}
@@ -252,15 +251,14 @@ const CrewDetailBox = (crew) => {
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
               {sortedLocations.length === 17 ? (
-                <div className="mt-1 min-w-max">
-                  Anywhere
-                </div>
-              ) : sortedLocations.map((willWorkIn, id) => (
-                <div key={willWorkIn + id} className="mt-1 min-w-min">
-                  {willWorkIn}
-                </div>
-              ))}
-              
+                <div className="mt-1 min-w-max">Anywhere</div>
+              ) : (
+                sortedLocations.map((willWorkIn, id) => (
+                  <div key={willWorkIn + id} className="mt-1 min-w-min">
+                    {willWorkIn}
+                  </div>
+                ))
+              )}
             </div>
           </div>
           {/* //END OF CAN WORK IN*/}
@@ -452,18 +450,28 @@ const CrewDetailBox = (crew) => {
         </div>
 
         {crew?.credits[0]?.jobTitle && (
-        <div className="w-full flex flex-col items-center justify-center bg-wearecrewBlue/30 ">
-          <strong>Credits Include:</strong>
-          <div className="flex gap-x-4">
-            {crew?.credits.slice(0,3).map((credit, i) => (
-              <p key={i} className="listDividerLines">{credit.jobTitle}</p>
-            ))}
+          <div className="w-full mt-2 md:mt-0 flex flex-col items-center justify-center bg-wearecrewBlue/20 p-2">
+            <strong>Credits Include</strong>
+            <div className="flex flex-col md:flex-row flex-wrap gap-x-4 items-center justify-center">
+              {crew?.credits.slice(0, 3).map(
+                (credit, i) =>
+                  credit.jobTitle !== "" && (
+                    <p key={i} className="listDividerLines">
+                      {credit.jobTitle}
+                    </p>
+                  )
+              )}
+              {crew?.credits.length > 3 && (
+                <p
+                  onClick={() => setShowModal(true)}
+                  className="underline text-wearecrewBlue cursor-pointer transition hover:opacity-70"
+                >
+                  View All
+                </p>
+              )}
+            </div>
           </div>
-        </div>
         )}
-
-
-
       </div>
 
       <CrewDetailModal
@@ -487,10 +495,10 @@ const CrewDetailBox = (crew) => {
                     </h1>
                   </div>
 
-                  <div className="flex gap-x-4 flex-wrap">
+                  <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
                     {sortedRoles.map((role, id) => (
                       <p
-                        className="text-lg min-w-max listDividerLines"
+                        className="text-md md:text-lg listDividerLines break-words"
                         key={role + id}
                       >
                         {role}
@@ -499,7 +507,7 @@ const CrewDetailBox = (crew) => {
                   </div>
                 </div>
               </div>
-              <div className="md:w-[240px] flex flex-col items-center md:items-end md:pt-10 md:mb-4">
+              <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
                 <strong
                   className={`md:mt-4 text-3xl  min-w-max ${
                     crew?.status === "Available"
@@ -523,18 +531,16 @@ const CrewDetailBox = (crew) => {
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-8 py-4 md:py-0">
-                {/* {crew?.canStepUp && (
-                  <div className="flex items-center gap-x-4">
-                    <span className="material-icons">move_up</span>
-                    <p>Able to step up a grade</p>
-                  </div>
-                )} */}
                 {crew?.phone && (
                   <div className="flex flex-wrap items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">phone_iphone</span>
-                    <a href={`tel:${crew?.phone}`} className="underline">
-                      {crew?.phone}
-                    </a>
+                    <div className="flex items-center gap-x-4">
+                      <span className="material-icons text-wearecrewBlue">
+                        phone_iphone
+                      </span>
+                      <a href={`tel:${crew?.phone}`} className="underline break-words">
+                        {crew?.phone}
+                      </a>
+                    </div>
                     <button
                       onClick={() => copyPhone()}
                       className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
@@ -544,13 +550,17 @@ const CrewDetailBox = (crew) => {
                   </div>
                 )}
                 <div className="flex flex-wrap items-center gap-x-4">
-                  <span className="material-icons text-wearecrewBlue">mail</span>
-                  <a
-                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                    className="underline"
-                  >
-                    {crew?.email}
-                  </a>
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons text-wearecrewBlue">
+                      mail
+                    </span>
+                    <a
+                      href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
+                      className="underline break-words"
+                    >
+                      {crew?.email}
+                    </a>
+                  </div>
                   <button
                     onClick={() => copyEmail()}
                     className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
@@ -560,16 +570,20 @@ const CrewDetailBox = (crew) => {
                 </div>
 
                 {website && (
-                  <div className="flex flex-wrap items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">public</span>
-                    <a
-                      href={`http://${website}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline"
-                    >
-                      {website}
-                    </a>
+                  <div className="flex flex-wrap  items-center gap-x-4">
+                    <div className="flex items-center gap-x-4">
+                      <span className="material-icons text-wearecrewBlue">
+                        public
+                      </span>
+                      <a
+                        href={`http://${website}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline break-words"
+                      >
+                        {website}
+                      </a>
+                    </div>
                     <button
                       onClick={() => copyWebsite()}
                       className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
@@ -580,15 +594,19 @@ const CrewDetailBox = (crew) => {
                 )}
                 {crew?.imdb && (
                   <div className="flex flex-wrap items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">public</span>
-                    <a
-                      href={`http://${crew?.imdb}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline"
-                    >
-                      {crew?.imdb}
-                    </a>
+                    <div className="flex items-center gap-x-4">
+                      <span className="material-icons text-wearecrewBlue">
+                        public
+                      </span>
+                      <a
+                        href={`http://${crew?.imdb}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline break-words"
+                      >
+                        {crew?.imdb}
+                      </a>
+                    </div>
                     <button
                       onClick={() => copyIMDB()}
                       className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
@@ -600,7 +618,9 @@ const CrewDetailBox = (crew) => {
 
                 {crew?.willWorkIn?.length > 0 && (
                   <div className="flex items-start gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">where_to_vote</span>
+                    <span className="material-icons text-wearecrewBlue">
+                      where_to_vote
+                    </span>
                     <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
                       {sortedLocations.map((willWorkIn, id) => (
                         <p
@@ -616,29 +636,38 @@ const CrewDetailBox = (crew) => {
 
                 {creditsExist && (
                   <div className="flex items-start gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">military_tech</span>
+                    <span className="material-icons text-wearecrewBlue">
+                      military_tech
+                    </span>
                     <div>
-                      {crew?.credits?.map((credits, id) => (
-                        <div
-                          key={credits + id}
-                          className="flex items-center mb-4"
-                        >
-                          <div className="flex justify-center">
-                            <p className="text-base">
-                              <cite>{credits?.jobTitle}</cite>
-                            </p>
-                            <span className="text-wearecrewBlue">  |  </span>
-                            <p className="text-base">{credits?.yourRole}</p>
-                          </div>
-                        </div>
-                      ))}
+                      {crew?.credits?.map(
+                        (credits, id) =>
+                          credits.jobTitle !== "" && (
+                            <div
+                              key={credits + id}
+                              className="flex items-center mb-4"
+                            >
+                              <div className="flex justify-center">
+                                <p className="text-base">
+                                  <cite>{credits?.jobTitle}</cite>
+                                </p>
+                                <span className="text-wearecrewBlue">
+                                    |  
+                                </span>
+                                <p className="text-base">{credits?.yourRole}</p>
+                              </div>
+                            </div>
+                          )
+                      )}
                     </div>
                   </div>
                 )}
 
                 {crew?.qualis ? (
                   <div className="flex items-center gap-x-4 -mt-4">
-                    <span className="material-icons text-wearecrewBlue">school</span>
+                    <span className="material-icons text-wearecrewBlue">
+                      school
+                    </span>
 
                     <div>
                       <p className="">{crew?.qualis}</p>
@@ -654,7 +683,9 @@ const CrewDetailBox = (crew) => {
                 >
                   {crew?.bio && (
                     <>
-                      <span className="material-icons text-wearecrewBlue">emoji_people</span>
+                      <span className="material-icons text-wearecrewBlue">
+                        emoji_people
+                      </span>
                       <p>{crew?.bio}</p>
                     </>
                   )}
