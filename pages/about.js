@@ -278,7 +278,7 @@ const About = () => {
                             <div className="hidden md:block w-full md:w-1/2 mt-8 md:mt-0">
                               <div className="h-[calc(100vh-400px)] overflow-y-scroll -mt-6">
                                 <img
-                                  src="/images/newCrewSearchExample.png"
+                                  src="/images/ineedcrewLong.png"
                                   alt=""
                                   width="100%"
                                   height="200"
@@ -334,7 +334,7 @@ const About = () => {
                             <div className="hidden md:block w-1/2">
                               <div className="h-[calc(100vh-380px)] overflow-y-scroll -mt-4">
                                 <img
-                                  src="/images/myCrewProfileLong.png"
+                                  src="/images/iamcrewLong.png"
                                   alt=""
                                   width="100%"
                                   height="200"
