@@ -369,6 +369,9 @@ const Account = ({ session }) => {
     setTimeout(() => {
       setShowFinishProfileError(false);
     }, 4000);
+    console.log({username});
+    console.log({dept});
+    console.log({roles});
   };
 
   const deleteCV = () => {
