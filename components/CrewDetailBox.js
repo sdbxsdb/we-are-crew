@@ -129,7 +129,7 @@ const CrewDetailBox = (crew) => {
 
   const sortedRoles = [...crew?.roles].sort((a, b) => (a > b ? 1 : -1));
 
-  // console.log("ROLES", sortedRoles);
+  console.log("CREDITS", crew.credits);
 
   const imgRef = useRef(null);
 
@@ -145,6 +145,7 @@ const CrewDetailBox = (crew) => {
       onLoad();
     }
   }, []);
+
 
   return (
     <div>
@@ -250,11 +251,16 @@ const CrewDetailBox = (crew) => {
               </p>
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
-              {sortedLocations.map((willWorkIn, id) => (
+              {sortedLocations.length === 17 ? (
+                <div className="mt-1 min-w-max">
+                  Anywhere
+                </div>
+              ) : sortedLocations.map((willWorkIn, id) => (
                 <div key={willWorkIn + id} className="mt-1 min-w-min">
                   {willWorkIn}
                 </div>
               ))}
+              
             </div>
           </div>
           {/* //END OF CAN WORK IN*/}
@@ -444,6 +450,20 @@ const CrewDetailBox = (crew) => {
             {/* //END OF MOBILE PROFILE*/}
           </div>
         </div>
+
+        {crew?.credits[0]?.jobTitle && (
+        <div className="w-full flex flex-col items-center justify-center bg-wearecrewBlue/30 ">
+          <strong>Credits Include:</strong>
+          <div className="flex gap-x-4">
+            {crew?.credits.slice(0,3).map((credit, i) => (
+              <p key={i} className="listDividerLines">{credit.jobTitle}</p>
+            ))}
+          </div>
+        </div>
+        )}
+
+
+
       </div>
 
       <CrewDetailModal
