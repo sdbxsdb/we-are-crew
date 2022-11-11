@@ -84,7 +84,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, age_range, height, hair, eyes, body, dialects`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, ageRange, height, hair, eyes, body, dialects`
         )
         .eq("id", user.id)
         .single();
@@ -116,7 +116,7 @@ const Account = ({ session }) => {
         setUpdatedAt(data.updated_at);
         setPaid(data.paid);
         setdateOfPayment(data.dateOfPayment);
-        setAgeRange(data.age_range);
+        setAgeRange(data.ageRange);
         setHair(data.height);
         setHair(data.hair);
         setEyes(data.eyes);
@@ -148,7 +148,7 @@ const Account = ({ session }) => {
     credits,
     cvURL,
     paid,
-    age_range,
+    ageRange,
     height,
     hair,
     eyes,
@@ -177,7 +177,7 @@ const Account = ({ session }) => {
         canWorkIn,
         credits,
         cvURL,
-        age_range,
+        ageRange,
         height,
         hair,
         eyes,
