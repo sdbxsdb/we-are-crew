@@ -87,12 +87,13 @@ const About = () => {
                         been built by crew, for crew.
                         <br />
                         <br />
-                        The team behind designing and building the platform have
-                        more than 70 years in the Film, TV and Broadcast
+                        The team behind the design and build of the platform have
+                        more than 70 years&apos; experience in the Film, TV and Broadcast
                         industries collectively.
                         <br />
+                        <br />
                         We&apos;ve been a part of every crew listing website and
-                        diary service there is, both paid for and not.
+                        diary service there is, both paid and not.
                         <br />
                         <br />
                         With the information gathered over long careers we
@@ -378,14 +379,14 @@ const About = () => {
                         exactly green.
                         <br />
                         Waste food, hundreds of call sheets and sides printed,
-                        engines running all day, numerous flights the list goes
+                        engines running all day, numerous flights, the list goes
                         on.
                         <br />
                         <br />
                         <span className="text-wearecrewBlue">
                           Get Crew
                         </span>{" "}
-                        will donate 5% of your payment to{" "}
+                        will donate 5% of your subscription to{" "}
                         <a
                           href="https://onetreeplanted.org/"
                           target="_blank"
@@ -440,7 +441,7 @@ const About = () => {
                         works for everyone and does what you need it to do.{" "}
                         <br /> <br /> However, if you have any suggestions on
                         how we can make the platform a better experience
-                        we&apos;d be delighted to here from you.
+                        we&apos;d be delighted to hear from you.
                         <br /> <br />
                         <a
                           href="mailto:crew@getcrew.pro"

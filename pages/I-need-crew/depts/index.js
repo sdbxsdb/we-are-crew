@@ -138,7 +138,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
       </Head>
       <div className="relative">
         {/* REMOVE THIS WHEN GOING LIVE */}
-        {/* {showSiteNotLiveModal && (
+        {showSiteNotLiveModal && (
           <>
             <div
               onClick={closeSiteNotLiveHandler}
@@ -187,11 +187,16 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                           <span className="text-wearecrewBlue"> Get Crew </span>
                           goes live on Januray 1st 2023.
                          <br/>
-                          <Link href="/my-crew">
-                            <button className="neumorphBoxSm rounded-md p-2 my-8 border-b border-wearecrewBlue hover:text-wearecrewBlue transition">
-                              Sign Up Here
-                            </button>
-                          </Link>
+                          <div className="my-8 gap-y-4 flex flex-col justify-center items-center">
+
+                              <Link href="/my-crew">
+                                <button className="neumorphBoxSm rounded-md p-2 border-b border-wearecrewBlue max-w-max hover:text-wearecrewBlue transition">
+                                  Sign Up Here
+                                </button>
+                              </Link>
+
+                            <span>Don&apos;t forget to use your early bird discount code!</span>
+                          </div>
                         </p>
                       </div>
                       <button className="neumorphBoxSm p-4 rounded-md">
@@ -207,7 +212,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
 
                   {showDemoProfile && (
                     <div className="flex gap-x-4 bg-wearecrewLightGrey max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 relative">
-                      <div className="w-full flex flex-1 relative flex-col gap-x-4 gap-y-4 items-start mb-4">
+                        <div className="flex gap-x-4 relative">
                         <button
                           onClick={closeSiteNotLiveHandler}
                           className="h-[40px] w-[40px] flex justify-end items-center px-2 absolute bg-wearecrewLightGrey rounded-full -top-4 -right-4"
@@ -235,27 +240,38 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                             </g>
                           </svg>
                         </button>
-                        <div className="w-full flex justify-between">
-                          <div>
+                      <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
+                        <div className="w-full flex flex-col md:flex-row justify-between">
+                          <div className="flex gap-x-4 items-center mb-4">
                             <div
                               style={stylingLarge}
                               className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
                             ></div>
-                            <div className="mb-4">
-                              <h1 className="text-3xl">Marty McFly</h1>
-                              <h1 className="text-lg">Time Traveller</h1>
+                            <div className="">
+                              <div className="">
+                                <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max border-wearecrewBlue">
+                                  Marty McFly
+                                </h1>
+                              </div>
+
+                              <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
+                                Hover Boarder{" "}
+                                <span className="text-wearecrewBlue">-</span>{" "}
+                                Time Traveller
+                              </div>
                             </div>
                           </div>
-                          <div className=" w-[240px] flex flex-col items-end pt-10">
-                            <strong className="mt-4 text-3xl mb-4 min-w-max text-wearecrewGreen">
+                          <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
+                            <strong className={`md:mt-4 text-3xl  min-w-max`}>
                               Available
                             </strong>
                           </div>
                         </div>
+
                         <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
                           <div className="flex flex-1 flex-col gap-y-6 py-4">
                             <div className="flex items-center gap-x-4">
-                              <span className="material-icons">
+                              <span className="material-icons text-wearecrewBlue">
                                 phone_iphone
                               </span>
                               <a
@@ -264,24 +280,28 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                               >
                                 0044 123 456 78
                               </a>
-                              <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition">
+                              <button className="text-wearecrewDarkGrey">
                                 <cite>Copy Phone</cite>
                               </button>
                             </div>
                             <div className="flex items-center gap-x-4">
-                              <span className="material-icons">mail</span>
+                              <span className="material-icons text-wearecrewBlue">
+                                mail
+                              </span>
                               <a
                                 href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
                                 className="underline"
                               >
                                 marty@mcfly.com
                               </a>
-                              <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition">
+                              <button className="text-wearecrewDarkGrey">
                                 <cite>Copy Email</cite>
                               </button>
                             </div>
                             <div className="flex items-center gap-x-4">
-                              <span className="material-icons">public</span>
+                              <span className="material-icons text-wearecrewBlue">
+                                public
+                              </span>
                               <a
                                 href="https://backtothefuture.com"
                                 target="_blank"
@@ -290,26 +310,28 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                               >
                                 https://backtothefuture.com
                               </a>
-                              <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition">
+                              <button className="text-wearecrewDarkGrey">
                                 <cite>Copy Website</cite>
                               </button>
                             </div>
-                            <div className="flex flex-wrap items-center gap-x-4">
-                              <span className="material-icons">public</span>
+                            <div className="flex items-center gap-x-4">
+                              <span className="material-icons text-wearecrewBlue">
+                                public
+                              </span>
                               <a
-                                href="https://www.imdb.com/name/nm0000150/?ref_=nv_sr_srsg_0"
+                                href="https://www.imdb.com/name/nm0000150/"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="underline"
                               >
-                                https://www.imdb.com/name/nm0000150/?ref_=nv_sr_srsg_0
+                                https://www.imdb.com/name/nm0000150/
                               </a>
-                              <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0">
+                              <button className="text-wearecrewDarkGrey">
                                 <cite>Copy IMDB</cite>
                               </button>
                             </div>
                             <div className="flex items-start gap-x-4">
-                              <span className="material-icons">
+                              <span className="material-icons text-wearecrewBlue">
                                 where_to_vote
                               </span>
                               <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
@@ -331,7 +353,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                               </div>
                             </div>
                             <div className="flex items-start gap-x-4">
-                              <span className="material-icons">
+                              <span className="material-icons text-wearecrewBlue">
                                 military_tech
                               </span>
                               <div>
@@ -345,7 +367,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                                     <span className="text-wearecrewBlue">
                                         |  
                                     </span>
-                                    <p className="text-base">Camera Operator</p>
+                                    <p className="text-base">Focus Puller</p>
                                   </div>
                                 </div>
                                 <div className="flex items-center mb-4">
@@ -362,7 +384,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                                 <div className="flex items-center mb-4">
                                   <div className="flex justify-center items-center">
                                     <p className="text-base">
-                                      <cite>Fast and Furious 324</cite>
+                                      <cite>Fast and Furios 324</cite>
                                     </p>
                                     <span className="text-wearecrewBlue">
                                         |  
@@ -372,16 +394,21 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                                 </div>
                               </div>
                             </div>
+
                             <div className="flex items-center gap-x-4 -mt-4">
-                              <span className="material-icons">school</span>
+                              <span className="material-icons text-wearecrewBlue">
+                                school
+                              </span>
+
                               <div>
                                 <p className="">
                                   Safety Training, First Aid, IMAX
                                 </p>
                               </div>
                             </div>
+
                             <div className="flex items-start gap-x-4 -mt-2">
-                              <span className="material-icons">
+                              <span className="material-icons text-wearecrewBlue">
                                 emoji_people
                               </span>
                               <p>
@@ -417,15 +444,17 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                               >
                                 <h1 className="text-3xl">Website</h1>
                               </a>
+
                               <a
                                 download
-                                href="../public/images/newNewGCLogo.png"
+                                href=""
                                 className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md"
                               >
                                 <h1 className="text-lg">
                                   Download Personal CV
                                 </h1>
                               </a>
+
                               <button className="border-2 flex gap-x-2 justify-center border-wearecrewBlue p-2 rounded shadow-md">
                                 <span className="material-icons">
                                   ios_share
@@ -437,12 +466,13 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                         </div>
                       </div>
                     </div>
+                    </div>
                   )}
                 </div>
               </div>
             </div>
           </>
-        )} */}
+        )}
         {/* ^^^ // REMOVE THIS WHEN GOING LIVE */}
         <div className=" flex justify-center w-full px-4 md:px-12 py-12">
           <div className="max-w-[1200px] w-full ">
@@ -453,7 +483,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
               <div className="w-full">
                 <div className="w-full flex justify-center mt-4 md:mt-12 mb-4">
                   {/* REINSTATE THIS WHEN GOING LIVE */}
-                  <div className="relative w-full sm:w-max">
+                  {/* <div className="relative w-full sm:w-max">
                     <input
                       type="text"
                       value={inputValue}
@@ -468,10 +498,10 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                     >
                       &#10006;
                     </span>
-                  </div>
+                  </div> */}
                   {/* ^^^// REINSTATE THIS WHEN GOING LIVE */}
                   {/* REMOVE THIS WHEN GOING LIVE */}
-                  {/* <div className="relative w-full sm:w-max">
+                  <div className="relative w-full sm:w-max">
                     <input
                       type="text"
                       value={inputValue}
@@ -486,11 +516,11 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                     >
                       &#10006;
                     </span>
-                  </div> */}
+                  </div>
                 {/* ^^^ REMOVE THIS WHEN GOING LIVE */}
                 </div>
                 {/* REMOVE THIS WHEN GOING LIVE  */}
-                {/* <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
+                <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
                   {foundPlaceholderDept.map((deptPlaceHolder, i) => (
                     <div
                       onClick={siteNotLiveHandler}
@@ -516,11 +546,11 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                       </div>
                     </div>
                   ))}
-                </div> */}
+                </div>
                 {/* ^^^ // REMOVE THIS WHEN GOING LIVE  */}
 
                 {/* REINSTATE THIS WHEN GOING LIVE  */}
-                {foundDept && foundDept?.length > 0 ? (
+                {/* {foundDept && foundDept?.length > 0 ? (
                   <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
                     {foundDept?.map((dept, i) => (
                       <div
@@ -547,7 +577,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                   <div className="mt-4 w-full text-center">
                     <h1>No department found!</h1>
                   </div>
-                )}
+                )} */}
                 {/* ^^^ REINSTATE THIS WHEN GOING LIVE  */}
 
               </div>
