@@ -118,7 +118,7 @@ const ShowDemoModal = () => {
                         href='https://www.imdb.com/name/nm0000150/'
                         target="_blank"
                         rel="noreferrer"
-                        className="underline break-words"
+                        className="underline break-all"
                       >
                         https://www.imdb.com/name/nm0000150/
                       </a>

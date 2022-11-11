@@ -374,9 +374,9 @@ const CrewList = ({ users }) => {
             </div>
           </div>
           <div className="w-full flex justify-center">
-            <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4 gap-y-4 mt-4">
+            <div className="flex w-full lg:max-w-[1200px] flex-col-reverse lg:flex-row gap-x-4  mt-4">
               {filteredUsers && filteredUsers?.length > 0 ? (
-                <div className="flex flex-1 rounded-md flex-col gap-y-6 mb-12">
+                <div className="flex flex-1 rounded-md flex-col gap-y-12 mb-12">
                   {filteredUsers?.map((user, i) => (
                     <div key={i}>
                       {user.paid === true ? (
@@ -425,10 +425,10 @@ const CrewList = ({ users }) => {
                       onClick={showFiltersOnMobileHandler}
                       className="flex items-center justify-center w-full mt-4 lg:mt-0 checkbox_and_radio_container_filter_pills"
                     >
-                      <div className=" flex items-center justify-center cursor-pointer lg:cursor-default w-full">
+                      <div className="flex items-center justify-center cursor-pointer lg:cursor-default w-full">
                         <div className="w-full">
-                          <div className="flex ml-2 lg:ml-0 mb-2 w-full items-center justify-center">
-                            <h1 className="text-center mb-1 text-3xl hover:opacity-90 transition">
+                          <div className="flex ml-2 lg:ml-0 mb-2  w-full items-center justify-center">
+                            <h1 className="text-center mb-1 text-2xl hover:opacity-90 transition">
                               Filter Profiles
                             </h1>
                             <span className="material-icons -mt-1 text-wearecrewBlue block lg:hidden">

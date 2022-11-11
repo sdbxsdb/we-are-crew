@@ -127,10 +127,6 @@ const CrewDetailBox = (crew) => {
     a > b ? 1 : -1
   );
 
-  // const sortedRoles = [...crew?.roles].sort((a, b) => (a > b ? 1 : -1));
-
-  // console.log("CREDITS", crew.credits);
-
   const imgRef = useRef(null);
 
   const [loading, setLoading] = useState(true);
@@ -145,6 +141,11 @@ const CrewDetailBox = (crew) => {
       onLoad();
     }
   }, []);
+
+  const closeModal = () => {
+    setShowModal(false);
+    // console.log("CLOSE MODAL-", router);
+  };
 
   return (
     <div>
@@ -193,7 +194,7 @@ const CrewDetailBox = (crew) => {
               onClick={() => setShowModal(true)}
               className="cursor-pointer hover:text-wearecrewBlue transition text-[20px]"
             >
-              <strong className="break-words">{crew?.name}</strong>
+              <strong className="break-all">{crew?.name}</strong>
               <hr className="w-11/12" />
             </h2>
             {/* //END OF NAME */}
@@ -304,7 +305,9 @@ const CrewDetailBox = (crew) => {
                 crew?.willBeAvailOn !== "" &&
                 crew?.willBeAvailOn !== null && (
                   <small className="text-wearecrewRed">
-                    Available from: {crew?.willBeAvailOn}
+                    Available from:{" "}
+                    {crew?.willBeAvailOn.charAt(0).toUpperCase() +
+                      crew?.willBeAvailOn.slice(1)}
                   </small>
                 )}
             </div>
@@ -368,7 +371,10 @@ const CrewDetailBox = (crew) => {
 
             {/*PROFILE*/}
             <div
-              onClick={() => setShowModal(true)}
+              onClick={() => {
+                setShowModal(true);
+                // console.log("OPEN MODAL-", router);
+              }}
               className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition "
             >
               <h1 className="text-3xl text-center">Profile</h1>
@@ -413,7 +419,7 @@ const CrewDetailBox = (crew) => {
               <div className="w-[210px] text-right">
                 <div className="flex flex-col">
                   {/* MOBILE NAME*/}
-                  <strong className=" text-[20px] break-words">
+                  <strong className=" text-[20px] break-all">
                     {crew?.name}
                   </strong>
                   <hr />
@@ -444,7 +450,9 @@ const CrewDetailBox = (crew) => {
                       crew?.willBeAvailOn !== "" &&
                       crew?.willBeAvailOn !== null && (
                         <small className="text-wearecrewRed">
-                          Available from: {crew?.willBeAvailOn}
+                          Available from:{" "}
+                          {crew?.willBeAvailOn.charAt(0).toUpperCase() +
+                            crew?.willBeAvailOn.slice(1)}
                         </small>
                       )}
                   </div>
@@ -519,7 +527,7 @@ const CrewDetailBox = (crew) => {
         </div>
 
         {crew?.credits[0]?.jobTitle && (
-          <div className="w-full mt-2 md:mt-0 flex flex-col items-center justify-center bg-wearecrewBlue/20 p-2">
+          <div className="w-full mt-2 md:mt-0 flex flex-col items-center justify-center bg-wearecrewDarkBlue/20 p-2">
             <strong>Credits Include</strong>
             <div className="flex flex-col md:flex-row flex-wrap gap-x-4 items-center justify-center">
               {crew?.credits.slice(0, 3).map(
@@ -547,10 +555,10 @@ const CrewDetailBox = (crew) => {
         show={showModal}
         id={crew?.id}
         name={crew?.name}
-        onClose={() => setShowModal(false)}
+        onClose={closeModal}
       >
         <div className="flex gap-x-4">
-          <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
+          <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start">
             <div className="w-full flex flex-col md:flex-row justify-between">
               <div className="flex gap-x-4 items-center mb-4">
                 <div
@@ -559,7 +567,7 @@ const CrewDetailBox = (crew) => {
                 ></div>
                 <div className="">
                   <div className="">
-                    <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-8 border-wearecrewBlue break-words">
+                    <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-10 border-wearecrewBlue break-all">
                       {crew?.name}
                     </h1>
                   </div>
@@ -567,7 +575,7 @@ const CrewDetailBox = (crew) => {
                   <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
                     {crew?.roles.map((role, id) => (
                       <p
-                        className="text-md md:text-lg listDividerLines break-words"
+                        className="text-md md:text-lg listDividerLines break-all"
                         key={role + id}
                       >
                         {role}
@@ -599,16 +607,16 @@ const CrewDetailBox = (crew) => {
             </div>
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
-              <div className="flex flex-1 flex-col gap-y-8 py-4 md:py-0">
+              <div className="flex flex-1 flex-col gap-y-8 pt-4 md:py-0">
                 {crew?.phone && (
-                  <div className="flex flex-wrap items-center gap-x-4">
+                  <div className="flex flex-wrap justify-between items-center gap-x-4">
                     <div className="flex items-center gap-x-4">
                       <span className="material-icons text-wearecrewBlue">
                         phone_iphone
                       </span>
                       <a
                         href={`tel:${crew?.phone}`}
-                        className="underline break-words"
+                        className="underline break-all"
                       >
                         {crew?.phone}
                       </a>
@@ -621,16 +629,16 @@ const CrewDetailBox = (crew) => {
                     </button>
                   </div>
                 )}
-                <div className="flex flex-wrap items-center gap-x-4">
+                <div className="flex flex-wrap justify-between items-center gap-x-4">
                   <div className="flex items-center gap-x-4">
                     <span className="material-icons text-wearecrewBlue">
                       mail
                     </span>
                     <a
                       href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                      className="underline break-words"
+                      className="underline break-all"
                     >
-                      {crew?.email}
+                      {crew?.email}soiti
                     </a>
                   </div>
                   <button
@@ -642,8 +650,8 @@ const CrewDetailBox = (crew) => {
                 </div>
 
                 {website && (
-                  <div className="flex flex-wrap  items-center gap-x-4">
-                    <div className="flex items-center gap-x-4">
+                  <div className="flex flex-wrap justify-between items-center gap-x-4">
+                    <div className="flex justify-between items-center gap-x-4">
                       <span className="material-icons text-wearecrewBlue">
                         public
                       </span>
@@ -651,7 +659,7 @@ const CrewDetailBox = (crew) => {
                         href={`http://${website}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="underline break-words"
+                        className="underline break-all"
                       >
                         {website}
                       </a>
@@ -674,7 +682,7 @@ const CrewDetailBox = (crew) => {
                         href={`http://${crew?.imdb}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="underline break-words"
+                        className="underline break-all"
                       >
                         {crew?.imdb}
                       </a>
@@ -748,20 +756,20 @@ const CrewDetailBox = (crew) => {
                 ) : (
                   ""
                 )}
-                <div
-                  className={`flex items-center gap-x-4 ${
-                    crew?.qualis ? "" : "-mt-4"
-                  }`}
-                >
-                  {crew?.bio && (
+                {crew?.bio && (
+                  <div
+                    className={`flex items-center gap-x-4 ${
+                      crew?.qualis ? "" : "-mt-4"
+                    }`}
+                  >
                     <>
                       <span className="material-icons text-wearecrewBlue">
                         emoji_people
                       </span>
                       <p>{crew?.bio}</p>
                     </>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
               <div className="w-full flex justify-center md:w-3/12 ">
                 <div className="w-full md:w-full flex flex-col gap-y-4">

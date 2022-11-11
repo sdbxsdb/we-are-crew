@@ -615,7 +615,7 @@ const Account = ({ session }) => {
                       <p className="text-sm text-wearecrewBlue">
                         Grade / Title 
                       </p>
-                      <small className="mb-2 text-wearecrewDarkGrey break-words">Your choices will appear in the order you select them.</small>
+                      <small className="mb-2 text-wearecrewDarkGrey break-all">Your choices will appear in the order you select them.</small>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4 mt-2">
                         <ListTitle />
                       </div>

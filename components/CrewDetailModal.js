@@ -21,7 +21,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
 
   const handleClose = () => {
     onClose()
-    router.push(`${router.asPath.split('?')[0]}`, undefined, {scroll: false}, { shallow: true });
+    router.replace(`${router.asPath.split('?')[0]}`, undefined, {scroll: false}, { shallow: true });
   };
 
 
@@ -34,7 +34,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
 
 
       if (!window.location.href.includes("about")) {
-        router.push({
+        router.replace({
           pathname: '/I-need-crew/depts/crew-list/'+router.query.crewList,
           query: 'user='+router.query.user + "&showModal=" + router.query.showModal,
         }, undefined, { shallow: true });
