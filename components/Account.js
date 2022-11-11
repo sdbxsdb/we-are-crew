@@ -34,12 +34,12 @@ const Account = ({ session }) => {
   const [updatedAt, setUpdatedAt] = useState("");
   const [paid, setPaid] = useState(undefined);
   const [dateOfPayment, setdateOfPayment] = useState("");
-  const [ageRange, setAgeRange] = useState("")
-  const [height, setHeight] = useState("")
-  const [hair, setHair] = useState("")
-  const [eyes, setEyes] = useState("")
-  const [body, setBody] = useState("")
-  const [dialects, setDialects] = useState("")
+  const [ageRange, setAgeRange] = useState("");
+  const [height, setHeight] = useState("");
+  const [hair, setHair] = useState("");
+  const [eyes, setEyes] = useState("");
+  const [body, setBody] = useState("");
+  const [dialects, setDialects] = useState("");
 
   const newDate = new Date();
   const date = newDate.getDate();
@@ -121,7 +121,7 @@ const Account = ({ session }) => {
         setHair(data.hair);
         setEyes(data.eyes);
         setBody(data.body);
-        setDialects(data.dialects)
+        setDialects(data.dialects);
       }
     } catch (error) {
       alert(error.message);
@@ -421,16 +421,15 @@ const Account = ({ session }) => {
     router.push("/profileDeleted");
   };
 
-
   useEffect(() => {
-    if(dept !== "Acting or Presenting") {
+    if (dept !== "Acting or Presenting") {
       setAgeRange("");
       setHair("");
       setEyes("");
       setBody("");
       setDialects("");
     }
-  }, [dept])
+  }, [dept]);
 
   return (
     <>
@@ -513,7 +512,6 @@ const Account = ({ session }) => {
                             eyes,
                             body,
                             dialects,
-
                           })
                         : profileNotComplete(e)
                     }
@@ -663,117 +661,107 @@ const Account = ({ session }) => {
                     <div className="flex flex-col relative w-full -mt-[20px] mb-6 md:w-2/3">
                       <p className="text-sm text-wearecrewBlue">
                         Grade / Title
-                        <small className="mb-2 text-wearecrewDarkGrey break-words">Your choices will appear in the order you select them.</small>
                       </p>
+                      <small className="mb-2 text-wearecrewDarkGrey break-words">
+                        Your choices will appear in the order you select them.
+                      </small>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4 mt-2">
                         <ListTitle />
                       </div>
                     </div>
                   )}
                   {/* //END OF GRADE/TITLE */}
-                  { dept === "Acting or Presenting" && (
-                  <>
-                  {/* ACTORS ADDITONAL DETAILS */}
-                  <li className="relative styledList w-full md:w-2/3">
-                    <input
-                      name="age"
-                      type="text"
-                      defaultValue={ageRange}
-                      className="border shadow-md w-full"
-                      required
-                      onChange={(e) => setAgeRange(e.target.value)}
-                    />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    
-                    <label htmlFor="age">
-                      Playing Age Range
-                    </label>
-                  </li>
-                  <li className="relative styledList w-full md:w-2/3">
-                    <input
-                      name="height"
-                      type="text"
-                      defaultValue={height}
-                      className="border shadow-md w-full"
-                      required
-                      onChange={(e) => setHeight(e.target.value)}
-                    />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    
-                    <label htmlFor="height">
-                      Height
-                    </label>
-                  </li>
-                  <li className="relative styledList w-full md:w-2/3">
-                    <input
-                      name="hair"
-                      type="text"
-                      defaultValue={hair}
-                      className="border shadow-md w-full"
-                      required
-                      onChange={(e) => setHair(e.target.value)}
-                    />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    
-                    <label htmlFor="hair">
-                      Hair Colour
-                    </label>
-                  </li>
-                  <li className="relative styledList w-full md:w-2/3">
-                    <input
-                      name="eyes"
-                      type="text"
-                      defaultValue={eyes}
-                      className="border shadow-md w-full"
-                      required
-                      onChange={(e) => setEyes(e.target.value)}
-                    />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    
-                    <label htmlFor="eyes">
-                      Eye Colour
-                    </label>
-                  </li>
-                  <li className="relative styledList w-full md:w-2/3">
-                    <input
-                      name="body"
-                      type="text"
-                      defaultValue={body}
-                      className="border shadow-md w-full"
-                      required
-                      onChange={(e) => setBody(e.target.value)}
-                    />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    <small className="text-wearecrewDarkGrey">
-                      Small / Medium / Large / Built etc
-                    </small>
-                    <label htmlFor="body">
-                      Body Type
-                    </label>
-                  </li>
-                  <li className="relative styledList w-full md:w-2/3">
-                    <input
-                      name="dialects"
-                      type="text"
-                      defaultValue={dialects}
-                      className="border shadow-md w-full"
-                      required
-                      onChange={(e) => setDialects(e.target.value)}
-                    />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    
-                    <label htmlFor="dialects">
-                      Dialect(s)
-                    </label>
-                  </li>
-                  {/* END OF // ACTORS ADDITONAL DETAILS */}
-                  </>
+                  {dept === "Acting or Presenting" && (
+                    <>
+                      {/* ACTORS ADDITONAL DETAILS */}
+                      <li className="relative styledList w-full md:w-2/3">
+                        <input
+                          name="age"
+                          type="text"
+                          defaultValue={ageRange}
+                          className="border shadow-md w-full"
+                          required
+                          onChange={(e) => setAgeRange(e.target.value)}
+                        />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+
+                        <label htmlFor="age">Playing Age Range</label>
+                      </li>
+                      <li className="relative styledList w-full md:w-2/3">
+                        <input
+                          name="height"
+                          type="text"
+                          defaultValue={height}
+                          className="border shadow-md w-full"
+                          required
+                          onChange={(e) => setHeight(e.target.value)}
+                        />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+
+                        <label htmlFor="height">Height</label>
+                      </li>
+                      <li className="relative styledList w-full md:w-2/3">
+                        <input
+                          name="hair"
+                          type="text"
+                          defaultValue={hair}
+                          className="border shadow-md w-full"
+                          required
+                          onChange={(e) => setHair(e.target.value)}
+                        />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+
+                        <label htmlFor="hair">Hair Colour</label>
+                      </li>
+                      <li className="relative styledList w-full md:w-2/3">
+                        <input
+                          name="eyes"
+                          type="text"
+                          defaultValue={eyes}
+                          className="border shadow-md w-full"
+                          required
+                          onChange={(e) => setEyes(e.target.value)}
+                        />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+
+                        <label htmlFor="eyes">Eye Colour</label>
+                      </li>
+                      <li className="relative styledList w-full md:w-2/3">
+                        <input
+                          name="body"
+                          type="text"
+                          defaultValue={body}
+                          className="border shadow-md w-full"
+                          required
+                          onChange={(e) => setBody(e.target.value)}
+                        />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+                        <small className="text-wearecrewDarkGrey">
+                          Small / Medium / Large / Built etc
+                        </small>
+                        <label htmlFor="body">Body Type</label>
+                      </li>
+                      <li className="relative styledList w-full md:w-2/3">
+                        <input
+                          name="dialects"
+                          type="text"
+                          defaultValue={dialects}
+                          className="border shadow-md w-full"
+                          required
+                          onChange={(e) => setDialects(e.target.value)}
+                        />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+
+                        <label htmlFor="dialects">Dialect(s)</label>
+                      </li>
+                      {/* END OF // ACTORS ADDITONAL DETAILS */}
+                    </>
                   )}
                   {/* QUALIS */}
                   <li className="relative styledList w-full md:w-2/3">
