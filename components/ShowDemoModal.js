@@ -34,7 +34,7 @@ const ShowDemoModal = () => {
         onClose={() => setShowDemoModal(false)}
       >
         <div className="flex gap-x-4">
-          <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start mb-4">
+          <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start ">
             
             
             
@@ -60,7 +60,7 @@ const ShowDemoModal = () => {
               </div>
               <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
                 <strong
-                  className={`md:mt-4 text-3xl  min-w-max`}
+                  className={`md:mt-4 text-3xl  min-w-max text-wearecrewGreen`}
                 >
                   Available
                 </strong>
@@ -73,42 +73,48 @@ const ShowDemoModal = () => {
 
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
-              <div className="flex flex-1 flex-col gap-y-6 py-4">
-                <div className="flex items-center gap-x-4">
-                  <span className="material-icons text-wearecrewBlue">phone_iphone</span>
-                  <a href={`tel:0044 123 456 78`} className="underline">
-                    0044 123 456 78
-                  </a>
+              <div className="flex flex-1 flex-col gap-y-6 mt-4">
+                <div className="flex justify-between items-center gap-x-4">
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons text-wearecrewBlue">phone_iphone</span>
+                    <a href={`tel:0044 123 456 78`} className="underline">
+                      0044 123 456 78
+                    </a>
+                  </div>
                   <button className="text-wearecrewDarkGrey">
                     <cite>Copy Phone</cite>
                   </button>
                 </div>
+                <div className="flex justify-between items-center gap-x-4">
                 <div className="flex items-center gap-x-4">
-                  <span className="material-icons text-wearecrewBlue">mail</span>
-                  <a
-                    href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
-                    className="underline"
-                  >
-                    marty@mcfly.com
-                  </a>
+                    <span className="material-icons text-wearecrewBlue">mail</span>
+                    <a
+                      href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
+                      className="underline"
+                    >
+                      marty@mcfly.com
+                    </a>
+                  </div>
                   <button className="text-wearecrewDarkGrey">
                     <cite>Copy Email</cite>
                   </button>
                 </div>
-                <div className="flex items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">public</span>
-                    <a
-                      href='https://backtothefuture.com'
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline"
-                    >
-                      https://backtothefuture.com
-                    </a>
+                <div className="lex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                    <div className="flex items-center gap-x-4">
+                      <span className="material-icons text-wearecrewBlue">public</span>
+                      <a
+                        href='https://backtothefuture.com'
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline "
+                      >
+                        https://backtothefuture.com
+                      </a>
+                    </div>
                     <button
-                      className="text-wearecrewDarkGrey"
+                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
                     >
-                      <cite>Copy Website</cite>
+                      <cite className="min-w-max">Copy Website</cite>
                     </button>
                   </div>
                 <div className="flex items-center gap-x-4">

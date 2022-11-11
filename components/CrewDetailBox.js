@@ -609,7 +609,7 @@ const CrewDetailBox = (crew) => {
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-8 pt-4 md:py-0">
                 {crew?.phone && (
-                  <div className="flex flex-wrap justify-between items-center gap-x-4">
+                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                     <div className="flex items-center gap-x-4">
                       <span className="material-icons text-wearecrewBlue">
                         phone_iphone
@@ -621,15 +621,17 @@ const CrewDetailBox = (crew) => {
                         {crew?.phone}
                       </a>
                     </div>
-                    <button
-                      onClick={() => copyPhone()}
-                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
-                    >
-                      <cite>Copy Phone</cite>
-                    </button>
+                    <div className="flex flex-1">
+                      <button
+                        onClick={() => copyPhone()}
+                        className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                      >
+                        <cite className="min-w-max">Copy Phone</cite>
+                      </button>
+                    </div>
                   </div>
                 )}
-                <div className="flex flex-wrap justify-between items-center gap-x-4">
+                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                   <div className="flex items-center gap-x-4">
                     <span className="material-icons text-wearecrewBlue">
                       mail
@@ -638,20 +640,22 @@ const CrewDetailBox = (crew) => {
                       href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
                       className="underline break-all"
                     >
-                      {crew?.email}soiti
+                      {crew?.email}
                     </a>
                   </div>
-                  <button
-                    onClick={() => copyEmail()}
-                    className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
-                  >
-                    <cite>Copy Email</cite>
-                  </button>
+                  <div className="flex flex-1">
+                    <button
+                      onClick={() => copyEmail()}
+                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                    >
+                      <cite className="min-w-max">Copy Email</cite>
+                    </button>
+                  </div>
                 </div>
 
                 {website && (
-                  <div className="flex flex-wrap justify-between items-center gap-x-4">
-                    <div className="flex justify-between items-center gap-x-4">
+                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                    <div className="flex items-center gap-x-4">
                       <span className="material-icons text-wearecrewBlue">
                         public
                       </span>
@@ -664,16 +668,18 @@ const CrewDetailBox = (crew) => {
                         {website}
                       </a>
                     </div>
-                    <button
-                      onClick={() => copyWebsite()}
-                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
-                    >
-                      <cite>Copy Website</cite>
-                    </button>
+                    <div className="flex flex-1">
+                      <button
+                        onClick={() => copyWebsite()}
+                        className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                      >
+                        <cite className="min-w-max">Copy Website</cite>
+                      </button>
+                    </div>
                   </div>
                 )}
                 {crew?.imdb && (
-                  <div className="flex flex-wrap items-center gap-x-4">
+                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                     <div className="flex items-center gap-x-4">
                       <span className="material-icons text-wearecrewBlue">
                         public
@@ -687,12 +693,14 @@ const CrewDetailBox = (crew) => {
                         {crew?.imdb}
                       </a>
                     </div>
-                    <button
-                      onClick={() => copyIMDB()}
-                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
-                    >
-                      <cite>Copy IMDB</cite>
-                    </button>
+                    <div className="flex flex-1">
+                      <button
+                        onClick={() => copyIMDB()}
+                        className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                      >
+                        <cite className="min-w-max">Copy IMDB</cite>
+                      </button>
+                    </div>
                   </div>
                 )}
 

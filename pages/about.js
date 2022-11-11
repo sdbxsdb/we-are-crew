@@ -207,7 +207,7 @@ const About = () => {
                       <h1 className="text-4xl text-left w-full min-w-max mb-4 md:mb-0">
                         How does it work?
                       </h1>
-                      <div className="w-full flex justify-center gap-x-4">
+                      <div className="w-full flex justify-center mt-4 gap-x-4">
                         <button
                           onClick={(e) => needCrewHandler(e)}
                           className={`

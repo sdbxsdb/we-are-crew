@@ -115,8 +115,8 @@ export default function Auth() {
               </div>
             </div>
             <div className="flex  flex-col justify-center items-center mt-8 md:mt-0 px-4">
-              <p className="mb-6 text-lg text-center">
-                Enter your email to get a sign in / register link.
+              <p className="mb-6 text-lg text-center md:w-7/12">
+                Enter your email to get a sign in / register link or sign in directly with your Gmail account.
               </p>
               <div className="neumorphBoxLg w-full md:w-auto rounded-md flex flex-col items-center justify-center pt-4 pb-8">
                 <form className="w-full px-8 md:px-20 mb-12 flex flex-col justify-center items-center">
@@ -148,7 +148,7 @@ export default function Auth() {
                   </div>
                 </form>
                 <div className="px-12 w-full relative h-[50px]">
-                  <hr className="" />
+                  {/* <hr className="" /> */}
                   <small className="p-2 bg-wearecrewLightGrey absolute -top-1/2 left-1/2 transform -translate-x-1/2 mt-2 opacity-100">
                     Or you can
                   </small>
