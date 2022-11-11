@@ -111,7 +111,7 @@ const Account = ({ session }) => {
         setBio(data.bio);
         setCanWorkIn(data.canWorkIn === null ? [] : data.canWorkIn);
         setCredits(data.credits === null ? [{}] : data.credits);
-        setRoles(data.roles === null ? [{}] : data.roles);
+        setRoles(data.roles === null ? [] : data.roles);
         setCvURL(data.cvURL);
         setUpdatedAt(data.updated_at);
         setPaid(data.paid);
@@ -341,13 +341,13 @@ const Account = ({ session }) => {
   };
 
   const ListDept = (e) => {
-    // console.log(dept);
+    console.log(dept);
     return (
       <select
         name="dept"
         onChange={(e) => {
           setDept(e.target.value);
-          setRoles([{}]);
+          setRoles([]);
         }}
         value={dept}
       >
