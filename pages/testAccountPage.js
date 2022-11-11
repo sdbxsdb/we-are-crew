@@ -622,6 +622,24 @@ const Account = ({ session }) => {
                   )}
                   {/* //END OF GRADE/TITLE */}
                   {/* ACTORS ADDITONAL DETAILS */}
+                  { dept === "Acting or Presenting" && (
+                  <>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="age"
+                      type="text"
+                      defaultValue={qualis}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="age">
+                      Playing Age Range
+                    </label>
+                  </li>
                   <li className="relative styledList w-full md:w-2/3">
                     <input
                       name="height"
@@ -638,7 +656,75 @@ const Account = ({ session }) => {
                       Height
                     </label>
                   </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="hair"
+                      type="text"
+                      defaultValue={qualis}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="hair">
+                      Hair Colour
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="eyes"
+                      type="text"
+                      defaultValue={qualis}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="eyes">
+                      Eye Colour
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="body"
+                      type="text"
+                      defaultValue={qualis}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <small className="text-wearecrewDarkGrey">
+                      Small / Medium / Large / Built etc
+                    </small>
+                    <label htmlFor="body">
+                      Body Type
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="dialects"
+                      type="text"
+                      defaultValue={qualis}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="dialects">
+                      Dialect(s)
+                    </label>
+                  </li>
                   {/* END OF // ACTORS ADDITONAL DETAILS */}
+                  </>
+                  )}
                   {/* QUALIS */}
                   <li className="relative styledList w-full md:w-2/3">
                     <input
@@ -655,10 +741,11 @@ const Account = ({ session }) => {
                       Use hyphen between each item.  Leave empty if N/A.
                     </small>
                     <label htmlFor="safetyQualifications">
-                      Safety or other Qualifications
+                      Qualifications / Safety
                     </label>
                   </li>
                   {/* //END OF QUALIS */}
+                  
                   {/* IMDB */}
                   <li className="relative styledList w-full md:w-2/3">
                     <input
@@ -725,7 +812,7 @@ const Account = ({ session }) => {
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="name">Website</label>
+                    <label htmlFor="name">Website / Showreel</label>
                   </li>
                   {/* //END OF WEBSITE */}
                   {/* PHONE */}

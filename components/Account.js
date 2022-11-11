@@ -34,6 +34,12 @@ const Account = ({ session }) => {
   const [updatedAt, setUpdatedAt] = useState("");
   const [paid, setPaid] = useState(undefined);
   const [dateOfPayment, setdateOfPayment] = useState("");
+  const [ageRange, setAgeRange] = useState("")
+  const [height, setHeight] = useState("")
+  const [hair, setHair] = useState("")
+  const [eyes, setEyes] = useState("")
+  const [body, setBody] = useState("")
+  const [dialects, setDialects] = useState("")
 
   const newDate = new Date();
   const date = newDate.getDate();
@@ -78,7 +84,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, age_range, height, hair, eyes, body, dialects`
         )
         .eq("id", user.id)
         .single();
@@ -110,6 +116,12 @@ const Account = ({ session }) => {
         setUpdatedAt(data.updated_at);
         setPaid(data.paid);
         setdateOfPayment(data.dateOfPayment);
+        setAgeRange(data.age_range);
+        setHair(data.height);
+        setHair(data.hair);
+        setEyes(data.eyes);
+        setBody(data.body);
+        setDialects(data.dialects)
       }
     } catch (error) {
       alert(error.message);
@@ -136,6 +148,12 @@ const Account = ({ session }) => {
     credits,
     cvURL,
     paid,
+    age_range,
+    height,
+    hair,
+    eyes,
+    body,
+    dialects,
   }) {
     try {
       setLoading(true);
@@ -159,6 +177,12 @@ const Account = ({ session }) => {
         canWorkIn,
         credits,
         cvURL,
+        age_range,
+        height,
+        hair,
+        eyes,
+        body,
+        dialects,
 
         updated_at: new Date(),
       };
@@ -471,6 +495,13 @@ const Account = ({ session }) => {
                             credits,
                             cvURL,
                             paid,
+                            ageRange,
+                            height,
+                            hair,
+                            eyes,
+                            body,
+                            dialects,
+
                           })
                         : profileNotComplete(e)
                     }
@@ -627,6 +658,110 @@ const Account = ({ session }) => {
                     </div>
                   )}
                   {/* //END OF GRADE/TITLE */}
+                  { dept === "Acting or Presenting" && (
+                  <>
+                  {/* ACTORS ADDITONAL DETAILS */}
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="age"
+                      type="text"
+                      defaultValue={ageRange}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="age">
+                      Playing Age Range
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="height"
+                      type="text"
+                      defaultValue={height}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="height">
+                      Height
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="hair"
+                      type="text"
+                      defaultValue={hair}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="hair">
+                      Hair Colour
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="eyes"
+                      type="text"
+                      defaultValue={eyes}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="eyes">
+                      Eye Colour
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="body"
+                      type="text"
+                      defaultValue={body}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    <small className="text-wearecrewDarkGrey">
+                      Small / Medium / Large / Built etc
+                    </small>
+                    <label htmlFor="body">
+                      Body Type
+                    </label>
+                  </li>
+                  <li className="relative styledList w-full md:w-2/3">
+                    <input
+                      name="dialects"
+                      type="text"
+                      defaultValue={dialects}
+                      className="border shadow-md w-full"
+                      required
+                      // onChange={(e) => setQualis(e.target.value)}
+                    />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
+                    
+                    <label htmlFor="dialects">
+                      Dialect(s)
+                    </label>
+                  </li>
+                  {/* END OF // ACTORS ADDITONAL DETAILS */}
+                  </>
+                  )}
                   {/* QUALIS */}
                   <li className="relative styledList w-full md:w-2/3">
                     <input
@@ -643,7 +778,7 @@ const Account = ({ session }) => {
                       Use hyphen between each item.  Leave empty if N/A.
                     </small>
                     <label htmlFor="safetyQualifications">
-                      Safety or other Qualifications
+                      Qualifications / Safety
                     </label>
                   </li>
                   {/* //END OF QUALIS */}
@@ -823,6 +958,12 @@ const Account = ({ session }) => {
                             credits,
                             cvURL,
                             paid,
+                            ageRange,
+                            height,
+                            hair,
+                            eyes,
+                            body,
+                            dialects,
                           })
                         : profileNotComplete(e)
                     }
