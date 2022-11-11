@@ -421,6 +421,17 @@ const Account = ({ session }) => {
     router.push("/profileDeleted");
   };
 
+
+  useEffect(() => {
+    if(dept !== "Acting or Presenting") {
+      setAgeRange("");
+      setHair("");
+      setEyes("");
+      setBody("");
+      setDialects("");
+    }
+  }, [dept])
+
   return (
     <>
       {showFinsihProfileError && (

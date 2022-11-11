@@ -360,7 +360,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden pb-8 md:pb-0">
+              <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden ">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row  gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
@@ -426,7 +426,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
+              <div className="snap-start mt-16 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative pb-8 md:pb-0">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">

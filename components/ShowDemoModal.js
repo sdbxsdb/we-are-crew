@@ -113,19 +113,21 @@ const ShowDemoModal = () => {
                   </div>
                 <div className="flex items-center gap-x-4">
                     <span className="material-icons text-wearecrewBlue">public</span>
-                    <a
-                      href='https://www.imdb.com/name/nm0000150/'
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline"
-                    >
-                      https://www.imdb.com/name/nm0000150/
-                    </a>
-                    <button
-                      className="text-wearecrewDarkGrey"
-                    >
-                      <cite>Copy IMDB</cite>
-                    </button>
+                    <div className="flex flex-col items-start gap-1">
+                      <a
+                        href='https://www.imdb.com/name/nm0000150/'
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline break-words"
+                      >
+                        https://www.imdb.com/name/nm0000150/
+                      </a>
+                      <button
+                        className="text-wearecrewDarkGrey"
+                      >
+                        <cite>Copy IMDB</cite>
+                      </button>
+                    </div>
                   </div>
                 <div className="flex items-start gap-x-4">
                   <span className="material-icons text-wearecrewBlue">where_to_vote</span>

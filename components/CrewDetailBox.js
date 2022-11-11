@@ -553,7 +553,7 @@ const CrewDetailBox = (crew) => {
                 ></div>
                 <div className="">
                   <div className="">
-                    <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max border-wearecrewBlue">
+                    <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-8 border-wearecrewBlue break-words">
                       {crew?.name}
                     </h1>
                   </div>
