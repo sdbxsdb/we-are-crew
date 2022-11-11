@@ -400,6 +400,12 @@ const CrewList = ({ users }) => {
                           bio={user.bio}
                           cvURL={user.cvURL}
                           willBeAvailOn={user.willBeAvailOn}
+                          ageRange={user.ageRange}
+                          height={user.height}
+                          hair={user.hair}
+                          eyes={user.eyes}
+                          body={user.body}
+                          dialects={user.dialects}
                         />
                       ) : (
                         ""

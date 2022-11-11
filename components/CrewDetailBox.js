@@ -204,11 +204,74 @@ const CrewDetailBox = (crew) => {
 
             {/*ROLES*/}
             {sortedRoles.map((role, id) => (
-              <p className="mt-1 " key={role + id}>
+              <p className="my-1 " key={role + id}>
                 {role}
               </p>
             ))}
+
+            {crew.ageRange !== null &&
+            crew.height !== null &&
+            crew.hair !== null &&
+            crew.eyes !== null &&
+            crew.body !== null &&
+            crew.dialects !== null ? (
+              <hr className="w-11/12 mb-1" />
+            ) : null}
+
             {/* // END OF ROLES*/}
+
+            {/*ACTOR CREDS*/}
+            <div className="flex flex-col">
+              {crew.ageRange && (
+                <small>
+                  <span className="text-wearecrewBlue font-bold mr-1">
+                    Age Range:
+                  </span>{" "}
+                  {crew?.ageRange}
+                </small>
+              )}
+              {crew.height && (
+                <small>
+                  <span className="text-wearecrewBlue font-bold mr-1">
+                    Height:
+                  </span>{" "}
+                  {crew?.height}
+                </small>
+              )}
+              {crew.hair && (
+                <small>
+                  <span className="text-wearecrewBlue font-bold mr-1">
+                    Hair Colour:
+                  </span>{" "}
+                  {crew?.hair}
+                </small>
+              )}
+              {crew.eyes && (
+                <small>
+                  <span className="text-wearecrewBlue font-bold mr-1">
+                    Eye Colour:
+                  </span>{" "}
+                  {crew?.eyes}
+                </small>
+              )}
+              {crew.body && (
+                <small>
+                  <span className="text-wearecrewBlue font-bold mr-1">
+                    Body Type:
+                  </span>{" "}
+                  {crew?.body}
+                </small>
+              )}
+              {crew.dialects && (
+                <small>
+                  <span className="text-wearecrewBlue font-bold mr-1">
+                    Dialects:
+                  </span>{" "}
+                  {crew?.dialects}
+                </small>
+              )}
+            </div>
+            {/* // END OF ACTOR CREDS*/}
 
             {/*QUALIS*/}
             {/* {crew?.qualis && (
@@ -537,7 +600,10 @@ const CrewDetailBox = (crew) => {
                       <span className="material-icons text-wearecrewBlue">
                         phone_iphone
                       </span>
-                      <a href={`tel:${crew?.phone}`} className="underline break-words">
+                      <a
+                        href={`tel:${crew?.phone}`}
+                        className="underline break-words"
+                      >
                         {crew?.phone}
                       </a>
                     </div>
