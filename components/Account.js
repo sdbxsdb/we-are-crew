@@ -347,7 +347,7 @@ const Account = ({ session }) => {
         name="dept"
         onChange={(e) => {
           setDept(e.target.value);
-          setTitle("");
+          setRoles([{}]);
         }}
         value={dept}
       >
