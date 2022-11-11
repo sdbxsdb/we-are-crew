@@ -668,7 +668,7 @@ const Account = ({ session }) => {
                       defaultValue={ageRange}
                       className="border shadow-md w-full"
                       required
-                      // onChange={(e) => setQualis(e.target.value)}
+                      onChange={(e) => setAgeRange(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -684,7 +684,7 @@ const Account = ({ session }) => {
                       defaultValue={height}
                       className="border shadow-md w-full"
                       required
-                      // onChange={(e) => setQualis(e.target.value)}
+                      onChange={(e) => setHeight(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -700,7 +700,7 @@ const Account = ({ session }) => {
                       defaultValue={hair}
                       className="border shadow-md w-full"
                       required
-                      // onChange={(e) => setQualis(e.target.value)}
+                      onChange={(e) => setHair(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -716,7 +716,7 @@ const Account = ({ session }) => {
                       defaultValue={eyes}
                       className="border shadow-md w-full"
                       required
-                      // onChange={(e) => setQualis(e.target.value)}
+                      onChange={(e) => setEyes(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -732,7 +732,7 @@ const Account = ({ session }) => {
                       defaultValue={body}
                       className="border shadow-md w-full"
                       required
-                      // onChange={(e) => setQualis(e.target.value)}
+                      onChange={(e) => setBody(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
@@ -750,7 +750,7 @@ const Account = ({ session }) => {
                       defaultValue={dialects}
                       className="border shadow-md w-full"
                       required
-                      // onChange={(e) => setQualis(e.target.value)}
+                      onChange={(e) => setDialects(e.target.value)}
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
