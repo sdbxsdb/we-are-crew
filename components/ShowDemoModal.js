@@ -35,12 +35,7 @@ const ShowDemoModal = () => {
       >
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start ">
-            
-            
-            
-            
-            
-          <div className="w-full flex flex-col md:flex-row justify-between">
+            <div className="w-full flex flex-col md:flex-row justify-between">
               <div className="flex gap-x-4 items-center mb-4">
                 <div
                   style={stylingLarge}
@@ -54,7 +49,8 @@ const ShowDemoModal = () => {
                   </div>
 
                   <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
-                    Hover Boarder <span className="text-wearecrewBlue">-</span> Time Traveller
+                    Hover Boarder <span className="text-wearecrewBlue">-</span>{" "}
+                    Time Traveller
                   </div>
                 </div>
               </div>
@@ -66,17 +62,14 @@ const ShowDemoModal = () => {
                 </strong>
               </div>
             </div>
-            
-            
-            
-            
-
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-6 mt-4">
-                <div className="flex justify-between items-center gap-x-4">
+                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                   <div className="flex items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">phone_iphone</span>
+                    <span className="material-icons text-wearecrewBlue">
+                      phone_iphone
+                    </span>
                     <a href={`tel:0044 123 456 78`} className="underline">
                       0044 123 456 78
                     </a>
@@ -85,9 +78,11 @@ const ShowDemoModal = () => {
                     <cite>Copy Phone</cite>
                   </button>
                 </div>
-                <div className="flex justify-between items-center gap-x-4">
-                <div className="flex items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">mail</span>
+                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons text-wearecrewBlue">
+                      mail
+                    </span>
                     <a
                       href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
                       className="underline"
@@ -99,44 +94,51 @@ const ShowDemoModal = () => {
                     <cite>Copy Email</cite>
                   </button>
                 </div>
-                <div className="lex md:max-w-max flex-wrap justify-between items-center gap-x-4">
-                    <div className="flex items-center gap-x-4">
-                      <span className="material-icons text-wearecrewBlue">public</span>
-                      <a
-                        href='https://backtothefuture.com'
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline "
-                      >
-                        https://backtothefuture.com
-                      </a>
-                    </div>
-                    <button
-                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-left ml-10 md:ml-0"
+                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons text-wearecrewBlue">
+                      public
+                    </span>
+                    <a
+                      href="https://backtothefuture.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline "
                     >
+                      https://backtothefuture.com
+                    </a>
+                  </div>
+                  <div className="flex flex-1">
+                    <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0">
                       <cite className="min-w-max">Copy Website</cite>
                     </button>
                   </div>
-                <div className="flex items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">public</span>
-                    <div className="flex flex-col items-start gap-1">
-                      <a
-                        href='https://www.imdb.com/name/nm0000150/'
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline break-all"
-                      >
-                        https://www.imdb.com/name/nm0000150/
-                      </a>
-                      <button
-                        className="text-wearecrewDarkGrey"
-                      >
-                        <cite>Copy IMDB</cite>
-                      </button>
-                    </div>
+                </div>
+                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons text-wearecrewBlue">
+                      public
+                    </span>
+
+                    <a
+                      href="https://www.imdb.com/name/nm0000150/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline break-all"
+                    >
+                      https://www.imdb.com/name/nm0000150/
+                    </a>
                   </div>
+                  <div className="flex flex-1">
+                    <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0">
+                      <cite className="min-w-max">Copy IMDB</cite>
+                    </button>
+                  </div>
+                </div>
                 <div className="flex items-start gap-x-4">
-                  <span className="material-icons text-wearecrewBlue">where_to_vote</span>
+                  <span className="material-icons text-wearecrewBlue">
+                    where_to_vote
+                  </span>
                   <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
                     <div>
                       <p className="min-w-max">Belfast</p>
@@ -156,7 +158,9 @@ const ShowDemoModal = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-x-4">
-                  <span className="material-icons text-wearecrewBlue">military_tech</span>
+                  <span className="material-icons text-wearecrewBlue">
+                    military_tech
+                  </span>
                   <div>
                     <div className="flex items-center mb-4">
                       <div className="flex justify-center items-center">
@@ -189,7 +193,9 @@ const ShowDemoModal = () => {
                 </div>
 
                 <div className="flex items-center gap-x-4 -mt-4">
-                  <span className="material-icons text-wearecrewBlue">school</span>
+                  <span className="material-icons text-wearecrewBlue">
+                    school
+                  </span>
 
                   <div>
                     <p className="">Safety Training, First Aid, IMAX</p>
@@ -197,7 +203,9 @@ const ShowDemoModal = () => {
                 </div>
 
                 <div className="flex items-start gap-x-4 -mt-2">
-                  <span className="material-icons text-wearecrewBlue">emoji_people</span>
+                  <span className="material-icons text-wearecrewBlue">
+                    emoji_people
+                  </span>
                   <p>
                     Martin Seamus ’Marty’ McFly, Sr. is the main protagonist of
                     the Back to the Future franchise. He is the world’s second
