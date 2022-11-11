@@ -663,6 +663,7 @@ const Account = ({ session }) => {
                     <div className="flex flex-col relative w-full -mt-[20px] mb-6 md:w-2/3">
                       <p className="text-sm text-wearecrewBlue">
                         Grade / Title
+                        <small className="mb-2 text-wearecrewDarkGrey break-words">Your choices will appear in the order you select them.</small>
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-2 gap-x-4 mt-2">
                         <ListTitle />

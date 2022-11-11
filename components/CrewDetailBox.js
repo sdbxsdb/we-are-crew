@@ -127,7 +127,7 @@ const CrewDetailBox = (crew) => {
     a > b ? 1 : -1
   );
 
-  const sortedRoles = [...crew?.roles].sort((a, b) => (a > b ? 1 : -1));
+  // const sortedRoles = [...crew?.roles].sort((a, b) => (a > b ? 1 : -1));
 
   // console.log("CREDITS", crew.credits);
 
@@ -203,7 +203,7 @@ const CrewDetailBox = (crew) => {
             {/* // END OF TITLE*/}
 
             {/*ROLES*/}
-            {sortedRoles.map((role, id) => (
+            {crew?.roles.map((role, id) => (
               <p className="my-1 " key={role + id}>
                 {role}
               </p>
@@ -214,7 +214,13 @@ const CrewDetailBox = (crew) => {
             crew.hair !== null &&
             crew.eyes !== null &&
             crew.body !== null &&
-            crew.dialects !== null ? (
+            crew.dialects !== null &&
+            crew.ageRange !== "" &&
+            crew.height !== "" &&
+            crew.hair !== "" &&
+            crew.eyes !== "" &&
+            crew.body !== "" &&
+            crew.dialects !== "" ? (
               <hr className="w-11/12 mb-1" />
             ) : null}
 
@@ -414,7 +420,7 @@ const CrewDetailBox = (crew) => {
                   {/* //END OF MOBILE NAME*/}
 
                   {/* MOBILE TITLE*/}
-                  {sortedRoles.map((role, id) => (
+                  {crew?.roles.map((role, id) => (
                     <p className="mt-1" key={role + id}>
                       {role}
                     </p>
@@ -559,7 +565,7 @@ const CrewDetailBox = (crew) => {
                   </div>
 
                   <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
-                    {sortedRoles.map((role, id) => (
+                    {crew?.roles.map((role, id) => (
                       <p
                         className="text-md md:text-lg listDividerLines break-words"
                         key={role + id}
