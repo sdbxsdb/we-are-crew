@@ -791,7 +791,7 @@ const Account = ({ session }) => {
                             <input
                               name="agentName"
                               type="text"
-                              defaultValue={dialects}
+                              defaultValue={agentName}
                               className="border shadow-md w-full"
                               required
                               onChange={(e) => setAgentName(e.target.value)}
@@ -806,7 +806,7 @@ const Account = ({ session }) => {
                             <input
                               name="agentEmail"
                               type="text"
-                              defaultValue={dialects}
+                              defaultValue={agentEmail}
                               className="border shadow-md w-full"
                               required
                               onChange={(e) => setAgentEmail(e.target.value)}
@@ -821,7 +821,7 @@ const Account = ({ session }) => {
                             <input
                               name="agentPhone"
                               type="number"
-                              defaultValue={phone}
+                              defaultValue={agentPhone}
                               className="border shadow-md w-full"
                               required
                               onChange={(e) => setAgentPhone(e.target.value)}
