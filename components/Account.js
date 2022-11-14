@@ -837,6 +837,7 @@ const Account = ({ session }) => {
                               type="checkbox"
                               id="hidePersonalEmail"
                               className="chb chb-3"
+                              checked={hidePersonalEmail}
                             />
                             <label
                               htmlFor="hidePersonalEmail"
