@@ -757,7 +757,9 @@ const Account = ({ session }) => {
                         />
                         <span className="highlight"></span>
                         <span className="bar"></span>
-
+                        <small className="text-wearecrewDarkGrey">
+                          Use hyphen between each item.  Leave empty if N/A.
+                        </small>
                         <label htmlFor="dialects">Dialect(s)</label>
                       </li>
                       {/* END OF // ACTORS ADDITONAL DETAILS */}

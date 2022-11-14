@@ -561,10 +561,13 @@ const CrewDetailBox = (crew) => {
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start">
             <div className="w-full flex flex-col md:flex-row justify-between">
               <div className="flex gap-x-4 items-center mb-4">
+                <a href={publicUrl} target="_blank" rel="noreferrer"
+                className={`${crew?.dept === "Acting or Presenting" ? "" : "cursor-default"}`}>
                 <div
                   style={stylingLarge}
                   className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
                 ></div>
+                </a>
                 <div className="">
                   <div className="">
                     <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-10 border-wearecrewBlue break-all">
@@ -618,7 +621,7 @@ const CrewDetailBox = (crew) => {
                     {crew?.body && (
                       <div className="flex flex-col gap-x-4">
                         <span className="text-wearecrewBlue">Body Type</span>
-                        <p className="text-md listDividerLines break-all">
+                        <p className="text-md listDividerLines break-words">
                           {crew?.body}
                         </p>
                       </div>
@@ -626,7 +629,7 @@ const CrewDetailBox = (crew) => {
                     {crew?.dialects && (
                       <div className="flex flex-col gap-x-4">
                         <span className="text-wearecrewBlue">Dialect(s)</span>
-                        <p className="text-md listDividerLines break-all">
+                        <p className="text-md listDividerLines break-words">
                           {crew?.dialects}
                         </p>
                       </div>
