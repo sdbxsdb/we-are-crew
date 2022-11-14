@@ -5,30 +5,13 @@ import LargeButton from "../components/LargeButton";
 import { useUser } from "../context/user";
 import places from "../places.json";
 import { useState, useEffect } from "react";
-
+import UploadImgs from "../components/UploadHeadshots";
+ 
 export default function Home() {
   const { user } = useUser();
 
   const userEmail = user?.data?.user?.email;
 
-  // const [data, setData] = useState(null)
-  // const [isLoading, setLoading] = useState(false)
-
-  // useEffect(() => {
-  //   setLoading(true)
-  //   fetch('https://mocki.io/v1/31b71307-8ece-4b9c-bf14-99cc3c03f495')
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setData(data)
-  //       setLoading(false)
-  //       console.log(data.search_data.tools);
-  //       const test = JSON.parse(data.data);
-  //       console.log({test})
-  //     })
-  // }, [])
-
-  // if (isLoading) return <p>Loading...</p>
-  // if (!data) return <p>No profile data</p>
 
   return (
     <div className={styles.container}>
@@ -40,6 +23,7 @@ export default function Home() {
         <Banner />
         <div className="w-full hidden md:flex items-center justify-center absolute mt-12 font-bold text-2xl text-center  "></div>
       </div>
+
 
       <div className="mt-8 md:mt-0 h-auto md:h-[calc(100vh-210px)] flex flex-col justify-center items-center w-full ">
         <div className="hidden md:flex flex-col gap-x-8 gap-y-4 px-4 w-full  text-2xl font-bold justify-around max-w-[1200px] text-center pb-4">

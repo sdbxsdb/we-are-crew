@@ -177,7 +177,7 @@ const CrewList = ({ users }) => {
 
   const filterByLocations = (e) => {
     if (e.target.checked) {
-      setLocation((location) => [...location, e.target.value]);
+      setLocati123on((location) => [...location, e.target.value]);
     } else {
       setLocation((locations) => {
         return [...locations.filter((location) => e.target.value !== location)];

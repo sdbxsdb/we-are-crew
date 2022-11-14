@@ -6,6 +6,7 @@ import { supabase } from "../utils/supabaseClient";
 import DynamicList from "../components/DynamicList";
 import UploadCV from "../components/UploadCV";
 import UploadImg from "../components/UploadImg";
+import UploadHeadshots from "../components/UploadHeadshots";
 import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
@@ -18,8 +19,9 @@ const Account = ({ session }) => {
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [imgURL, setImgURL] = useState("");
+  const [headshotsURL, setHeadshotsURL] = useState("");
   const [cvURL, setCvURL] = useState(null);
-  const [cvFileName, setCvFileName] = useState();
+  const [cvFileName, setCvFileName] = useState([]);
   const [status, setStatus] = useState("Available");
   const [willBeAvailOn, setWillBeAvailOn] = useState("");
   const [dept, setDept] = useState("");
@@ -78,7 +80,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, headshotsURL`
         )
         .eq("id", user.id)
         .single();
@@ -110,6 +112,7 @@ const Account = ({ session }) => {
         setUpdatedAt(data.updated_at);
         setPaid(data.paid);
         setdateOfPayment(data.dateOfPayment);
+        setHeadshotsURL(data.headshotsURL);
       }
     } catch (error) {
       // alert(error.message);
@@ -136,6 +139,7 @@ const Account = ({ session }) => {
     credits,
     cvURL,
     paid,
+    headshotsURL
   }) {
     try {
       setLoading(true);
@@ -159,6 +163,7 @@ const Account = ({ session }) => {
         canWorkIn,
         credits,
         cvURL,
+        headshotsURL,
 
         updated_at: new Date(),
       };
@@ -465,6 +470,7 @@ const Account = ({ session }) => {
                             credits,
                             cvURL,
                             paid,
+                            headshotsURL
                           })
                         : profileNotComplete(e)
                     }
@@ -547,6 +553,22 @@ const Account = ({ session }) => {
                     />
                   </li>
                   {/* //END OF IMAGE */}
+                  {/* HEADSHOTS */}
+                  <li className="relative styledList w-full md:w-2/3 flex flex-col items-center justify-center">
+                    <div
+                      // style={imgStyling}
+                      className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                    >
+                      <h1>TEST - {headshotsURL}</h1>
+                    </div>
+                    <UploadHeadshots
+                      url={headshotsURL}
+                      onUpload={(url) => {
+                        setHeadshotsURL(url);
+                      }}
+                    />
+                  </li>
+                  {/* //END OF HEADSHOTS */}
                   {/* IS PROFILE LIVE */}
                   <div className="w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
