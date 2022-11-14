@@ -582,7 +582,7 @@ const CrewDetailBox = (crew) => {
                       </p>
                     ))}
                   </div>
-                  <div className="grid grid-cols-3 gap-y-2 gap-x-8">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-8">
                     <div className="flex flex-col gap-x-4">
                       <span className="text-wearecrewBlue">Age Range</span>
                         <p
