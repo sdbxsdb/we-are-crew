@@ -44,6 +44,7 @@ const Account = ({ session }) => {
   const [agentEmail, setAgentEmail] = useState("");
   const [agentPhone, setAgentPhone] = useState("");
   const [showAgentDetails, setShowAgentDetails] = useState(false);
+  const [hidePersonalEmail, setHidePersonalEmail] = useState(false);
 
   const newDate = new Date();
   const date = newDate.getDate();
@@ -88,7 +89,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, ageRange, height, hair, eyes, body, dialects, agentName, agentEmail, agentPhone`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, ageRange, height, hair, eyes, body, dialects, agentName, agentEmail, agentPhone, hidePersonalEmail`
         )
         .eq("id", user.id)
         .single();
@@ -129,6 +130,7 @@ const Account = ({ session }) => {
         setAgentName(data.agentName);
         setAgentEmail(data.agentEmail);
         setAgentPhone(data.agentPhone);
+        setHidePersonalEmail(data.hidePersonalEmail);
       }
     } catch (error) {
     } finally {
@@ -163,6 +165,7 @@ const Account = ({ session }) => {
     agentName,
     agentEmail,
     agentPhone,
+    hidePersonalEmail,
   }) {
     try {
       setLoading(true);
@@ -195,6 +198,7 @@ const Account = ({ session }) => {
         agentName,
         agentEmail,
         agentPhone,
+        hidePersonalEmail,
 
         updated_at: new Date(),
       };
@@ -526,6 +530,7 @@ const Account = ({ session }) => {
                             agentName,
                             agentEmail,
                             agentPhone,
+                            hidePersonalEmail,
                           })
                         : profileNotComplete(e)
                     }
@@ -779,11 +784,19 @@ const Account = ({ session }) => {
                       <hr />
                       <div className="flex items-center max-w-max cursor-pointer">
                         <p
-                          onClick={(e) => setShowAgentDetails(!showAgentDetails)}
+                          onClick={(e) =>
+                            setShowAgentDetails(!showAgentDetails)
+                          }
                         >
                           Got an agent?
                         </p>
-                          <span className={`material-icons transform ${showAgentDetails ? "rotate-180" : ""}`}>expand_more</span>
+                        <span
+                          className={`material-icons transform ${
+                            showAgentDetails ? "rotate-180" : ""
+                          }`}
+                        >
+                          expand_more
+                        </span>
                       </div>
                       {showAgentDetails && (
                         <>
@@ -816,7 +829,24 @@ const Account = ({ session }) => {
                             <label htmlFor="dialects">
                               Agent Email (If applicable)
                             </label>
+                            
                           </li>
+
+                          <li className="relative w-full -mt-4 md:w-2/3">
+                          <input
+                              type="checkbox"
+                              id="hidePersonalEmail"
+                              className="chb chb-3"
+                            />
+                            <label
+                              htmlFor="hidePersonalEmail"
+                              className="min-w-max"
+                              onClick={(e) => setHidePersonalEmail(!hidePersonalEmail)}
+                            >
+                              Hide personal email on profile.
+                            </label>
+                          </li>
+                          
                           <li className="relative styledList w-full md:w-2/3">
                             <input
                               name="agentPhone"
@@ -902,6 +932,7 @@ const Account = ({ session }) => {
                   </div>
                   {/* //END OF CAN WORK IN */}
                   {/* EMAIL */}
+
                   <li className="relative styledList w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Email</p>
                     <input
@@ -914,6 +945,11 @@ const Account = ({ session }) => {
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
+                    {hidePersonalEmail && (
+                    <small className="text-wearecrewOrange mb-2">
+                      Personal email will be hiden on your profile. Change this under agent details.
+                    </small>
+                    )}
                   </li>
                   {/* //END OF EMAIL */}
                   {/* WEBSITE */}
@@ -1047,6 +1083,7 @@ const Account = ({ session }) => {
                             agentName,
                             agentEmail,
                             agentPhone,
+                            hidePersonalEmail,
                           })
                         : profileNotComplete(e)
                     }

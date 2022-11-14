@@ -406,6 +406,9 @@ const CrewList = ({ users }) => {
                           eyes={user.eyes}
                           body={user.body}
                           dialects={user.dialects}
+                          agentName={user.agentName}
+                          agentEmail={user.agentEmail}
+                          agentPhone={user.agentPhone}
                         />
                       ) : (
                         ""

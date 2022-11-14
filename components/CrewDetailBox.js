@@ -561,12 +561,20 @@ const CrewDetailBox = (crew) => {
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start">
             <div className="w-full flex flex-col md:flex-row justify-between">
               <div className="flex gap-x-4 items-center mb-4">
-                <a href={publicUrl} target="_blank" rel="noreferrer"
-                className={`${crew?.dept === "Acting or Presenting" ? "" : "cursor-default"}`}>
-                <div
-                  style={stylingLarge}
-                  className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
-                ></div>
+                <a
+                  href={publicUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${
+                    crew?.dept === "Acting or Presenting"
+                      ? ""
+                      : "cursor-default"
+                  }`}
+                >
+                  <div
+                    style={stylingLarge}
+                    className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
+                  ></div>
                 </a>
                 <div className="">
                   <div className="">
@@ -753,6 +761,30 @@ const CrewDetailBox = (crew) => {
                       >
                         <cite className="min-w-max">Copy IMDB</cite>
                       </button>
+                    </div>
+                  </div>
+                )}
+                {crew?.agentName && (
+                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                    <div className="flex items-center gap-x-4">
+                      <span className="material-icons text-wearecrewBlue">
+                        <span className="material-icons">local_police</span>
+                      </span>
+                      <div className="flex flex-col gap-1">
+                        <p className="break-all">{crew?.agentName}</p>
+                        <a
+                          href={`mailto:${crew?.agentEmail}?subject=I found your clients profile on Get Crew.`}
+                          className="underline break-all"
+                        >
+                          {crew?.agentEmail}
+                        </a>
+                        <a
+                          href={`tel:${crew?.phone}`}
+                          className="underline break-all"
+                        >
+                          {crew?.agentPhone}
+                        </a>
+                      </div>
                     </div>
                   </div>
                 )}
