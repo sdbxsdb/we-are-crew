@@ -582,6 +582,56 @@ const CrewDetailBox = (crew) => {
                       </p>
                     ))}
                   </div>
+                  <div className="grid grid-cols-3 gap-y-2 gap-x-8">
+                    <div className="flex flex-col gap-x-4">
+                      <span className="text-wearecrewBlue">Age Range</span>
+                        <p
+                          className="text-md listDividerLines break-all"
+                        >
+                          {crew?.ageRange}
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-x-4">
+                      <span className="text-wearecrewBlue">Height</span>
+                        <p
+                          className="text-md listDividerLines break-all"
+                        >
+                          {crew?.height}
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-x-4">
+                      <span className="text-wearecrewBlue">Hair Colour</span>
+                        <p
+                          className="text-md listDividerLines break-all"
+                        >
+                          {crew?.hair}
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-x-4">
+                      <span className="text-wearecrewBlue">Eye Colour</span>
+                        <p
+                          className="text-md listDividerLines break-all"
+                        >
+                          {crew?.eyes}
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-x-4">
+                      <span className="text-wearecrewBlue">Body Type</span>
+                        <p
+                          className="text-md listDividerLines break-all"
+                        >
+                          {crew?.body}
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-x-4">
+                      <span className="text-wearecrewBlue">Dialect(s)</span>
+                        <p
+                          className="text-md listDividerLines break-all"
+                        >
+                          {crew?.dialects}
+                        </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">

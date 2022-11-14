@@ -3,10 +3,8 @@ import styles from "../styles/Home.module.scss";
 import Banner from "../components/Banner";
 import LargeButton from "../components/LargeButton";
 import { useUser } from "../context/user";
-import places from "../places.json";
-import { useState, useEffect } from "react";
-import UploadImgs from "../components/UploadHeadshots";
- 
+
+
 export default function Home() {
   const { user } = useUser();
 
