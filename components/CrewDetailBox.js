@@ -345,15 +345,33 @@ const CrewDetailBox = (crew) => {
                 <h1 className="text-3xl">Call</h1>
               </a>
             )}
+            {crew?.agentPhone && (
+              <a
+                href={`tel:${crew?.agentPhone}`}
+                className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition"
+              >
+                <h1 className="text-3xl text-center">Call Agent</h1>
+              </a>
+            )}
             {/* //END OF PHONE*/}
 
             {/*EMAIL*/}
-            <a
-              href={`mailto:${crew?.email}?subject=I found your profile on Get Crew!`}
-              className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition"
-            >
-              <h1 className="text-3xl">Email</h1>
-            </a>
+            {!crew.hidePersonalEmail && (
+              <a
+                href={`mailto:${crew?.email}?subject=I found your profile on Get Crew!`}
+                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition"
+              >
+                <h1 className="text-3xl">Email</h1>
+              </a>
+            )}
+            {crew.hidePersonalEmail && (
+              <a
+                href={`mailto:${crew?.agentEmail}?subject=I found your clients profile on Get Crew!`}
+                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white  hover:brightness-110 transition"
+              >
+                <h1 className="text-3xl text-center">Email Agent</h1>
+              </a>
+            )}
             {/* //END OF EMAIL*/}
 
             {/*WEBSITE*/}
@@ -692,6 +710,7 @@ const CrewDetailBox = (crew) => {
                     </div>
                   </div>
                 )}
+                {!crew.hidePersonalEmail && (
                 <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                   <div className="flex items-center gap-x-4">
                     <span className="material-icons text-wearecrewBlue">
@@ -713,6 +732,7 @@ const CrewDetailBox = (crew) => {
                     </button>
                   </div>
                 </div>
+                )}
 
                 {website && (
                   <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
@@ -874,12 +894,33 @@ const CrewDetailBox = (crew) => {
                       <h1 className="text-3xl">Call</h1>
                     </a>
                   )}
-                  <a
-                    href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                    className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
-                  >
-                    <h1 className="text-3xl">Email</h1>
-                  </a>
+
+                  {crew?.agentPhone && (
+                    <a
+                      href={`tel:${crew?.agentPhone}`}
+                      className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                    >
+                      <h1 className="text-3xl text-center">Call Agent</h1>
+                    </a>
+                  )}
+
+                  {!crew.hidePersonalEmail && (
+                    <a
+                      href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
+                      className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                    >
+                      <h1 className="text-3xl">Email</h1>
+                    </a>
+                  )}
+
+                  {crew.hidePersonalEmail && (
+                    <a
+                      href={`mailto:${crew?.agentEmail}?subject=I found your profile on Get Crew.`}
+                      className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                    >
+                      <h1 className="text-3xl text-center">Email Agent</h1>
+                    </a>
+                  )}
 
                   {crew?.cvURL && (
                     <a

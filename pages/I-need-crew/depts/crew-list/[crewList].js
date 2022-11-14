@@ -409,6 +409,7 @@ const CrewList = ({ users }) => {
                           agentName={user.agentName}
                           agentEmail={user.agentEmail}
                           agentPhone={user.agentPhone}
+                          hidePersonalEmail={user.hidePersonalEmail}
                         />
                       ) : (
                         ""
