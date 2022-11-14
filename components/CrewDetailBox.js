@@ -681,56 +681,6 @@ const CrewDetailBox = (crew) => {
                       </p>
                     ))}
                   </div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-8">
-                    {crew?.ageRange && (
-                      <div className="flex flex-col gap-x-4">
-                        <span className="text-wearecrewBlue">Age Range</span>
-                        <p className="text-md listDividerLines break-all">
-                          {crew?.ageRange}
-                        </p>
-                      </div>
-                    )}
-                    {crew?.height && (
-                      <div className="flex flex-col gap-x-4">
-                        <span className="text-wearecrewBlue">Height</span>
-                        <p className="text-md listDividerLines break-all">
-                          {crew?.height}
-                        </p>
-                      </div>
-                    )}
-                    {crew?.hair && (
-                      <div className="flex flex-col gap-x-4">
-                        <span className="text-wearecrewBlue">Hair Colour</span>
-                        <p className="text-md listDividerLines break-all">
-                          {crew?.hair}
-                        </p>
-                      </div>
-                    )}
-                    {crew?.eyes && (
-                      <div className="flex flex-col gap-x-4">
-                        <span className="text-wearecrewBlue">Eye Colour</span>
-                        <p className="text-md listDividerLines break-all">
-                          {crew?.eyes}
-                        </p>
-                      </div>
-                    )}
-                    {crew?.body && (
-                      <div className="flex flex-col gap-x-4">
-                        <span className="text-wearecrewBlue">Body Type</span>
-                        <p className="text-md listDividerLines break-words">
-                          {crew?.body}
-                        </p>
-                      </div>
-                    )}
-                    {crew?.dialects && (
-                      <div className="flex flex-col gap-x-4">
-                        <span className="text-wearecrewBlue">Dialect(s)</span>
-                        <p className="text-md listDividerLines break-words">
-                          {crew?.dialects}
-                        </p>
-                      </div>
-                    )}
-                  </div>
                 </div>
               </div>
               <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
@@ -757,6 +707,52 @@ const CrewDetailBox = (crew) => {
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-8 pt-4 md:py-0">
+                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                  <div className="flex items-center gap-x-4">
+                    <span className="material-icons text-wearecrewBlue">
+                      movie
+                    </span>
+                    <div>
+                      {crew?.ageRange && (
+                        <div className="flex gap-x-2">
+                          <p className="text-wearecrewBlue min-w-max">Age Range -</p>
+                          <p>{crew?.ageRange}</p>
+                        </div>
+                      )}
+                      {crew?.height && (
+                        <div className="flex gap-x-2">
+                          <p className="text-wearecrewBlue min-w-max">Height -</p>
+                          <p>{crew?.height}</p>
+                        </div>
+                      )}
+                      {crew?.hair && (
+                        <div className="flex gap-x-2">
+                          <p className="text-wearecrewBlue min-w-max">Hair -</p>
+                          <p>{crew?.hair}</p>
+                        </div>
+                      )}
+                      {crew?.eyes && (
+                        <div className="flex gap-x-2">
+                          <p className="text-wearecrewBlue min-w-max">Eyes -</p>
+                          <p>{crew?.eyes}</p>
+                        </div>
+                      )}
+                      {crew?.body && (
+                        <div className="flex gap-x-2">
+                          <p className="text-wearecrewBlue min-w-max">Body Type -</p>
+                          <p>{crew?.body}</p>
+                        </div>
+                      )}
+                      {crew?.dialects && (
+                        <div className="flex gap-x-2">
+                          <p className="text-wearecrewBlue min-w-max">Dialect(s) -</p>
+                          <p>{crew?.dialects}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                </div>
                 {crew?.phone && (
                   <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                     <div className="flex items-center gap-x-4">
