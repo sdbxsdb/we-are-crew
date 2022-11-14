@@ -480,19 +480,55 @@ const CrewDetailBox = (crew) => {
             </div>
 
             {/* MOBILE ACTOR DETAILS*/}
-            <div className="w-full flex gap-x-4 justify-center mt-4">
-              <div className="grid grid-cols-2">
 
-                <div className="flex gap-x-4 justify-center">
-                  <p>Age Range</p>
-                  <p className="text-base">{crew?.ageRange}</p>
+            {crew?.ageRange &&
+              crew.height &&
+              crew.hair &&
+              crew.eyes &&
+              crew.body &&
+              crew.dialects && (
+                <div className="flex flex-wrap justify-between gap-4">
+                  {crew?.ageRange && (
+                    <div className="">
+                      <p className="text-wearecrewBlue font-bold">Age Range</p>
+                      <p className="text-base">{crew?.ageRange}</p>
+                    </div>
+                  )}
+                  {crew?.height && (
+                    <div className="">
+                      <p className="text-wearecrewBlue font-bold">Height</p>
+                      <p className="text-base">{crew?.height}</p>
+                    </div>
+                  )}
+                  {crew?.hair && (
+                    <div className="">
+                      <p className="text-wearecrewBlue font-bold">
+                        Hair Colour
+                      </p>
+                      <p className="text-base">{crew?.hair}</p>
+                    </div>
+                  )}
+                  {crew?.eyes && (
+                    <div className="">
+                      <p className="text-wearecrewBlue font-bold">Eye Colour</p>
+                      <p className="text-base">{crew?.eyes}</p>
+                    </div>
+                  )}
+                  {crew.body && (
+                    <div className="">
+                      <p className="text-wearecrewBlue font-bold">Body Type</p>
+                      <p className="text-base">{crew?.body}</p>
+                    </div>
+                  )}
+                  {crew?.dialects && (
+                    <div className="">
+                      <p className="text-wearecrewBlue font-bold">Dialects</p>
+                      <p className="text-base">{crew?.dialects}</p>
+                    </div>
+                  )}
                 </div>
-                <div className="flex gap-x-4 justify-center">
-                  <p>Height</p>
-                  <p className="text-base">{crew?.height}</p>
-                </div>
-              </div>
-            </div>
+              )}
+
             {/* //END OF MOBILE ACTOR DETAILS*/}
             {/* MOBILE CAN WORK IN*/}
             <div className="w-full flex gap-x-4 justify-center mt-4">
@@ -516,41 +552,41 @@ const CrewDetailBox = (crew) => {
             <div className="flex flex-col justify-between gap-2">
               {/* MOBILE PHONE*/}
 
-                {crew?.phone && (
-                  <a
-                    href={`tel:${crew.phone}`}
-                    className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
-                  >
-                    <h1 className="text-3xl">Call</h1>
-                  </a>
-                )}
-                {crew?.agentPhone && (
-                  <a
-                    href={`tel:${crew.agentPhone}`}
-                    className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
-                  >
-                    <h1 className="text-3xl">Call Agent</h1>
-                  </a>
-                )}
+              {crew?.phone && (
+                <a
+                  href={`tel:${crew.phone}`}
+                  className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
+                >
+                  <h1 className="text-3xl">Call</h1>
+                </a>
+              )}
+              {crew?.agentPhone && (
+                <a
+                  href={`tel:${crew.agentPhone}`}
+                  className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
+                >
+                  <h1 className="text-3xl">Call Agent</h1>
+                </a>
+              )}
 
               {/* //END OF MOBILE PHONE*/}
 
               {/* MOBILE EMAIL*/}
               {!crew.hidePersonalEmail && (
-              <a
-                href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
-              >
-                <h1 className="text-3xl">Email</h1>
-              </a>
+                <a
+                  href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
+                  className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
+                >
+                  <h1 className="text-3xl">Email</h1>
+                </a>
               )}
               {crew.hidePersonalEmail && (
-              <a
-                href={`mailto:${crew?.agentEmail}?subject=I found your profile on Get Crew.`}
-                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
-              >
-                <h1 className="text-3xl text-center">Email Agent</h1>
-              </a>
+                <a
+                  href={`mailto:${crew?.agentEmail}?subject=I found your profile on Get Crew.`}
+                  className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
+                >
+                  <h1 className="text-3xl text-center">Email Agent</h1>
+                </a>
               )}
               {/* //END OF MOBILE EMAIL*/}
 
@@ -566,16 +602,15 @@ const CrewDetailBox = (crew) => {
                 </a>
               )}
               {/* //END OF MOBILE WEBSITE*/}
-            {/* MOBILE PROFILE*/}
-            <div
-              onClick={() => setShowModal(true)}
-              className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white hover:brightness-110 transition"
-            >
-              <h1 className="text-3xl text-center">Profile</h1>
+              {/* MOBILE PROFILE*/}
+              <div
+                onClick={() => setShowModal(true)}
+                className="cursor-pointer rounded-md bg-wearecrewBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white hover:brightness-110 transition"
+              >
+                <h1 className="text-3xl text-center">Profile</h1>
+              </div>
+              {/* //END OF MOBILE PROFILE*/}
             </div>
-            {/* //END OF MOBILE PROFILE*/}
-            </div>
-
           </div>
         </div>
 
@@ -746,27 +781,27 @@ const CrewDetailBox = (crew) => {
                   </div>
                 )}
                 {!crew.hidePersonalEmail && (
-                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
-                  <div className="flex items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">
-                      mail
-                    </span>
-                    <a
-                      href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                      className="underline break-all"
-                    >
-                      {crew?.email}
-                    </a>
+                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                    <div className="flex items-center gap-x-4">
+                      <span className="material-icons text-wearecrewBlue">
+                        mail
+                      </span>
+                      <a
+                        href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
+                        className="underline break-all"
+                      >
+                        {crew?.email}
+                      </a>
+                    </div>
+                    <div className="flex flex-1">
+                      <button
+                        onClick={() => copyEmail()}
+                        className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                      >
+                        <cite className="min-w-max">Copy Email</cite>
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex flex-1">
-                    <button
-                      onClick={() => copyEmail()}
-                      className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
-                    >
-                      <cite className="min-w-max">Copy Email</cite>
-                    </button>
-                  </div>
-                </div>
                 )}
 
                 {website && (
