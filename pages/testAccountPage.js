@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { supabase } from "../utils/supabaseClient";
-import DynamicList from "./DynamicList";
-import UploadCV from "./UploadCV";
-import UploadImg from "./UploadImg";
+import DynamicList from "../components/DynamicList";
+import UploadCV from "../components/UploadCV";
+import UploadImg from "../components/UploadImg";
 import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
