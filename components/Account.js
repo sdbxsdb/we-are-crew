@@ -122,7 +122,7 @@ const Account = ({ session }) => {
         setPaid(data.paid);
         setdateOfPayment(data.dateOfPayment);
         setAgeRange(data.ageRange);
-        setHair(data.height);
+        setHeight(data.height);
         setHair(data.hair);
         setEyes(data.eyes);
         setBody(data.body);

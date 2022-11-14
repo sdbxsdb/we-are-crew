@@ -479,6 +479,21 @@ const CrewDetailBox = (crew) => {
               </div>
             </div>
 
+            {/* MOBILE ACTOR DETAILS*/}
+            <div className="w-full flex gap-x-4 justify-center mt-4">
+              <div className="grid grid-cols-2">
+
+                <div className="flex gap-x-4 justify-center">
+                  <p>Age Range</p>
+                  <p className="text-base">{crew?.ageRange}</p>
+                </div>
+                <div className="flex gap-x-4 justify-center">
+                  <p>Height</p>
+                  <p className="text-base">{crew?.height}</p>
+                </div>
+              </div>
+            </div>
+            {/* //END OF MOBILE ACTOR DETAILS*/}
             {/* MOBILE CAN WORK IN*/}
             <div className="w-full flex gap-x-4 justify-center mt-4">
               <div className="flex flex-col items-center">
@@ -498,25 +513,45 @@ const CrewDetailBox = (crew) => {
           </div>
 
           <div className="flex flex-col gap-y-4">
-            <div className="flex justify-between gap-x-2">
+            <div className="flex flex-col justify-between gap-2">
               {/* MOBILE PHONE*/}
-              {crew?.phone && (
-                <a
-                  href={`tel:${crew.phone}`}
-                  className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1 hover:brightness-110 transition"
-                >
-                  <h1 className="text-3xl">Call</h1>
-                </a>
-              )}
+
+                {crew?.phone && (
+                  <a
+                    href={`tel:${crew.phone}`}
+                    className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
+                  >
+                    <h1 className="text-3xl">Call</h1>
+                  </a>
+                )}
+                {crew?.agentPhone && (
+                  <a
+                    href={`tel:${crew.agentPhone}`}
+                    className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
+                  >
+                    <h1 className="text-3xl">Call Agent</h1>
+                  </a>
+                )}
+
               {/* //END OF MOBILE PHONE*/}
 
               {/* MOBILE EMAIL*/}
+              {!crew.hidePersonalEmail && (
               <a
                 href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
-                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1 hover:brightness-110 transition"
+                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
               >
                 <h1 className="text-3xl">Email</h1>
               </a>
+              )}
+              {crew.hidePersonalEmail && (
+              <a
+                href={`mailto:${crew?.agentEmail}?subject=I found your profile on Get Crew.`}
+                className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
+              >
+                <h1 className="text-3xl text-center">Email Agent</h1>
+              </a>
+              )}
               {/* //END OF MOBILE EMAIL*/}
 
               {/* MOBILE WEBSITE*/}
@@ -525,14 +560,12 @@ const CrewDetailBox = (crew) => {
                   href={`http://${website}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-1/2 text-white flex-1 hover:brightness-110 transition"
+                  className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
                 >
                   <h1 className="text-3xl">Website</h1>
                 </a>
               )}
               {/* //END OF MOBILE WEBSITE*/}
-            </div>
-
             {/* MOBILE PROFILE*/}
             <div
               onClick={() => setShowModal(true)}
@@ -541,6 +574,8 @@ const CrewDetailBox = (crew) => {
               <h1 className="text-3xl text-center">Profile</h1>
             </div>
             {/* //END OF MOBILE PROFILE*/}
+            </div>
+
           </div>
         </div>
 
