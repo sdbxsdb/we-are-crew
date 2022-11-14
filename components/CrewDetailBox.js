@@ -869,7 +869,7 @@ const CrewDetailBox = (crew) => {
                           {crew?.agentEmail}
                         </a>
                         <a
-                          href={`tel:${crew?.phone}`}
+                          href={`tel:${crew?.agentPhone}`}
                           className="underline break-all"
                         >
                           {crew?.agentPhone}
