@@ -583,54 +583,54 @@ const CrewDetailBox = (crew) => {
                     ))}
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-8">
-                    <div className="flex flex-col gap-x-4">
-                      <span className="text-wearecrewBlue">Age Range</span>
-                        <p
-                          className="text-md listDividerLines break-all"
-                        >
+                    {crew?.ageRange && (
+                      <div className="flex flex-col gap-x-4">
+                        <span className="text-wearecrewBlue">Age Range</span>
+                        <p className="text-md listDividerLines break-all">
                           {crew?.ageRange}
                         </p>
-                    </div>
-                    <div className="flex flex-col gap-x-4">
-                      <span className="text-wearecrewBlue">Height</span>
-                        <p
-                          className="text-md listDividerLines break-all"
-                        >
+                      </div>
+                    )}
+                    {crew?.height && (
+                      <div className="flex flex-col gap-x-4">
+                        <span className="text-wearecrewBlue">Height</span>
+                        <p className="text-md listDividerLines break-all">
                           {crew?.height}
                         </p>
-                    </div>
-                    <div className="flex flex-col gap-x-4">
-                      <span className="text-wearecrewBlue">Hair Colour</span>
-                        <p
-                          className="text-md listDividerLines break-all"
-                        >
+                      </div>
+                    )}
+                    {crew?.hair && (
+                      <div className="flex flex-col gap-x-4">
+                        <span className="text-wearecrewBlue">Hair Colour</span>
+                        <p className="text-md listDividerLines break-all">
                           {crew?.hair}
                         </p>
-                    </div>
-                    <div className="flex flex-col gap-x-4">
-                      <span className="text-wearecrewBlue">Eye Colour</span>
-                        <p
-                          className="text-md listDividerLines break-all"
-                        >
+                      </div>
+                    )}
+                    {crew?.eyes && (
+                      <div className="flex flex-col gap-x-4">
+                        <span className="text-wearecrewBlue">Eye Colour</span>
+                        <p className="text-md listDividerLines break-all">
                           {crew?.eyes}
                         </p>
-                    </div>
-                    <div className="flex flex-col gap-x-4">
-                      <span className="text-wearecrewBlue">Body Type</span>
-                        <p
-                          className="text-md listDividerLines break-all"
-                        >
+                      </div>
+                    )}
+                    {crew?.body && (
+                      <div className="flex flex-col gap-x-4">
+                        <span className="text-wearecrewBlue">Body Type</span>
+                        <p className="text-md listDividerLines break-all">
                           {crew?.body}
                         </p>
-                    </div>
-                    <div className="flex flex-col gap-x-4">
-                      <span className="text-wearecrewBlue">Dialect(s)</span>
-                        <p
-                          className="text-md listDividerLines break-all"
-                        >
+                      </div>
+                    )}
+                    {crew?.dialects && (
+                      <div className="flex flex-col gap-x-4">
+                        <span className="text-wearecrewBlue">Dialect(s)</span>
+                        <p className="text-md listDividerLines break-all">
                           {crew?.dialects}
                         </p>
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
