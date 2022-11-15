@@ -56,7 +56,7 @@ export default function UploadImg({ url, onUpload }) {
     } finally {
       setUploading(false);
       
-      console.log("EVENT-", filePath);
+      console.log("EVENT-", event.target.files[0]);
     }
   }
 
