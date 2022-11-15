@@ -736,55 +736,64 @@ const CrewDetailBox = (crew) => {
                 {/* END OF LEVEL */}
 
                 {/* HEADSHOTS */}
-                <div className="flex gap-x-8">
-                  <a
-                    href={publicHeadShot1Url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`${
-                      crew?.dept === "Acting or Presenting"
-                        ? ""
-                        : "cursor-default"
-                    }`}
-                  >
-                    <div
-                      style={headShot1stylingLarge}
-                      className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
-                    ></div>
-                  </a>
-                  <a
-                    href={publicHeadShot2Url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`${
-                      crew?.dept === "Acting or Presenting"
-                        ? ""
-                        : "cursor-default"
-                    }`}
-                  >
-                    <div
-                      style={headShot2stylingLarge}
-                      className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
-                    ></div>
-                  </a>
-                  <a
-                    href={publicHeadShot3Url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`${
-                      crew?.dept === "Acting or Presenting"
-                        ? ""
-                        : "cursor-default"
-                    }`}
-                  >
-                    <div
-                      style={headShot3stylingLarge}
-                      className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
-                    ></div>
-                  </a>
-                </div>
-                {/* END OF // HEADSHOT S */}
+                {crew.dept === "Acting or Presenting" && (
+                  <div className="flex gap-x-8">
+                    {!publicHeadShot1Url.includes("null") ? (
+                      <a
+                        href={publicHeadShot1Url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`${
+                          crew?.dept === "Acting or Presenting"
+                            ? ""
+                            : "cursor-default"
+                        }`}
+                      >
+                        <div
+                          style={headShot1stylingLarge}
+                          className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                        ></div>
+                      </a>
+                    ) : null}
 
+                    {!publicHeadShot2Url.includes("null") ? (
+                      <a
+                        href={publicHeadShot2Url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`${
+                          crew?.dept === "Acting or Presenting"
+                            ? ""
+                            : "cursor-default"
+                        }`}
+                      >
+                        <div
+                          style={headShot2stylingLarge}
+                          className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                        ></div>
+                      </a>
+                    ) : null}
+
+                    {!publicHeadShot3Url.includes("null") ? (
+                      <a
+                        href={publicHeadShot3Url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`${
+                          crew?.dept === "Acting or Presenting"
+                            ? ""
+                            : "cursor-default"
+                        }`}
+                      >
+                        <div
+                          style={headShot3stylingLarge}
+                          className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                        ></div>
+                      </a>
+                    ) : null}
+                  </div>
+                )}
+                {/* END OF // HEADSHOT S */}
               </div>
               <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
                 <strong
@@ -810,59 +819,68 @@ const CrewDetailBox = (crew) => {
 
             <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
               <div className="flex flex-1 flex-col gap-y-8 pt-4 md:py-0">
-                <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
-                  <div className="flex items-center gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">
-                      movie
-                    </span>
-                    <div>
-                      {crew?.ageRange && (
-                        <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">
-                            Age Range -
-                          </p>
-                          <p>{crew?.ageRange}</p>
+
+                    {crew?.dept === "Acting or Presenting" ? (
+
+                    <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                      <div className="flex items-center gap-x-4">
+                        <span className="material-icons text-wearecrewBlue">
+                          movie
+                        </span>
+                        <div>
+                          {crew?.ageRange && (
+                            <div className="flex gap-x-2">
+                              <p className="text-wearecrewBlue min-w-max">
+                                Age Range -
+                              </p>
+                              <p>{crew?.ageRange}</p>
+                            </div>
+                          )}
+                          {crew?.height && (
+                            <div className="flex gap-x-2">
+                              <p className="text-wearecrewBlue min-w-max">
+                                Height -
+                              </p>
+                              <p>{crew?.height}</p>
+                            </div>
+                          )}
+                          {crew?.hair && (
+                            <div className="flex gap-x-2">
+                              <p className="text-wearecrewBlue min-w-max">
+                                Hair -
+                              </p>
+                              <p>{crew?.hair}</p>
+                            </div>
+                          )}
+                          {crew?.eyes && (
+                            <div className="flex gap-x-2">
+                              <p className="text-wearecrewBlue min-w-max">
+                                Eyes -
+                              </p>
+                              <p>{crew?.eyes}</p>
+                            </div>
+                          )}
+                          {crew?.body && (
+                            <div className="flex gap-x-2">
+                              <p className="text-wearecrewBlue min-w-max">
+                                Body Type -
+                              </p>
+                              <p>{crew?.body}</p>
+                            </div>
+                          )}
+                          {crew?.dialects && (
+                            <div className="flex gap-x-2">
+                              <p className="text-wearecrewBlue min-w-max">
+                                Dialect(s) -
+                              </p>
+                              <p>{crew?.dialects}</p>
+                            </div>
+                          )}
                         </div>
-                      )}
-                      {crew?.height && (
-                        <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">
-                            Height -
-                          </p>
-                          <p>{crew?.height}</p>
-                        </div>
-                      )}
-                      {crew?.hair && (
-                        <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">Hair -</p>
-                          <p>{crew?.hair}</p>
-                        </div>
-                      )}
-                      {crew?.eyes && (
-                        <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">Eyes -</p>
-                          <p>{crew?.eyes}</p>
-                        </div>
-                      )}
-                      {crew?.body && (
-                        <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">
-                            Body Type -
-                          </p>
-                          <p>{crew?.body}</p>
-                        </div>
-                      )}
-                      {crew?.dialects && (
-                        <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">
-                            Dialect(s) -
-                          </p>
-                          <p>{crew?.dialects}</p>
-                        </div>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                </div>
+                    ) : null}
+
                 {crew?.phone && (
                   <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                     <div className="flex items-center gap-x-4">
