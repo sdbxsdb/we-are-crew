@@ -396,11 +396,19 @@ const Account = ({ session }) => {
     );
   };
 
+
+
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
 
-console.log("DATA PUBLIC -", data);
+  const {
+    data: { testHeadshotURL },
+  } = supabase.storage.from("images").getPublicUrl(headShot1);
+
+
+  console.log("TEST HEAD SHOT-", testHeadshotURL);
+
 
 
 
