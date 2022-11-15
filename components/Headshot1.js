@@ -6,10 +6,10 @@ export default function UploadImg({ url, onUpload }) {
   const [showWrongImgFormat, setShowWrongImgFormat] = useState(false);
   const [showImgTooBig, setShowImgTooBig] = useState(false);
 
-  const {
-    data: { publicUrl },
-  } = supabase.storage.from("images").getPublicUrl(url);
-  console.log("headshot url in component -", publicUrl);
+  // const {
+  //   data: { publicUrl },
+  // } = supabase.storage.from("images").getPublicUrl(url);
+  // console.log("headshot url in component -", publicUrl);
 
   async function uploadImg(event) {
     try {
@@ -38,17 +38,17 @@ export default function UploadImg({ url, onUpload }) {
       const file = event.target.files[0];
       const fileExt = file.name.split(".").pop();
       const fileName = `${Math.random()}.${fileExt}`;
-      const filePath = `${fileName}`;
+      const headShotFilePath = `${fileName}`;
 
       let { error: uploadError } = await supabase.storage
         .from("images")
-        .upload(filePath, file);
+        .upload(headShotFilePath, file);
 
       if (uploadError) {
         throw uploadError;
       }
 
-      onUpload(filePath);
+      onUpload(headShotFilePath);
       setShowWrongImgFormat(false);
       setShowImgTooBig(false);
     } catch (error) {
@@ -56,7 +56,10 @@ export default function UploadImg({ url, onUpload }) {
     } finally {
       setUploading(false);
       
-      console.log("EVENT-", event.target.files[0]);
+      console.log("FILE-", file);
+      console.log("fileExt-", fileExt);
+      console.log("fileName-", fileName);
+      console.log("headShotFilePath-", headShotFilePath);
     }
   }
 

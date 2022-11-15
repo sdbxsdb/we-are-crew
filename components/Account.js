@@ -648,10 +648,11 @@ const Account = ({ session }) => {
                     ></div>
                     <Headshot1
                       url={headShot1}
-                      onUploadHeadShot={(url) => {
+                      onUpload={(url) => {
                         setHeadShot1(url);
                       }}
                     />
+                    <p>HEADSHOT1- {headShot1}</p>
                   </li>
                   {/* //END OF HEADSHOT 1 */}
                   {/* IS PROFILE LIVE */}
