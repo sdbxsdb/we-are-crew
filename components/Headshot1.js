@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 
-export default function UploadImg({ url, onUploadHeadShot }) {
+export default function UploadImg({ url, onUpload }) {
   const [uploading, setUploading] = useState(false);
   const [showWrongImgFormat, setShowWrongImgFormat] = useState(false);
   const [showImgTooBig, setShowImgTooBig] = useState(false);
@@ -48,7 +48,7 @@ export default function UploadImg({ url, onUploadHeadShot }) {
         throw uploadError;
       }
 
-      onUploadHeadShot(filePath);
+      onUpload(filePath);
       setShowWrongImgFormat(false);
       setShowImgTooBig(false);
     } catch (error) {
@@ -56,7 +56,7 @@ export default function UploadImg({ url, onUploadHeadShot }) {
     } finally {
       setUploading(false);
       
-      console.log("EVENT Headshot filepath-", filePath);
+      console.log("EVENT-", filePath);
     }
   }
 
@@ -67,7 +67,7 @@ export default function UploadImg({ url, onUploadHeadShot }) {
           className={`text-sm text-wearecrewBlue absolute group-hover:opacity-70 transition`}
           htmlFor="image"
         >
-          {uploading ? "Uploading ..." : "Change  Headshot 1"}
+          {uploading ? "Uploading ..." : "Change  Headshot"}
         </label>
         <input
           className="opacity-0 w-[120px] h-[30px] border-0 absolute"
