@@ -424,7 +424,7 @@ const Account = ({ session }) => {
   };
   const headShotStyling = {
     backgroundImage: `${
-      imgURL ? `url(${testHeadshotURL} )` : `url(/images/noProfileImg.png)`
+      testHeadshotURL ? `url(${testHeadshotURL} )` : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",

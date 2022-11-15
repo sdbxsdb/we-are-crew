@@ -56,7 +56,7 @@ export default function UploadImg({ url, onUploadHeadShot }) {
     } finally {
       setUploading(false);
       
-      console.log("EVENT Headshot-", event.target.files);
+      console.log("EVENT Headshot filepath-", filePath);
     }
   }
 
