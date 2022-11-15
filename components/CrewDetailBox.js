@@ -8,7 +8,7 @@ const CrewDetailBox = (crew) => {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
-  // console.log("CREW DETAIL PG- ", crew);
+  console.log("CREW DETAIL PG- ", crew);
 
   const slugify = (str) =>
     str
@@ -33,18 +33,26 @@ const CrewDetailBox = (crew) => {
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(crew?.imgURL);
+  const {
+    data: { publicUrl: publicHeadShot1Url },
+  } = supabase.storage.from("images").getPublicUrl(crew?.headShot1);
+  const {
+    data: { publicUrl: publicHeadShot2Url },
+  } = supabase.storage.from("images").getPublicUrl(crew?.headShot2);
+  const {
+    data: { publicUrl: publicHeadShot3Url },
+  } = supabase.storage.from("images").getPublicUrl(crew?.headShot3);
 
   const {
     data: { publicUrl: publicCVUrl },
   } = supabase.storage.from("cvs").getPublicUrl(crew?.cvURL);
 
-  // console.log("Data- ", data);
-  // console.log("CREW DETAIL CV- ", crew.cvURL);
-  // console.log("CV-", publicCVUrl);
+  console.log("Image-", publicUrl);
+  console.log("Headshot-", publicHeadShot1Url);
 
   const stylingLarge = {
     backgroundImage: `${
-      publicUrl.includes("public/images/0.")
+      publicUrl?.includes("public/images/0.")
         ? `url(${publicUrl} )`
         : `url(/images/noProfileImg.png)`
     } `,
@@ -52,6 +60,48 @@ const CrewDetailBox = (crew) => {
     minHeight: "100px",
     backgroundSize: `${
       publicUrl.includes("public/images/0.") ? "cover" : "contain"
+    }`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+  const headShot1stylingLarge = {
+    backgroundImage: `${
+      publicHeadShot1Url?.includes("public/images/0.")
+        ? `url(${publicHeadShot1Url} )`
+        : `url(/images/noProfileImg.png)`
+    } `,
+    width: "80px",
+    height: "80px",
+    backgroundSize: `${
+      publicHeadShot1Url?.includes("public/images/0.") ? "cover" : "contain"
+    }`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+  const headShot2stylingLarge = {
+    backgroundImage: `${
+      publicHeadShot2Url?.includes("public/images/0.")
+        ? `url(${publicHeadShot2Url} )`
+        : `url(/images/noProfileImg.png)`
+    } `,
+    width: "80px",
+    height: "80px",
+    backgroundSize: `${
+      publicHeadShot2Url?.includes("public/images/0.") ? "cover" : "contain"
+    }`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+  const headShot3stylingLarge = {
+    backgroundImage: `${
+      publicHeadShot3Url?.includes("public/images/0.")
+        ? `url(${publicHeadShot3Url} )`
+        : `url(/images/noProfileImg.png)`
+    } `,
+    width: "80px",
+    height: "80px",
+    backgroundSize: `${
+      publicHeadShot3Url?.includes("public/images/0.") ? "cover" : "contain"
     }`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -187,7 +237,6 @@ const CrewDetailBox = (crew) => {
             />
           </div>
           {/* //END OF IMAGE*/}
-
           <div className="w-[210px] flex flex-col">
             {/*NAME*/}
             <h2
@@ -648,40 +697,94 @@ const CrewDetailBox = (crew) => {
         <div className="flex gap-x-4">
           <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start">
             <div className="w-full flex flex-col md:flex-row justify-between">
-              <div className="flex gap-x-4 items-center mb-4">
-                <a
-                  href={publicUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${
-                    crew?.dept === "Acting or Presenting"
-                      ? ""
-                      : "cursor-default"
-                  }`}
-                >
-                  <div
-                    style={stylingLarge}
-                    className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
-                  ></div>
-                </a>
-                <div className="">
+              <div>
+                {/* TOP LEVEL */}
+                <div className="flex gap-x-4 items-center mb-4">
+                  <a
+                    href={publicUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${
+                      crew?.dept === "Acting or Presenting"
+                        ? ""
+                        : "cursor-default"
+                    }`}
+                  >
+                    <div
+                      style={stylingLarge}
+                      className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
+                    ></div>
+                  </a>
                   <div className="">
-                    <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-10 border-wearecrewBlue break-all">
-                      {crew?.name}
-                    </h1>
-                  </div>
-
-                  <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
-                    {crew?.roles.map((role, id) => (
-                      <p
-                        className="text-md md:text-lg listDividerLines break-all"
-                        key={role + id}
-                      >
-                        {role}
-                      </p>
-                    ))}
+                    <div className="">
+                      <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-10 border-wearecrewBlue break-all">
+                        {crew?.name}
+                      </h1>
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
+                      {crew?.roles.map((role, id) => (
+                        <p
+                          className="text-md md:text-lg listDividerLines break-all"
+                          key={role + id}
+                        >
+                          {role}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
+                {/* END OF LEVEL */}
+
+                {/* HEADSHOTS */}
+                <div className="flex gap-x-8">
+                  <a
+                    href={publicHeadShot1Url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${
+                      crew?.dept === "Acting or Presenting"
+                        ? ""
+                        : "cursor-default"
+                    }`}
+                  >
+                    <div
+                      style={headShot1stylingLarge}
+                      className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                    ></div>
+                  </a>
+                  <a
+                    href={publicHeadShot2Url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${
+                      crew?.dept === "Acting or Presenting"
+                        ? ""
+                        : "cursor-default"
+                    }`}
+                  >
+                    <div
+                      style={headShot2stylingLarge}
+                      className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                    ></div>
+                  </a>
+                  <a
+                    href={publicHeadShot3Url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${
+                      crew?.dept === "Acting or Presenting"
+                        ? ""
+                        : "cursor-default"
+                    }`}
+                  >
+                    <div
+                      style={headShot3stylingLarge}
+                      className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                    ></div>
+                  </a>
+                </div>
+                {/* END OF // HEADSHOT S */}
+
               </div>
               <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
                 <strong
@@ -715,13 +818,17 @@ const CrewDetailBox = (crew) => {
                     <div>
                       {crew?.ageRange && (
                         <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">Age Range -</p>
+                          <p className="text-wearecrewBlue min-w-max">
+                            Age Range -
+                          </p>
                           <p>{crew?.ageRange}</p>
                         </div>
                       )}
                       {crew?.height && (
                         <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">Height -</p>
+                          <p className="text-wearecrewBlue min-w-max">
+                            Height -
+                          </p>
                           <p>{crew?.height}</p>
                         </div>
                       )}
@@ -739,19 +846,22 @@ const CrewDetailBox = (crew) => {
                       )}
                       {crew?.body && (
                         <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">Body Type -</p>
+                          <p className="text-wearecrewBlue min-w-max">
+                            Body Type -
+                          </p>
                           <p>{crew?.body}</p>
                         </div>
                       )}
                       {crew?.dialects && (
                         <div className="flex gap-x-2">
-                          <p className="text-wearecrewBlue min-w-max">Dialect(s) -</p>
+                          <p className="text-wearecrewBlue min-w-max">
+                            Dialect(s) -
+                          </p>
                           <p>{crew?.dialects}</p>
                         </div>
                       )}
                     </div>
                   </div>
-
                 </div>
                 {crew?.phone && (
                   <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">

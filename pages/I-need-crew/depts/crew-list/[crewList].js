@@ -6,7 +6,7 @@ import { supabase } from "../../../../utils/supabaseClient";
 import Head from "next/head";
 
 const CrewList = ({ users }) => {
-  // console.log({ users });
+  console.log({ users });
 
   const sortedUsersByTitle = [...users].sort((a, b) =>
     a.title > b.title ? 1 : -1
@@ -410,6 +410,9 @@ const CrewList = ({ users }) => {
                           agentEmail={user.agentEmail}
                           agentPhone={user.agentPhone}
                           hidePersonalEmail={user.hidePersonalEmail}
+                          headShot1={user.headShot1}
+                          headShot2={user.headShot2}
+                          headShot3={user.headShot3}
                         />
                       ) : (
                         ""
