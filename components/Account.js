@@ -405,7 +405,7 @@ const Account = ({ session }) => {
 
   const {
     data: { publicUrl: publicHeadShotUrl },
-  } = supabase.storage.from("cvs").getPublicUrl(headShot1);
+  } = supabase.storage.from("images").getPublicUrl(headShot1);
 
 
   console.log("TEST HEAD SHOT-", publicHeadShotUrl);
