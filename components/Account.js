@@ -7,6 +7,8 @@ import DynamicList from "./DynamicList";
 import UploadCV from "./UploadCV";
 import UploadImg from "./UploadImg";
 import Headshot1 from "./Headshot1";
+import Headshot2 from "./Headshot2";
+import Headshot3 from "./Headshot3";
 import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
@@ -47,6 +49,8 @@ const Account = ({ session }) => {
   const [showAgentDetails, setShowAgentDetails] = useState(false);
   const [hidePersonalEmail, setHidePersonalEmail] = useState(false);
   const [headShot1, setHeadShot1] = useState("");
+  const [headShot2, setHeadShot2] = useState("");
+  const [headShot3, setHeadShot3] = useState("");
 
   const newDate = new Date();
   const date = newDate.getDate();
@@ -91,7 +95,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, ageRange, height, hair, eyes, body, dialects, agentName, agentEmail, agentPhone, hidePersonalEmail, headShot1`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, ageRange, height, hair, eyes, body, dialects, agentName, agentEmail, agentPhone, hidePersonalEmail, headShot1, headShot2, headShot3`
         )
         .eq("id", user.id)
         .single();
@@ -134,6 +138,8 @@ const Account = ({ session }) => {
         setAgentPhone(data.agentPhone);
         setHidePersonalEmail(data.hidePersonalEmail);
         setHeadShot1(data.headShot1);
+        setHeadShot2(data.headShot2);
+        setHeadShot3(data.headShot3);
       }
     } catch (error) {
     } finally {
@@ -170,6 +176,8 @@ const Account = ({ session }) => {
     agentPhone,
     hidePersonalEmail,
     headShot1,
+    headShot2,
+    headShot3,
   }) {
     try {
       setLoading(true);
@@ -204,6 +212,8 @@ const Account = ({ session }) => {
         agentPhone,
         hidePersonalEmail,
         headShot1,
+        headShot2,
+        headShot3,
 
         updated_at: new Date(),
       };
@@ -396,22 +406,21 @@ const Account = ({ session }) => {
     );
   };
 
-
-
   const {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
 
-
   const {
-    data: { publicUrl: publicHeadShotUrl },
+    data: { publicUrl: publicHeadShot1Url },
   } = supabase.storage.from("images").getPublicUrl(headShot1);
+  const {
+    data: { publicUrl: publicHeadShot2Url },
+  } = supabase.storage.from("images").getPublicUrl(headShot2);
+  const {
+    data: { publicUrl: publicHeadShot3Url },
+  } = supabase.storage.from("images").getPublicUrl(headShot3);
 
-
-  console.log("TEST HEAD SHOT-", publicHeadShotUrl);
-
-
-
+  console.log("TEST HEAD SHOT-", publicHeadShot1Url);
 
   const imgStyling = {
     backgroundImage: `${
@@ -423,13 +432,33 @@ const Account = ({ session }) => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
-  const headShotStyling = {
+  const headShot1Styling = {
     backgroundImage: `${
-      headShot1 ? `url(${publicHeadShotUrl} )` : `url(/images/noProfileImg.png)`
+      headShot1 ? `url(${publicHeadShot1Url} )` : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
     backgroundSize: `${headShot1 ? "cover" : "contain"}`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+  const headShot2Styling = {
+    backgroundImage: `${
+      headShot2 ? `url(${publicHeadShot2Url} )` : `url(/images/noProfileImg.png)`
+    } `,
+    minWidth: "100px",
+    minHeight: "100px",
+    backgroundSize: `${headShot2 ? "cover" : "contain"}`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+  const headShot3Styling = {
+    backgroundImage: `${
+      headShot3 ? `url(${publicHeadShot3Url} )` : `url(/images/noProfileImg.png)`
+    } `,
+    minWidth: "100px",
+    minHeight: "100px",
+    backgroundSize: `${headShot3 ? "cover" : "contain"}`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
@@ -641,21 +670,7 @@ const Account = ({ session }) => {
                     />
                   </li>
                   {/* //END OF IMAGE */}
-                  {/* HEADSHOT 1 */}
-                  <li className="relative styledList w-full md:w-2/3 flex flex-col items-center justify-center">
-                    <div
-                      style={headShotStyling}
-                      className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
-                    ></div>
-                    <Headshot1
-                      url={headShot1}
-                      onUpload={(url) => {
-                        setHeadShot1(url);
-                      }}
-                    />
-                    <p>HEADSHOT1- {headShot1}</p>
-                  </li>
-                  {/* //END OF HEADSHOT 1 */}
+
                   {/* IS PROFILE LIVE */}
                   <div className="w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
@@ -735,6 +750,49 @@ const Account = ({ session }) => {
                   {/* //END OF GRADE/TITLE */}
                   {dept === "Acting or Presenting" && (
                     <>
+                      {/* HEADSHOTS */}
+                      <div className="flex justify-between w-full md:w-2/3">
+                        <li className="">
+                          <div
+                            style={headShot1Styling}
+                            className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                          ></div>
+                          <Headshot1
+                            url={headShot1}
+                            onUpload={(url) => {
+                              setHeadShot1(url);
+                            }}
+                          />
+                          <p>HEADSHOT1- {headShot1}</p>
+                        </li>
+                        <li className="">
+                          <div
+                            style={headShot2Styling}
+                            className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                          ></div>
+                          <Headshot2
+                            url={headShot2}
+                            onUpload={(url) => {
+                              setHeadShot1(url);
+                            }}
+                          />
+                          <p>HEADSHOT2- {headShot2}</p>
+                        </li>
+                        <li className="">
+                          <div
+                            style={headShot3Styling}
+                            className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                          ></div>
+                          <Headshot3
+                            url={headShot3}
+                            onUpload={(url) => {
+                              setHeadShot1(url);
+                            }}
+                          />
+                          <p>HEADSHOT3- {headShot3}</p>
+                        </li>
+                      </div>
+                      {/* //END OF HEADSHOTS */}
                       {/* ACTORS ADDITONAL DETAILS */}
                       <li className="relative styledList w-full md:w-2/3">
                         <input
@@ -872,11 +930,10 @@ const Account = ({ session }) => {
                             <label htmlFor="dialects">
                               Agent Email (If applicable)
                             </label>
-                            
                           </li>
 
                           <li className="relative w-full -mt-4 md:w-2/3">
-                          <input
+                            <input
                               type="checkbox"
                               id="hidePersonalEmail"
                               className="chb chb-3"
@@ -885,12 +942,14 @@ const Account = ({ session }) => {
                             <label
                               htmlFor="hidePersonalEmail"
                               className="min-w-max"
-                              onClick={(e) => setHidePersonalEmail(!hidePersonalEmail)}
+                              onClick={(e) =>
+                                setHidePersonalEmail(!hidePersonalEmail)
+                              }
                             >
                               Hide personal email on profile.
                             </label>
                           </li>
-                          
+
                           <li className="relative styledList w-full md:w-2/3">
                             <input
                               name="agentPhone"
@@ -990,9 +1049,10 @@ const Account = ({ session }) => {
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     {hidePersonalEmail && (
-                    <small className="text-wearecrewOrange mb-2">
-                      Personal email will be hiden on your profile. Change this under agent details.
-                    </small>
+                      <small className="text-wearecrewOrange mb-2">
+                        Personal email will be hiden on your profile. Change
+                        this under agent details.
+                      </small>
                     )}
                   </li>
                   {/* //END OF EMAIL */}
@@ -1195,3 +1255,4 @@ const Account = ({ session }) => {
 };
 
 export default Account;
+
