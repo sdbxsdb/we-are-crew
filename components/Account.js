@@ -402,12 +402,13 @@ const Account = ({ session }) => {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
 
+
   const {
-    data: { testHeadshotURL },
-  } = supabase.storage.from("images").getPublicUrl(headShot1);
+    data: { publicUrl: publicHeadShotUrl },
+  } = supabase.storage.from("cvs").getPublicUrl(headShot1);
 
 
-  console.log("TEST HEAD SHOT-", testHeadshotURL);
+  console.log("TEST HEAD SHOT-", publicHeadShotUrl);
 
 
 
@@ -424,7 +425,7 @@ const Account = ({ session }) => {
   };
   const headShotStyling = {
     backgroundImage: `${
-      testHeadshotURL ? `url(${testHeadshotURL} )` : `url(/images/noProfileImg.png)`
+      publicHeadShotUrl ? `url(${publicHeadShotUrl} )` : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
