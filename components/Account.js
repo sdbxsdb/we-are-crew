@@ -647,9 +647,9 @@ const Account = ({ session }) => {
                       className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
                     ></div>
                     <Headshot1
-                      url={headShot1}
-                      onUpload={(url) => {
-                        setHeadShot1(url);
+                      headShot1Url={headShot1}
+                      onUpload={(headShot1Url) => {
+                        setHeadShot1(headShot1Url);
                       }}
                     />
                   </li>

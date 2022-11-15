@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 
-export default function UploadImg({ url, onUpload }) {
+export default function UploadImg({ headShot1Url, onUpload }) {
   const [uploading, setUploading] = useState(false);
   const [showWrongImgFormat, setShowWrongImgFormat] = useState(false);
   const [showImgTooBig, setShowImgTooBig] = useState(false);
 
   const {
     data: { testHeadshotURL },
-  } = supabase.storage.from("images").getPublicUrl(url);
+  } = supabase.storage.from("images").getPublicUrl(headShot1Url);
   console.log("headshot url in component -", testHeadshotURL);
 
   async function uploadImg(event) {
