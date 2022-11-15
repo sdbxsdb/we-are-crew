@@ -648,7 +648,7 @@ const Account = ({ session }) => {
                     ></div>
                     <Headshot1
                       url={headShot1}
-                      onUpload={(url) => {
+                      onUploadHeadShot={(url) => {
                         setHeadShot1(url);
                       }}
                     />
