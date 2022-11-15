@@ -7,15 +7,14 @@ export default function UploadImg({ url, onUpload }) {
   const [showImgTooBig, setShowImgTooBig] = useState(false);
 
   const {
-    data: { publicUrl },
+    data: { testHeadshotURL },
   } = supabase.storage.from("images").getPublicUrl(url);
-  console.log("headshot url in component -", publicUrl);
+  console.log("headshot url in component -", testHeadshotURL);
 
   async function uploadImg(event) {
     try {
       setUploading(true);
 
-      // console.log(event.target.files);
 
       if (!event.target.files || event.target.files.length === 0) {
         throw new Error("You must select an image to upload.");
