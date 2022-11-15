@@ -422,6 +422,16 @@ const Account = ({ session }) => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
+  const headShotStyling = {
+    backgroundImage: `${
+      imgURL ? `url(${testHeadshotURL} )` : `url(/images/noProfileImg.png)`
+    } `,
+    minWidth: "100px",
+    minHeight: "100px",
+    backgroundSize: `${headShot1 ? "cover" : "contain"}`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
 
   const profileNotComplete = (e) => {
     e.preventDefault();
@@ -633,7 +643,7 @@ const Account = ({ session }) => {
                   {/* HEADSHOT 1 */}
                   <li className="relative styledList w-full md:w-2/3 flex flex-col items-center justify-center">
                     <div
-                      style={imgStyling}
+                      style={headShotStyling}
                       className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
                     ></div>
                     <Headshot1
