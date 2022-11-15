@@ -589,6 +589,8 @@ const Account = ({ session }) => {
                             agentPhone,
                             hidePersonalEmail,
                             headShot1,
+                            headShot2,
+                            headShot3,
                           })
                         : profileNotComplete(e)
                     }
@@ -763,7 +765,6 @@ const Account = ({ session }) => {
                               setHeadShot1(url);
                             }}
                           />
-                          <p>HEADSHOT1- {headShot1}</p>
                         </li>
                         <li className="">
                           <div
@@ -776,7 +777,6 @@ const Account = ({ session }) => {
                               setHeadShot2(url);
                             }}
                           />
-                          <p>HEADSHOT2- {headShot2}</p>
                         </li>
                         <li className="">
                           <div
@@ -789,7 +789,6 @@ const Account = ({ session }) => {
                               setHeadShot3(url);
                             }}
                           />
-                          <p>HEADSHOT3- {headShot3}</p>
                         </li>
                       </div>
                       {/* //END OF HEADSHOTS */}
@@ -1189,6 +1188,8 @@ const Account = ({ session }) => {
                             agentPhone,
                             hidePersonalEmail,
                             headShot1,
+                            headShot2,
+                            headShot3,
                           })
                         : profileNotComplete(e)
                     }
