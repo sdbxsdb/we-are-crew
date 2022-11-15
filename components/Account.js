@@ -6,6 +6,7 @@ import { supabase } from "../utils/supabaseClient";
 import DynamicList from "./DynamicList";
 import UploadCV from "./UploadCV";
 import UploadImg from "./UploadImg";
+import Headshot1 from "./Headshot1";
 import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
@@ -45,6 +46,7 @@ const Account = ({ session }) => {
   const [agentPhone, setAgentPhone] = useState("");
   const [showAgentDetails, setShowAgentDetails] = useState(false);
   const [hidePersonalEmail, setHidePersonalEmail] = useState(false);
+  const [headShot1, setHeadShot1] = useState("");
 
   const newDate = new Date();
   const date = newDate.getDate();
@@ -89,7 +91,7 @@ const Account = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, ageRange, height, hair, eyes, body, dialects, agentName, agentEmail, agentPhone, hidePersonalEmail`
+          `username, email, website, imgURL, status, willBeAvailOn, dept, roles, canStepUp, qualis, imdb, phone, bio, canWorkIn, credits, cvURL, updated_at, paid, dateOfPayment, id, ageRange, height, hair, eyes, body, dialects, agentName, agentEmail, agentPhone, hidePersonalEmail, headShot1`
         )
         .eq("id", user.id)
         .single();
@@ -131,6 +133,7 @@ const Account = ({ session }) => {
         setAgentEmail(data.agentEmail);
         setAgentPhone(data.agentPhone);
         setHidePersonalEmail(data.hidePersonalEmail);
+        setHeadShot1(data.headShot1);
       }
     } catch (error) {
     } finally {
@@ -166,6 +169,7 @@ const Account = ({ session }) => {
     agentEmail,
     agentPhone,
     hidePersonalEmail,
+    headShot1,
   }) {
     try {
       setLoading(true);
@@ -199,6 +203,7 @@ const Account = ({ session }) => {
         agentEmail,
         agentPhone,
         hidePersonalEmail,
+        headShot1,
 
         updated_at: new Date(),
       };
@@ -395,6 +400,10 @@ const Account = ({ session }) => {
     data: { publicUrl },
   } = supabase.storage.from("images").getPublicUrl(imgURL);
 
+console.log("DATA PUBLIC -", data);
+
+
+
   const imgStyling = {
     backgroundImage: `${
       imgURL ? `url(${publicUrl} )` : `url(/images/noProfileImg.png)`
@@ -531,6 +540,7 @@ const Account = ({ session }) => {
                             agentEmail,
                             agentPhone,
                             hidePersonalEmail,
+                            headShot1,
                           })
                         : profileNotComplete(e)
                     }
@@ -591,7 +601,6 @@ const Account = ({ session }) => {
                       <span className="highlight"></span>
                       <span className="bar"></span>
                       <label htmlFor="name">Next Available</label>
-                      {/* <span onClick={() => clearNextAvail()} className="absolute cursor-pointer right-2 top-1/4">Clear</span> */}
                     </li>
                   )}
                 </div>
@@ -613,6 +622,20 @@ const Account = ({ session }) => {
                     />
                   </li>
                   {/* //END OF IMAGE */}
+                  {/* HEADSHOT 1 */}
+                  <li className="relative styledList w-full md:w-2/3 flex flex-col items-center justify-center">
+                    <div
+                      style={imgStyling}
+                      className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                    ></div>
+                    <Headshot1
+                      url={headShot1}
+                      onUpload={(url) => {
+                        setHeadShot1(url);
+                      }}
+                    />
+                  </li>
+                  {/* //END OF HEADSHOT 1 */}
                   {/* IS PROFILE LIVE */}
                   <div className="w-full md:w-2/3">
                     <p className="text-sm text-wearecrewBlue">Profile Status</p>
@@ -1085,6 +1108,7 @@ const Account = ({ session }) => {
                             agentEmail,
                             agentPhone,
                             hidePersonalEmail,
+                            headShot1,
                           })
                         : profileNotComplete(e)
                     }
