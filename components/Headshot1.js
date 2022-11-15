@@ -7,9 +7,9 @@ export default function UploadImg({ url, onUpload }) {
   const [showImgTooBig, setShowImgTooBig] = useState(false);
 
   const {
-    data: { publicUrl },
+    data: { headShotURL },
   } = supabase.storage.from("images").getPublicUrl(url);
-  console.log("headshot url in component -", publicUrl);
+  console.log("headshot url in component -", headShotURL);
 
   async function uploadImg(event) {
     try {
