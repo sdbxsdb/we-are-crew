@@ -56,7 +56,7 @@ export default function UploadImg({ url, onUpload }) {
     } finally {
       setUploading(false);
       
-      // console.log("EVENT-", event.target.files);
+      console.log("EVENT Headshot-", event.target.files);
     }
   }
 
@@ -67,7 +67,7 @@ export default function UploadImg({ url, onUpload }) {
           className={`text-sm text-wearecrewBlue absolute group-hover:opacity-70 transition`}
           htmlFor="image"
         >
-          {uploading ? "Uploading ..." : "Change  Image"}
+          {uploading ? "Uploading ..." : "Change  Headshot 1"}
         </label>
         <input
           className="opacity-0 w-[120px] h-[30px] border-0 absolute"
