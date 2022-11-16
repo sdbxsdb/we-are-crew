@@ -64,10 +64,10 @@ export default function UploadImg({ url, onUpload }) {
   }
 
   return (
-    <div className="file-uploader group flex flex-col justify-center md:items-center gap-y-4 relative w-full mb-12 ">
+    <div className="file-uploader group flex flex-col justify-center md:items-center gap-y-4 relative w-full">
       <div className="md:w-[120px] relative ">
         <label
-          className={`text-sm text-wearecrewBlue  w-full  text-center absolute group-hover:opacity-70 transition`}
+          className={`text-sm text-wearecrewBlue  w-full mt-1 text-center absolute group-hover:opacity-70 transition`}
           htmlFor="image"
         >
           {uploading ? "Uploading ..." : "Change Headshot"}

@@ -496,10 +496,19 @@ const Account = ({ session }) => {
   useEffect(() => {
     if (dept !== "Acting or Presenting") {
       setAgeRange("");
+      setHeight("");
       setHair("");
       setEyes("");
       setBody("");
       setDialects("");
+      setAgentName("");
+      setAgentEmail("");
+      setAgentPhone("");
+      setHidePersonalEmail(false);
+      setHeadShot1("");
+      setHeadShot2("");
+      setHeadShot3("");
+      // console.log("DEPT CHANGED TO-", dept)
     }
   }, [dept]);
 
@@ -589,6 +598,8 @@ const Account = ({ session }) => {
                             agentPhone,
                             hidePersonalEmail,
                             headShot1,
+                            headShot2,
+                            headShot3,
                           })
                         : profileNotComplete(e)
                     }
@@ -763,7 +774,7 @@ const Account = ({ session }) => {
                               setHeadShot1(url);
                             }}
                           />
-
+                          <p onClick={() => setHeadShot1("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
                         </li>
                         <li className="">
                           <div
@@ -773,10 +784,10 @@ const Account = ({ session }) => {
                           <Headshot2
                             url={headShot2}
                             onUpload={(url) => {
-                              setHeadShot1(url);
+                              setHeadShot2(url);
                             }}
                           />
-
+                          <p onClick={() => setHeadShot2("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
                         </li>
                         <li className="">
                           <div
@@ -786,10 +797,10 @@ const Account = ({ session }) => {
                           <Headshot3
                             url={headShot3}
                             onUpload={(url) => {
-                              setHeadShot1(url);
+                              setHeadShot3(url);
                             }}
                           />
-
+                          <p onClick={() => setHeadShot3("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
                         </li>
                       </div>
                       {/* //END OF HEADSHOTS */}
@@ -862,7 +873,7 @@ const Account = ({ session }) => {
                         <span className="highlight"></span>
                         <span className="bar"></span>
                         <small className="text-wearecrewDarkGrey">
-                          Small / Medium / Large / Built etc
+                          Petite / Slim / Curvy / Athletic etc
                         </small>
                         <label htmlFor="body">Body Type</label>
                       </li>
@@ -885,6 +896,7 @@ const Account = ({ session }) => {
                       <hr />
                       <div className="flex items-center max-w-max cursor-pointer">
                         <strong
+                        className="text-2xl"
                           onClick={(e) =>
                             setShowAgentDetails(!showAgentDetails)
                           }
@@ -1189,6 +1201,8 @@ const Account = ({ session }) => {
                             agentPhone,
                             hidePersonalEmail,
                             headShot1,
+                            headShot2,
+                            headShot3,
                           })
                         : profileNotComplete(e)
                     }

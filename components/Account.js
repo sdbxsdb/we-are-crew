@@ -774,6 +774,7 @@ const Account = ({ session }) => {
                               setHeadShot1(url);
                             }}
                           />
+                          <p onClick={() => setHeadShot1("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
                         </li>
                         <li className="">
                           <div
@@ -786,6 +787,7 @@ const Account = ({ session }) => {
                               setHeadShot2(url);
                             }}
                           />
+                          <p onClick={() => setHeadShot2("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
                         </li>
                         <li className="">
                           <div
@@ -798,6 +800,7 @@ const Account = ({ session }) => {
                               setHeadShot3(url);
                             }}
                           />
+                          <p onClick={() => setHeadShot3("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
                         </li>
                       </div>
                       {/* //END OF HEADSHOTS */}
