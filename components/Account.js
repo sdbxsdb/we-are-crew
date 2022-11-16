@@ -434,7 +434,9 @@ const Account = ({ session }) => {
   };
   const headShot1Styling = {
     backgroundImage: `${
-      headShot1 ? `url(${publicHeadShot1Url} )` : `url(/images/noProfileImg.png)`
+      headShot1
+        ? `url(${publicHeadShot1Url} )`
+        : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
@@ -444,7 +446,9 @@ const Account = ({ session }) => {
   };
   const headShot2Styling = {
     backgroundImage: `${
-      headShot2 ? `url(${publicHeadShot2Url} )` : `url(/images/noProfileImg.png)`
+      headShot2
+        ? `url(${publicHeadShot2Url} )`
+        : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
@@ -454,7 +458,9 @@ const Account = ({ session }) => {
   };
   const headShot3Styling = {
     backgroundImage: `${
-      headShot3 ? `url(${publicHeadShot3Url} )` : `url(/images/noProfileImg.png)`
+      headShot3
+        ? `url(${publicHeadShot3Url} )`
+        : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "100px",
     minHeight: "100px",
@@ -774,7 +780,15 @@ const Account = ({ session }) => {
                               setHeadShot1(url);
                             }}
                           />
-                          <p onClick={() => setHeadShot1("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
+                          <p
+                            onClick={() => {
+                              setHeadShot1("");
+                              setProfileChanged(true);
+                            }}
+                            className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed"
+                          >
+                            Remove Headshot
+                          </p>
                         </li>
                         <li className="">
                           <div
@@ -787,7 +801,15 @@ const Account = ({ session }) => {
                               setHeadShot2(url);
                             }}
                           />
-                          <p onClick={() => setHeadShot2("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
+                          <p
+                            onClick={() => {
+                              setHeadShot2("");
+                              setProfileChanged(true);
+                            }}
+                            className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed"
+                          >
+                            Remove Headshot
+                          </p>
                         </li>
                         <li className="">
                           <div
@@ -800,7 +822,15 @@ const Account = ({ session }) => {
                               setHeadShot3(url);
                             }}
                           />
-                          <p onClick={() => setHeadShot3("")} className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed">Remove Headshot</p>
+                          <p
+                            onClick={() => {
+                              setHeadShot3("");
+                              setProfileChanged(true);
+                            }}
+                            className="text-center mt-6 text-sm cursor-pointer text-wearecrewRed"
+                          >
+                            Remove Headshot
+                          </p>
                         </li>
                       </div>
                       {/* //END OF HEADSHOTS */}
@@ -896,7 +926,7 @@ const Account = ({ session }) => {
                       <hr />
                       <div className="flex items-center max-w-max cursor-pointer">
                         <strong
-                        className="text-2xl"
+                          className="text-2xl"
                           onClick={(e) =>
                             setShowAgentDetails(!showAgentDetails)
                           }
@@ -1269,4 +1299,3 @@ const Account = ({ session }) => {
 };
 
 export default Account;
-
