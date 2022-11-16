@@ -884,6 +884,7 @@ const Account = ({ session }) => {
                       <hr />
                       <div className="flex items-center max-w-max cursor-pointer">
                         <strong
+                        className="text-2xl"
                           onClick={(e) =>
                             setShowAgentDetails(!showAgentDetails)
                           }
