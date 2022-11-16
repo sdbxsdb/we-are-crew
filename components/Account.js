@@ -996,7 +996,7 @@ const Account = ({ session }) => {
                             <input
                               name="agentPhone"
                               type="number"
-                              defaultValue={phone}
+                              defaultValue={agentPhone}
                               className="border shadow-md w-full"
                               required
                               onChange={(e) => setAgentPhone(e.target.value)}
