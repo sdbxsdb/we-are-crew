@@ -221,7 +221,13 @@
   },
   {
     "dept": "Engineering (Broadcast)",
-    "titles": ["Studio Engineer", "OB Engineer", "EVS Engineer"]
+    "titles": [
+      "Engineering Manager (Studio)",
+      "Engineering Manager (OB)",
+      "Studio Engineer",
+      "OB Engineer",
+      "EVS Engineer"
+    ]
   },
   {
     "dept": "Equipment Rental",
@@ -275,8 +281,6 @@
     "titles": [
       "Able to preform any role",
       "Lighting Director",
-      "Engineering Manager (Studio)",
-      "Engineering Manager (OB)",
       "Gaffer",
       "Best Boy",
       "Studio Rigging Gaffer",
