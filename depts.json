@@ -225,13 +225,16 @@
       "Engineering Manager (Studio)",
       "Engineering Manager (OB)",
       "Studio Engineer",
-      "OB Engineer",
-      "EVS Engineer"
+      "OB Engineer"
     ]
   },
   {
     "dept": "Equipment Rental",
     "titles": ["Equipment Rental House"]
+  },
+  {
+    "dept": "EVS",
+    "titles": ["EVS Operator"]
   },
   {
     "dept": "Floor Managers",
