@@ -56,10 +56,10 @@ export default function UploadImg({ url, onUpload }) {
     } finally {
       setUploading(false);
       
-      console.log("FILE-", file);
-      console.log("fileExt-", fileExt);
-      console.log("fileName-", fileName);
-      console.log("headShotFilePath-", headShotFilePath);
+      // console.log("FILE-", file);
+      // console.log("fileExt-", fileExt);
+      // console.log("fileName-", fileName);
+      // console.log("headShotFilePath-", headShotFilePath);
     }
   }
 

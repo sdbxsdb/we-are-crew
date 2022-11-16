@@ -47,8 +47,8 @@ const CrewDetailBox = (crew) => {
     data: { publicUrl: publicCVUrl },
   } = supabase.storage.from("cvs").getPublicUrl(crew?.cvURL);
 
-  console.log("Image-", publicUrl);
-  console.log("Headshot-", publicHeadShot1Url);
+  // console.log("Image-", publicUrl);
+  // console.log("Headshot-", publicHeadShot1Url);
 
   const stylingLarge = {
     backgroundImage: `${

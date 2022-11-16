@@ -420,7 +420,7 @@ const Account = ({ session }) => {
     data: { publicUrl: publicHeadShot3Url },
   } = supabase.storage.from("images").getPublicUrl(headShot3);
 
-  console.log("TEST HEAD SHOT-", publicHeadShot1Url);
+  // console.log("TEST HEAD SHOT-", publicHeadShot1Url);
 
   const imgStyling = {
     backgroundImage: `${
@@ -508,7 +508,7 @@ const Account = ({ session }) => {
       setHeadShot1("");
       setHeadShot2("");
       setHeadShot3("");
-      console.log("DEPT CHANGED TO-", dept)
+      // console.log("DEPT CHANGED TO-", dept)
     }
   }, [dept]);
 
