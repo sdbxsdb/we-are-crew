@@ -243,7 +243,7 @@ const CrewDetailBox = (crew) => {
               onClick={() => setShowModal(true)}
               className="cursor-pointer hover:text-wearecrewBlue transition text-[20px]"
             >
-              <strong className="break-all">{crew?.name}</strong>
+              <strong className="break-words">{crew?.name}</strong>
               <hr className="w-11/12" />
             </h2>
             {/* //END OF NAME */}
