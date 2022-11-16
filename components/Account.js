@@ -757,7 +757,7 @@ const Account = ({ session }) => {
                         <li className="">
                           <div
                             style={headShot1Styling}
-                            className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                            className="rounded-full overflow-hidden w-[60px] md:w-[150px]  md:h-[150px] flex items-end justify-center shadow-md group transition"
                           ></div>
                           <Headshot1
                             url={headShot1}
@@ -769,24 +769,24 @@ const Account = ({ session }) => {
                         <li className="">
                           <div
                             style={headShot2Styling}
-                            className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                            className="rounded-full overflow-hidden w-[60px] md:w-[150px]  md:h-[150px] flex items-end justify-center shadow-md group transition"
                           ></div>
                           <Headshot2
                             url={headShot2}
                             onUpload={(url) => {
-                              setHeadShot2(url);
+                              setHeadShot1(url);
                             }}
                           />
                         </li>
                         <li className="">
                           <div
                             style={headShot3Styling}
-                            className="rounded-full overflow-hidden w-[150px] h-[150px] flex items-end justify-center shadow-md group transition"
+                            className="rounded-full overflow-hidden w-[60px] md:w-[150px]  md:h-[150px] flex items-end justify-center shadow-md group transition"
                           ></div>
                           <Headshot3
                             url={headShot3}
                             onUpload={(url) => {
-                              setHeadShot3(url);
+                              setHeadShot1(url);
                             }}
                           />
                         </li>
@@ -883,13 +883,13 @@ const Account = ({ session }) => {
                       </li>
                       <hr />
                       <div className="flex items-center max-w-max cursor-pointer">
-                        <p
+                        <strong
                           onClick={(e) =>
                             setShowAgentDetails(!showAgentDetails)
                           }
                         >
                           Got an agent?
-                        </p>
+                        </strong>
                         <span
                           className={`material-icons transform ${
                             showAgentDetails ? "rotate-180" : ""

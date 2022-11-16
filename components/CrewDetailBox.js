@@ -259,18 +259,18 @@ const CrewDetailBox = (crew) => {
               </p>
             ))}
 
-            {crew.ageRange !== null &&
-            crew.height !== null &&
-            crew.hair !== null &&
-            crew.eyes !== null &&
-            crew.body !== null &&
-            crew.dialects !== null &&
-            crew.ageRange !== "" &&
-            crew.height !== "" &&
-            crew.hair !== "" &&
-            crew.eyes !== "" &&
-            crew.body !== "" &&
-            crew.dialects !== "" ? (
+            {crew?.ageRange !== null ||
+            crew?.height !== null ||
+            crew?.hair !== null ||
+            crew?.eyes !== null ||
+            crew?.body !== null ||
+            crew?.dialects !== null ||
+            crew?.ageRange !== "" ||
+            crew?.height !== "" ||
+            crew?.hair !== "" ||
+            crew?.eyes !== "" ||
+            crew?.body !== "" ||
+            crew?.dialects !== "" ? (
               <hr className="w-11/12 mb-1" />
             ) : null}
 
@@ -486,7 +486,7 @@ const CrewDetailBox = (crew) => {
               <div className="w-[210px] text-right">
                 <div className="flex flex-col">
                   {/* MOBILE NAME*/}
-                  <strong className=" text-[20px] break-all">
+                  <strong className=" text-[20px] break-words">
                     {crew?.name}
                   </strong>
                   <hr />
@@ -530,27 +530,22 @@ const CrewDetailBox = (crew) => {
 
             {/* MOBILE ACTOR DETAILS*/}
 
-            {crew?.ageRange &&
-              crew.height &&
-              crew.hair &&
-              crew.eyes &&
-              crew.body &&
-              crew.dialects && (
-                <div className="flex flex-wrap justify-between gap-4">
+
+                <div className="grid grid-cols-3 gap-4">
                   {crew?.ageRange && (
-                    <div className="">
+                    <div className="flex flex-col items-center">
                       <p className="text-wearecrewBlue font-bold">Age Range</p>
                       <p className="text-base">{crew?.ageRange}</p>
                     </div>
                   )}
                   {crew?.height && (
-                    <div className="">
+                    <div className="flex flex-col items-center">
                       <p className="text-wearecrewBlue font-bold">Height</p>
                       <p className="text-base">{crew?.height}</p>
                     </div>
                   )}
                   {crew?.hair && (
-                    <div className="">
+                    <div className="flex flex-col items-center">
                       <p className="text-wearecrewBlue font-bold">
                         Hair Colour
                       </p>
@@ -558,25 +553,25 @@ const CrewDetailBox = (crew) => {
                     </div>
                   )}
                   {crew?.eyes && (
-                    <div className="">
+                    <div className="flex flex-col items-center">
                       <p className="text-wearecrewBlue font-bold">Eye Colour</p>
                       <p className="text-base">{crew?.eyes}</p>
                     </div>
                   )}
                   {crew.body && (
-                    <div className="">
+                    <div className="flex flex-col items-center">
                       <p className="text-wearecrewBlue font-bold">Body Type</p>
                       <p className="text-base">{crew?.body}</p>
                     </div>
                   )}
                   {crew?.dialects && (
-                    <div className="">
+                    <div className="flex flex-col items-center">
                       <p className="text-wearecrewBlue font-bold">Dialects</p>
-                      <p className="text-base">{crew?.dialects}</p>
+                      <p className="text-base text-center">{crew?.dialects}</p>
                     </div>
                   )}
                 </div>
-              )}
+
 
             {/* //END OF MOBILE ACTOR DETAILS*/}
             {/* MOBILE CAN WORK IN*/}
@@ -717,7 +712,7 @@ const CrewDetailBox = (crew) => {
                   </a>
                   <div className="">
                     <div className="">
-                      <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-10 border-wearecrewBlue break-all">
+                      <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-10 border-wearecrewBlue break-words pr-4">
                         {crew?.name}
                       </h1>
                     </div>
@@ -737,7 +732,7 @@ const CrewDetailBox = (crew) => {
 
                 {/* HEADSHOTS */}
                 {crew.dept === "Acting or Presenting" && (
-                  <div className="flex gap-x-8">
+                  <div className="flex justify-between gap-x-8">
                     {!publicHeadShot1Url.includes("null") ? (
                       <a
                         href={publicHeadShot1Url}
