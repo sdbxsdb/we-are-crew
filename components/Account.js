@@ -955,7 +955,7 @@ const Account = ({ session }) => {
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label htmlFor="dialects">
-                              Agent Name (If applicable)
+                              Agent Name
                             </label>
                           </li>
                           <li className="relative styledList w-full md:w-2/3">
@@ -970,7 +970,7 @@ const Account = ({ session }) => {
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label htmlFor="dialects">
-                              Agent Email (If applicable)
+                              Agent Email
                             </label>
                           </li>
 
