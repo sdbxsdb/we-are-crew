@@ -6,7 +6,7 @@ import { supabase } from "../../../../utils/supabaseClient";
 import Head from "next/head";
 
 const CrewList = ({ users }) => {
-  console.log({ users });
+  // console.log({ users });
 
   const sortedUsersByTitle = [...users].sort((a, b) =>
     a.title > b.title ? 1 : -1
@@ -45,15 +45,6 @@ const CrewList = ({ users }) => {
         return user.status === "Available";
       }
     })
-    // .filter((user) => {
-    //   if (title.length === 0) {
-    //     return true;
-    //   }
-    //   if (title.includes(user.title)) {
-    //     return true;
-    //   }
-    //   return false;
-    // })
     .filter((user) => {
       if (role.length === 0) {
         return true;
@@ -86,9 +77,6 @@ const CrewList = ({ users }) => {
 
 
 
-
-
-  
 
   useEffect(() => {
     if (avail === "Available") {
