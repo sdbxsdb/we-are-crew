@@ -774,7 +774,7 @@ const Account = ({ session }) => {
                           <Headshot2
                             url={headShot2}
                             onUpload={(url) => {
-                              setHeadShot1(url);
+                              setHeadShot2(url);
                             }}
                           />
                         </li>
@@ -786,7 +786,7 @@ const Account = ({ session }) => {
                           <Headshot3
                             url={headShot3}
                             onUpload={(url) => {
-                              setHeadShot1(url);
+                              setHeadShot3(url);
                             }}
                           />
                         </li>

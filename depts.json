@@ -11,8 +11,7 @@
       "Accounts Assistant",
       "Trainee"
     ]
-  }
-  ,
+  },
   {
     "dept": "Action Vehicles",
     "titles": ["Action Vehicle Supplier"]
@@ -219,6 +218,10 @@
       "Drone Operator (Surveyance)",
       "Drone Operator (Real Estate)"
     ]
+  },
+  {
+    "dept": "Engineering (Broadcast)",
+    "titles": ["Studio Engineer", "OB Engineer", "EVS Engineer"]
   },
   {
     "dept": "Equipment Rental",
