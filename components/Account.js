@@ -496,10 +496,19 @@ const Account = ({ session }) => {
   useEffect(() => {
     if (dept !== "Acting or Presenting") {
       setAgeRange("");
+      setHeight("");
       setHair("");
       setEyes("");
       setBody("");
       setDialects("");
+      setAgentName("");
+      setAgentEmail("");
+      setAgentPhone("");
+      setHidePersonalEmail(false);
+      setHeadShot1("");
+      setHeadShot2("");
+      setHeadShot3("");
+      console.log("DEPT CHANGED TO-", dept)
     }
   }, [dept]);
 
