@@ -3,10 +3,37 @@ import Head from "next/head";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 const About = () => {
   const [showNeedCrew, setShowNeedCrew] = useState(true);
   const [showAmCrew, setShowAmCrew] = useState(false);
+  const [open, setOpen] = useState(null);
+
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
+
+  const Icon = ({ id, open }) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={`${
+          id === open ? "rotate-180" : ""
+        } h-5 w-5 transition-transform text-wearecrewBlue`}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    );
+  };
 
   const needCrewHandler = (e) => {
     e.preventDefault();
@@ -32,12 +59,79 @@ const About = () => {
               <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
-                    <div className="w-full md:w-1/2 flex items-center">
+                    <div className="w-full md:w-1/2 md:mb-0 mb-12 flex flex-col justify-center items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
                         What is{" "}
                         <span className="text-wearecrewBlue">Get Crew</span>{" "}
                         <br /> and why is it here?
                       </h1>
+                      <div className="mt-12 text-lg">
+                        <cite className="font-bold text-2xl mb-12">
+                          - What people are saying
+                        </cite>
+                        <>
+                          <Accordion
+                            className="mt-4"
+                            open={open === 1}
+                            icon={<Icon id={1} open={open} />}
+                          >
+                            <AccordionHeader onClick={() => handleOpen(1)}>
+                              &#34;...the perfect soloution&#34;
+                            </AccordionHeader>
+                            <AccordionBody>
+                              &#34; I welcome the launch of{" "}
+                              <span className="text-wearecrewBlue">
+                                Get Crew
+                              </span>{" "}
+                              to market as in this fast paced / time poor world
+                              this platform provides the perfect solution to
+                              seeking out crew for short and long term projects.
+                              &#34;
+                              <p className="font-bold mt-4">
+                                {" "}
+                                - Val Croft | Head of Production Frank Films
+                              </p>
+                            </AccordionBody>
+                          </Accordion>
+                          <hr />
+                          <Accordion
+                            open={open === 2}
+                            icon={<Icon id={2} open={open} />}
+                          >
+                            <AccordionHeader onClick={() => handleOpen(2)}>
+                              &#34;...what the industry has been
+                              missing!&#34;
+                            </AccordionHeader>
+                            <AccordionBody>
+                              This is what the industry has been missing! So
+                              easy I&apos;ve been able to find and contact crew
+                              within 10sec of coming to the site. <br /> <br /> This
+                              will be my first port of call from now on.
+                              <p className="font-bold mt-4">
+                                {" "}
+                                - Some Person | Head of Production Somewhere
+                              </p>
+                            </AccordionBody>
+                          </Accordion>
+                          <hr />
+                          <Accordion
+                            open={open === 3}
+                            icon={<Icon id={3} open={open} />}
+                          >
+                            <AccordionHeader onClick={() => handleOpen(3)}>
+                            &#34;...another quote&#34;
+                            </AccordionHeader>
+                            <AccordionBody>
+                              This is where another quote will go.
+                              <p className="font-bold mt-4">
+                                {" "}
+                                - Some Person | Head of Production Somewhere
+                              </p>
+                            </AccordionBody>
+                          </Accordion>
+                          <hr />
+                        </>
+                      </div>
                     </div>
                     <div className="w-full md:w-1/2">
                       <span className="text-lg">
@@ -58,6 +152,7 @@ const About = () => {
                         <span className="text-wearecrewBlue">Get Crew</span> has
                         the solution.
                       </span>
+                      
                     </div>
                   </div>
                 </div>
@@ -87,9 +182,9 @@ const About = () => {
                         been built by crew, for crew.
                         <br />
                         <br />
-                        The team behind the design and build of the platform have
-                        more than 70 years&apos; experience in the Film, TV and Broadcast
-                        industries collectively.
+                        The team behind the design and build of the platform
+                        have more than 70 years&apos; experience in the Film, TV
+                        and Broadcast industries collectively.
                         <br />
                         <br />
                         We&apos;ve been a part of every crew listing website and

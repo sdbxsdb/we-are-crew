@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/abril-fatface": "^4.5.8",
     "@fontsource/anton": "^4.5.8",
+    "@material-tailwind/react": "^1.2.4",
     "@stripe/stripe-js": "^1.36.0",
     "@supabase/supabase-js": "^2.0.0-rc.3",
     "axios": "^0.27.2",
