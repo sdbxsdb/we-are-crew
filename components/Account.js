@@ -870,7 +870,7 @@ const Account = ({ session }) => {
                         <span className="highlight"></span>
                         <span className="bar"></span>
                         <small className="text-wearecrewDarkGrey">
-                          Small / Medium / Large / Built etc
+                          Petite / Slim / Curvy / Athletic etc
                         </small>
                         <label htmlFor="body">Body Type</label>
                       </li>
