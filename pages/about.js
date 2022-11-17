@@ -104,8 +104,7 @@ const About = () => {
                             <AccordionBody>
                               The first platform I&apos;ve found that actually
                               works and does what it says on the tin. <br />{" "}
-                              Having all my credentials in one place and have it
-                              shareable it fantastic.
+                              Having all my credentials in one place, in this format AND have it shareable is fantastic.
                               <p className="font-bold mt-4">
                                 {" "}
                                 - Calvin P | Camera Assistant

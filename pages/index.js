@@ -86,9 +86,8 @@ export default function Home() {
                   <div className="text-center flex flex-col justify-center items-center  h-[160px] md:h-[100px]">
                     <cite>
                       &#34; The first platform I&apos;ve found that actually
-                      works and does what it says on the tin. <br /> Having all
-                      my credentials in one place and have it shareable it
-                      fantastic. &#34;
+                              works and does what it says on the tin. <br />{" "}
+                              Having all my credentials in one place, in this format AND have it shareable is fantastic. &#34;
                     </cite>
                     <p className="font-bold mt-4">
                       {" "}
