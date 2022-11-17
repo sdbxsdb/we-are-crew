@@ -99,17 +99,16 @@ const About = () => {
                             icon={<Icon id={2} open={open} />}
                           >
                             <AccordionHeader onClick={() => handleOpen(2)}>
-                              &#34;...what the industry has been
-                              missing!&#34;
+                              &#34;...exactly what it says on the tin&#34;
                             </AccordionHeader>
                             <AccordionBody>
-                              This is what the industry has been missing! So
-                              easy I&apos;ve been able to find and contact crew
-                              within 10sec of coming to the site. <br /> <br /> This
-                              will be my first port of call from now on.
+                              The first platform I&apos;ve found that actually
+                              works and does what it says on the tin. <br />{" "}
+                              Having all my credentials in one place and have it
+                              shareable it fantastic.
                               <p className="font-bold mt-4">
                                 {" "}
-                                - Some Person | Head of Production Somewhere
+                                - Calvin P | Camera Assistant
                               </p>
                             </AccordionBody>
                           </Accordion>
@@ -119,13 +118,16 @@ const About = () => {
                             icon={<Icon id={3} open={open} />}
                           >
                             <AccordionHeader onClick={() => handleOpen(3)}>
-                            &#34;...another quote&#34;
+                              &#34;...what the industry has been missing!&#34;
                             </AccordionHeader>
                             <AccordionBody>
-                              This is where another quote will go.
+                              This is what the industry has been missing! So
+                              easy I&apos;ve been able to find and contact crew
+                              within 10sec of coming to the site. <br /> <br />{" "}
+                              This will be my first port of call from now on.
                               <p className="font-bold mt-4">
                                 {" "}
-                                - Some Person | Head of Production Somewhere
+                                - Producer | BBC
                               </p>
                             </AccordionBody>
                           </Accordion>
@@ -152,7 +154,6 @@ const About = () => {
                         <span className="text-wearecrewBlue">Get Crew</span> has
                         the solution.
                       </span>
-                      
                     </div>
                   </div>
                 </div>

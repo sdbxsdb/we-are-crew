@@ -84,6 +84,20 @@ export default function Home() {
                 </Slide>
                 <Slide index={1}>
                   <div className="text-center flex flex-col justify-center items-center  h-[160px] md:h-[100px]">
+                    <cite>
+                      &#34; The first platform I&apos;ve found that actually
+                      works and does what it says on the tin. <br /> Having all
+                      my credentials in one place and have it shareable it
+                      fantastic. &#34;
+                    </cite>
+                    <p className="font-bold mt-4">
+                      {" "}
+                      - Calvin P | Camera Assistant
+                    </p>
+                  </div>
+                </Slide>
+                <Slide index={2}>
+                  <div className="text-center flex flex-col justify-center items-center  h-[160px] md:h-[100px]">
                     <cite className="flex">
                       <div className="w-full">
                         <span className="font-bold mr-2 text-2xl">&#34;</span>
@@ -94,30 +108,21 @@ export default function Home() {
                         <span className="font-bold ml-2 text-2xl">&#34;</span>
                       </div>
                     </cite>
-                    <p className="font-bold mt-4">
-                      {" "}
-                      - Person 1 | Head of Production Frank Films
-                    </p>
-                  </div>
-                </Slide>
-                <Slide index={2}>
-                  <div className="text-center flex flex-col justify-center items-center  h-[160px] md:h-[100px]">
-                    <cite>&#34; Test text test testtest test</cite>
-                    <p className="font-bold mt-4">
-                      {" "}
-                      - Person 2 | Head of Production Frank Films
-                    </p>
+                    <p className="font-bold mt-4"> - Producer | BBC</p>
                   </div>
                 </Slide>
               </Slider>
 
-              <DotGroup
-                className="flex justify-center mt-4 text-wearecrewBlue"
-              >
-                <Dot slide={0} className="mr-4">&#9673;</Dot>
-                <Dot slide={1} className="mr-4">&#9673;</Dot>
-                <Dot slide={2} className="">&#9673;</Dot>
-      
+              <DotGroup className="flex justify-center mt-4 text-wearecrewBlue">
+                <Dot slide={0} className="mr-4">
+                  &#9673;
+                </Dot>
+                <Dot slide={1} className="mr-4">
+                  &#9673;
+                </Dot>
+                <Dot slide={2} className="">
+                  &#9673;
+                </Dot>
               </DotGroup>
             </CarouselProvider>
             <hr className="w-7/12 m-auto" />
