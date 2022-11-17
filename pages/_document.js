@@ -32,7 +32,7 @@ class MyDocument extends Document {
               property="og:description"
               content="A dedicated website for crew to showcase their professional credentials and for productions to find crew."
             />
-            <meta property="og:image" content="/images/gcFbLogoNew.jpg" />
+            <meta property="og:image" content="/images/gcFbLogoNewAllWhite.png" />
 
             {/* <!-- Twitter --> */}
             <meta property="twitter:card" content="summary_large_image" />
@@ -45,7 +45,7 @@ class MyDocument extends Document {
               property="twitter:description"
               content="A dedicated website for crew to showcase their professional credentials and for productions to find crew."
             />
-            <meta property="twitter:image" content="/images/gcFbLogoNew.jpg" />
+            <meta property="twitter:image" content="/images/gcFbLogoNewAllWhite.png" />
           </>
         </Head>
         <body>
