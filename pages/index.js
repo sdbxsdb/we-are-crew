@@ -100,14 +100,11 @@ export default function Home() {
                     <cite className="flex">
                       <div className="w-full">
                         <span className="font-bold mr-2 text-2xl">&#34;</span>
-                        This is what the industry has been missing! So easy
-                        I&apos;ve been able to find and contact crew within
-                        10sec of coming to the site. <br /> This will be my
-                        first port of call from now on.
+                        I’d recommend Get Crew to anyone looking for somewhere to house all their professional <br /> information productions are looking for when hiring. For 10p a day, it’s a no brainer..
                         <span className="font-bold ml-2 text-2xl">&#34;</span>
                       </div>
                     </cite>
-                    <p className="font-bold mt-4"> - Producer | BBC</p>
+                    <p className="font-bold mt-4"> - Seb Pannackal | Unit Manager</p>
                   </div>
                 </Slide>
               </Slider>

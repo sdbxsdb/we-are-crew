@@ -117,16 +117,12 @@ const About = () => {
                             icon={<Icon id={3} open={open} />}
                           >
                             <AccordionHeader onClick={() => handleOpen(3)}>
-                              &#34;...what the industry has been missing!&#34;
+                              &#34;...it&apos;s a no brainer&#34;
                             </AccordionHeader>
                             <AccordionBody>
-                              This is what the industry has been missing! So
-                              easy I&apos;ve been able to find and contact crew
-                              within 10sec of coming to the site. <br /> <br />{" "}
-                              This will be my first port of call from now on.
+                            I’d recommend Get Crew to anyone looking for somewhere to house all their professional information productions are looking for when hiring. For 10p a day, it’s a no brainer.
                               <p className="font-bold mt-4">
-                                {" "}
-                                - Producer | BBC
+                                - Seb Pannackal | Unit Manager
                               </p>
                             </AccordionBody>
                           </Accordion>
