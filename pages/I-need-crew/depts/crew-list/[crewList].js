@@ -753,7 +753,7 @@ export async function getStaticPaths() {
 
 
   profiles?.forEach((profile) => {
-    depts.push(profile?.dept);
+    depts?.push(profile?.dept);
   });
   const uniqueDepts = Array.from(new Set(depts));
 

@@ -599,8 +599,8 @@ export const getStaticProps = async () => {
   const depts = [];
   const deptsWithAtLeastOnePaid = [];
 
-  profiles.forEach((profile) => {
-    depts.push(profile?.dept);
+  profiles?.forEach((profile) => {
+    depts?.push(profile?.dept);
     profile?.paid === true
       ? deptsWithAtLeastOnePaid.push({
           dept: profile?.dept,
