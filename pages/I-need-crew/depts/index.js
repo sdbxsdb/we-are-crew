@@ -550,7 +550,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                 {/* ^^^ // REMOVE THIS WHEN GOING LIVE  */}
 
                 {/* REINSTATE THIS WHEN GOING LIVE  */}
-                {/* {foundDept && foundDept?.length > 0 ? (
+                {foundDept && foundDept?.length > 0 ? (
                   <div className="mt-12 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8">
                     {foundDept?.map((dept, i) => (
                       <div
@@ -577,7 +577,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                   <div className="mt-4 w-full text-center">
                     <h1>No department found!</h1>
                   </div>
-                )} */}
+                )}
                 {/* ^^^ REINSTATE THIS WHEN GOING LIVE  */}
 
               </div>
