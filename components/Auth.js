@@ -116,7 +116,8 @@ export default function Auth() {
             </div>
             <div className="flex  w-full md:w-7/12 flex-col justify-center items-center mt-8 md:mt-0 px-4">
               <p className="mb-6 text-lg text-center md:w-full">
-              <span className="text-wearecrewBlue">Get Crew</span> operate a secure passwordless log in. <br /> This means you only need access to your email and <br /> anytime you log in you&apos;ll be sent a secure link to take you to your profile.
+              <strong>No need to register.</strong> <span className="text-wearecrewBlue">Get Crew</span> operate a secure passwordless login. <br />
+              To access your profile, log in via your email to be sent a secure link <br /> or log in directly using Google.
               </p>
               <div className="neumorphBoxLg w-full md:w-auto rounded-md flex flex-col items-center justify-center pt-4 pb-8">
                 <form className="w-full px-8 md:px-20 mb-12 flex flex-col justify-center items-center">
