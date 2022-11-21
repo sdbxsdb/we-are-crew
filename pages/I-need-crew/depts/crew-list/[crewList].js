@@ -9,18 +9,18 @@ const CrewList = ({ users }) => {
   // console.log({ users });
 
   const sortedUsersByTitle = [...users].sort((a, b) =>
-    a.title > b.title ? 1 : -1
+    a?.title > b?.title ? 1 : -1
   );
   const sortedUsersByName = [...users].sort((a, b) =>
-    a.username > b.username ? 1 : -1
+    a?.username > b?.username ? 1 : -1
   );
 
   // console.log({sortedUsersByLocation})
 
   const [foundTitle, setFoundTitle] = useState(sortedUsersByName);
   // const allTitlesOnly = sortedUsersByTitle.map((user) => user.title);
-  const allRolesOnly = users.map((user) => user.roles);
-  const allLocationsOnly = users.map((user) => user.canWorkIn);
+  const allRolesOnly = users.map((user) => user?.roles);
+  const allLocationsOnly = users.map((user) => user?.canWorkIn);
   const [avail, setAvail] = useState("All Availability");
   const [title, setTitle] = useState([]);
   const [role, setRole] = useState([]);
@@ -42,16 +42,16 @@ const CrewList = ({ users }) => {
         return true;
       }
       if (avail === "Available") {
-        return user.status === "Available";
+        return user?.status === "Available";
       }
     })
     .filter((user) => {
-      if (role.length === 0) {
+      if (role?.length === 0) {
         return true;
       }
       let includeUserRole = false;
       for (const theRole of role) {
-        if (user.roles.includes(theRole)) {
+        if (user?.roles.includes(theRole)) {
           includeUserRole = true;
         }
       }
@@ -63,7 +63,7 @@ const CrewList = ({ users }) => {
       }
       let includeUser = false;
       for (const loc of location) {
-        if (user.canWorkIn.includes(loc)) {
+        if (user?.canWorkIn.includes(loc)) {
           includeUser = true;
         }
       }
@@ -242,7 +242,7 @@ const CrewList = ({ users }) => {
               </h1>
               {/* DESKTOP FILTERING RESULTS*/}
               <div className="text-left hidden lg:flex w-full  items-start justify-start gap-8 checkbox_and_radio_container_filter_pills">
-                {singlePersonResults.length > 0 && (
+                {singlePersonResults?.length > 0 && (
                   <div className="flex flex-col justify-start w-1/4">
                     <span className="text-wearecrewOrange mb-1 min-w-max">
                       Individual name filter applied.
@@ -295,7 +295,7 @@ const CrewList = ({ users }) => {
                       Role filter(s) applied:
                     </span>
                     <div className="flex flex-wrap gap-2">
-                      {role.map((role, i) => (
+                      {role?.map((role, i) => (
                         <li
                           key={i}
                           className="flex min-w-max items-center justify-start relative rounded-full h-auto"
@@ -329,7 +329,7 @@ const CrewList = ({ users }) => {
                     </span>
                     <div className="w-full">
                       <div className="flex flex-wrap gap-2">
-                        {location.map((loc, i) => (
+                        {location?.map((loc, i) => (
                           <li
                             key={i}
                             className="flex min-w-max items-center justify-start relative rounded-full h-auto"
@@ -340,7 +340,7 @@ const CrewList = ({ users }) => {
                               name="role"
                               value={loc}
                               onChange={filterByLocations}
-                              checked={location.includes(loc)}
+                              checked={location?.includes(loc)}
                             />
                             <label
                               htmlFor={loc}
@@ -367,40 +367,40 @@ const CrewList = ({ users }) => {
                 <div className="flex flex-1 rounded-md flex-col gap-y-12 mb-12">
                   {filteredUsers?.map((user, i) => (
                     <div key={i}>
-                      {user.paid === true ? (
+                      {user?.paid === true ? (
                         <CrewDetailBox
-                          key={user.id}
-                          id={user.id}
-                          name={user.username}
-                          dept={user.dept}
-                          roles={user.roles}
-                          title={user.title}
-                          canStepUp={user.canStepUp}
-                          imgURL={user.imgURL}
-                          phone={user.phone}
-                          email={user.email}
-                          website={user.website}
-                          status={user.status}
-                          willWorkIn={user.canWorkIn}
-                          qualis={user.qualis}
-                          imdb={user.imdb}
-                          credits={user.credits}
-                          bio={user.bio}
-                          cvURL={user.cvURL}
-                          willBeAvailOn={user.willBeAvailOn}
-                          ageRange={user.ageRange}
-                          height={user.height}
-                          hair={user.hair}
-                          eyes={user.eyes}
-                          body={user.body}
-                          dialects={user.dialects}
-                          agentName={user.agentName}
-                          agentEmail={user.agentEmail}
-                          agentPhone={user.agentPhone}
-                          hidePersonalEmail={user.hidePersonalEmail}
-                          headShot1={user.headShot1}
-                          headShot2={user.headShot2}
-                          headShot3={user.headShot3}
+                          key={user?.id}
+                          id={user?.id}
+                          name={user?.name}
+                          dept={user?.dept}
+                          roles={user?.roles}
+                          title={user?.title}
+                          canStepUp={user?.canStepUp}
+                          imgURL={user?.imgURL}
+                          phone={user?.phone}
+                          email={user?.email}
+                          website={user?.website}
+                          status={user?.status}
+                          willWorkIn={user?.canWorkIn}
+                          qualis={user?.qualis}
+                          imdb={user?.imdb}
+                          credits={user?.credits}
+                          bio={user?.bio}
+                          cvURL={user?.cvURL}
+                          willBeAvailOn={user?.willBeAvailOn}
+                          ageRange={user?.ageRange}
+                          height={user?.height}
+                          hair={user?.hair}
+                          eyes={user?.eyes}
+                          body={user?.body}
+                          dialects={user?.dialects}
+                          agentName={user?.agentName}
+                          agentEmail={user?.agentEmail}
+                          agentPhone={user?.agentPhone}
+                          hidePersonalEmail={user?.hidePersonalEmail}
+                          headShot1={user?.headShot1}
+                          headShot2={user?.headShot2}
+                          headShot3={user?.headShot3}
                         />
                       ) : (
                         ""
@@ -432,7 +432,7 @@ const CrewList = ({ users }) => {
                           </div>
                           {/* MOBILE FILTERING RESULTS */}
                           <div className="text-left lg:hidden flex flex-col w-full  items-start justify-start gap-4 checkbox_and_radio_container_filter_pills">
-                            {singlePersonResults.length > 0 && (
+                            {singlePersonResults?.length > 0 && (
                               <div className="flex flex-col justify-start sm:justify-center w-full">
                                 <span className="text-wearecrewOrange mb-1 min-w-max">
                                   Individual name filter applied.
@@ -487,7 +487,7 @@ const CrewList = ({ users }) => {
                                   Role filter(s) applied:
                                 </span>
                                 <div className="flex flex-wrap gap-2">
-                                  {role.map((role, i) => (
+                                  {role?.map((role, i) => (
                                     <li
                                       key={i}
                                       className="flex min-w-max items-center justify-start relative rounded-full h-auto"
@@ -498,7 +498,7 @@ const CrewList = ({ users }) => {
                                         name="role"
                                         value={role}
                                         onChange={filterByRole}
-                                        checked={role.includes(role)}
+                                        checked={role?.includes(role)}
                                       />
                                       <label
                                         htmlFor={role}
@@ -521,7 +521,7 @@ const CrewList = ({ users }) => {
                                 </span>
                                 <div className="w-full">
                                   <div className="flex flex-wrap gap-2">
-                                    {location.map((loc, i) => (
+                                    {location?.map((loc, i) => (
                                       <li
                                         key={i}
                                         className="flex min-w-max items-center justify-start relative rounded-full h-auto"
@@ -532,7 +532,7 @@ const CrewList = ({ users }) => {
                                           name="role"
                                           value={loc}
                                           onChange={filterByLocations}
-                                          checked={location.includes(loc)}
+                                          checked={location?.includes(loc)}
                                         />
                                         <label
                                           htmlFor={loc}
@@ -632,7 +632,7 @@ const CrewList = ({ users }) => {
                                     type="checkbox"
                                     name="role"
                                     value="All"
-                                    checked={role.length === 0}
+                                    checked={role?.length === 0}
                                   />
                                   <label
                                     htmlFor="AllRoles"
@@ -655,7 +655,7 @@ const CrewList = ({ users }) => {
                                           name="role"
                                           value={user}
                                           onChange={filterByRole}
-                                          checked={role.includes(user)}
+                                          checked={role?.includes(user)}
                                         />
                                         <label htmlFor={user}>{user}</label>
                                       </li>
@@ -679,7 +679,7 @@ const CrewList = ({ users }) => {
                                     type="checkbox"
                                     name="location"
                                     value="All"
-                                    checked={location.length === 0}
+                                    checked={location?.length === 0}
                                   />
                                   <label
                                     htmlFor="AllLocations"
@@ -701,7 +701,7 @@ const CrewList = ({ users }) => {
                                         name="location"
                                         value={loc}
                                         onChange={filterByLocations}
-                                        checked={location.includes(loc)}
+                                        checked={location?.includes(loc)}
                                       />
                                       <label htmlFor={loc}>{loc}</label>
                                     </li>
@@ -753,7 +753,7 @@ export async function getStaticPaths() {
 
 
   profiles?.forEach((profile) => {
-    depts.push(profile.dept);
+    depts.push(profile?.dept);
   });
   const uniqueDepts = Array.from(new Set(depts));
 
