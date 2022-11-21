@@ -63,7 +63,7 @@ export default function Auth() {
       <div className="flex item-center justify-center">
         <div className="flex justify-between w-full max-w-[1200px] items-center md:h-[calc(100vh-256px)] px-4">
           <div className="flex gap-4 flex-col-reverse md:flex-row w-full">
-            <div className="w-full md:w-1/2  my-12 lg:my-0 md:mt-4 flex flex-col items-start justify-center aboutPage flex-1">
+            <div className="w-full md:w-5/12  my-12 lg:my-0 md:mt-4 flex flex-col items-start justify-center aboutPage flex-1">
               <h1 className="text-3xl md:text-left text-center w-full mb-6">
                 Why sign up to{" "}
                 <span className="text-wearecrewBlue">Get Crew</span>?
@@ -114,9 +114,9 @@ export default function Auth() {
                 </ul>
               </div>
             </div>
-            <div className="flex  w-full md:w-1/2 flex-col justify-center items-center mt-8 md:mt-0 px-4">
-              <p className="mb-6 text-lg text-center md:w-7/12">
-                Enter your email to get a sign in / register link or sign in directly with your Gmail account.
+            <div className="flex  w-full md:w-7/12 flex-col justify-center items-center mt-8 md:mt-0 px-4">
+              <p className="mb-6 text-lg text-center md:w-full">
+              <span className="text-wearecrewBlue">Get Crew</span> operate a secure passwordless log in. <br /> This means you only need access to your email and <br /> anytime you log in you&apos;ll be sent a secure link to take you to your profile.
               </p>
               <div className="neumorphBoxLg w-full md:w-auto rounded-md flex flex-col items-center justify-center pt-4 pb-8">
                 <form className="w-full px-8 md:px-20 mb-12 flex flex-col justify-center items-center">
