@@ -63,32 +63,13 @@ const PricingOptions = ({ plans, req, res }) => {
         </div>
 
         <div className="h-full flex flex-col px-4 z-20">
-          <div className="flex text-lg flex-col justify-start items-center text-center">
-            <img
-              src="/images/treeLogoStampGreen.png"
-              width="120px"
-              alt="One Tree Logo"
-            />
-            <p>
-              <span className="text-wearecrewBlue">Get Crew</span> are proudly
-              partnered with{" "}
-              <a
-                href="https://onetreeplanted.org/
-                "
-                rel="noreferrer"
-                target="_blank"
-              >
-                One<strong className="text-oneTreeGreen">Tree</strong>Planted.
-              </a>
-              <br />
-              This means 5% of your payment will go directly to plant trees all
-              over the world.
-              <br />
-              <br />
-            </p>
+          
+          <div className="mb-12 w-full text-center">
+            <h1 className="text-3xl mb-4">One place for your professional profile.</h1>
+            <strong>Go live now to have your profile visable to any production looking for crew across the UK & Ireland.</strong>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-around items-center gap-4 w-full px-4 max-w-[1200px] text-lg">
+          <div className="flex flex-col justify-around items-center gap-y-8 w-full px-4 max-w-[1200px] text-lg">
             {plans?.map(
               (plan) =>
                 plan.active && (
@@ -120,6 +101,30 @@ const PricingOptions = ({ plans, req, res }) => {
                   </div>
                 )
             )}
+            <div className="flex text-lg flex-col justify-start mt-6 text-center">
+            {/* <img
+              src="/images/treeLogoStampGreen.png"
+              width="120px"
+              alt="One Tree Logo"
+            /> */}
+            <p>
+              <span className="text-wearecrewBlue">Get Crew</span> are proudly
+              partnered with{" "}
+              <a
+                href="https://onetreeplanted.org/
+                "
+                rel="noreferrer"
+                target="_blank"
+              >
+                One<strong className="text-oneTreeGreen">Tree</strong>Planted.
+              </a>
+              <br />
+              This means 5% of your payment will go directly to plant trees all
+              over the world.
+              <br />
+              <br />
+            </p>
+          </div>
           </div>
           {user?.paid && (
             <div className="w-full flex justify-center">
@@ -130,8 +135,11 @@ const PricingOptions = ({ plans, req, res }) => {
               </div>
             </div>
           )}
+          
         </div>
+        
       </div>
+      
     </>
   );
 };
