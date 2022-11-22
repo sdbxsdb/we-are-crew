@@ -24,15 +24,17 @@ export default function Home() {
   console.log({ user });
 
   useEffect(() => {
-    if (user?.paid === false) {
-      setShowFinishModal(true);
-      console.log("1")
-    } else if (!user?.username) {
-      setShowFinishModal(true);
-      console.log("2")
-    } else {
-      setShowFinishModal(false);
-      console.log("3")
+    if (user) {
+      if (user?.paid === false) {
+        setShowFinishModal(true);
+        console.log("1")
+      } else if (!user?.username) {
+        setShowFinishModal(true);
+        console.log("2")
+      } else {
+        setShowFinishModal(false);
+        console.log("3")
+      }
     }
   }, [user]);
 
