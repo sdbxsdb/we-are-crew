@@ -803,8 +803,8 @@ const Account = ({ session }) => {
 
             {/* PROFILE NOT LIVE TOP BANNER */}
             {paid !== true && (
-            <div className="sticky top-[81px] mb-12 text-center text-white text-white z-1000 bg-wearecrewOrange rounded-t-md shadow-md w-full py-2 flex items-center justify-center gap-4">
-              <p>You&apos;re profile isn&apos;t currently live...</p>
+            <div className="sticky top-[81px] border-b-2 border-wearecrewOrange text-center text-wearecrewOrange z-1000 bg-white rounded-t-md shadow-md w-full py-4 flex items-center justify-center gap-4">
+              <strong>You&apos;re profile isn&apos;t currently live...</strong>
               <Link href="/pricing">
                 <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
                   <a className="text-lg min-w-max">Go live now</a>
@@ -947,9 +947,9 @@ const Account = ({ session }) => {
                     {paid !== true ? (
                       <div className="flex bg-white flex-col gap-2 justify-center items-center">
                         <div className="border border-wearecrewOrange p-4 flex flex-col md:flex-row gap-x-4 justify-start md:justify-between items-center rounded-md shadow-md w-full mb-2">
-                          <h1 className="text-wearecrewOrange w-full text-center md:text-left text-2xl">
+                          <strong className="text-wearecrewOrange w-full text-center md:text-left text-lg">
                             Your profile isn&apos;t currently live.
-                          </h1>
+                          </strong>
                           <Link href="/pricing">
                             <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
                               <a className="text-lg min-w-max">Go live now</a>
@@ -960,10 +960,10 @@ const Account = ({ session }) => {
                     ) : (
                       <div className="flex flex-col gap-2 justify-center items-center">
                         <div className="border border-wearecrewGreen p-4 flex flex-col md:flex-row gap-x-4 justify-center md:justify-between items-center rounded-md shadow-md w-full mb-2">
-                          <h1 className="text-wearecrewGreen text-center md:text-left w-full text-2xl">
+                          <strong className="text-wearecrewGreen text-center md:text-left w-full text-lg">
                             Your profile is live.
                             {/* since {dateOfPayment} */}
-                          </h1>
+                          </strong>
                           <div className="flex flex-col items-center justify-center min-w-max">
                             <span>Live since:</span>
                             <span>{dateOfPayment}</span>
