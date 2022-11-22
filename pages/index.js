@@ -24,7 +24,7 @@ export default function Home() {
   console.log({ user });
 
   useEffect(() => {
-    if (user) {
+    if (user?.data) {
       if (user?.paid === false) {
         setShowFinishModal(true);
         console.log("1")
