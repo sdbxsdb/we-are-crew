@@ -29,7 +29,7 @@ export default function Home() {
     } else if (user.username === null) {
       setShowFinishModal(true);
     }
-  }, []);
+  }, [user]);
 
   return (
     <>
