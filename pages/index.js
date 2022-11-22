@@ -33,13 +33,7 @@ export default function Home() {
     }
   }, [user]);
 
-  useEffect(() => {
-    if (user?.paid === true) {
-      setShowFinishModal(false);
-    } else if (user?.username) {
-      setShowFinishModal(false);
-    } 
-  }, [user]);
+
 
   return (
     <>
