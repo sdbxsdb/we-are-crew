@@ -50,13 +50,13 @@ export default function Home() {
         <Banner />
 
         <div className="mt-0 flex flex-col justify-center items-center w-full overflow-scroll md:h-[calc(100vh-205px)] md:mb-0 mb-12">
-          {showFinishModal && (
+          {!showFinishModal && (
             <div>
               <div
                 onClick={() => setShowFinishModal(false)}
                 className="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-x-hidden overflow-y-auto z-2000 bg-wearecrewDarkestGrey/80"
               ></div>
-              <div className="rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-3000 overflow-scroll max-h-[calc(100vh-150px)] w-[95%] bg-white shadow-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-3000 overflow-scroll max-h-[calc(100vh-150px)] w-[95%] bg-white shadow-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
                 <button
                   onClick={() => setShowFinishModal(false)}
                   className="h-[40px] flex justify-end items-center fixed w-auto px-2 [95%] bg-white rounded-full"
@@ -84,13 +84,13 @@ export default function Home() {
                     </g>
                   </svg>
                 </button>
-                <div className="w-full h-full flex flex-col items-center justify-center">
-                  <h1 className="text-3xl mb-2">You&apos;re nearly there!</h1>
+                <div className="w-full h-full text-center my-8 flex flex-col items-center justify-center">
+                  <h1 className="text-3xl mb-4">You&apos;re nearly there!</h1>
                   <p>
                     Complete the steps below to have your profile live and
                     visable to any productions looking for crew.
                   </p>
-                  <div className="flex flex-col gap-y-2 mt-4">
+                  <div className="flex flex-col gap-y-2 mt-8">
                     <strong className="flex items-center">
                       <div className="font-bold flex items-center justify-center text-white w-[30px] h-[30px] text-1xl bg-wearecrewGreen rounded-full px-1 py-0.5 mr-2">
                         &#10003;
@@ -109,7 +109,7 @@ export default function Home() {
                       )}
 
                       <Link href="/my-crew">
-                        <span className="underline cursor-pointer">
+                        <span className="underline hover:text-wearecrewBlue transition cursor-pointer">
                           Profile Complete
                         </span>
                       </Link>
@@ -125,7 +125,7 @@ export default function Home() {
                         </div>
                       )}
                       <Link href="/my-crew">
-                        <span className="underline cursor-pointer">
+                        <span className="underline hover:text-wearecrewBlue transition cursor-pointer cursor-pointer">
                           Profile Live
                         </span>
                       </Link>
