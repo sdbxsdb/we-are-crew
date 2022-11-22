@@ -28,6 +28,8 @@ export default function Home() {
       setShowFinishModal(true);
     } else if (user.username === null) {
       setShowFinishModal(true);
+    } else if (user.data.user) {
+      setShowFinishModal(true);
     }
   }, [user]);
 
