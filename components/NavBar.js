@@ -56,7 +56,7 @@ const NavBar = () => {
 
 
   return (
-    <div className="w-full top-0 fixed flex justify-center z-1000 px-4 py-2 shadow-md bg-wearecrewLightGrey ">
+    <div className="w-full top-0 fixed flex justify-center z-2000 px-4 py-2 shadow-md bg-wearecrewLightGrey ">
       <div className="max-w-[1200px] flex flex-col gap-y-2 md:gap-y-0 w-full">
         <nav className=" flex justify-between  items-center text-sm sm:text-base ">
           <Link href="/">
