@@ -89,7 +89,7 @@ export default function Home() {
                       Logged In
                     </strong>
                     <strong className="flex items-center">
-                      {user.username === true ? (
+                      {user.username !== "" ? (
                         <div className="font-bold flex items-center justify-center text-white w-[30px] h-[30px] text-1xl bg-wearecrewGreen rounded-full px-1 py-0.5 mr-2">
                           &#10003;
                         </div>
