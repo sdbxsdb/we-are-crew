@@ -50,7 +50,7 @@ export default function Home() {
         <Banner />
 
         <div className="mt-0 flex flex-col justify-center items-center w-full overflow-scroll md:h-[calc(100vh-205px)] md:mb-0 mb-12">
-          {!showFinishModal && (
+          {showFinishModal && (
             <div>
               <div
                 onClick={() => setShowFinishModal(false)}
