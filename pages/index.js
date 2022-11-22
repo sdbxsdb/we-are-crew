@@ -26,8 +26,6 @@ export default function Home() {
   useEffect(() => {
     if (user?.paid === false) {
       setShowFinishModal(true);
-    } else if (user?.username === null) {
-      setShowFinishModal(true);
     } else if (!user?.username) {
       setShowFinishModal(true);
     }
