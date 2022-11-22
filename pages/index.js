@@ -24,13 +24,11 @@ export default function Home() {
   console.log({ user });
 
   useEffect(() => {
-    if (user.paid === false) {
+    if (user?.paid === false) {
       setShowFinishModal(true);
-    } else if (user.username === null) {
+    } else if (user?.username === null) {
       setShowFinishModal(true);
-    } else if (user.data.user) {
-      setShowFinishModal(true);
-    }
+    } 
   }, [user]);
 
   return (
