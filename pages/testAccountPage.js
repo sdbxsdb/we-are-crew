@@ -944,7 +944,7 @@ const Account = ({ session }) => {
                         </div>
                       )}
 
-                      {/* {creditsExist && ( */}
+                      {credits.length > 0 && (
                       <div className="flex items-start gap-x-4">
                         <span className="material-icons text-wearecrewBlue">
                           military_tech
@@ -973,7 +973,7 @@ const Account = ({ session }) => {
                           )}
                         </div>
                       </div>
-                      {/* )} */}
+                      )}
 
                       {qualis ? (
                         <div className="flex items-center gap-x-4 -mt-4">
