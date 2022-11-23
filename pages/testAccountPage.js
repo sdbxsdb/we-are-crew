@@ -577,6 +577,8 @@ const Account = ({ session }) => {
   };
 
   const sortedLocations = [...canWorkIn].sort((a, b) => (a > b ? 1 : -1));
+  const creditsExist = credits?.some((credit) => credit?.jobTitle);
+
 
   return (
     <>
@@ -944,7 +946,7 @@ const Account = ({ session }) => {
                         </div>
                       )}
 
-                      {credits.length > 0 && (
+                      {creditsExist && (
                       <div className="flex items-start gap-x-4">
                         <span className="material-icons text-wearecrewBlue">
                           military_tech
