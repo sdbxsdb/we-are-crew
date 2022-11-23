@@ -24,7 +24,7 @@ export default function Home() {
   console.log({ user });
 
   useEffect(() => {
-    if (user?.username) {
+    if (user?.username || user?.data?.user) {
       if (user?.paid === false) {
         setShowFinishModal(true);
         console.log("1")
@@ -33,7 +33,7 @@ export default function Home() {
         console.log("2")
       } else {
         setShowFinishModal(false);
-        console.log("3")
+        console.log("PAST IFs")
       }
     }
   }, [user]);
