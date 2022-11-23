@@ -1114,7 +1114,7 @@ const Account = ({ session }) => {
           <div className="bg-white">
             {/* PROFILE NOT LIVE TOP BANNER */}
             {paid !== true && (
-              <div className="sticky top-[81px] border-b-2 border-wearecrewOrange text-center text-wearecrewOrange z-1000 bg-white rounded-t-md shadow-md w-full py-4 flex items-center justify-center gap-4">
+              <div className="sticky top-[81px] border-b-2 border-wearecrewOrange text-center text-wearecrewOrange z-1000 bg-white rounded-t-md shadow-md w-full py-4 flex items-center justify-center gap-4 px-4">
                 <strong>
                   You&apos;re profile isn&apos;t currently live...
                 </strong>
