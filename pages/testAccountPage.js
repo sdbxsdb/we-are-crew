@@ -519,6 +519,49 @@ const Account = ({ session }) => {
     }
   }, [dept]);
 
+  const headShot1stylingLarge = {
+    backgroundImage: `${
+      publicHeadShot1Url?.includes("public/images/0.")
+        ? `url(${publicHeadShot1Url} )`
+        : `url(/images/noProfileImg.png)`
+    } `,
+    width: "80px",
+    height: "80px",
+    backgroundSize: `${
+      publicHeadShot1Url?.includes("public/images/0.") ? "cover" : "contain"
+    }`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+  const headShot2stylingLarge = {
+    backgroundImage: `${
+      publicHeadShot2Url?.includes("public/images/0.")
+        ? `url(${publicHeadShot2Url} )`
+        : `url(/images/noProfileImg.png)`
+    } `,
+    width: "80px",
+    height: "80px",
+    backgroundSize: `${
+      publicHeadShot2Url?.includes("public/images/0.") ? "cover" : "contain"
+    }`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+  const headShot3stylingLarge = {
+    backgroundImage: `${
+      publicHeadShot3Url?.includes("public/images/0.")
+        ? `url(${publicHeadShot3Url} )`
+        : `url(/images/noProfileImg.png)`
+    } `,
+    width: "80px",
+    height: "80px",
+    backgroundSize: `${
+      publicHeadShot3Url?.includes("public/images/0.") ? "cover" : "contain"
+    }`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
     <>
       {/* PREVIEW PROFILE BUTTON AND MODAL */}
