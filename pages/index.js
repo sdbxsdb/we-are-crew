@@ -47,12 +47,12 @@ export default function Home() {
       setHeight(window.innerHeight);
 
     }
-    console.log({height})
+    // console.log({height})
   };
 
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
-    console.log({height})
+    // console.log({height})
     return () => window.removeEventListener("resize", updateDimensions);
   }, [updateDimensions]);
 
