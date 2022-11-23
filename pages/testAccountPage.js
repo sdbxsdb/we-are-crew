@@ -519,6 +519,20 @@ const Account = ({ session }) => {
     }
   }, [dept]);
 
+  const stylingLarge = {
+    backgroundImage: `${
+      publicUrl?.includes("public/images/0.")
+        ? `url(${publicUrl} )`
+        : `url(/images/noProfileImg.png)`
+    } `,
+    minWidth: "100px",
+    minHeight: "100px",
+    backgroundSize: `${
+      publicUrl.includes("public/images/0.") ? "cover" : "contain"
+    }`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
   const headShot1stylingLarge = {
     backgroundImage: `${
       publicHeadShot1Url?.includes("public/images/0.")
@@ -625,7 +639,7 @@ const Account = ({ session }) => {
                           }`}
                         >
                           <div
-                            // style={stylingLarge}
+                            style={stylingLarge}
                             className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
                           ></div>
                         </a>
