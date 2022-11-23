@@ -104,7 +104,7 @@ export default function Home() {
                   <h1 className="text-3xl mb-4">You&apos;re nearly there!</h1>
                   <p>
                     Complete the steps below to have your profile live and
-                    visable to any productions looking for crew.
+                    visible to any productions looking for crew.
                   </p>
                   <div className="flex flex-col gap-y-2 mt-8">
                     <strong className="flex items-center">
@@ -141,7 +141,7 @@ export default function Home() {
                         </div>
                       )}
                       <Link href="/my-crew">
-                        <span className="underline hover:text-wearecrewBlue transition cursor-pointer cursor-pointer">
+                        <span className="underline hover:text-wearecrewBlue transition cursor-pointer">
                           Profile Live
                         </span>
                       </Link>

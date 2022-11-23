@@ -66,7 +66,7 @@ const PricingOptions = ({ plans, req, res }) => {
           
           <div className="mb-12 w-full text-center">
             <h1 className="text-3xl mb-4">One place for your professional profile.</h1>
-            <strong>Go live now to have your profile visable to any production looking for crew across the UK & Ireland.</strong>
+            <strong>Go live now to have your profile visible to any productions looking for crew across the UK & Ireland.</strong>
           </div>
 
           <div className="flex flex-col justify-around items-center gap-y-8 w-full px-4 max-w-[1200px] text-lg">
@@ -108,7 +108,7 @@ const PricingOptions = ({ plans, req, res }) => {
               alt="One Tree Logo"
             /> */}
             <p>
-              <span className="text-wearecrewBlue">Get Crew</span> are proudly
+              <span className="text-wearecrewBlue">Get Crew</span> is proudly
               partnered with{" "}
               <a
                 href="https://onetreeplanted.org/

@@ -58,7 +58,7 @@ const YourData = () => {
                     </li>
                     <li>
                       <p>
-                        We montior the data you input into your profile to make
+                        We monitor the data you input into your profile to make
                         sure <br /> there are no breaches in our terms and
                         conditions.
                       </p>

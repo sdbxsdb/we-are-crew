@@ -185,7 +185,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
                           Your full professional profile will be listed here
                           when
                           <span className="text-wearecrewBlue"> Get Crew </span>
-                          goes live on Januray 1st 2023.
+                          goes live on January 1st 2023.
                          <br/>
                           <div className="my-8 gap-y-4 flex flex-col justify-center items-center">
 
