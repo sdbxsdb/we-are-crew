@@ -1131,7 +1131,7 @@ const Account = ({ session }) => {
 
             <div className=" shadow-md rounded-md w-full md:min-w-[400px] md:w-[800px] lg:w-[1000px] px-4 md:px-12 py-12 relative">
               {/* STICKY SAVE BUTTON */}
-              <div className="hidden sm:block sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
+              <div className="hidden sm:block sticky w-full top-52 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
                 {profileChanged && (
                   <>
                     <button
