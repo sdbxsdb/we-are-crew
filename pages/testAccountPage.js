@@ -725,7 +725,7 @@ const Account = ({ session }) => {
                         className={`md:mt-4 text-3xl  min-w-max ${
                           status === "Available"
                             ? "text-wearecrewGreen"
-                            : crew.status === "Not Available"
+                            : status === "Not Available"
                             ? "text-wearecrewRed"
                             : "text-wearecrewOrange"
                         }`}
