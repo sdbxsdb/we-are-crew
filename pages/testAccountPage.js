@@ -562,6 +562,10 @@ const Account = ({ session }) => {
     backgroundRepeat: "no-repeat",
   };
 
+  const sortedLocations = [...canWorkIn].sort((a, b) =>
+    a > b ? 1 : -1
+  );
+
   return (
     <>
       {/* PREVIEW PROFILE BUTTON AND MODAL */}
@@ -920,12 +924,12 @@ const Account = ({ session }) => {
                             where_to_vote
                           </span>
                           <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
-                            {sortedLocations.map((willWorkIn, id) => (
+                            {sortedLocations.map((canWorkIn, id) => (
                               <p
-                                key={willWorkIn + id}
+                                key={canWorkIn + id}
                                 className="min-w-max listDividerLines"
                               >
-                                {willWorkIn}
+                                {canWorkIn}
                               </p>
                             ))}
                           </div>
