@@ -27,13 +27,13 @@ export default function Home() {
     if (user?.username || user?.data?.user) {
       if (user?.paid === false) {
         setShowFinishModal(true);
-        console.log("1")
+        // console.log("1")
       } else if (!user?.username) {
         setShowFinishModal(true);
-        console.log("2")
+        // console.log("2")
       } else {
         setShowFinishModal(false);
-        console.log("PAST IFs")
+        // console.log("PAST IFs")
       }
     }
   }, [user]);
