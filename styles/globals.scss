@@ -676,7 +676,7 @@ input::-webkit-inner-spin-button {
 .scroll-prompt {
 	position: absolute;
 	z-index: 998;
-	bottom: -60px;
+	bottom: -80px;
 	left: 50%;
 	margin-left: -80px;
 	width: 160px;
@@ -701,8 +701,8 @@ input::-webkit-inner-spin-button {
 		margin-top: -6px;
 	}
 	.scroll-prompt-arrow > div {
-		width: 36px;
-		height: 36px;
+		width: 26px;
+		height: 26px;
 		border-right: 8px solid #03ABEB;
 		border-bottom: 8px solid #03ABEB;
 		transform: rotate(45deg) translateZ(1px);

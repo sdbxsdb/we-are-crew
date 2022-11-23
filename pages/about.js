@@ -2,7 +2,7 @@ import ShowDemoModal from "../components/ShowDemoModal";
 import Head from "next/head";
 import Link from "next/link";
 import Footer from "../components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -46,6 +46,34 @@ const About = () => {
     setShowNeedCrew(false);
   };
 
+  const [height, setHeight] = useState(
+    typeof window === "undefined" ? 0 : window.innerHeight
+  );
+
+  const updateDimensions = () => {
+    if (typeof window !== "undefined") {
+      setHeight(window.innerHeight);
+      // if (width >= 1024) {
+      //   setMakeFiltersToggleable(true);
+      // }
+    }
+    console.log({height})
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    console.log({height})
+    // if (width >= 1024) {
+    //   setMakeFiltersToggleable(true);
+    //   return;
+    // }
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, [updateDimensions]);
+
+
+
+
+
   return (
     <>
       <Head>
@@ -55,7 +83,7 @@ const About = () => {
       <div className="aboutPage relative">
         <div className="w-full flex justify-center mt-6 md:mt-12">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
-            <div className="md:snap-y md:snap-mandatory md:h-[calc(100vh-105px)] overflow-scroll">
+            <div className={` ${height >= 727 ? "md:snap-y md:snap-mandatory" : ""}  md:h-[calc(100vh-105px)] overflow-scroll`}>
               <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
                 <div className="w-full flex justify-center gap-4 mb-12">
                   <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
