@@ -1808,7 +1808,7 @@ const Account = ({ session }) => {
               </div>
               <div className="cursor-pointer w-full mt-4">
                 <p
-                  className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewDarkBlue hover:brightness-110 transition"
+                  className="text-3xl w-full flex justify-center rounded-md shadow-md p-4 text-white  bg-wearecrewDarkBlue hover:brightness-110 transition"
                   onClick={() => setShowPreviewModal(true)}
                 >
                   Preview Profile
