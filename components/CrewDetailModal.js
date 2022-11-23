@@ -29,7 +29,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
   };
 
   useEffect(() => {
-    console.log("WINDOW-", window.location.href);
+    // console.log("WINDOW-", window.location.href);
     if (show) {
       document.body.style.overflow = "hidden";
       router.query.showModal = true;

@@ -21,19 +21,19 @@ export default function Home() {
 
   const userEmail = user?.data?.user?.email;
 
-  console.log({ user });
+  // console.log({ user });
 
   useEffect(() => {
     if (user?.username) {
       if (user?.paid === false) {
         setShowFinishModal(true);
-        console.log("1")
+        // console.log("1")
       } else if (!user?.username) {
         setShowFinishModal(true);
-        console.log("2")
+        // console.log("2")
       } else {
         setShowFinishModal(false);
-        console.log("3")
+        // console.log("3")
       }
     }
   }, [user]);
