@@ -104,7 +104,8 @@ const About = () => {
                             <AccordionBody>
                               The first platform I&apos;ve found that actually
                               works and does what it says on the tin. <br />{" "}
-                              Having all my credentials in one place, in this format AND have it shareable is fantastic.
+                              Having all my credentials in one place, in this
+                              format AND have it shareable is fantastic.
                               <p className="font-bold mt-4">
                                 {" "}
                                 - Calvin P | Camera Assistant
@@ -120,7 +121,10 @@ const About = () => {
                               &#34;...it&apos;s a no brainer&#34;
                             </AccordionHeader>
                             <AccordionBody>
-                            I’d recommend Get Crew to anyone looking for somewhere to house all their professional information productions are looking for when hiring. For 10p a day, it’s a no brainer.
+                              I’d recommend Get Crew to anyone looking for
+                              somewhere to house all their professional
+                              information productions are looking for when
+                              hiring. For 10p a day, it’s a no brainer.
                               <p className="font-bold mt-4">
                                 - Seb Pannackal | Unit Manager
                               </p>

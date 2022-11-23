@@ -13,7 +13,6 @@ import places from "../places.json";
 import depts from "../depts.json";
 import { useUser } from "../context/user";
 import { deleteCookie } from "cookies-next";
-import CrewDetailModal from "../components/CrewDetailModal";
 
 const Account = ({ session }) => {
   const [loading, setLoading] = useState(true);
@@ -523,240 +522,498 @@ const Account = ({ session }) => {
   return (
     <>
       {/* PREVIEW PROFILE BUTTON AND MODAL */}
-      {/* <div>
-        <div className="w-full flex justify-center">
-          <button>
-            <h1
-              onClick={() => setShowPreviewModal(true)}
-              className="text-wearecrewBlue  text-center text-lg"
+      <div className="opacity-10 cursor-pointer">
+        <small onClick={() => setShowPreviewModal(true)}>Preview Profile</small>
+      </div>
+      {showPreviewModal && (
+        <div>
+          <div
+            onClick={() => setShowPreviewModal(false)}
+            className="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-x-hidden overflow-y-auto z-2000 bg-wearecrewDarkestGrey/80"
+          ></div>
+          <div className="rounded-mg max-w-[900px] rounded-md border-b border-wearecrewBlue p-4 flex items-end flex-col z-3000 overflow-scroll max-h-[calc(100vh-150px)] w-[95%] bg-white shadow-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <button
+              onClick={() => setShowPreviewModal(false)}
+              className="h-[40px] flex justify-end items-center fixed w-auto px-2 [95%] bg-white rounded-full"
             >
-              View an example profile
-            </h1>
-          </button>
-        </div>
-        <CrewDetailModal
-          show={showPreviewModal}
-          id="demoProfile"
-          name="Name"
-          onClose={() => setShowPreviewModal(false)}
-          >
-          <div className="flex gap-x-4">
-            <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start ">
-              <div className="w-full flex flex-col md:flex-row justify-between">
-                <div className="flex gap-x-4 items-center mb-4">
-                  <div
-                    // style={stylingLarge}
-                    className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
-                  ></div>
-                  <div className="">
-                    <div className="">
-                      <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max border-wearecrewBlue">
-                        Marty McFly
-                      </h1>
-                    </div>
-                    <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
-                      Hover Boarder <span className="text-wearecrewBlue">-</span>{" "}
-                      Time Traveller
-                    </div>
-                  </div>
-                </div>
-                <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
-                  <strong
-                    className={`md:mt-4 text-3xl  min-w-max text-wearecrewGreen`}
-                  >
-                    Available
-                  </strong>
-                </div>
-              </div>
-              <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
-                <div className="flex flex-1 flex-col gap-y-6 mt-4">
-                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
-                    <div className="flex items-center gap-x-4">
-                      <span className="material-icons text-wearecrewBlue">
-                        phone_iphone
-                      </span>
-                      <a href={`tel:0044 123 456 78`} className="underline">
-                        0044 123 456 78
-                      </a>
-                    </div>
-                    <button className="text-wearecrewDarkGrey">
-                      <cite>Copy Phone</cite>
-                    </button>
-                  </div>
-                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
-                    <div className="flex items-center gap-x-4">
-                      <span className="material-icons text-wearecrewBlue">
-                        mail
-                      </span>
-                      <a
-                        href={`mailto:email@email.com?subject=I found your profile on Get Crew and want to check your availability!`}
-                        className="underline"
-                      >
-                        marty@mcfly.com
-                      </a>
-                    </div>
-                    <button className="text-wearecrewDarkGrey">
-                      <cite>Copy Email</cite>
-                    </button>
-                  </div>
-                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
-                    <div className="flex items-center gap-x-4">
-                      <span className="material-icons text-wearecrewBlue">
-                        public
-                      </span>
-                      <a
-                        href="https://backtothefuture.com"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline "
-                      >
-                        https://backtothefuture.com
-                      </a>
-                    </div>
-                    <div className="flex flex-1">
-                      <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0">
-                        <cite className="min-w-max">Copy Website</cite>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
-                    <div className="flex items-center gap-x-4">
-                      <span className="material-icons text-wearecrewBlue">
-                        public
-                      </span>
-                      <a
-                        href="https://www.imdb.com/name/nm0000150/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline break-all"
-                      >
-                        https://www.imdb.com/name/nm0000150/
-                      </a>
-                    </div>
-                    <div className="flex flex-1">
-                      <button className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0">
-                        <cite className="min-w-max">Copy IMDB</cite>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">
-                      where_to_vote
-                    </span>
-                    <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
-                      <div>
-                        <p className="min-w-max">Belfast</p>
-                      </div>
-                      <div>
-                        <p className="min-w-max">Dublin</p>
-                      </div>
-                      <div>
-                        <p className="min-w-max">Glasgow</p>
-                      </div>
-                      <div>
-                        <p className="min-w-max">Liverpool</p>
-                      </div>
-                      <div>
-                        <p className="min-w-max">London</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-x-4">
-                    <span className="material-icons text-wearecrewBlue">
-                      military_tech
-                    </span>
+              <svg
+                className="transition fill-current hover:text-wearecrewDarkBlue"
+                width="30px"
+                height="30px"
+                x="0px"
+                y="0px"
+                viewBox="0 0 252 252"
+              >
+                <g>
+                  <path
+                    d="M126,0C56.523,0,0,56.523,0,126s56.523,126,126,126s126-56.523,126-126S195.477,0,126,0z M126,234
+              c-59.551,0-108-48.449-108-108S66.449,18,126,18s108,48.449,108,108S185.551,234,126,234z"
+                  />
+                  <path
+                    d="M164.612,87.388c-3.515-3.515-9.213-3.515-12.728,0L126,113.272l-25.885-25.885c-3.515-3.515-9.213-3.515-12.728,0
+              c-3.515,3.515-3.515,9.213,0,12.728L113.272,126l-25.885,25.885c-3.515,3.515-3.515,9.213,0,12.728
+              c1.757,1.757,4.061,2.636,6.364,2.636s4.606-0.879,6.364-2.636L126,138.728l25.885,25.885c1.757,1.757,4.061,2.636,6.364,2.636
+              s4.606-0.879,6.364-2.636c3.515-3.515,3.515-9.213,0-12.728L138.728,126l25.885-25.885
+              C168.127,96.601,168.127,90.902,164.612,87.388z"
+                  />
+                </g>
+              </svg>
+            </button>
+
+            <div className="w-full h-full">
+              <div className="flex gap-x-4">
+                <div className="w-full flex flex-1 flex-col gap-x-4 gap-y-4 items-start">
+                  <div className="w-full flex flex-col md:flex-row justify-between">
                     <div>
-                      <div className="flex items-center mb-4">
-                        <div className="flex justify-center items-center">
-                          <p className="text-base">
-                            <cite>Mission Could Be A Bit Tricky </cite>
-                          </p>
-                          <span className="text-wearecrewBlue">  |  </span>
-                          <p className="text-base">Focus Puller</p>
+                      {/* TOP LEVEL */}
+                      <div className="flex gap-x-4 items-center mb-4">
+                        <a
+                          href={publicUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={`${
+                            dept === "Acting or Presenting"
+                              ? ""
+                              : "cursor-default"
+                          }`}
+                        >
+                          <div
+                            // style={stylingLarge}
+                            className="rounded-full overflow-hidden w-[100px] h-[100px] flex flex-col items-center justify-center shadow-md mb-2"
+                          ></div>
+                        </a>
+                        <div className="">
+                          <div className="">
+                            <h1 className="text-3xl border-b-2 pb-2 mb-2 max-w-max mr-10 border-wearecrewBlue break-words pr-4">
+                              {username}
+                            </h1>
+                          </div>
+                          <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
+                            {roles.map((role, id) => (
+                              <p
+                                className="text-md md:text-lg listDividerLines break-all"
+                                key={role + id}
+                              >
+                                {role}
+                              </p>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                      <div className="flex items-center mb-4">
-                        <div className="flex justify-center items-center">
-                          <p className="text-base">
-                            <cite>Jurassic Universe</cite>
-                          </p>
-                          <span className="text-wearecrewBlue">  |  </span>
-                          <p className="text-base">Focus Puller</p>
+                      {/* END OF LEVEL */}
+
+                      {/* HEADSHOTS */}
+                      {dept === "Acting or Presenting" && (
+                        <div className="flex justify-between gap-x-8">
+                          {!publicHeadShot1Url.includes("null") ? (
+                            <a
+                              href={publicHeadShot1Url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className={`${
+                                dept === "Acting or Presenting"
+                                  ? ""
+                                  : "cursor-default"
+                              }`}
+                            >
+                              <div
+                                style={headShot1stylingLarge}
+                                className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                              ></div>
+                            </a>
+                          ) : null}
+
+                          {!publicHeadShot2Url.includes("null") ? (
+                            <a
+                              href={publicHeadShot2Url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className={`${
+                                dept === "Acting or Presenting"
+                                  ? ""
+                                  : "cursor-default"
+                              }`}
+                            >
+                              <div
+                                style={headShot2stylingLarge}
+                                className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                              ></div>
+                            </a>
+                          ) : null}
+
+                          {!publicHeadShot3Url.includes("null") ? (
+                            <a
+                              href={publicHeadShot3Url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className={`${
+                                dept === "Acting or Presenting"
+                                  ? ""
+                                  : "cursor-default"
+                              }`}
+                            >
+                              <div
+                                style={headShot3stylingLarge}
+                                className="rounded-full overflow-hidden w-[80px] h-[80px] flex flex-col items-center justify-center shadow-md mb-2"
+                              ></div>
+                            </a>
+                          ) : null}
                         </div>
-                      </div>
-                      <div className="flex items-center mb-4">
-                        <div className="flex justify-center items-center">
-                          <p className="text-base">
-                            <cite>Fast and Furios 324</cite>
-                          </p>
-                          <span className="text-wearecrewBlue">  |  </span>
-                          <p className="text-base">Central Loader</p>
-                        </div>
-                      </div>
+                      )}
+                      {/* END OF // HEADSHOT S */}
+                    </div>
+                    <div className="md:w-[240px] md:ml-2 flex flex-col items-center md:items-end md:pt-10 md:mb-4">
+                      <strong
+                        className={`md:mt-4 text-3xl  min-w-max ${
+                          status === "Available"
+                            ? "text-wearecrewGreen"
+                            : crew.status === "Not Available"
+                            ? "text-wearecrewRed"
+                            : "text-wearecrewOrange"
+                        }`}
+                      >
+                        {status}
+                      </strong>
+                      {status !== "Available" &&
+                        willBeAvailOn !== "" &&
+                        willBeAvailOn !== null && (
+                          <small className="text-right text-wearecrewRed">
+                            <strong>Available from:</strong>{" "}
+                            {willBeAvailOn}
+                          </small>
+                        )}
                     </div>
                   </div>
-                  <div className="flex items-center gap-x-4 -mt-4">
-                    <span className="material-icons text-wearecrewBlue">
-                      school
-                    </span>
-                    <div>
-                      <p className="">Safety Training, First Aid, IMAX</p>
+
+                  <div className="flex flex-col-reverse md:flex-row w-full gap-x-4 gap-y-4">
+                    <div className="flex flex-1 flex-col gap-y-8 pt-4 md:py-0">
+                      {dept === "Acting or Presenting" ? (
+                        <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                          <div className="flex items-center gap-x-4">
+                            <span className="material-icons text-wearecrewBlue">
+                              movie
+                            </span>
+                            <div>
+                              {ageRange && (
+                                <div className="flex gap-x-2">
+                                  <p className="text-wearecrewBlue min-w-max">
+                                    Age Range -
+                                  </p>
+                                  <p>{ageRange}</p>
+                                </div>
+                              )}
+                              {height && (
+                                <div className="flex gap-x-2">
+                                  <p className="text-wearecrewBlue min-w-max">
+                                    Height -
+                                  </p>
+                                  <p>{height}</p>
+                                </div>
+                              )}
+                              {hair && (
+                                <div className="flex gap-x-2">
+                                  <p className="text-wearecrewBlue min-w-max">
+                                    Hair -
+                                  </p>
+                                  <p>{hair}</p>
+                                </div>
+                              )}
+                              {eyes && (
+                                <div className="flex gap-x-2">
+                                  <p className="text-wearecrewBlue min-w-max">
+                                    Eyes -
+                                  </p>
+                                  <p>{eyes}</p>
+                                </div>
+                              )}
+                              {body && (
+                                <div className="flex gap-x-2">
+                                  <p className="text-wearecrewBlue min-w-max">
+                                    Body Type -
+                                  </p>
+                                  <p>{body}</p>
+                                </div>
+                              )}
+                              {dialects && (
+                                <div className="flex gap-x-2">
+                                  <p className="text-wearecrewBlue min-w-max">
+                                    Dialect(s) -
+                                  </p>
+                                  <p>{dialects}</p>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
+
+                      {phone && (
+                        <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                          <div className="flex items-center gap-x-4">
+                            <span className="material-icons text-wearecrewBlue">
+                              phone_iphone
+                            </span>
+                            <a
+                              href={`tel:${phone}`}
+                              className="underline break-all"
+                            >
+                              {phone}
+                            </a>
+                          </div>
+                          <div className="flex flex-1">
+                            <button
+                              // onClick={() => copyPhone()}
+                              className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                            >
+                              <cite className="min-w-max">Copy Phone</cite>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                      {!hidePersonalEmail && (
+                        <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                          <div className="flex items-center gap-x-4">
+                            <span className="material-icons text-wearecrewBlue">
+                              mail
+                            </span>
+                            <a
+                              href={`mailto:${email}?subject=I found your profile on Get Crew.`}
+                              className="underline break-all"
+                            >
+                              {email}
+                            </a>
+                          </div>
+                          <div className="flex flex-1">
+                            <button
+                              // onClick={() => copyEmail()}
+                              className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                            >
+                              <cite className="min-w-max">Copy Email</cite>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+
+                      {website && (
+                        <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                          <div className="flex items-center gap-x-4">
+                            <span className="material-icons text-wearecrewBlue">
+                              public
+                            </span>
+                            <a
+                              href={`http://${website}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="underline break-all"
+                            >
+                              {website}
+                            </a>
+                          </div>
+                          <div className="flex flex-1">
+                            <button
+                              // onClick={() => copyWebsite()}
+                              className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                            >
+                              <cite className="min-w-max">Copy Website</cite>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                      {imdb && (
+                        <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                          <div className="flex items-center gap-x-4">
+                            <span className="material-icons text-wearecrewBlue">
+                              public
+                            </span>
+                            <a
+                              href={`http://${imdb}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="underline break-all"
+                            >
+                              {imdb}
+                            </a>
+                          </div>
+                          <div className="flex flex-1">
+                            <button
+                              // onClick={() => copyIMDB()}
+                              className="text-wearecrewDarkGrey hover:text-wearecrewBlue transition md:w-max text-right flex flex-1 justify-end ml-10 md:ml-0"
+                            >
+                              <cite className="min-w-max">Copy IMDB</cite>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                      {agentName && (
+                        <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
+                          <div className="flex items-center gap-x-4">
+                            <span className="material-icons text-wearecrewBlue">
+                              <span className="material-icons">
+                                local_police
+                              </span>
+                            </span>
+                            <div className="flex flex-col gap-1">
+                              <p className="break-all">{agentName}</p>
+                              <a
+                                href={`mailto:${agentEmail}?subject=I found your clients profile on Get Crew.`}
+                                className="underline break-all"
+                              >
+                                {agentEmail}
+                              </a>
+                              <a
+                                href={`tel:${agentPhone}`}
+                                className="underline break-all"
+                              >
+                                {agentPhone}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {canWorkIn?.length > 0 && (
+                        <div className="flex items-start gap-x-4">
+                          <span className="material-icons text-wearecrewBlue">
+                            where_to_vote
+                          </span>
+                          <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
+                            {sortedLocations.map((willWorkIn, id) => (
+                              <p
+                                key={willWorkIn + id}
+                                className="min-w-max listDividerLines"
+                              >
+                                {willWorkIn}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* {creditsExist && ( */}
+                        <div className="flex items-start gap-x-4">
+                          <span className="material-icons text-wearecrewBlue">
+                            military_tech
+                          </span>
+                          <div>
+                            {credits?.map(
+                              (credits, id) =>
+                                credits.jobTitle !== "" && (
+                                  <div
+                                    key={credits + id}
+                                    className="flex items-center mb-4"
+                                  >
+                                    <div className="flex justify-center">
+                                      <p className="text-base">
+                                        <cite>{credits?.jobTitle}</cite>
+                                      </p>
+                                      <span className="text-wearecrewBlue">
+                                          |  
+                                      </span>
+                                      <p className="text-base">
+                                        {credits?.yourRole}
+                                      </p>
+                                    </div>
+                                  </div>
+                                )
+                            )}
+                          </div>
+                        </div>
+                      {/* )} */}
+
+                      {qualis ? (
+                        <div className="flex items-center gap-x-4 -mt-4">
+                          <span className="material-icons text-wearecrewBlue">
+                            school
+                          </span>
+
+                          <div>
+                            <p className="">{qualis}</p>
+                          </div>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {bio && (
+                        <div
+                          className={`flex items-center gap-x-4 ${
+                            qualis ? "" : "-mt-4"
+                          }`}
+                        >
+                          <>
+                            <span className="material-icons text-wearecrewBlue">
+                              emoji_people
+                            </span>
+                            <p>{bio}</p>
+                          </>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                  <div className="flex items-start gap-x-4 -mt-2">
-                    <span className="material-icons text-wearecrewBlue">
-                      emoji_people
-                    </span>
-                    <p>
-                      Martin Seamus ’Marty’ McFly, Sr. is the main protagonist of
-                      the Back to the Future franchise. He is the world’s second
-                      time traveler (after Einstein), the first to travel to the
-                      past, and the first human to travel through time. He was
-                      also a high school student at Hill Valley High School in
-                      1985. He’s also a good Focus Puller.
-                    </p>
-                  </div>
-                </div>
-                <div className="w-full flex justify-center md:w-3/12 ">
-                  <div className="w-full flex flex-col gap-y-4">
-                    <a
-                      href="tel:0044123456789"
-                      className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white"
-                    >
-                      <h1 className="text-3xl">Call</h1>
-                    </a>
-                    <a
-                      href={`mailto:email@email.com?subject=I found your profile on Get Crew!`}
-                      className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white"
-                    >
-                      <h1 className="text-3xl">Email</h1>
-                    </a>
-                    <a
-                      href="http://backtothefuture.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-md bg-wearecrewTeal p-2 shadow-md flex items-center justify-center text-white"
-                    >
-                      <h1 className="text-3xl">Website</h1>
-                    </a>
-                    <a
-                      download
-                      href=""
-                      className="border-2 text-center border-wearecrewBlue p-2 rounded shadow-md"
-                    >
-                      <h1 className="text-lg">Download Personal CV</h1>
-                    </a>
-                    <button className="border-2 flex gap-x-2 justify-center border-wearecrewBlue p-2 rounded shadow-md">
-                      <span className="material-icons">ios_share</span>
-                      <h1 className="text-lg">Share Profile</h1>
-                    </button>
+                    <div className="w-full flex justify-center md:w-3/12 ">
+                      <div className="w-full md:w-full flex flex-col gap-y-4">
+                        {phone && (
+                          <a
+                            href={`tel:${phone}`}
+                            className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                          >
+                            <h1 className="text-3xl">Call</h1>
+                          </a>
+                        )}
+
+                        {agentPhone && (
+                          <a
+                            href={`tel:${agentPhone}`}
+                            className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                          >
+                            <h1 className="text-3xl text-center">Call Agent</h1>
+                          </a>
+                        )}
+
+                        {!hidePersonalEmail && (
+                          <a
+                            href={`mailto:${email}?subject=I found your profile on Get Crew.`}
+                            className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                          >
+                            <h1 className="text-3xl">Email</h1>
+                          </a>
+                        )}
+
+                        {hidePersonalEmail && (
+                          <a
+                            href={`mailto:${agentEmail}?subject=I found your profile on Get Crew.`}
+                            className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
+                          >
+                            <h1 className="text-3xl text-center">
+                              Email Agent
+                            </h1>
+                          </a>
+                        )}
+
+                        {cvURL && (
+                          <a
+                            download
+                            href={publicCVUrl}
+                            className="border-2 bg-white text-center border-wearecrewBlue p-2 rounded shadow-md cursor-pointer hover:brightness-90 transition"
+                          >
+                            <h1 className="text-lg">Download Personal CV</h1>
+                          </a>
+                        )}
+
+                        <button
+                          // onClick={() => shareProfileHandler()}
+                          className="border-2 bg-white flex gap-x-2 justify-center border-wearecrewBlue p-2 rounded shadow-md hover:brightness-90 transition"
+                        >
+                          <span className="material-icons">ios_share</span>
+                          <h1 className="text-lg">Share Profile</h1>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </CrewDetailModal>
-      </div> */}
+        </div>
+      )}
       {/* END OF // PREVIEW PROFILE BUTTON AND MODAL */}
 
       {showFinsihProfileError && (
@@ -800,17 +1057,18 @@ const Account = ({ session }) => {
           className=" w-full flex flex-col items-center justify-center py-12 relative"
         >
           <div className="bg-white">
-
             {/* PROFILE NOT LIVE TOP BANNER */}
             {paid !== true && (
-            <div className="sticky top-[81px] border-b-2 border-wearecrewOrange text-center text-wearecrewOrange z-1000 bg-white rounded-t-md shadow-md w-full py-4 flex items-center justify-center gap-4">
-              <strong>You&apos;re profile isn&apos;t currently live...</strong>
-              <Link href="/pricing">
-                <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
-                  <a className="text-lg min-w-max">Go live now</a>
-                </button>
-              </Link>
-            </div>
+              <div className="sticky top-[81px] border-b-2 border-wearecrewOrange text-center text-wearecrewOrange z-1000 bg-white rounded-t-md shadow-md w-full py-4 flex items-center justify-center gap-4">
+                <strong>
+                  You&apos;re profile isn&apos;t currently live...
+                </strong>
+                <Link href="/pricing">
+                  <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
+                    <a className="text-lg min-w-max">Go live now</a>
+                  </button>
+                </Link>
+              </div>
             )}
             {/* END OF // PROFILE NOT LIVE TOP BANNER */}
 

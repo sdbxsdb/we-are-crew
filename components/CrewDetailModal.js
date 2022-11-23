@@ -7,45 +7,59 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
   const router = useRouter();
 
   const slugify = (str) =>
-  str
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
   useEffect(() => {
     setIsBrowser(true);
   }, []);
 
   const handleClose = () => {
-    onClose()
-    router.replace(`${router.asPath.split('?')[0]}`, undefined, {scroll: false}, { shallow: true });
+    onClose();
+    router.replace(
+      `${router.asPath.split("?")[0]}`,
+      undefined,
+      { scroll: false },
+      { shallow: true }
+    );
   };
 
-
   useEffect(() => {
+    console.log("WINDOW-", window.location.href);
     if (show) {
       document.body.style.overflow = "hidden";
       router.query.showModal = true;
       const param = slugify(name) + "_" + id;
       router.query.user = param;
 
-
-      if (!window.location.href.includes("about")) {
-        router.replace({
-          pathname: '/I-need-crew/depts/crew-list/'+router.query.crewList,
-          query: 'user='+router.query.user + "&showModal=" + router.query.showModal,
-        }, undefined, { shallow: true });
-      } 
+      if (
+        !window.location.href.includes("about") &&
+        !window.location.href.includes("testAccountPage") &&
+        !window.location.href.includes("my-crew")
+      ) {
+        console.log("TESTSETSETETS");
+        router.replace(
+          {
+            pathname: "/I-need-crew/depts/crew-list/" + router.query.crewList,
+            query:
+              "user=" +
+              router.query.user +
+              "&showModal=" +
+              router.query.showModal,
+          },
+          undefined,
+          { shallow: true }
+        );
+      }
     }
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [show]);
-
-
 
   const modalContent = show ? (
     <>
@@ -83,7 +97,6 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
         </button>
 
         <div className="w-full h-full">{children}</div>
-
       </div>
     </>
   ) : null;
