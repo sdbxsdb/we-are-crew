@@ -576,16 +576,11 @@ const Account = ({ session }) => {
     backgroundRepeat: "no-repeat",
   };
 
-  const sortedLocations = [...canWorkIn].sort((a, b) =>
-    a > b ? 1 : -1
-  );
+  const sortedLocations = [...canWorkIn].sort((a, b) => (a > b ? 1 : -1));
 
   return (
     <>
-      {/* PREVIEW PROFILE BUTTON AND MODAL */}
-      <div className="opacity-10 cursor-pointer">
-        <small onClick={() => setShowPreviewModal(true)}>Preview Profile</small>
-      </div>
+      {/* PREVIEW PROFILE MODAL */}
       {showPreviewModal && (
         <div>
           <div
@@ -739,8 +734,7 @@ const Account = ({ session }) => {
                         willBeAvailOn !== "" &&
                         willBeAvailOn !== null && (
                           <small className="text-right text-wearecrewRed">
-                            <strong>Available from:</strong>{" "}
-                            {willBeAvailOn}
+                            <strong>Available from:</strong> {willBeAvailOn}
                           </small>
                         )}
                     </div>
@@ -951,34 +945,34 @@ const Account = ({ session }) => {
                       )}
 
                       {/* {creditsExist && ( */}
-                        <div className="flex items-start gap-x-4">
-                          <span className="material-icons text-wearecrewBlue">
-                            military_tech
-                          </span>
-                          <div>
-                            {credits?.map(
-                              (credits, id) =>
-                                credits.jobTitle !== "" && (
-                                  <div
-                                    key={credits + id}
-                                    className="flex items-center mb-4"
-                                  >
-                                    <div className="flex justify-center">
-                                      <p className="text-base">
-                                        <cite>{credits?.jobTitle}</cite>
-                                      </p>
-                                      <span className="text-wearecrewBlue">
-                                          |  
-                                      </span>
-                                      <p className="text-base">
-                                        {credits?.yourRole}
-                                      </p>
-                                    </div>
+                      <div className="flex items-start gap-x-4">
+                        <span className="material-icons text-wearecrewBlue">
+                          military_tech
+                        </span>
+                        <div>
+                          {credits?.map(
+                            (credits, id) =>
+                              credits.jobTitle !== "" && (
+                                <div
+                                  key={credits + id}
+                                  className="flex items-center mb-4"
+                                >
+                                  <div className="flex justify-center">
+                                    <p className="text-base">
+                                      <cite>{credits?.jobTitle}</cite>
+                                    </p>
+                                    <span className="text-wearecrewBlue">
+                                        |  
+                                    </span>
+                                    <p className="text-base">
+                                      {credits?.yourRole}
+                                    </p>
                                   </div>
-                                )
-                            )}
-                          </div>
+                                </div>
+                              )
+                          )}
                         </div>
+                      </div>
                       {/* )} */}
 
                       {qualis ? (
@@ -1075,7 +1069,7 @@ const Account = ({ session }) => {
           </div>
         </div>
       )}
-      {/* END OF // PREVIEW PROFILE BUTTON AND MODAL */}
+      {/* END OF // PREVIEW PROFILE MODAL */}
 
       {showFinsihProfileError && (
         <div className="bg-white/70 w-screen h-screen fixed z-2000 flex items-center justify-center top-0 left-0">
@@ -1137,54 +1131,56 @@ const Account = ({ session }) => {
               {/* STICKY SAVE BUTTON */}
               <div className="hidden sm:block sticky w-full top-40 transform translate-x-10 h-[40px] -translate-y-6 z-50 text-right">
                 {profileChanged && (
-                  <button
-                    className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md hover:brightness-110 transition"
-                    onClick={(e) =>
-                      dept !== "" &&
-                      dept !== null &&
-                      dept !== "Choose Department" &&
-                      username !== "" &&
-                      username !== null &&
-                      roles !== "" &&
-                      roles !== null &&
-                      roles.length > 0
-                        ? updateProfile({
-                            username,
-                            website,
-                            imgURL,
-                            status,
-                            willBeAvailOn,
-                            dept,
-                            roles,
-                            canStepUp,
-                            qualis,
-                            imdb,
-                            phone,
-                            bio,
-                            canWorkIn,
-                            credits,
-                            cvURL,
-                            paid,
-                            ageRange,
-                            height,
-                            hair,
-                            eyes,
-                            body,
-                            dialects,
-                            agentName,
-                            agentEmail,
-                            agentPhone,
-                            hidePersonalEmail,
-                            headShot1,
-                            headShot2,
-                            headShot3,
-                          })
-                        : profileNotComplete(e)
-                    }
-                    disabled={loading}
-                  >
-                    {loading ? "Saving ..." : "Save"}
-                  </button>
+                  <>
+                    <button
+                      className="p-4 bg-wearecrewGreen text-white shadow-md rounded-md hover:brightness-110 transition"
+                      onClick={(e) =>
+                        dept !== "" &&
+                        dept !== null &&
+                        dept !== "Choose Department" &&
+                        username !== "" &&
+                        username !== null &&
+                        roles !== "" &&
+                        roles !== null &&
+                        roles.length > 0
+                          ? updateProfile({
+                              username,
+                              website,
+                              imgURL,
+                              status,
+                              willBeAvailOn,
+                              dept,
+                              roles,
+                              canStepUp,
+                              qualis,
+                              imdb,
+                              phone,
+                              bio,
+                              canWorkIn,
+                              credits,
+                              cvURL,
+                              paid,
+                              ageRange,
+                              height,
+                              hair,
+                              eyes,
+                              body,
+                              dialects,
+                              agentName,
+                              agentEmail,
+                              agentPhone,
+                              hidePersonalEmail,
+                              headShot1,
+                              headShot2,
+                              headShot3,
+                            })
+                          : profileNotComplete(e)
+                      }
+                      disabled={loading}
+                    >
+                      {loading ? "Saving ..." : "Save"}
+                    </button>
+                  </>
                 )}
               </div>
               {/* //END OF STICKY SAVE BUTTON */}
@@ -1810,6 +1806,12 @@ const Account = ({ session }) => {
                   </button>
                 )}
               </div>
+              <div className="cursor-pointer w-full mt-4">
+                    <button
+                      className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewDarkBlue hover:brightness-110 transition" onClick={() => setShowPreviewModal(true)}>
+                        Preview Profile
+                      </button>
+                    </div>
             </div>
             <div className=" w-full mt-8 flex flex-col items-center px-2">
               <h1 className="text-center text-2xl mb-2">Danger Zone</h1>
