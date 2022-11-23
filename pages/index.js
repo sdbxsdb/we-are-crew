@@ -38,7 +38,23 @@ export default function Home() {
     }
   }, [user]);
 
+  const [height, setHeight] = useState(
+    typeof window === "undefined" ? 0 : window.innerHeight
+  );
 
+  const updateDimensions = () => {
+    if (typeof window !== "undefined") {
+      setHeight(window.innerHeight);
+
+    }
+    console.log({height})
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    console.log({height})
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, [updateDimensions]);
 
   return (
     <>
@@ -49,7 +65,7 @@ export default function Home() {
       <div className="w-full h-full">
         <Banner />
 
-        <div className="mt-0 flex flex-col justify-center items-center w-full overflow-scroll md:h-[calc(100vh-205px)] md:mb-0 mb-12">
+        <div className={` ${height >= 737 ? "md:h-[calc(100vh-205px)]" : ""} mt-0 flex flex-col justify-center items-center w-full overflow-scroll  md:mb-0 mb-12`}>
           {showFinishModal && (
             <div>
               <div

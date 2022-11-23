@@ -53,20 +53,14 @@ const About = () => {
   const updateDimensions = () => {
     if (typeof window !== "undefined") {
       setHeight(window.innerHeight);
-      // if (width >= 1024) {
-      //   setMakeFiltersToggleable(true);
-      // }
+
     }
-    console.log({height})
+    // console.log({height})
   };
 
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
-    console.log({height})
-    // if (width >= 1024) {
-    //   setMakeFiltersToggleable(true);
-    //   return;
-    // }
+    // console.log({height})
     return () => window.removeEventListener("resize", updateDimensions);
   }, [updateDimensions]);
 
@@ -375,7 +369,7 @@ const About = () => {
                                 crew.
                               </h1>
                               <div className="flex flex-col md:flex-row gap-4 items-center">
-                                <div className="my-8 w-full md:w-1/2 flex flex-col gap-y-4 text-lg">
+                                <div className="my-4 w-full md:w-1/2 flex flex-col gap-y-4 text-lg">
                                   <p>
                                     <strong>1.</strong> Pick a department.
                                   </p>
