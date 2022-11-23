@@ -582,7 +582,7 @@ const Account = ({ session }) => {
     <>
       {/* PREVIEW PROFILE MODAL */}
       {showPreviewModal && (
-        <div>
+        <>
           <div
             onClick={() => setShowPreviewModal(false)}
             className="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-x-hidden overflow-y-auto z-2000 bg-wearecrewDarkestGrey/80"
@@ -656,7 +656,7 @@ const Account = ({ session }) => {
                           </div>
                         </div>
                       </div>
-                      {/* END OF LEVEL */}
+                      {/* END OF TOP LEVEL */}
 
                       {/* HEADSHOTS */}
                       {dept === "Acting or Presenting" && (
@@ -932,7 +932,7 @@ const Account = ({ session }) => {
                             where_to_vote
                           </span>
                           <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
-                            {sortedLocations.map((canWorkIn, id) => (
+                            {sortedLocations?.map((canWorkIn, id) => (
                               <p
                                 key={canWorkIn + id}
                                 className="min-w-max listDividerLines"
@@ -1045,8 +1045,8 @@ const Account = ({ session }) => {
 
                         {cvURL && (
                           <a
-                            download
-                            href={publicCVUrl}
+                            // download
+                            // href={publicCVUrl}
                             className="border-2 bg-white text-center border-wearecrewBlue p-2 rounded shadow-md cursor-pointer hover:brightness-90 transition"
                           >
                             <h1 className="text-lg">Download Personal CV</h1>
@@ -1067,7 +1067,7 @@ const Account = ({ session }) => {
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
       {/* END OF // PREVIEW PROFILE MODAL */}
 
@@ -1807,11 +1807,13 @@ const Account = ({ session }) => {
                 )}
               </div>
               <div className="cursor-pointer w-full mt-4">
-                    <button
-                      className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewDarkBlue hover:brightness-110 transition" onClick={() => setShowPreviewModal(true)}>
-                        Preview Profile
-                      </button>
-                    </div>
+                <p
+                  className="text-3xl w-full rounded-md shadow-md p-4 text-white  bg-wearecrewDarkBlue hover:brightness-110 transition"
+                  onClick={() => setShowPreviewModal(true)}
+                >
+                  Preview Profile
+                </p>
+              </div>
             </div>
             <div className=" w-full mt-8 flex flex-col items-center px-2">
               <h1 className="text-center text-2xl mb-2">Danger Zone</h1>

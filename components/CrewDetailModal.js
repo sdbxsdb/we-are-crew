@@ -41,7 +41,6 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
         !window.location.href.includes("testAccountPage") &&
         !window.location.href.includes("my-crew")
       ) {
-        console.log("TESTSETSETETS");
         router.replace(
           {
             pathname: "/I-need-crew/depts/crew-list/" + router.query.crewList,
