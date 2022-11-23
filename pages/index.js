@@ -103,7 +103,7 @@ export default function Home() {
                           &#10003;
                         </div>
                       ) : (
-                        <div className="font-bold flex items-center justify-center text-white w-[30px] h-[30px] text-1xl bg-wearecrewRed rounded-full px-1 py-0.5 mr-2">
+                        <div className="font-bold flex items-center justify-center text-white w-[30px] h-[30px] text-1xl bg-wearecrewOrange rounded-full px-1 py-0.5 mr-2">
                           &#10005;
                         </div>
                       )}
@@ -120,7 +120,7 @@ export default function Home() {
                           &#10003;
                         </div>
                       ) : (
-                        <div className="font-bold flex items-center justify-center text-white w-[30px] h-[30px] text-1xl bg-wearecrewRed rounded-full px-1 py-0.5 mr-2">
+                        <div className="font-bold flex items-center justify-center text-white w-[30px] h-[30px] text-1xl bg-wearecrewOrange rounded-full px-1 py-0.5 mr-2">
                           &#10005;
                         </div>
                       )}
