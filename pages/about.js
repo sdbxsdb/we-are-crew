@@ -84,8 +84,8 @@ const About = () => {
         <div className="w-full flex justify-center mt-6 md:mt-12">
           <div className="flex flex-col items-center justify-center max-w-[1200px] gap-x-4 gap-y-4">
             <div className={` ${height >= 727 ? "md:snap-y md:snap-mandatory" : ""}  md:h-[calc(100vh-105px)] overflow-scroll`}>
-              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
-                <div className="w-full flex justify-center gap-4 mb-12">
+              <div className={`snap-start mt-12 md:mt-0 w-screen px-4 ${height >= 727 ? "md:h-[calc(100vh-105px)]" : ""}  flex flex-col items-start justify-center relative`}>
+                <div className="w-full flex justify-center gap-4 py-12 mb-12">
                   <div className="flex flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 md:mb-0 mb-12 flex flex-col justify-center items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
@@ -195,8 +195,8 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
-                <div className="w-full flex justify-center gap-4 mb-12">
+              <div className={`snap-start mt-12 md:mt-0 w-screen px-4 ${height >= 727 ? "md:h-[calc(100vh-105px)]" : ""} flex flex-col items-start justify-center relative`}>
+                <div className="w-full flex justify-center gap-4 py-12 mb-12">
                   <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
@@ -249,8 +249,8 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="snap-start mt-12 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative">
-                <div className="w-full flex justify-center gap-4 mb-12">
+              <div className={`snap-start mt-12 md:mt-0 w-screen px-4 ${height >= 727 ? "md:h-[calc(100vh-105px)]" : ""} flex flex-col items-start justify-center relative`}>
+                <div className="w-full flex justify-center gap-4 py-12 mb-12">
                   <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
@@ -323,7 +323,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-start pt-6 overflow-hidden relative">
+              <div className={`snap-start w-screen px-4 ${height >= 727 ? "md:h-[calc(100vh-105px)]" : ""} flex flex-col items-start justify-start pt-6 overflow-hidden relative`}>
                 <div className="w-full flex justify-center items-center gap-4 mb-12 mt-12">
                   <div className="w-full max-w-[1200px]">
                     <div className="w-full text-left flex flex-col md:flex-row items-center justify-between">
@@ -483,8 +483,8 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="snap-start w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative overflow-hidden ">
-                <div className="w-full flex justify-center gap-4 mb-12">
+              <div className={`snap-start w-screen px-4 ${height >= 727 ? "md:h-[calc(100vh-105px)]" : ""} flex flex-col items-start justify-center relative overflow-hidden `}>
+                <div className="w-full flex justify-center gap-4 py-12 mb-12">
                   <div className="flex flex-col md:flex-row  gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl mb-4 md:mb-0">
@@ -549,8 +549,8 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="snap-start mt-16 md:mt-0 w-screen px-4 md:h-[calc(100vh-105px)] flex flex-col items-start justify-center relative pb-8 md:pb-0">
-                <div className="w-full flex justify-center gap-4 mb-12">
+              <div className={`snap-start mt-16 md:mt-0 w-screen px-4 ${height >= 727 ? "md:h-[calc(100vh-105px)]" : ""} flex flex-col items-start justify-center relative pb-8 md:pb-0`}>
+                <div className="w-full flex justify-center gap-4 mb-12 py-12">
                   <div className="flex w-full flex-col md:flex-row gap-x-12 max-w-[1200px]">
                     <div className="w-full md:w-1/2 flex items-center">
                       <h1 className="text-4xl mb-4 md:mb-0 w-full">
