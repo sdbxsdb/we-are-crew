@@ -1615,7 +1615,7 @@ const Account = ({ session }) => {
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="imdb">IMDB Link</label>
+                    <label htmlFor="imdb">IMDB Link - eg. https://www.imdb.com/name/nm0000150/</label>
                   </li>
                   {/* //END OF IMDB */}
                   {/* CAN WORK IN */}
