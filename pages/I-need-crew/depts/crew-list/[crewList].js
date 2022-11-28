@@ -19,8 +19,8 @@ const CrewList = ({ users }) => {
 
   const [foundTitle, setFoundTitle] = useState(sortedUsersByName);
   // const allTitlesOnly = sortedUsersByTitle.map((user) => user.title);
-  const allRolesOnly = users.map((user) => user?.roles);
-  const allLocationsOnly = users.map((user) => user?.canWorkIn);
+  const allRolesOnly = users?.map((user) => user?.roles);
+  const allLocationsOnly = users?.map((user) => user?.canWorkIn);
   const [avail, setAvail] = useState("All Availability");
   const [title, setTitle] = useState([]);
   const [role, setRole] = useState([]);
@@ -99,19 +99,19 @@ const CrewList = ({ users }) => {
   const allLocationsInOneArray = [];
   const allRolesInOneArray = [];
 
-  allLocationsOnly.map((locations) => {
+  allLocationsOnly?.map((locations) => {
     // console.log(locations)
-    locations.map((location) => {
+    locations?.map((location) => {
       // console.log(location)
-      allLocationsInOneArray.push(location);
+      allLocationsInOneArray?.push(location);
     });
   });
 
-  allRolesOnly.map((roles) => {
+  allRolesOnly?.map((roles) => {
     // console.log(roles)
-    roles.map((role) => {
+    roles?.map((role) => {
       // console.log(role)
-      allRolesInOneArray.push(role);
+      allRolesInOneArray?.push(role);
     });
   });
 
