@@ -1612,7 +1612,6 @@ const Account = ({ session }) => {
                       className="border shadow-md w-full"
                       required
                       onChange={(e) => setImdb(e.target.value)}
-                      placeholder="https://www.imdb.com/name/nm0000150/"
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>

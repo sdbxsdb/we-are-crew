@@ -1612,10 +1612,11 @@ const Account = ({ session }) => {
                       className="border shadow-md w-full"
                       required
                       onChange={(e) => setImdb(e.target.value)}
+
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="imdb">IMDB</label>
+                    <label htmlFor="imdb">IMDB Link - eg. https://www.imdb.com/name/nm0000150/</label>
                   </li>
                   {/* //END OF IMDB */}
                   {/* CAN WORK IN */}
@@ -1667,7 +1668,7 @@ const Account = ({ session }) => {
                   {/* WEBSITE */}
                   <li className="relative styledList w-full md:w-2/3">
                     <input
-                      name="name"
+                      name="website"
                       type="text"
                       defaultValue={website}
                       placeholder="www.mywebsite.com"
@@ -1676,7 +1677,7 @@ const Account = ({ session }) => {
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="name">Website</label>
+                    <label htmlFor="website">Website</label>
                   </li>
                   {/* //END OF WEBSITE */}
                   {/* PHONE */}
