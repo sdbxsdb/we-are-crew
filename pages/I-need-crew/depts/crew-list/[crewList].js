@@ -36,8 +36,7 @@ const CrewList = ({ users }) => {
   const [roleFilterApplied, setRoleFilterApplied] = useState(false);
   const [locationFilterApplied, setLocationFilterApplied] = useState(false);
 
-  const filteredUsers = foundTitle
-    .filter((user) => {
+  const filteredUsers = foundTitle?.filter((user) => {
       if (avail === undefined || avail === "All Availability") {
         return true;
       }
@@ -70,7 +69,7 @@ const CrewList = ({ users }) => {
       return includeUser;
     })
     .filter((user) => {
-      if (user?.username.toLowerCase().includes(singlePersonResults)) {
+      if (user?.username?.toLowerCase().includes(singlePersonResults)) {
         return true;
       }
     });
