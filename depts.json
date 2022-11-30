@@ -17,8 +17,8 @@
     "titles": ["Action Vehicle Supplier"]
   },
   {
-    "dept": "Acting or Presenting",
-    "titles": ["Actor", "Presenter", "Voice Actor", "Background Artist"]
+    "dept": "Acting and Presenting",
+    "titles": ["Actor", "Presenter", "Background Artist"]
   },
   {
     "dept": "Advisors",
@@ -536,5 +536,9 @@
   {
     "dept": "Vision Mixing",
     "titles": ["Vision Mixer"]
+  },
+  {
+    "dept": "Voice Over",
+    "titles": ["Voice Over Artist"]
   }
 ]
