@@ -1116,16 +1116,16 @@ const Account = ({ session }) => {
           <div className="bg-white">
             {/* PROFILE NOT LIVE TOP BANNER */}
             {paid !== true && (
-              <div className="sticky top-[81px] border-b-2 border-wearecrewOrange text-center text-wearecrewOrange z-1000 bg-white rounded-t-md shadow-md w-full py-4 flex items-center justify-center gap-4 px-4">
-                <strong>
-                  You&apos;re profile isn&apos;t currently live...
-                </strong>
-                <Link href="/pricing">
-                  <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
-                    <a className="text-lg min-w-max">Go live now</a>
-                  </button>
-                </Link>
-              </div>
+              <div className="sticky top-[105px] md:top-[81px] border-b-2 border-wearecrewOrange text-center text-wearecrewOrange z-1000 bg-white rounded-t-md shadow-md w-full py-4 mb-4 md:mb-0 flex items-center justify-center gap-4 px-4">
+              <strong>
+                Your profile isn&apos;t currently live...
+              </strong>
+              <Link href="/pricing">
+                <button className="text-white hoverScale p-2 rounded-md cursor-pointer bg-wearecrewGreen hover:brightness-110 transition shadow-md min-w-max">
+                  <a className="text-lg min-w-max">Go live now</a>
+                </button>
+              </Link>
+            </div>
             )}
             {/* END OF // PROFILE NOT LIVE TOP BANNER */}
 
@@ -1612,10 +1612,12 @@ const Account = ({ session }) => {
                       className="border shadow-md w-full"
                       required
                       onChange={(e) => setImdb(e.target.value)}
+
                     />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label htmlFor="imdb">IMDB Link - eg. https://www.imdb.com/name/nm0000150/</label>
+                    <label htmlFor="imdb" className="break-all flex">IMDB Link <span className="hidden md:flex ml-2">- eg. https://www.imdb.com/name/nm0000150/</span></label>
+                    <label htmlFor="imdb" className="break-all flex">IMDB Link <span className="md:hidden flex ml-2">- eg. www.your-imdb.com</span></label>
                   </li>
                   {/* //END OF IMDB */}
                   {/* CAN WORK IN */}
