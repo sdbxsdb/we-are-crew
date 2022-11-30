@@ -153,7 +153,7 @@ export default function Home() {
                   <div className="neumorphBoxMd cursor-pointer transform transition hover:scale-102 w-min-max text-center rounded-md group px-4 py-2 text-2xl">
                     <Link href="/I-need-crew/depts">
                       <a className=" w-full text-center group-hover:opacity-70 transition text-wearecrewBlue">
-                        <h1>Go to Profile</h1>
+                        <h1>Finish setting up your profile</h1>
                       </a>
                     </Link>
                   </div>
