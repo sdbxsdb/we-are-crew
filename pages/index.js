@@ -45,7 +45,6 @@ export default function Home() {
   const updateDimensions = () => {
     if (typeof window !== "undefined") {
       setHeight(window.innerHeight);
-
     }
     // console.log({height})
   };
@@ -65,7 +64,11 @@ export default function Home() {
       <div className="w-full h-full">
         <Banner />
 
-        <div className={` ${height >= 737 ? "md:h-[calc(100vh-205px)]" : ""} mt-0 flex flex-col justify-center items-center w-full overflow-scroll  md:mb-0 mb-12`}>
+        <div
+          className={` ${
+            height >= 737 ? "md:h-[calc(100vh-205px)]" : ""
+          } mt-0 flex flex-col justify-center items-center w-full overflow-scroll  md:mb-0 mb-12`}
+        >
           {showFinishModal && (
             <div>
               <div
@@ -147,6 +150,13 @@ export default function Home() {
                       </Link>
                     </strong>
                   </div>
+                  <div className="neumorphBoxMd cursor-pointer transform transition hover:scale-102 w-min-max text-center rounded-md group px-4 py-2 text-2xl">
+                    <Link href="/I-need-crew/depts">
+                      <a className=" w-full text-center group-hover:opacity-70 transition text-wearecrewBlue">
+                        <h1>Go to Profile</h1>
+                      </a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,6 +175,7 @@ export default function Home() {
               Select an option below to get started.
             </cite>
           </div>
+
           <div className="flex gap-x-4 gap-y-4 flex-col md:flex-row w-full md:justify-between items-center px-4 md:px-12 pb-8 md:py-12 max-w-[1200px]">
             <LargeButton text="I need crew" link="/I-need-crew/depts" />
             <LargeButton
