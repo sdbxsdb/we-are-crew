@@ -188,16 +188,30 @@ export default function Home() {
             <CarouselProvider
               className="py-4"
               naturalSlideWidth={100}
-              naturalSlideHeight={125}
-              totalSlides={3}
+              naturalSlideHeight={150}
+              totalSlides={4}
               isPlaying={true}
-              interval={5000}
+              interval={10000}
               dragStep={1}
               infinite={true}
               isIntrinsicHeight={true}
             >
               <Slider>
                 <Slide index={0} className="">
+                  <div className="text-center flex flex-col justify-center items-center  h-[180px] md:h-[120px]">
+                    <cite className="flex">
+                      <div className="w-full">
+                        <span className="font-bold mr-2 text-2xl">&#34;</span> <span className="text-wearecrewBlue">Get Crew</span> provides the perfect tool for all busy industry professionals to keep tabs on who&apos;s available when. <br /> The site design is simple and time efficient to use and its value to <br /> Production Companies, Producers, Production Managers and all freelance crew will be immense.
+                        <span className="font-bold ml-2 text-2xl">&#34;</span>
+                      </div>
+                    </cite>
+                    <p className="font-bold mt-4">
+                      {" "}
+                      - Peter McAleese | Producer
+                    </p>
+                  </div>
+                </Slide>
+                <Slide index={1} className="">
                   <div className="text-center flex flex-col justify-center items-center  h-[180px] md:h-[100px]">
                     <cite className="flex">
                       <div className="w-full">
@@ -216,7 +230,7 @@ export default function Home() {
                     </p>
                   </div>
                 </Slide>
-                <Slide index={1}>
+                <Slide index={2}>
                   <div className="text-center flex flex-col justify-center items-center  h-[160px] md:h-[100px]">
                     <cite>
                       &#34; The first platform I&apos;ve found that actually
@@ -230,7 +244,7 @@ export default function Home() {
                     </p>
                   </div>
                 </Slide>
-                <Slide index={2}>
+                <Slide index={3}>
                   <div className="text-center flex flex-col justify-center items-center  h-[160px] md:h-[100px]">
                     <cite className="flex">
                       <div className="w-full">
@@ -257,7 +271,10 @@ export default function Home() {
                 <Dot slide={1} className="mr-4">
                   &#9673;
                 </Dot>
-                <Dot slide={2} className="">
+                <Dot slide={2} className="mr-4">
+                  &#9673;
+                </Dot>
+                <Dot slide={3} className="">
                   &#9673;
                 </Dot>
               </DotGroup>

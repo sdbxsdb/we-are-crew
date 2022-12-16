@@ -89,11 +89,29 @@ const About = () => {
                       </h1>
                       <div className="mt-12 text-lg">
                         <cite className="font-bold text-2xl mb-12">
-                          - What people are saying
+                          What people are saying...
                         </cite>
                         <>
                           <Accordion
                             className="mt-4"
+                            open={open === 4}
+                            icon={<Icon id={4} open={open} />}
+                          >
+                            <AccordionHeader onClick={() => handleOpen(4)}>
+                              &#34;...its value will be immense&#34;
+                            </AccordionHeader>
+                            <AccordionBody>
+                            <span className="text-wearecrewBlue">
+                                Get Crew
+                              </span> provides the perfect tool for all busy industry professionals to keep tabs on who&apos;s available when. <br /> The site design is simple and time efficient to use and its value to Production Companies, Producers, Production Managers and all freelance crew will be immense.
+                              <p className="font-bold mt-4">
+                                {" "}
+                                - Peter McAleese | Producer
+                              </p>
+                            </AccordionBody>
+                          </Accordion>
+                          <hr />
+                          <Accordion
                             open={open === 1}
                             icon={<Icon id={1} open={open} />}
                           >
