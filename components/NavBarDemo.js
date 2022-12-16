@@ -118,7 +118,7 @@ const NavBar = () => {
               {showPartnersContent && (
                 <div
                   ref={dropDownRef}
-                  className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform top-8 -translate-x-1/2 border-2 left-1/2 overflow-hidden"
+                  className="absolute w-max flex flex-col bg-white rounded-md shadow-md border-wearecrewBlue transform top-8 -translate-x-1/2 border-2 left-1/2 overflow-hidden"
                 >
                   <Link href="/testCBDetail">
                     <a
