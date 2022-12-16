@@ -749,19 +749,19 @@ export async function getStaticPaths() {
 
   const depts = [];
 
-
-
   profiles?.forEach((profile) => {
     depts?.push(profile?.dept);
   });
   const uniqueDepts = Array.from(new Set(depts));
 
   const paths = uniqueDepts?.map((dept) => {
-    return {
-      params: {
-        crewList: dept,
-      },
-    };
+    if (dept !== null) {
+      return {
+        params: {
+          crewList: dept,
+        },
+      };
+    }
   });
 
   return {
