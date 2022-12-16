@@ -12,6 +12,7 @@ const NavBar = () => {
 
   const router = useRouter();
   const [showProfileIconContent, setShowProfileIconContent] = useState(false);
+  const [showPartnersContent, setShowPartnersContent] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const userEmail = user?.data?.user?.email;
@@ -31,6 +32,7 @@ const NavBar = () => {
   const handleClickOutsideDropdown = (event) => {
     if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
       setShowProfileIconContent(false);
+      setShowPartnersContent(false);
     }
   };
 
@@ -106,23 +108,21 @@ const NavBar = () => {
 
             <div className="relative">
               <span
-                onClick={() =>
-                  setShowProfileIconContent(!showProfileIconContent)
-                }
+                onClick={() => setShowPartnersContent(!showPartnersContent)}
                 className={`cursor-pointer hover:text-wearecrewBlue transition ${
-                  showProfileIconContent ? "text-wearecrewBlue" : ""
+                  showPartnersContent ? "text-wearecrewBlue" : ""
                 }`}
               >
                 Partners
               </span>
-              {showProfileIconContent && (
+              {showPartnersContent && (
                 <div
                   ref={dropDownRef}
-                  className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform xl:-translate-x-1/2 border-2 -right-1/2 overflow-hidden"
+                  className="absolute w-max flex flex-col xl:left-[-2px] bg-white rounded-md shadow-md border-wearecrewBlue xl:transform top-8 -translate-x-1/2 border-2 left-1/2 overflow-hidden"
                 >
                   <Link href="/testCBDetail">
                     <a
-                      onClick={() => setShowProfileIconContent(false)}
+                      onClick={() => setShowPartnersContent(false)}
                       className="hover:bg-wearecrewLightGrey p-4"
                     >
                       Crew Bible
