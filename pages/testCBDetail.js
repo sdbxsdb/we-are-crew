@@ -28,7 +28,7 @@ const testCBDetail = () => {
               ipsum minima reprehenderit. Iusto, nobis ea?
             </p>
           </div>
-          <div className=" flex gap-4 justify-around w-full">
+          <div className="flex flex-col sm:flex-row gap-4 justify-around items-center w-full">
             <div className="neumorphBoxMd w-full sm:min-w-[180px] sm:w-[180px] h-[180px] flex flex-col items-center justify-center text-center rounded  border-b-2 border-wearecrewBlue hoverScale gap-y-2 p-2">
               <p>Info 1 for CB</p>
             </div>
@@ -39,7 +39,7 @@ const testCBDetail = () => {
               <p>Info 3 for CB</p>
             </div>
           </div>
-          <div className="neumorphBoxMd cursor-pointer border-b-2 border-wearecrewBlue transform transition hover:scale-102 min-w-max text-center rounded-md  px-4 py-2 text-2xl">
+          <div className="neumorphBoxMd cursor-pointer border-b-2 border-wearecrewBlue transform transition hover:scale-102 w-full md:max-w-max text-center rounded-md  px-4 py-2 text-2xl">
             <a href="https://www.crewbible.com" target="_blank" rel="noreferrer" className=" w-full text-center">
               <h1>Visit Crew Bible</h1>
             </a>
