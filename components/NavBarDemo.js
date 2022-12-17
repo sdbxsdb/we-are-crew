@@ -128,9 +128,15 @@ const NavBar = () => {
                       Crew Bible
                     </a>
                   </Link>
-                  <button className="hover:bg-wearecrewLightGrey p-4">
-                    One Tree Planted
-                  </button>
+                  <Link href="/oneTreeDetail">
+                    <a
+                      onClick={() => setShowPartnersContent(false)}
+                      className="hover:bg-wearecrewLightGrey p-4"
+                    >
+                      One Tree Planted
+                    </a>
+                  </Link>
+                  
                 </div>
               )}
             </div>
@@ -265,6 +271,30 @@ const NavBar = () => {
                   }
                 >
                   Pricing
+                </h1>
+              </NavLink>
+              <NavLink href="/testCBDetail">
+                <h1
+                  onClick={hideSlideoverNav}
+                  className={
+                    router.pathname == "/testCBDetail"
+                      ? "text-wearecrewBlue"
+                      : "hover:text-wearecrewBlue transition cursor-pointer"
+                  }
+                >
+                  Crew Bible
+                </h1>
+              </NavLink>
+              <NavLink href="/oneTreeDetail">
+                <h1
+                  onClick={hideSlideoverNav}
+                  className={
+                    router.pathname == "/oneTreeDetail"
+                      ? "text-wearecrewBlue"
+                      : "hover:text-wearecrewBlue transition cursor-pointer"
+                  }
+                >
+                  One Tree Planted
                 </h1>
               </NavLink>
               {!userEmail && (
