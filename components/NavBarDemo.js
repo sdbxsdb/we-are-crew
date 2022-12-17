@@ -120,7 +120,7 @@ const NavBar = () => {
                   ref={dropDownRef}
                   className="absolute w-max flex flex-col bg-white rounded-md shadow-md border-wearecrewBlue transform top-8 -translate-x-1/2 border-2 left-1/2 overflow-hidden"
                 >
-                  <Link href="/testCBDetail">
+                  <Link href="/crewBible">
                     <a
                       onClick={() => setShowPartnersContent(false)}
                       className="hover:bg-wearecrewLightGrey p-4"
@@ -128,7 +128,7 @@ const NavBar = () => {
                       Crew Bible
                     </a>
                   </Link>
-                  <Link href="/oneTreeDetail">
+                  <Link href="/oneTreePlanted">
                     <a
                       onClick={() => setShowPartnersContent(false)}
                       className="hover:bg-wearecrewLightGrey p-4"
@@ -273,11 +273,11 @@ const NavBar = () => {
                   Pricing
                 </h1>
               </NavLink>
-              <NavLink href="/testCBDetail">
+              <NavLink href="/crewBible">
                 <h1
                   onClick={hideSlideoverNav}
                   className={
-                    router.pathname == "/testCBDetail"
+                    router.pathname == "/crewBible"
                       ? "text-wearecrewBlue"
                       : "hover:text-wearecrewBlue transition cursor-pointer"
                   }
@@ -285,7 +285,7 @@ const NavBar = () => {
                   Crew Bible
                 </h1>
               </NavLink>
-              <NavLink href="/oneTreeDetail">
+              <NavLink href="/oneTreePlanted">
                 <h1
                   onClick={hideSlideoverNav}
                   className={
