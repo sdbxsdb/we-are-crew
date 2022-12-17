@@ -24,6 +24,7 @@ const testCBDetail = () => {
               <span className="text-wearecrewBlue">Get Crew</span> have proudly
               partnered with Crew Bible.
               <br />
+              <br />
               Crew Bible believe that everyone should have the opportunity to
               access the same resources and knowledge in order to develop their
               career in the UK&apos;s Film & TV industry. <br />
