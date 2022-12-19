@@ -1,15 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import Head from "next/head";
-import NavBarDemo from "../components/NavBarDemo";
 
 const oneTreePlanted = () => {
   return (
     <>
       <Head>
-        <title>Get Crew & Crew Bible | Get Crew</title>
+        <title>Get Crew & One Tree Planted | Get Crew</title>
       </Head>
-      <NavBarDemo />
       <div className="flex item-center justify-center">
         <div className="flex flex-col justify-center w-full max-w-[1200px] items-center py-12 px-4 gap-12">
           <div className="">

@@ -136,7 +136,6 @@ const NavBar = () => {
                       One Tree Planted
                     </a>
                   </Link>
-                  
                 </div>
               )}
             </div>
@@ -273,30 +272,20 @@ const NavBar = () => {
                   Pricing
                 </h1>
               </NavLink>
-              <NavLink href="/crewBible">
+              <NavLink href="/partners">
                 <h1
                   onClick={hideSlideoverNav}
                   className={
-                    router.pathname == "/crewBible"
+                    router.pathname == "/crewBible" || router.pathname == "/oneTreePlanted"
                       ? "text-wearecrewBlue"
                       : "hover:text-wearecrewBlue transition cursor-pointer"
                   }
                 >
-                  Crew Bible
+                  Partners
                 </h1>
               </NavLink>
-              <NavLink href="/oneTreePlanted">
-                <h1
-                  onClick={hideSlideoverNav}
-                  className={
-                    router.pathname == "/oneTreeDetail"
-                      ? "text-wearecrewBlue"
-                      : "hover:text-wearecrewBlue transition cursor-pointer"
-                  }
-                >
-                  One Tree Planted
-                </h1>
-              </NavLink>
+              
+              
               {!userEmail && (
                 <NavLink href="/my-crew">
                   <h1

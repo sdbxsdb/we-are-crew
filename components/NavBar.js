@@ -12,6 +12,7 @@ const NavBar = () => {
 
   const router = useRouter();
   const [showProfileIconContent, setShowProfileIconContent] = useState(false);
+  const [showPartnersContent, setShowPartnersContent] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const userEmail = user?.data?.user?.email;
@@ -31,6 +32,7 @@ const NavBar = () => {
   const handleClickOutsideDropdown = (event) => {
     if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
       setShowProfileIconContent(false);
+      setShowPartnersContent(false);
     }
   };
 
@@ -53,7 +55,6 @@ const NavBar = () => {
     // console.log("CLOSE NAV");
     setShowMobileNav(false);
   };
-
 
   return (
     <div className="w-full top-0 fixed flex justify-center z-2000 px-4 py-2 shadow-md bg-wearecrewLightGrey ">
@@ -105,6 +106,48 @@ const NavBar = () => {
               </span>
             </NavLink>
 
+            <div className="relative">
+              <span
+                onClick={() => setShowPartnersContent(!showPartnersContent)}
+                className={`cursor-pointer hover:text-wearecrewBlue transition ${
+                  showPartnersContent ? "text-wearecrewBlue" : ""
+                }`}
+              >
+                Partners
+              </span>
+              {showPartnersContent && (
+                <div
+                  ref={dropDownRef}
+                  className="absolute w-max flex flex-col bg-white rounded-md shadow-md border-wearecrewBlue transform top-8 -translate-x-1/2 border-2 left-1/2 overflow-hidden"
+                >
+                  <Link href="/partners">
+                    <a
+                      onClick={() => setShowPartnersContent(false)}
+                      className="hover:bg-wearecrewLightGrey p-4"
+                    >
+                      All Partners
+                    </a>
+                  </Link>
+                  <Link href="/crewBible">
+                    <a
+                      onClick={() => setShowPartnersContent(false)}
+                      className="hover:bg-wearecrewLightGrey p-4"
+                    >
+                      Crew Bible
+                    </a>
+                  </Link>
+                  <Link href="/oneTreePlanted">
+                    <a
+                      onClick={() => setShowPartnersContent(false)}
+                      className="hover:bg-wearecrewLightGrey p-4"
+                    >
+                      One Tree Planted
+                    </a>
+                  </Link>
+                </div>
+              )}
+            </div>
+
             {!userEmail && (
               <NavLink href="/my-crew">
                 <span
@@ -118,6 +161,7 @@ const NavBar = () => {
                 </span>
               </NavLink>
             )}
+
             {userEmail && (
               <div className="relative">
                 <span
@@ -236,6 +280,20 @@ const NavBar = () => {
                   Pricing
                 </h1>
               </NavLink>
+              <NavLink href="/partners">
+                <h1
+                  onClick={hideSlideoverNav}
+                  className={
+                    router.pathname == "/crewBible" || router.pathname == "/oneTreePlanted"
+                      ? "text-wearecrewBlue"
+                      : "hover:text-wearecrewBlue transition cursor-pointer"
+                  }
+                >
+                  Partners
+                </h1>
+              </NavLink>
+              
+              
               {!userEmail && (
                 <NavLink href="/my-crew">
                   <h1
