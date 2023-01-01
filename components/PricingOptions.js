@@ -56,17 +56,21 @@ const PricingOptions = ({ plans, req, res }) => {
           className="w-full banner flex flex-col justify-center items-center h-auto py-4 md:py-8 mb-8 text-white relative"
         >
           <h1 className="tracking-wide text-2xl w-full text-center md:text-3xl shadow-black">
-            One simple plan. 
+            One simple plan.
             <br />
             One great price.
           </h1>
         </div>
 
         <div className="h-full flex flex-col px-4 z-20">
-          
           <div className="mb-12 w-full text-center">
-            <h1 className="text-3xl mb-4">One place for your professional profile.</h1>
-            <strong>Go live now to have your profile visible to any productions looking for crew across the UK & Ireland.</strong>
+            <h1 className="text-3xl mb-4">
+              One place for your professional profile.
+            </h1>
+            <strong>
+              Go live now to have your profile visible to any productions
+              looking for crew across the UK & Ireland.
+            </strong>
           </div>
 
           <div className="flex flex-col justify-around items-center gap-y-8 w-full px-4 max-w-[1200px] text-lg">
@@ -74,8 +78,9 @@ const PricingOptions = ({ plans, req, res }) => {
               (plan) =>
                 plan.active && (
                   <div key={plan?.id} className="flex justify-center w-full">
-                    <div className=" flex flex-col text-center items-center rounded-xl  p-4  w-full md:w-[300px] relative overflow-hidden neumorphBoxLg transform hover:scale-102 transition cursor-pointer border-b-2 border-wearecrewBlue"
-                    onClick={() => processPayment(plan?.id)}
+                    <div
+                      className=" flex flex-col text-center items-center rounded-xl  p-4  w-full md:w-[300px] relative overflow-hidden neumorphBoxLg transform hover:scale-102 transition cursor-pointer border-b-2 border-wearecrewBlue"
+                      onClick={() => processPayment(plan?.id)}
                     >
                       <h1 className="text-2xl md:text-3xl mb-4 z-50">
                         {plan?.name}
@@ -85,16 +90,29 @@ const PricingOptions = ({ plans, req, res }) => {
                       </strong>
                       <small>£{plan?.price / 100} p/a</small>
                       <div className="flex flex-col">
-                        {!user?.paid && (
+
+                        {user.username !== "" &&
+                        user.username !== null &&
+                        user.username !== undefined ? (
+                          !user?.paid && (
+                            <button
+                              onClick={() => processPayment(plan?.id)}
+                              className="rounded-md neumorphBoxSm px-4 py-2 mt-4  neumorphBoxSm z-2000 hover:text-wearecrewBlue transition"
+                            >
+                              {user?.data?.user !== null ? "Select" : "Sign Up"}
+                            </button>
+                          )
+                        ) : (
                           <button
                             onClick={() => processPayment(plan?.id)}
                             className="rounded-md neumorphBoxSm px-4 py-2 mt-4  neumorphBoxSm z-2000 hover:text-wearecrewBlue transition"
                           >
-                            {user?.data?.user !== null ? "Select" : "Sign Up"}
+                            Finish Setting Up Profile
                           </button>
                         )}
+
                         <strong className="text-white  bg-wearecrewGreen py-1 px-12 absolute top-2 -right-12 transform z-40 rotate-45 shadow-md text-center">
-                          2 Trees <br/>  Planted!
+                          2 Trees <br />  Planted!
                         </strong>
                       </div>
                     </div>
@@ -102,29 +120,29 @@ const PricingOptions = ({ plans, req, res }) => {
                 )
             )}
             <div className="flex text-lg flex-col justify-start mt-6 text-center">
-            {/* <img
+              {/* <img
               src="/images/treeLogoStampGreen.png"
               width="120px"
               alt="One Tree Logo"
             /> */}
-            <p>
-              <span className="text-wearecrewBlue">Get Crew</span> is proudly
-              partnered with{" "}
-              <a
-                href="https://onetreeplanted.org/
+              <p>
+                <span className="text-wearecrewBlue">Get Crew</span> is proudly
+                partnered with{" "}
+                <a
+                  href="https://onetreeplanted.org/
                 "
-                rel="noreferrer"
-                target="_blank"
-              >
-                One<strong className="text-oneTreeGreen">Tree</strong>Planted.
-              </a>
-              <br />
-              This means 5% of your payment will go directly to plant trees all
-              over the world.
-              <br />
-              <br />
-            </p>
-          </div>
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  One<strong className="text-oneTreeGreen">Tree</strong>Planted.
+                </a>
+                <br />
+                This means 5% of your payment will go directly to plant trees
+                all over the world.
+                <br />
+                <br />
+              </p>
+            </div>
           </div>
           {user?.paid && (
             <div className="w-full flex justify-center">
@@ -135,11 +153,8 @@ const PricingOptions = ({ plans, req, res }) => {
               </div>
             </div>
           )}
-          
         </div>
-        
       </div>
-      
     </>
   );
 };
