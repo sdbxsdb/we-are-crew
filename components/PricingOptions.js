@@ -3,6 +3,7 @@ import { useUser } from "../context/user";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { setCookie } from "cookies-next";
+import Link from "next/link";
 
 import { supabase } from "../utils/supabaseClient";
 import { loadStripe } from "@stripe/stripe-js";
@@ -90,7 +91,6 @@ const PricingOptions = ({ plans, req, res }) => {
                       </strong>
                       <small>£{plan?.price / 100} p/a</small>
                       <div className="flex flex-col">
-
                         {user.username !== "" &&
                         user.username !== null &&
                         user.username !== undefined ? (
@@ -103,12 +103,11 @@ const PricingOptions = ({ plans, req, res }) => {
                             </button>
                           )
                         ) : (
-                          <button
-                            onClick={() => processPayment(plan?.id)}
-                            className="rounded-md neumorphBoxSm px-4 py-2 mt-4  neumorphBoxSm z-2000 hover:text-wearecrewBlue transition"
-                          >
-                            Finish Setting Up Profile
-                          </button>
+                          <Link href="/my-crew">
+                            <button className="rounded-md neumorphBoxSm px-4 py-2 mt-4  neumorphBoxSm z-2000 hover:text-wearecrewBlue transition">
+                              Finish Setting Up Profile
+                            </button>
+                          </Link>
                         )}
 
                         <strong className="text-white  bg-wearecrewGreen py-1 px-12 absolute top-2 -right-12 transform z-40 rotate-45 shadow-md text-center">
