@@ -370,7 +370,7 @@ const CrewList = ({ users }) => {
                         <CrewDetailBox
                           key={user?.id}
                           id={user?.id}
-                          name={user?.name}
+                          name={user?.username}
                           dept={user?.dept}
                           roles={user?.roles}
                           title={user?.title}
