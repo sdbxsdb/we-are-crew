@@ -32,20 +32,20 @@ const CrewDetailBox = (crew) => {
 
   const {
     data: { publicUrl },
-  } = supabase.storage.from("images").getPublicUrl(crew?.imgURL);
+  } = supabase?.storage.from("images").getPublicUrl(crew?.imgURL);
   const {
     data: { publicUrl: publicHeadShot1Url },
-  } = supabase.storage.from("images").getPublicUrl(crew?.headShot1);
+  } = supabase?.storage.from("images").getPublicUrl(crew?.headShot1);
   const {
     data: { publicUrl: publicHeadShot2Url },
-  } = supabase.storage.from("images").getPublicUrl(crew?.headShot2);
+  } = supabase?.storage.from("images").getPublicUrl(crew?.headShot2);
   const {
     data: { publicUrl: publicHeadShot3Url },
-  } = supabase.storage.from("images").getPublicUrl(crew?.headShot3);
+  } = supabase?.storage.from("images").getPublicUrl(crew?.headShot3);
 
   const {
     data: { publicUrl: publicCVUrl },
-  } = supabase.storage.from("cvs").getPublicUrl(crew?.cvURL);
+  } = supabase?.storage.from("cvs").getPublicUrl(crew?.cvURL);
 
   // console.log("Image-", publicUrl);
   // console.log("Headshot-", publicHeadShot1Url);

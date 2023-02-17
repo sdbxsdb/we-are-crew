@@ -745,12 +745,12 @@ export const getStaticProps = async (context) => {
 };
 
 export async function getStaticPaths() {
-  const { data: profiles } = await supabase.from("profiles").select("dept");
+  const { data: profiles } = await supabase?.from("profiles").select("dept");
 
   const depts = [];
 
   profiles?.forEach((profile) => {
-    if(profile.dept !== null) {
+    if(profile?.dept !== null) {
       depts?.push(profile?.dept);
     }
   });
