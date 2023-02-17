@@ -79,7 +79,7 @@ function DynamicList({ credits, setCredits, setProfileChanged }) {
               <span className="h-[1px] w-1/4 border-b-2 rounded-lg border-wearecrewBlue"></span>
             </div>
             <div className="text-lg text-right font-bold mt-2">
-              {shownList.length - 1 === i && (
+              {shownList?.length - 1 === i && (
                 <button onClick={handleAddClick} >Add New Credit</button>
               )}
             </div>

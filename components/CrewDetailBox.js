@@ -670,7 +670,7 @@ const CrewDetailBox = (crew) => {
                     </p>
                   )
               )}
-              {crew?.credits.length > 3 && (
+              {crew?.credits?.length > 3 && (
                 <p
                   onClick={() => setShowModal(true)}
                   className="underline text-wearecrewBlue cursor-pointer transition hover:opacity-70"

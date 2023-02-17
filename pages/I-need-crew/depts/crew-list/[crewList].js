@@ -83,12 +83,12 @@ const CrewList = ({ users }) => {
     } else {
       setAvailFilterApplied(false);
     }
-    if (role.length !== 0) {
+    if (role?.length !== 0) {
       setRoleFilterApplied(true);
     } else {
       setRoleFilterApplied(false);
     }
-    if (location.length !== 0) {
+    if (location?.length !== 0) {
       setLocationFilterApplied(true);
     } else {
       setLocationFilterApplied(false);
