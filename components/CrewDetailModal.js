@@ -50,7 +50,7 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
               "&showModal=" +
               router.query.showModal,
           },
-          undefined,
+          null,
           { shallow: true }
         );
       }

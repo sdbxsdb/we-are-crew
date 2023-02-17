@@ -35,7 +35,7 @@ const Account = ({ session }) => {
   const [canWorkIn, setCanWorkIn] = useState([]);
   const [credits, setCredits] = useState([{}]);
   const [updatedAt, setUpdatedAt] = useState("");
-  const [paid, setPaid] = useState(undefined);
+  const [paid, setPaid] = useState(null);
   const [dateOfPayment, setdateOfPayment] = useState("");
   const [ageRange, setAgeRange] = useState("");
   const [height, setHeight] = useState("");
