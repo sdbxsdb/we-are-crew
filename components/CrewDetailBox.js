@@ -19,7 +19,7 @@ const CrewDetailBox = (crew) => {
       .replace(/^-+|-+$/g, "");
 
   useEffect(() => {
-    if (router.asPath.includes("user=" && "&showModal=true")) {
+    if (router?.asPath?.includes("user=" && "&showModal=true")) {
       // console.log("CREW SLUG -" + slugify(crew.name) + "_" + crew.id)
       // console.log("ROUTER USERNAME-" + router.query.user);
       // console.log("ROUTER-", router);
@@ -59,7 +59,7 @@ const CrewDetailBox = (crew) => {
     minWidth: "100px",
     minHeight: "100px",
     backgroundSize: `${
-      publicUrl.includes("public/images/0.") ? "cover" : "contain"
+      publicUrl?.includes("public/images/0.") ? "cover" : "contain"
     }`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -108,14 +108,14 @@ const CrewDetailBox = (crew) => {
   };
   const stylingSmall = {
     backgroundImage: `${
-      publicUrl.includes("public/images/0.")
+      publicUrl?.includes("public/images/0.")
         ? `url(${publicUrl} )`
         : `url(/images/noProfileImg.png)`
     } `,
     minWidth: "60px",
     minHeight: "60px",
     backgroundSize: `${
-      publicUrl.includes("public/images/0.") ? "cover" : "contain"
+      publicUrl?.includes("public/images/0.") ? "cover" : "contain"
     }`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -125,7 +125,7 @@ const CrewDetailBox = (crew) => {
   const [copiedText, setCopiedText] = useState("");
 
   const copyPhone = () => {
-    copy(crew.phone);
+    copy(crew?.phone);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -134,7 +134,7 @@ const CrewDetailBox = (crew) => {
   };
 
   const copyEmail = () => {
-    copy(crew.email);
+    copy(crew?.email);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -143,7 +143,7 @@ const CrewDetailBox = (crew) => {
   };
 
   const copyWebsite = () => {
-    copy(crew.website);
+    copy(crew?.website);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -152,7 +152,7 @@ const CrewDetailBox = (crew) => {
   };
 
   const copyIMDB = () => {
-    copy(crew.imdb);
+    copy(crew?.imdb);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -161,7 +161,7 @@ const CrewDetailBox = (crew) => {
   };
 
   const shareProfileHandler = () => {
-    copy(`${window.location.origin}` + router.asPath);
+    copy(`${window?.location.origin}` + router?.asPath);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -187,7 +187,7 @@ const CrewDetailBox = (crew) => {
   };
 
   useEffect(() => {
-    if (imgRef.current?.complete) {
+    if (imgRef?.current?.complete) {
       onLoad();
     }
   }, []);
@@ -229,7 +229,7 @@ const CrewDetailBox = (crew) => {
               ref={imgRef}
               className="hidden"
               src={`${
-                publicUrl.includes("public/images/0.")
+                publicUrl?.includes("public/images/0.")
                   ? `${publicUrl}`
                   : `url(/images/noProfileImg.png)`
               }`}
@@ -253,7 +253,7 @@ const CrewDetailBox = (crew) => {
             {/* // END OF TITLE*/}
 
             {/*ROLES*/}
-            {crew?.roles.map((role, id) => (
+            {crew?.roles?.map((role, id) => (
               <p className="my-1 " key={role + id}>
                 {role}
               </p>
@@ -278,7 +278,7 @@ const CrewDetailBox = (crew) => {
 
             {/*ACTOR CREDS*/}
             <div className="flex flex-col">
-              {crew.ageRange && (
+              {crew?.ageRange && (
                 <small>
                   <span className="text-wearecrewBlue font-bold mr-1">
                     Age Range:
@@ -286,7 +286,7 @@ const CrewDetailBox = (crew) => {
                   {crew?.ageRange}
                 </small>
               )}
-              {crew.height && (
+              {crew?.height && (
                 <small>
                   <span className="text-wearecrewBlue font-bold mr-1">
                     Height:
@@ -294,7 +294,7 @@ const CrewDetailBox = (crew) => {
                   {crew?.height}
                 </small>
               )}
-              {crew.hair && (
+              {crew?.hair && (
                 <small>
                   <span className="text-wearecrewBlue font-bold mr-1">
                     Hair Colour:
@@ -302,7 +302,7 @@ const CrewDetailBox = (crew) => {
                   {crew?.hair}
                 </small>
               )}
-              {crew.eyes && (
+              {crew?.eyes && (
                 <small>
                   <span className="text-wearecrewBlue font-bold mr-1">
                     Eye Colour:
@@ -310,7 +310,7 @@ const CrewDetailBox = (crew) => {
                   {crew?.eyes}
                 </small>
               )}
-              {crew.body && (
+              {crew?.body && (
                 <small>
                   <span className="text-wearecrewBlue font-bold mr-1">
                     Body Type:
@@ -318,7 +318,7 @@ const CrewDetailBox = (crew) => {
                   {crew?.body}
                 </small>
               )}
-              {crew.dialects && (
+              {crew?.dialects && (
                 <small>
                   <span className="text-wearecrewBlue font-bold mr-1">
                     Dialects:
@@ -343,7 +343,7 @@ const CrewDetailBox = (crew) => {
                 className={`${
                   crew?.status === "Available"
                     ? "text-wearecrewGreen"
-                    : crew.status === "Not Available"
+                    : crew?.status === "Not Available"
                     ? "text-wearecrewRed"
                     : "text-wearecrewOrange"
                 }`}
@@ -371,10 +371,10 @@ const CrewDetailBox = (crew) => {
               </p>
             )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 mt-2">
-              {sortedLocations.length === 21 ? (
+              {sortedLocations?.length === 21 ? (
                 <div className="mt-1 min-w-max">Anywhere</div>
               ) : (
-                sortedLocations.map((willWorkIn, id) => (
+                sortedLocations?.map((willWorkIn, id) => (
                   <div key={willWorkIn + id} className="mt-1 min-w-min">
                     {willWorkIn}
                   </div>
@@ -405,7 +405,7 @@ const CrewDetailBox = (crew) => {
             {/* //END OF PHONE*/}
 
             {/*EMAIL*/}
-            {!crew.hidePersonalEmail && (
+            {!crew?.hidePersonalEmail && (
               <a
                 href={`mailto:${crew?.email}?subject=I found your profile on Get Crew!`}
                 className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white hover:brightness-110 transition"
@@ -413,7 +413,7 @@ const CrewDetailBox = (crew) => {
                 <h1 className="text-3xl">Email</h1>
               </a>
             )}
-            {crew.hidePersonalEmail && (
+            {crew?.hidePersonalEmail && (
               <a
                 href={`mailto:${crew?.agentEmail}?subject=I found your clients profile on Get Crew!`}
                 className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-[144px] text-white  hover:brightness-110 transition"
@@ -474,7 +474,7 @@ const CrewDetailBox = (crew) => {
                   ref={imgRef}
                   className="hidden"
                   src={`${
-                    publicUrl.includes("public/images/0.")
+                    publicUrl?.includes("public/images/0.")
                       ? `${publicUrl}`
                       : `url(/images/noProfileImg.png)`
                   }`}
@@ -493,7 +493,7 @@ const CrewDetailBox = (crew) => {
                   {/* //END OF MOBILE NAME*/}
 
                   {/* MOBILE TITLE*/}
-                  {crew?.roles.map((role, id) => (
+                  {crew?.roles?.map((role, id) => (
                     <p className="mt-1" key={role + id}>
                       {role}
                     </p>
@@ -558,7 +558,7 @@ const CrewDetailBox = (crew) => {
                       <p className="text-base">{crew?.eyes}</p>
                     </div>
                   )}
-                  {crew.body && (
+                  {crew?.body && (
                     <div className="flex flex-col items-center">
                       <p className="text-wearecrewBlue font-bold">Body Type</p>
                       <p className="text-base">{crew?.body}</p>
@@ -581,7 +581,7 @@ const CrewDetailBox = (crew) => {
                   <strong className="text-sm">Can work in</strong>
                 )}
                 <div className="flex flex-wrap gap-x-4 justify-center">
-                  {sortedLocations.map((willWorkIn) => (
+                  {sortedLocations?.map((willWorkIn) => (
                     <div key={willWorkIn} className="mt-1">
                       <p className="text-base">{willWorkIn}</p>
                     </div>
@@ -598,7 +598,7 @@ const CrewDetailBox = (crew) => {
 
               {crew?.phone && (
                 <a
-                  href={`tel:${crew.phone}`}
+                  href={`tel:${crew?.phone}`}
                   className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
                 >
                   <h1 className="text-3xl">Call</h1>
@@ -606,7 +606,7 @@ const CrewDetailBox = (crew) => {
               )}
               {crew?.agentPhone && (
                 <a
-                  href={`tel:${crew.agentPhone}`}
+                  href={`tel:${crew?.agentPhone}`}
                   className="rounded-md bg-wearecrewGreen p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
                 >
                   <h1 className="text-3xl">Call Agent</h1>
@@ -616,7 +616,7 @@ const CrewDetailBox = (crew) => {
               {/* //END OF MOBILE PHONE*/}
 
               {/* MOBILE EMAIL*/}
-              {!crew.hidePersonalEmail && (
+              {!crew?.hidePersonalEmail && (
                 <a
                   href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
                   className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
@@ -624,7 +624,7 @@ const CrewDetailBox = (crew) => {
                   <h1 className="text-3xl">Email</h1>
                 </a>
               )}
-              {crew.hidePersonalEmail && (
+              {crew?.hidePersonalEmail && (
                 <a
                   href={`mailto:${crew?.agentEmail}?subject=I found your profile on Get Crew.`}
                   className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center h-full w-full text-white flex-1 hover:brightness-110 transition"
@@ -662,9 +662,9 @@ const CrewDetailBox = (crew) => {
           <div className="w-full mt-2 md:mt-0 flex flex-col items-center justify-center bg-wearecrewDarkBlue/20 p-2">
             <strong>Credits Include</strong>
             <div className="flex flex-col md:flex-row flex-wrap gap-x-4 items-center justify-center">
-              {crew?.credits.slice(0, 3).map(
+              {crew?.credits?.slice(0, 3)?.map(
                 (credit, i) =>
-                  credit.jobTitle !== "" && (
+                  credit?.jobTitle !== "" && (
                     <p key={i} className="listDividerLines">
                       {credit.jobTitle}
                     </p>
@@ -717,7 +717,7 @@ const CrewDetailBox = (crew) => {
                       </h1>
                     </div>
                     <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
-                      {crew?.roles.map((role, id) => (
+                      {crew?.roles?.map((role, id) => (
                         <p
                           className="text-md md:text-lg listDividerLines break-all"
                           key={role + id}
@@ -731,9 +731,9 @@ const CrewDetailBox = (crew) => {
                 {/* END OF LEVEL */}
 
                 {/* HEADSHOTS */}
-                {crew.dept === "Acting or Presenting" && (
+                {crew?.dept === "Acting or Presenting" && (
                   <div className="flex justify-between gap-x-8">
-                    {!publicHeadShot1Url.includes("null") ? (
+                    {!publicHeadShot1Url?.includes("null") ? (
                       <a
                         href={publicHeadShot1Url}
                         target="_blank"
@@ -751,7 +751,7 @@ const CrewDetailBox = (crew) => {
                       </a>
                     ) : null}
 
-                    {!publicHeadShot2Url.includes("null") ? (
+                    {!publicHeadShot2Url?.includes("null") ? (
                       <a
                         href={publicHeadShot2Url}
                         target="_blank"
@@ -769,7 +769,7 @@ const CrewDetailBox = (crew) => {
                       </a>
                     ) : null}
 
-                    {!publicHeadShot3Url.includes("null") ? (
+                    {!publicHeadShot3Url?.includes("null") ? (
                       <a
                         href={publicHeadShot3Url}
                         target="_blank"
@@ -899,7 +899,7 @@ const CrewDetailBox = (crew) => {
                     </div>
                   </div>
                 )}
-                {!crew.hidePersonalEmail && (
+                {!crew?.hidePersonalEmail && (
                   <div className="flex md:max-w-max flex-wrap justify-between items-center gap-x-4">
                     <div className="flex items-center gap-x-4">
                       <span className="material-icons text-wearecrewBlue">
@@ -1004,7 +1004,7 @@ const CrewDetailBox = (crew) => {
                       where_to_vote
                     </span>
                     <div className="flex flex-wrap justify-start gap-x-4 gap-y-2">
-                      {sortedLocations.map((willWorkIn, id) => (
+                      {sortedLocations?.map((willWorkIn, id) => (
                         <p
                           key={willWorkIn + id}
                           className="min-w-max listDividerLines"
@@ -1024,7 +1024,7 @@ const CrewDetailBox = (crew) => {
                     <div>
                       {crew?.credits?.map(
                         (credits, id) =>
-                          credits.jobTitle !== "" && (
+                          credits?.jobTitle !== "" && (
                             <div
                               key={credits + id}
                               className="flex items-center mb-4"
@@ -1093,7 +1093,7 @@ const CrewDetailBox = (crew) => {
                     </a>
                   )}
 
-                  {!crew.hidePersonalEmail && (
+                  {!crew?.hidePersonalEmail && (
                     <a
                       href={`mailto:${crew?.email}?subject=I found your profile on Get Crew.`}
                       className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"
@@ -1102,7 +1102,7 @@ const CrewDetailBox = (crew) => {
                     </a>
                   )}
 
-                  {crew.hidePersonalEmail && (
+                  {crew?.hidePersonalEmail && (
                     <a
                       href={`mailto:${crew?.agentEmail}?subject=I found your profile on Get Crew.`}
                       className="rounded-md bg-wearecrewDarkBlue p-2 shadow-md flex items-center justify-center w-full  text-white hover:brightness-110 transition"

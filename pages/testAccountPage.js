@@ -278,7 +278,7 @@ const Account = ({ session }) => {
           : null;
       } else {
         canWorkIn?.indexOf(place) > -1
-          ? setCanWorkIn(canWorkIn.filter((item) => item !== place))
+          ? setCanWorkIn(canWorkIn?.filter((item) => item !== place))
           : null;
       }
     }, [checked]);
@@ -386,7 +386,7 @@ const Account = ({ session }) => {
         <option value="Choose Department" default>
           Choose Department
         </option>
-        {depts.map((department) => (
+        {depts?.map((department) => (
           <option key={department.dept} value={department.dept}>
             {department.dept}
           </option>
@@ -396,7 +396,7 @@ const Account = ({ session }) => {
   };
 
   const ListTitle = () => {
-    const selectedDept = depts.find((item) => item.dept === dept);
+    const selectedDept = depts?.find((item) => item.dept === dept);
 
     return (
       <>
@@ -528,7 +528,7 @@ const Account = ({ session }) => {
     minWidth: "100px",
     minHeight: "100px",
     backgroundSize: `${
-      publicUrl.includes("public/images/0.") ? "cover" : "contain"
+      publicUrl?.includes("public/images/0.") ? "cover" : "contain"
     }`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -647,7 +647,7 @@ const Account = ({ session }) => {
                             </h1>
                           </div>
                           <div className="flex flex-col md:flex-row gap-x-4 flex-wrap">
-                            {roles.map((role, id) => (
+                            {roles?.map((role, id) => (
                               <p
                                 className="text-md md:text-lg listDividerLines break-all"
                                 key={role + id}
@@ -663,7 +663,7 @@ const Account = ({ session }) => {
                       {/* HEADSHOTS */}
                       {dept === "Acting or Presenting" && (
                         <div className="flex justify-between gap-x-8">
-                          {!publicHeadShot1Url.includes("null") ? (
+                          {!publicHeadShot1Url?.includes("null") ? (
                             <a
                               href={publicHeadShot1Url}
                               target="_blank"
@@ -681,7 +681,7 @@ const Account = ({ session }) => {
                             </a>
                           ) : null}
 
-                          {!publicHeadShot2Url.includes("null") ? (
+                          {!publicHeadShot2Url?.includes("null") ? (
                             <a
                               href={publicHeadShot2Url}
                               target="_blank"
@@ -699,7 +699,7 @@ const Account = ({ session }) => {
                             </a>
                           ) : null}
 
-                          {!publicHeadShot3Url.includes("null") ? (
+                          {!publicHeadShot3Url?.includes("null") ? (
                             <a
                               href={publicHeadShot3Url}
                               target="_blank"
@@ -1638,7 +1638,7 @@ const Account = ({ session }) => {
                           Select All
                         </label>
                       </li>
-                      {places.map((place, i) => (
+                      {places?.map((place, i) => (
                         <ListCheckbox key={i} place={place} />
                       ))}
                     </div>

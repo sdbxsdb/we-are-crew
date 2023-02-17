@@ -13,7 +13,7 @@ const INeedCrew = ({ depts, deptsWithAtLeastOnePaid }) => {
 
 
 
-  const deptsWithOnePaidAnd = deptsWithAtLeastOnePaid.map((dept) => {
+  const deptsWithOnePaidAnd = deptsWithAtLeastOnePaid?.map((dept) => {
     return dept.dept;
   });
 

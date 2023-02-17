@@ -37,9 +37,9 @@ export default function CrewDetailModal({ show, onClose, children, id, name }) {
       router.query.user = param;
 
       if (
-        !window.location.href.includes("about") &&
-        !window.location.href.includes("testAccountPage") &&
-        !window.location.href.includes("my-crew")
+        !window?.location.href.includes("about") &&
+        !window?.location.href.includes("testAccountPage") &&
+        !window?.location.href.includes("my-crew")
       ) {
         router.replace(
           {

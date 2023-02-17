@@ -28,7 +28,7 @@ export const getStaticProps = async () => {
   const { data: prices } = await stripe.prices.list();
 
   const plans = await Promise.all(
-    prices.map(async (price) => {
+    prices?.map(async (price) => {
       const product = await stripe.products.retrieve(price.product);
       // console.log({product});
       // console.log(product.name + " " + product.active)

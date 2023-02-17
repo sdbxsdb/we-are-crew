@@ -50,19 +50,19 @@ const CrewList = ({ users }) => {
       }
       let includeUserRole = false;
       for (const theRole of role) {
-        if (user?.roles.includes(theRole)) {
+        if (user?.roles?.includes(theRole)) {
           includeUserRole = true;
         }
       }
       return includeUserRole;
     })
     .filter((user) => {
-      if (location.length === 0) {
+      if (location?.length === 0) {
         return true;
       }
       let includeUser = false;
       for (const loc of location) {
-        if (user?.canWorkIn.includes(loc)) {
+        if (user?.canWorkIn?.includes(loc)) {
           includeUser = true;
         }
       }
@@ -122,14 +122,14 @@ const CrewList = ({ users }) => {
 
 
 
-  const removedLocationDups = allLocationsInOneArray.filter(function (
+  const removedLocationDups = allLocationsInOneArray?.filter(function (
     elem,
     pos
   ) {
     return allLocationsInOneArray.indexOf(elem) == pos;
   });
 
-  const removedRoleDups = allRolesInOneArray.filter(function (
+  const removedRoleDups = allRolesInOneArray?.filter(function (
     elem,
     pos
   ) {
@@ -154,7 +154,7 @@ const CrewList = ({ users }) => {
       setRole((role) => [...role, e.target.value]);
     } else {
       setRole((roles) => {
-        return [...roles.filter((role) => e.target.value !== role)];
+        return [...roles?.filter((role) => e.target.value !== role)];
       });
     }
   };
@@ -167,7 +167,7 @@ const CrewList = ({ users }) => {
       setLocation((location) => [...location, e.target.value]);
     } else {
       setLocation((locations) => {
-        return [...locations.filter((location) => e.target.value !== location)];
+        return [...locations?.filter((location) => e.target.value !== location)];
       });
     }
   };
@@ -305,7 +305,7 @@ const CrewList = ({ users }) => {
                             name="role"
                             value={role}
                             onChange={filterByRole}
-                            checked={role.includes(role)}
+                            checked={role?.includes(role)}
                           />
                           <label
                             htmlFor={role}

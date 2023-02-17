@@ -21,13 +21,13 @@ export default function UploadImg({ url, onUpload }) {
         throw new Error("You must select an image to upload.");
       }
 
-      if (!event.target.files[0].type.includes("image/")) {
+      if (!event?.target.files[0].type.includes("image/")) {
         setShowWrongImgFormat(true);
         setShowImgTooBig(false);
         return;
       }
 
-      if (event.target.files[0].type.includes("image/")) {
+      if (event?.target.files[0].type.includes("image/")) {
         setShowWrongImgFormat(false);
         if (event.target.files[0].size >= 4000000) {
           setShowImgTooBig(true);
