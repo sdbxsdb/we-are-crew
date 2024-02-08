@@ -109,7 +109,8 @@ const terms = () => {
             information, including email address, payment method, and payment card
             expiration date, so that we can complete your transactions and contact
             you as needed. We bill you through an online billing account for
-            purchases made via the Site. Sales tax will be added to the price of
+            purchases made via the Site, this will be done on a per annum (once yearly) basis. 
+            Sales tax will be added to the price of
             purchases as deemed required by us. We may change prices at any time.
             All payments shall be in Pounds Sterling or Euros. You agree to pay
             all charges or fees at the prices then in effect for your purchases,
@@ -124,8 +125,7 @@ const terms = () => {
             subscription at any time by contacting us using the contact
             information provided below. Your cancellation will take effect at the
             end of the current paid term. If you are unsatisfied with our
-            services, please email us at crew@getcrew.pro or call us at
-            02890448286.
+            services, please email us at crew@getcrew.pro.
             
             <br/><br/>
             7/8. PROHIBITED ACTIVITIES You may not access or use the
